@@ -11,7 +11,13 @@ func set_slot_data(slot_data: SlotData) -> void:
 		var item_data = slot_data.item_data
 		texture_rect.texture = item_data.texture
 		tooltip_text = "%s\n%s" % [item_data.name, item_data.description]
-		if slot_data.quantity > 1:
+		texture_rect.modulate = Color.WHITE
+		if item_data is SeedItemData:
+			quantity_label.text = "x%s" % slot_data.quantity
+			quantity_label.show()
+			if slot_data.quantity == 0:
+				texture_rect.modulate = Color(Color.WHITE, 0.5)
+		elif slot_data.quantity > 1:
 			quantity_label.text = "x%s" % slot_data.quantity
 			quantity_label.show()
 		else:
