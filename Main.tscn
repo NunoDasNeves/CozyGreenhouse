@@ -23,13 +23,15 @@ script = ExtResource("2_fy0vy")
 
 [node name="SomeInventory" parent="UI/InventoryInterface" instance=ExtResource("1_occea")]
 layout_mode = 0
-offset_left = 176.0
-offset_top = 114.0
-offset_right = 324.0
-offset_bottom = 330.0
+offset_left = 61.0
+offset_top = 221.0
+offset_right = 209.0
+offset_bottom = 437.0
 
 [node name="GrabbedSlot" parent="UI/InventoryInterface" instance=ExtResource("5_py25n")]
 visible = false
 modulate = Color(1, 1, 1, 0.537255)
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 0
+offset_right = 64.0
+offset_bottom = 64.0
