@@ -1,16 +1,16 @@
-[gd_scene load_steps=7 format=3 uid="uid://stabv7nin058"]
+[gd_scene load_steps=9 format=3 uid="uid://stabv7nin058"]
 
 [ext_resource type="Script" path="res://Main.gd" id="1_b7ej4"]
 [ext_resource type="PackedScene" uid="uid://0alw4cfw4g22" path="res://inventory/Inventory.tscn" id="1_occea"]
 [ext_resource type="Script" path="res://inventory/InventoryInterface.gd" id="2_fy0vy"]
-[ext_resource type="Resource" uid="uid://ct1bjyxj4lfbh" path="res://TestInv.tres" id="2_nrha0"]
-[ext_resource type="Resource" uid="uid://bygkbwxgoognm" path="res://SeedInventory.tres" id="3_ihtbk"]
+[ext_resource type="Resource" uid="uid://ct1bjyxj4lfbh" path="res://TestInv.tres" id="3_3fyw2"]
+[ext_resource type="Resource" uid="uid://bygkbwxgoognm" path="res://SeedInventory.tres" id="4_5vldi"]
+[ext_resource type="Resource" uid="uid://d2jo5w7j6juca" path="res://ShelfInventory.tres" id="5_57mvv"]
 [ext_resource type="PackedScene" uid="uid://c7mdwwpba77j0" path="res://inventory/Slot.tscn" id="5_py25n"]
+[ext_resource type="PackedScene" uid="uid://b40qsq404h2qt" path="res://inventory/ShelfInventory.tscn" id="8_c0pgr"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_b7ej4")
-test_inventory_data = ExtResource("2_nrha0")
-seed_inventory_data = ExtResource("3_ihtbk")
 
 [node name="UI" type="CanvasLayer" parent="."]
 
@@ -22,6 +22,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_fy0vy")
+test_inventory_data = ExtResource("3_3fyw2")
+seed_inventory_data = ExtResource("4_5vldi")
+shelf_inventory_data = ExtResource("5_57mvv")
 
 [node name="SomeInventory" parent="UI/InventoryInterface" instance=ExtResource("1_occea")]
 layout_mode = 0
@@ -44,3 +47,10 @@ offset_left = 83.0
 offset_top = 207.0
 offset_right = 231.0
 offset_bottom = 423.0
+
+[node name="ShelfInventory" parent="UI/InventoryInterface" instance=ExtResource("8_c0pgr")]
+layout_mode = 0
+offset_left = 310.0
+offset_top = 135.0
+offset_right = 850.0
+offset_bottom = 543.0
