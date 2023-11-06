@@ -1,22 +1,32 @@
-[gd_scene load_steps=3 format=3 uid="uid://0alw4cfw4g22"]
+[gd_scene load_steps=4 format=3 uid="uid://0alw4cfw4g22"]
 
 [ext_resource type="PackedScene" uid="uid://c7mdwwpba77j0" path="res://inventory/Slot.tscn" id="1_7wyof"]
 [ext_resource type="Script" path="res://inventory/Inventory.gd" id="1_ixmn3"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dj4j5"]
+bg_color = Color(0.180392, 0.184314, 0.223529, 1)
+corner_radius_top_left = 64
+corner_radius_top_right = 64
+corner_radius_bottom_right = 64
+corner_radius_bottom_left = 64
+
 [node name="Inventory" type="PanelContainer"]
 offset_right = 40.0
 offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_dj4j5")
 script = ExtResource("1_ixmn3")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
-theme_override_constants/margin_left = 8
-theme_override_constants/margin_top = 8
-theme_override_constants/margin_right = 8
-theme_override_constants/margin_bottom = 8
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
 
 [node name="ItemGrid" type="GridContainer" parent="MarginContainer"]
 layout_mode = 2
+theme_override_constants/h_separation = 32
+theme_override_constants/v_separation = 32
 columns = 2
 
 [node name="Slot" parent="MarginContainer/ItemGrid" instance=ExtResource("1_7wyof")]

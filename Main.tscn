@@ -3,8 +3,8 @@
 [ext_resource type="Script" path="res://Main.gd" id="1_b7ej4"]
 [ext_resource type="PackedScene" uid="uid://0alw4cfw4g22" path="res://inventory/Inventory.tscn" id="1_occea"]
 [ext_resource type="Script" path="res://inventory/InventoryInterface.gd" id="2_fy0vy"]
-[ext_resource type="Resource" uid="uid://ct1bjyxj4lfbh" path="res://TestInv.tres" id="3_3fyw2"]
 [ext_resource type="Resource" uid="uid://bygkbwxgoognm" path="res://SeedInventory.tres" id="4_5vldi"]
+[ext_resource type="Resource" uid="uid://deyn7qqa82n2j" path="res://PotsInventory.tres" id="5_2ehvt"]
 [ext_resource type="Resource" uid="uid://d2jo5w7j6juca" path="res://ShelfInventory.tres" id="5_57mvv"]
 [ext_resource type="PackedScene" uid="uid://c7mdwwpba77j0" path="res://inventory/Slot.tscn" id="5_py25n"]
 [ext_resource type="PackedScene" uid="uid://b40qsq404h2qt" path="res://inventory/ShelfInventory.tscn" id="8_c0pgr"]
@@ -22,35 +22,35 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_fy0vy")
-test_inventory_data = ExtResource("3_3fyw2")
 seed_inventory_data = ExtResource("4_5vldi")
 shelf_inventory_data = ExtResource("5_57mvv")
+pots_inventory_data = ExtResource("5_2ehvt")
 
-[node name="SomeInventory" parent="UI/InventoryInterface" instance=ExtResource("1_occea")]
+[node name="SeedInventory" parent="UI/InventoryInterface" instance=ExtResource("1_occea")]
 layout_mode = 0
-offset_left = 921.0
-offset_top = 211.0
-offset_right = 1069.0
-offset_bottom = 427.0
+offset_left = 153.0
+offset_top = 171.0
+offset_right = 761.0
+offset_bottom = 1067.0
+
+[node name="PotsInventory" parent="UI/InventoryInterface" instance=ExtResource("1_occea")]
+layout_mode = 0
+offset_left = 160.0
+offset_top = 1144.0
+offset_right = 768.0
+offset_bottom = 2040.0
+
+[node name="ShelfInventory" parent="UI/InventoryInterface" instance=ExtResource("8_c0pgr")]
+layout_mode = 0
+offset_left = 1011.0
+offset_top = 286.0
+offset_right = 3087.0
+offset_bottom = 1846.0
 
 [node name="GrabbedSlot" parent="UI/InventoryInterface" instance=ExtResource("5_py25n")]
 visible = false
 modulate = Color(1, 1, 1, 0.537255)
 self_modulate = Color(1, 1, 1, 0)
-layout_mode = 0
-offset_right = 64.0
-offset_bottom = 64.0
-
-[node name="SeedInventory" parent="UI/InventoryInterface" instance=ExtResource("1_occea")]
-layout_mode = 0
-offset_left = 83.0
-offset_top = 207.0
-offset_right = 231.0
-offset_bottom = 423.0
-
-[node name="ShelfInventory" parent="UI/InventoryInterface" instance=ExtResource("8_c0pgr")]
-layout_mode = 0
-offset_left = 310.0
-offset_top = 135.0
-offset_right = 850.0
-offset_bottom = 543.0
+layout_mode = 2
+offset_right = 256.0
+offset_bottom = 256.0

@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://emygis8ifxtr" path="res://icon.svg" id="2_mnu5d"]
 
 [node name="ShelfSlot" type="PanelContainer"]
-custom_minimum_size = Vector2(128, 128)
+custom_minimum_size = Vector2(512, 512)
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_e2d21")

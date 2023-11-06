@@ -12,7 +12,7 @@ func set_slot_data(slot_data: SlotData) -> void:
 		texture_rect.texture = item_data.texture
 		tooltip_text = "%s\n%s" % [item_data.name, item_data.description]
 		texture_rect.modulate = Color.WHITE
-		if item_data is SeedItemData:
+		if item_data is SeedItemData or item_data is ShelfItemData:
 			quantity_label.text = "x%s" % slot_data.quantity
 			quantity_label.show()
 			if slot_data.quantity == 0:
@@ -27,12 +27,14 @@ func set_slot_data(slot_data: SlotData) -> void:
 		tooltip_text = ""
 		quantity_label.hide()
 
-func _on_gui_input(event: InputEvent) -> void:
-	var mouse_event := event as InputEventMouseButton
-	if not mouse_event:
-		return
+func mouse_button_input(event: InputEventMouseButton) -> bool:
+	var rect = get_global_rect()
+	# WARNING: event.global_position is NOT the canvas layer position
+	if not rect.has_point(get_global_mouse_position()):
+		return false
+	if event.button_index != MOUSE_BUTTON_LEFT \
+			or not event.is_pressed():
+		return false
 
-	if (mouse_event.button_index == MOUSE_BUTTON_LEFT \
-			or mouse_event.button_index == MOUSE_BUTTON_RIGHT) \
-			and mouse_event.is_pressed():
-		slot_clicked.emit(get_index(), mouse_event.button_index)
+	slot_clicked.emit(get_index(), event.button_index)
+	return true

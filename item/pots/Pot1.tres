@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ShelfItemData" load_steps=3 format=3 uid="uid://cp3r4g23icnd8"]
+
+[ext_resource type="Script" path="res://item/ShelfItemData.gd" id="1_7k5yv"]
+[ext_resource type="Texture2D" uid="uid://brvy27s6rqef0" path="res://item/pots/pot1.png" id="2_f7hol"]
+
+[resource]
+script = ExtResource("1_7k5yv")
+name = "Purple Pot"
+description = "A nice purple pot"
+texture = ExtResource("2_f7hol")

@@ -35,7 +35,34 @@ gdscript/warnings/confusable_identifier=2
 
 [display]
 
-window/dpi/allow_hidpi=false
+window/size/viewport_width=3840
+window/size/viewport_height=2160
+window/size/mode=2
+window/size/resizable=false
+window/stretch/mode="canvas_items"
+window/per_pixel_transparency/allowed=true
+
+[importer_defaults]
+
+texture={
+"compress/channel_pack": 0,
+"compress/hdr_compression": 1,
+"compress/high_quality": false,
+"compress/lossy_quality": 0.7,
+"compress/mode": 0,
+"compress/normal_map": 0,
+"detect_3d/compress_to": 0,
+"mipmaps/generate": true,
+"mipmaps/limit": -1,
+"process/fix_alpha_border": true,
+"process/hdr_as_srgb": false,
+"process/hdr_clamp_exposure": false,
+"process/normal_map_invert_y": false,
+"process/premult_alpha": false,
+"process/size_limit": 0,
+"roughness/mode": 0,
+"roughness/src_normal": ""
+}
 
 [input]
 
@@ -52,5 +79,7 @@ rmb={
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=2
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+2d/snap/snap_2d_transforms_to_pixel=true

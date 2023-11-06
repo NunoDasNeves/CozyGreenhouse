@@ -1,5 +1,5 @@
 extends InventoryData
-class_name SeedInventoryData
+class_name PotInventoryData
 
 func grab_slot_data(index: int) -> SlotData:
 	var slot_data = slot_datas[index]
@@ -14,13 +14,12 @@ func grab_slot_data(index: int) -> SlotData:
 		return null
 
 func drop_slot_data(grabbed_slot_data: SlotData, index: int) -> SlotData:
-	var grabbed_seed_item_data := grabbed_slot_data.item_data as SeedItemData
-
-	if not grabbed_seed_item_data:
+	var grabbed_shelf_item_data := grabbed_slot_data.item_data as ShelfItemData
+	if not grabbed_shelf_item_data:
 		return grabbed_slot_data
 
 	for slot_data in slot_datas:
-		if slot_data.item_data == grabbed_seed_item_data:
+		if slot_data.item_data == grabbed_shelf_item_data:
 			slot_data.quantity += 1
 			break
 	inventory_updated.emit(self)
