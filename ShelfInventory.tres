@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="PlantInventoryData" load_steps=2 format=3 uid="uid://d2jo5w7j6juca"]
+[gd_resource type="Resource" script_class="ShelfInventoryData" load_steps=2 format=3 uid="uid://d2jo5w7j6juca"]
 
 [ext_resource type="Script" path="res://inventory/ShelfInventoryData.gd" id="1_6f0gf"]
 
