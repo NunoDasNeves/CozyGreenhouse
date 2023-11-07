@@ -11,8 +11,10 @@ func grab_slot_data(index: int) -> SlotData:
 		return null
 
 func plant_seed(seed_data: ItemData, shelf_slot_index: int) -> bool:
-	print("plant")
-	return false
+	var slot_data := SlotData.new()
+	slot_data.item_data = load("res://item/plants/Plant.tres")
+	slot_datas[shelf_slot_index] = slot_data
+	return true
 
 func drop_slot_data(grabbed_slot_data: SlotData, index: int) -> SlotData:
 	var slot_data = slot_datas[index]
