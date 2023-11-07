@@ -8,3 +8,4 @@ script = ExtResource("1_7k5yv")
 name = "Purple Pot"
 description = "A nice purple pot"
 texture = ExtResource("2_f7hol")
+type = 1

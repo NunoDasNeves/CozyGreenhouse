@@ -14,10 +14,10 @@ func populate_item_grid(inventory_data: InventoryData) -> void:
 
 	for slot_data in inventory_data.slot_datas:
 		var slot: Slot = slot_scene.instantiate()
-		item_grid.add_child(slot, inventory_data is SeedInventoryData)
+		item_grid.add_child(slot)#, inventory_data is SeedInventoryData)
 		slot.slot_clicked.connect(inventory_data.on_slot_clicked)
 		slot.set_slot_data(slot_data)
-		print(slot.name)
+		#print(slot.name)
 		assert(slot.slot_clicked.get_connections().size() == 1)
 
 func mouse_button_input(event: InputEventMouseButton) -> bool:
