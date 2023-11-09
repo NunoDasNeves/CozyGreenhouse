@@ -13,9 +13,11 @@ func set_slot_data(slot_data: SlotData) -> void:
 	if not slot_data:
 		return
 
-	var item_data: ItemData = slot_data.item_data
-	var node := item_data.scene.instantiate() as Node2D
-	container.add_child(node)
+	var item_data: RackItemData = slot_data.item_data
+	if not item_data:
+		return
+
+	var node := item_data.add_scene_to(container)
 	if slot_data.quantity == 0:
 		node.modulate = Color(Color.WHITE, 0.5)
 	elif slot_data.quantity > 1:

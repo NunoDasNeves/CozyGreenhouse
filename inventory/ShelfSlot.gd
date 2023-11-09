@@ -12,6 +12,5 @@ func set_slot_data(slot_data: SlotData) -> void:
 		return
 
 	var item_data: ItemData = slot_data.item_data
-	var node := item_data.scene.instantiate()
-	container.add_child(node)
+	var node := item_data.add_scene_to(container)
 	tooltip_text = "%s\n%s" % [item_data.name, item_data.description]

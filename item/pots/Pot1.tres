@@ -1,10 +1,12 @@
-[gd_resource type="Resource" script_class="RackItemData" load_steps=3 format=3 uid="uid://cp3r4g23icnd8"]
+[gd_resource type="Resource" script_class="RackItemData" load_steps=4 format=3 uid="uid://cp3r4g23icnd8"]
 
 [ext_resource type="PackedScene" uid="uid://dtj0d6y0w8ljp" path="res://Pot.tscn" id="1_ofi7j"]
+[ext_resource type="Texture2D" uid="uid://brvy27s6rqef0" path="res://item/pots/pot1.png" id="1_sq8yh"]
 [ext_resource type="Script" path="res://item/RackItemData.gd" id="2_3rs2h"]
 
 [resource]
 script = ExtResource("2_3rs2h")
+rack_item_texture = ExtResource("1_sq8yh")
 name = "Purple Pot"
 description = "A nice purple pot"
 scene = ExtResource("1_ofi7j")

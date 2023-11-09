@@ -51,8 +51,7 @@ func update_grabbed_slot() -> void:
 	if grabbed_slot_data:
 		for child in grab_slot.get_children():
 			child.queue_free()
-		var node := grabbed_slot_data.item_data.scene.instantiate() as Node2D
-		grab_slot.add_child(node)
+		var node := grabbed_slot_data.item_data.add_scene_to(grab_slot)
 		grab_slot.show()
 		process_grabbed_slot()
 	else:
