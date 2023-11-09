@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://ueca5wmtav1v"]
 
 [ext_resource type="Script" path="res://inventory/ShelfSlot.gd" id="1_4bqis"]
-[ext_resource type="PackedScene" uid="uid://d346bhoh8up1g" path="res://Plant2.tscn" id="2_nv2k6"]
+[ext_resource type="PackedScene" uid="uid://d346bhoh8up1g" path="res://item/plants/Plant2.tscn" id="2_nv2k6"]
 
 [node name="ShelfSlot" type="PanelContainer"]
 custom_minimum_size = Vector2(350, 512)

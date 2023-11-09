@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://cf27wt1xakpnq"]
+
+[ext_resource type="Script" path="res://item/PlantItemScene.gd" id="1_i8hj5"]
+[ext_resource type="Texture2D" uid="uid://6gei0a8n81l2" path="res://item/plants/plant1_young.png" id="2_a5vg8"]
+[ext_resource type="Texture2D" uid="uid://berdu0xp4jkpa" path="res://item/plants/plant1_mature.png" id="3_svvev"]
+[ext_resource type="Texture2D" uid="uid://brvy27s6rqef0" path="res://item/pots/pot1.png" id="4_fd8g1"]
+
+[node name="Plant" type="Node2D"]
+scale = Vector2(0.18941, 0.18941)
+script = ExtResource("1_i8hj5")
+
+[node name="PlantSpriteYoung" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(2.08165e-12, -855.288)
+texture = ExtResource("2_a5vg8")
+
+[node name="PlantSpriteMature" type="Sprite2D" parent="."]
+position = Vector2(0, -1224.86)
+texture = ExtResource("3_svvev")
+
+[node name="PotSprite" type="Sprite2D" parent="."]
+position = Vector2(2.08165e-12, 2.08165e-12)
+scale = Vector2(0.477667, 0.477667)
+texture = ExtResource("4_fd8g1")

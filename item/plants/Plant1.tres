@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://item/plantfood/PlantFood.gd" id="1_6eih6"]
 [ext_resource type="Script" path="res://item/PlantItemData.gd" id="1_egqsv"]
 [ext_resource type="Texture2D" uid="uid://berdu0xp4jkpa" path="res://item/plants/plant1_mature.png" id="2_11oqh"]
-[ext_resource type="PackedScene" uid="uid://cf27wt1xakpnq" path="res://Plant1.tscn" id="3_7dt1m"]
+[ext_resource type="PackedScene" uid="uid://cf27wt1xakpnq" path="res://item/plants/Plant1.tscn" id="3_7dt1m"]
 [ext_resource type="Texture2D" uid="uid://6gei0a8n81l2" path="res://item/plants/plant1_young.png" id="4_8lts4"]
 
 [sub_resource type="Resource" id="Resource_tqpg0"]

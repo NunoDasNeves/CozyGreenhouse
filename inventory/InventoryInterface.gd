@@ -55,9 +55,9 @@ func update_grabbed_slot() -> void:
 		var node := item_data.scene.instantiate() as Node2D
 		grab_slot.add_child(node)
 		if item_data as RackItemData: # pots are RackItemData
-			(node as RackItem).set_item_data(item_data)
+			(node as RackItemScene).set_item_data(item_data)
 		elif item_data as PlantItemData:
-			(node as PlantItem).set_item_data(item_data)
+			(node as PlantItemScene).set_item_data(item_data)
 		grab_slot.show()
 		process_grabbed_slot()
 	else:

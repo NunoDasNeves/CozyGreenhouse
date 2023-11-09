@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://item/SeedItemData.gd" id="1_53qxd"]
 [ext_resource type="Resource" uid="uid://c4ovhq8msl467" path="res://item/plants/Plant2.tres" id="1_oxm8s"]
-[ext_resource type="PackedScene" uid="uid://d1els23yd82ma" path="res://Seed.tscn" id="2_viht4"]
+[ext_resource type="PackedScene" uid="uid://d1els23yd82ma" path="res://item/seeds/Seed.tscn" id="2_viht4"]
 [ext_resource type="Texture2D" uid="uid://cvnpsjtkl4waj" path="res://item/seeds/seed2.png" id="4_88gdd"]
 
 [resource]

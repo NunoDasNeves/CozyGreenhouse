@@ -1,5 +1,5 @@
 extends Node2D
-class_name PlantItem
+class_name PlantItemScene
 
 @onready var plant_sprite_young: Sprite2D = $PlantSpriteYoung
 @onready var plant_sprite_mature: Sprite2D = $PlantSpriteMature

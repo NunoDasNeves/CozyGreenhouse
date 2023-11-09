@@ -1,5 +1,5 @@
 extends Node2D
-class_name RackItem
+class_name RackItemScene
 
 @onready var sprite_2d: Sprite2D = $Sprite
 
