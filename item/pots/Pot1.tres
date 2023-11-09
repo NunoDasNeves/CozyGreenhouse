@@ -7,6 +7,7 @@
 [resource]
 script = ExtResource("2_3rs2h")
 rack_item_texture = ExtResource("1_sq8yh")
+show_1x_quantity = true
 name = "Purple Pot"
 description = "A nice purple pot"
 scene = ExtResource("1_ofi7j")
