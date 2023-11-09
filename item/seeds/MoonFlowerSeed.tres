@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="SeedItemData" load_steps=5 format=3 uid="uid://dtdm5s0ad2d28"]
 
-[ext_resource type="PackedScene" uid="uid://d1els23yd82ma" path="res://SeedItem.tscn" id="1_kfi0r"]
+[ext_resource type="PackedScene" uid="uid://d1els23yd82ma" path="res://Seed.tscn" id="1_kfi0r"]
 [ext_resource type="Resource" uid="uid://b8mtmgo1yeq3h" path="res://item/plants/Plant1.tres" id="1_qt371"]
-[ext_resource type="Script" path="res://item/seeds/SeedItemData.gd" id="1_s0x0h"]
+[ext_resource type="Script" path="res://item/SeedItemData.gd" id="1_s0x0h"]
 [ext_resource type="Texture2D" uid="uid://c5li56s8ni3gm" path="res://item/seeds/seed1.png" id="3_gdt88"]
 
 [resource]

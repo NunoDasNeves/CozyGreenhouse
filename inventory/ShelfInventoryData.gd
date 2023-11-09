@@ -7,8 +7,7 @@ func plant_seed(seed_data: SeedItemData, shelf_slot_index: int) -> bool:
 	var slot_data: SlotData = slot_datas[shelf_slot_index]
 	if not slot_data or slot_data.item_data.type != ItemData.Type.POT:
 		return false
-	var plant_item_data: PlantItemData = seed_data.plant.duplicate()
-	plant_item_data.pot_item_data = slot_data.item_data
+	var plant_item_data: PlantItemData = PlantItemData.create_from_seed(seed_data, slot_data.item_data as RackItemData)
 	slot_data.item_data = plant_item_data
 	slot_data.quantity = 1
 	return true
