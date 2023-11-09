@@ -1,7 +1,7 @@
 extends PanelContainer
 class_name Inventory
 
-@export var slot_scene = preload("res://inventory/Slot.tscn")
+@export var slot_scene: PackedScene
 @onready var item_grid: GridContainer = $MarginContainer/ItemGrid
 
 func set_inventory_data(inventory_data: InventoryData) -> void:

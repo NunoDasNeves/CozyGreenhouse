@@ -18,7 +18,7 @@ func grab_slot_data(index: int) -> SlotData:
 	else:
 		return null
 
-func drop_slot_data(grabbed_slot_data: SlotData, index: int):
+func drop_slot_data(grabbed_slot_data: SlotData, index: int) -> SlotData:
 	var slot_data = slot_datas[index]
 	slot_datas[index] = grabbed_slot_data
 	inventory_updated.emit(self)

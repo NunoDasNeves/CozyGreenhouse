@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://stabv7nin058"]
+[gd_scene load_steps=10 format=3 uid="uid://stabv7nin058"]
 
 [ext_resource type="Script" path="res://Main.gd" id="1_b7ej4"]
 [ext_resource type="PackedScene" uid="uid://0alw4cfw4g22" path="res://inventory/Inventory.tscn" id="1_occea"]
@@ -6,8 +6,9 @@
 [ext_resource type="Resource" uid="uid://bygkbwxgoognm" path="res://SeedInventory.tres" id="4_5vldi"]
 [ext_resource type="Resource" uid="uid://deyn7qqa82n2j" path="res://PotsInventory.tres" id="5_2ehvt"]
 [ext_resource type="Resource" uid="uid://d2jo5w7j6juca" path="res://ShelfInventory.tres" id="5_57mvv"]
-[ext_resource type="PackedScene" uid="uid://c7mdwwpba77j0" path="res://inventory/Slot.tscn" id="5_py25n"]
+[ext_resource type="PackedScene" uid="uid://c7mdwwpba77j0" path="res://inventory/RackSlot.tscn" id="5_py25n"]
 [ext_resource type="PackedScene" uid="uid://b40qsq404h2qt" path="res://inventory/ShelfInventory.tscn" id="8_c0pgr"]
+[ext_resource type="PackedScene" uid="uid://ueca5wmtav1v" path="res://inventory/ShelfSlot.tscn" id="9_gfqsq"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_b7ej4")
@@ -32,6 +33,7 @@ offset_left = 153.0
 offset_top = 171.0
 offset_right = 761.0
 offset_bottom = 1067.0
+slot_scene = ExtResource("5_py25n")
 
 [node name="PotsInventory" parent="UI/InventoryInterface" instance=ExtResource("1_occea")]
 layout_mode = 0
@@ -39,13 +41,15 @@ offset_left = 160.0
 offset_top = 1144.0
 offset_right = 768.0
 offset_bottom = 2040.0
+slot_scene = ExtResource("5_py25n")
 
 [node name="ShelfInventory" parent="UI/InventoryInterface" instance=ExtResource("8_c0pgr")]
 layout_mode = 0
 offset_left = 1011.0
 offset_top = 286.0
-offset_right = 3087.0
+offset_right = 2439.0
 offset_bottom = 1846.0
+slot_scene = ExtResource("9_gfqsq")
 
 [node name="GrabbedSlot" parent="UI/InventoryInterface" instance=ExtResource("5_py25n")]
 visible = false

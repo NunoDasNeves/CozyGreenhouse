@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="SeedItemData" load_steps=3 format=3 uid="uid://dtdm5s0ad2d28"]
 
-[ext_resource type="Script" path="res://item/SeedItemData.gd" id="1_s0x0h"]
+[ext_resource type="Script" path="res://item/seeds/SeedItemData.gd" id="1_s0x0h"]
 [ext_resource type="Texture2D" uid="uid://c5li56s8ni3gm" path="res://item/seeds/seed1.png" id="2_j6x17"]
 
 [resource]
@@ -8,3 +8,4 @@ script = ExtResource("1_s0x0h")
 name = "Moon Flower Seeds"
 description = "moony"
 texture = ExtResource("2_j6x17")
+type = 1

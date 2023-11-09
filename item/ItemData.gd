@@ -2,6 +2,7 @@ extends Resource
 class_name ItemData
 
 enum Type {
+	NONE,
 	SEED,
 	POT,
 	PLANT,

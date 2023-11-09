@@ -1,28 +1,41 @@
-[gd_scene load_steps=3 format=3 uid="uid://ueca5wmtav1v"]
+[gd_scene load_steps=4 format=3 uid="uid://ueca5wmtav1v"]
 
-[ext_resource type="Script" path="res://inventory/Slot.gd" id="1_e2d21"]
-[ext_resource type="Texture2D" uid="uid://emygis8ifxtr" path="res://icon.svg" id="2_mnu5d"]
+[ext_resource type="Script" path="res://inventory/ShelfSlot.gd" id="1_4bqis"]
+[ext_resource type="Texture2D" uid="uid://berdu0xp4jkpa" path="res://item/plants/plant1_mature.png" id="2_5rgcv"]
+[ext_resource type="Texture2D" uid="uid://bt36uq1ax4xvv" path="res://item/pots/pot2.png" id="3_2iics"]
 
 [node name="ShelfSlot" type="PanelContainer"]
-custom_minimum_size = Vector2(512, 512)
-offset_right = 40.0
-offset_bottom = 40.0
-script = ExtResource("1_e2d21")
+custom_minimum_size = Vector2(350, 512)
+offset_right = 350.0
+offset_bottom = 512.0
+script = ExtResource("1_4bqis")
+
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_top = -160
+theme_override_constants/margin_bottom = 0
+
+[node name="PlantTextureRect" type="TextureRect" parent="MarginContainer2"]
+layout_mode = 2
+texture = ExtResource("2_5rgcv")
+expand_mode = 1
+stretch_mode = 5
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
-theme_override_constants/margin_left = 4
-theme_override_constants/margin_top = 4
-theme_override_constants/margin_right = 4
-theme_override_constants/margin_bottom = 4
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 270
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = -10
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer"]
+[node name="PotTextureRect" type="TextureRect" parent="MarginContainer"]
 layout_mode = 2
-texture = ExtResource("2_mnu5d")
+texture = ExtResource("3_2iics")
 expand_mode = 1
 stretch_mode = 5
 
 [node name="QuantityLabel" type="Label" parent="."]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0

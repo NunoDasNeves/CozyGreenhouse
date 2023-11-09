@@ -2,6 +2,7 @@ extends Control
 class_name InventoryInterface
 
 var grabbed_slot_data: SlotData
+var grabbed_slot_scene: PackedScene = preload("res://inventory/RackSlot.tscn")
 var grabbed_slot_inventory_data: InventoryData
 var grabbed_slot_index: int
 
@@ -51,7 +52,6 @@ func _input(event: InputEvent) -> void:
 
 func on_inventory_interact(inventory_data: InventoryData, index: int, button: int) -> void:
 	var old_grabbed_slot_data = grabbed_slot_data
-	print ("interact")
 	match [grabbed_slot_data, button]:
 		[null, MOUSE_BUTTON_LEFT]:
 			grabbed_slot_data = inventory_data.grab_slot_data(index)
@@ -63,6 +63,7 @@ func on_inventory_interact(inventory_data: InventoryData, index: int, button: in
 	if grabbed_slot_data != old_grabbed_slot_data and button == MOUSE_BUTTON_LEFT:
 		grabbed_slot_inventory_data = inventory_data
 		grabbed_slot_index = index
+		grabbed_slot_scene = inventory_data
 
 	update_grabbed_slot()
 

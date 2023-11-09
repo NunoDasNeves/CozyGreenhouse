@@ -7,7 +7,6 @@
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_dalje")
-slot_scene = ExtResource("2_m8wih")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
