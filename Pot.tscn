@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://dtj0d6y0w8ljp"]
+
+[ext_resource type="Texture2D" uid="uid://brvy27s6rqef0" path="res://item/pots/pot1.png" id="3_olv6y"]
+
+[node name="Pot" type="Node2D"]
+scale = Vector2(0.18941, 0.18941)
+
+[node name="PotSprite" type="Sprite2D" parent="."]
+position = Vector2(2.08165e-12, 2.08165e-12)
+scale = Vector2(0.477667, 0.477667)
+texture = ExtResource("3_olv6y")

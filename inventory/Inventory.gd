@@ -5,8 +5,12 @@ class_name Inventory
 @onready var item_grid: GridContainer = $MarginContainer/ItemGrid
 
 func set_inventory_data(inventory_data: InventoryData) -> void:
-	inventory_data.inventory_updated.connect(populate_item_grid)
+	inventory_data.inventory_updated.connect(update_slot)
 	populate_item_grid(inventory_data)
+
+func update_slot(index: int, slot_data: SlotData) -> void:
+	var slot := item_grid.get_child(index) as Slot
+	slot.set_slot_data(slot_data)
 
 func populate_item_grid(inventory_data: InventoryData) -> void:
 	for child in item_grid.get_children():
@@ -19,12 +23,3 @@ func populate_item_grid(inventory_data: InventoryData) -> void:
 		slot.set_slot_data(slot_data)
 		#print(slot.name)
 		assert(slot.slot_clicked.get_connections().size() == 1)
-
-func mouse_button_input(event: InputEventMouseButton) -> bool:
-	var rect = get_global_rect()
-	# WARNING: event.global_position is NOT the canvas layer position
-	if rect.has_point(get_global_mouse_position()):
-		for slot in item_grid.get_children():
-			if (slot as Slot).mouse_button_input(event):
-				return true
-	return false

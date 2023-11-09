@@ -2,12 +2,12 @@
 
 [ext_resource type="Script" path="res://item/seeds/SeedItemData.gd" id="1_53qxd"]
 [ext_resource type="Resource" uid="uid://c4ovhq8msl467" path="res://item/plants/Plant1.tres" id="1_v5rmh"]
-[ext_resource type="Texture2D" uid="uid://cvnpsjtkl4waj" path="res://item/seeds/seed2.png" id="2_cox62"]
+[ext_resource type="PackedScene" uid="uid://d1els23yd82ma" path="res://Seed1.tscn" id="2_viht4"]
 
 [resource]
 script = ExtResource("1_53qxd")
 plant = ExtResource("1_v5rmh")
 name = "Starry Lettuce Seeds"
 description = "leafy"
-texture = ExtResource("2_cox62")
+scene = ExtResource("2_viht4")
 type = 1

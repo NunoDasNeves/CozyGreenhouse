@@ -10,8 +10,5 @@ enum Type {
 
 @export var name: String = ""
 @export_multiline var description: String = ""
-@export var texture: Texture
+@export var scene: PackedScene
 @export var type: Type
-
-func is_stackable() -> bool:
-	return false
