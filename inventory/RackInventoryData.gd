@@ -19,10 +19,11 @@ func drop_slot_data(grabbed_slot_data: SlotData, index: int) -> SlotData:
 	if not grabbed_rack_item_data:
 		return grabbed_slot_data
 
-	for slot_data in slot_datas:
+	for i in slot_datas.size():
+		var slot_data: SlotData = slot_datas[i]
 		if slot_data and slot_data.item_data == grabbed_rack_item_data:
 			slot_data.quantity += 1
-			inventory_updated.emit(index, slot_data)
+			inventory_updated.emit(i, slot_data)
 			return null
 
 	return grabbed_slot_data

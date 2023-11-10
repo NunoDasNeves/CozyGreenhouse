@@ -25,3 +25,15 @@ static func create_from_seed(seed_data: SeedItemData, pot_data: RackItemData) ->
 	plant_data.water = plant_data.water.duplicate()
 	plant_data.fertilizer = plant_data.fertilizer.duplicate()
 	return plant_data
+
+func next_day() -> void:
+	light.next_day()
+	water.next_day()
+	fertilizer.next_day()
+	var is_happy: bool = light.in_happy_range() and \
+						 water.in_happy_range() and \
+						 fertilizer.in_happy_range()
+	if is_happy:
+		curr_growth += happy_growth_per_day
+		if curr_growth >= 100:
+			growth_stage = GrowthStage.MATURE

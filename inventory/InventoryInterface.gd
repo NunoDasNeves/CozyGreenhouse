@@ -81,8 +81,5 @@ func next_day() -> void:
 		var plant_data := slot_data.item_data as PlantItemData
 		if not plant_data:
 			continue
-		plant_data.light.next_day()
-		plant_data.water.next_day()
-		plant_data.fertilizer.next_day()
+		plant_data.next_day()
 		shelf_inventory_data.inventory_updated.emit(i, slot_data)
-		
