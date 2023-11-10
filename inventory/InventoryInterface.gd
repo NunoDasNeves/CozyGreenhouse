@@ -4,11 +4,11 @@ class_name InventoryInterface
 var grabbed_slot_data: SlotData
 var grabbed_slot_inventory_data: InventoryData
 var grabbed_slot_index: int
-var curr_day: int
 
 @onready var next_day_button: Button = $NextDayButton
 @onready var grab_slot: Node2D = $GrabSlot
 @onready var day_num: Label = $DayNum
+@onready var water_tank_bar: ProgressBar = $WaterTankBar
 
 @onready var seed_inventory: Inventory = $SeedInventory
 @onready var shelf_inventory: Inventory = $ShelfInventory
@@ -21,12 +21,12 @@ var curr_day: int
 @export var tools_inventory_data: RackInventoryData
 
 func _ready() -> void:
-	curr_day = 0
 	next_day_button.button_down.connect(next_day)
 	add_inventory(seed_inventory, seed_inventory_data)
 	add_inventory(shelf_inventory, shelf_inventory_data)
 	add_inventory(pots_inventory, pot_inventory_data)
 	add_inventory(tools_inventory, tools_inventory_data)
+	shelf_inventory_data.water_tank_level_updated.connect(update_water_tank)
 
 func add_inventory(inventory: Inventory, inventory_data: InventoryData) -> void:
 	inventory_data.inventory_interact.connect(on_inventory_interact)
@@ -71,9 +71,12 @@ func update_grabbed_slot() -> void:
 	else:
 		grab_slot.hide()
 
+func update_water_tank() -> void:
+	water_tank_bar.value = Global.water_tank_level
+
 func next_day() -> void:
-	curr_day += 1
-	day_num.text = "Day: %s" % curr_day
+	Global.next_day()
+	day_num.text = "Day: %s" % Global.curr_day
 	for i in shelf_inventory_data.slot_datas.size():
 		var slot_data: SlotData = shelf_inventory_data.slot_datas[i]
 		if not slot_data:

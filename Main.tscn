@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://stabv7nin058"]
+[gd_scene load_steps=14 format=3 uid="uid://stabv7nin058"]
 
 [ext_resource type="Script" path="res://Main.gd" id="1_b7ej4"]
 [ext_resource type="PackedScene" uid="uid://0alw4cfw4g22" path="res://inventory/Inventory.tscn" id="1_occea"]
@@ -12,6 +12,9 @@
 [ext_resource type="PackedScene" uid="uid://ueca5wmtav1v" path="res://inventory/ShelfSlot.tscn" id="9_gfqsq"]
 [ext_resource type="PackedScene" uid="uid://c1b7r3mdk7q54" path="res://GrabSlot.tscn" id="10_5kb5e"]
 [ext_resource type="PackedScene" uid="uid://ci87co87lm155" path="res://inventory/ToolsInventory.tscn" id="10_t6s3y"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_10m38"]
+bg_color = Color(0.368627, 0.454902, 0.776471, 1)
 
 [node name="Main" type="Node"]
 script = ExtResource("1_b7ej4")
@@ -83,3 +86,14 @@ offset_right = 3692.0
 offset_bottom = 2024.0
 theme_override_font_sizes/font_size = 80
 text = "NEXT DAY"
+
+[node name="WaterTankBar" type="ProgressBar" parent="UI/InventoryInterface"]
+layout_mode = 0
+offset_left = 2531.0
+offset_top = 214.0
+offset_right = 2911.0
+offset_bottom = 698.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_10m38")
+value = 44.0
+fill_mode = 3
+show_percentage = false

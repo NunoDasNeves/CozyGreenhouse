@@ -3,6 +3,7 @@ class_name InventoryData
 
 signal inventory_updated(index: int, item_data: ItemData)
 signal inventory_interact(inventory_data: InventoryData, index: int, button: int)
+signal water_tank_level_updated
 
 @export var slot_datas: Array[SlotData]
 

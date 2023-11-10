@@ -1,6 +1,8 @@
 extends InventoryData
 class_name ShelfInventoryData
 
+#@onready var global = get_node("/root/Global") as Globals
+
 func plant_seed(seed_data: SeedItemData, shelf_slot_index: int) -> bool:
 	if not seed_data.plant:
 		return false
@@ -41,7 +43,11 @@ func drop_slot_data(grabbed_slot_data: SlotData, index: int) -> SlotData:
 				var tool_data := grabbed_slot_data.item_data as ToolItemData
 				match (tool_data.tool_type):
 					ToolItemData.ToolType.WateringCan:
-						plant_data.water.curr += 10
+						var water_space: float = plant_data.water.min_max_range.y - plant_data.water.curr
+						var water_to_try_use: float = minf(water_space, 10)
+						var water_to_use: float = Global.try_use_water(water_to_try_use)
+						plant_data.water.curr += water_to_use
+						water_tank_level_updated.emit()
 						inventory_updated.emit(index, slot_datas[index])
 
 	return ret
