@@ -12,7 +12,7 @@ corner_radius_bottom_left = 64
 
 [node name="Inventory" type="PanelContainer" node_paths=PackedStringArray("item_grid")]
 offset_right = 880.0
-offset_bottom = 1760.0
+offset_bottom = 1000.0
 mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_dj4j5")
 script = ExtResource("1_tam3m")

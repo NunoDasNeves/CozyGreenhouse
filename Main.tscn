@@ -35,10 +35,10 @@ tools_inventory_data = ExtResource("6_l3v0l")
 
 [node name="DayNum" type="Label" parent="UI/InventoryInterface"]
 layout_mode = 0
-offset_left = 2845.0
-offset_top = 1960.0
-offset_right = 3229.0
-offset_bottom = 2073.0
+offset_left = 2498.0
+offset_top = 1679.0
+offset_right = 2882.0
+offset_bottom = 1792.0
 theme_override_font_sizes/font_size = 80
 text = "Day: 0"
 
@@ -72,10 +72,10 @@ offset_bottom = 2109.0
 
 [node name="NextDayButton" type="Button" parent="UI/InventoryInterface"]
 layout_mode = 0
-offset_left = 3234.0
-offset_top = 1923.0
-offset_right = 3706.0
-offset_bottom = 2100.0
+offset_left = 2373.0
+offset_top = 1856.0
+offset_right = 2845.0
+offset_bottom = 2033.0
 theme_override_font_sizes/font_size = 80
 text = "NEXT DAY"
 
@@ -90,12 +90,20 @@ value = 44.0
 fill_mode = 3
 show_percentage = false
 
-[node name="ProductsInventory" parent="UI/InventoryInterface" instance=ExtResource("13_yk8kt")]
+[node name="SellInventory" parent="UI/InventoryInterface" instance=ExtResource("13_yk8kt")]
 layout_mode = 0
-offset_left = 2875.0
-offset_top = 131.0
-offset_right = 3755.0
-offset_bottom = 1891.0
+offset_left = 2916.0
+offset_top = 67.0
+offset_right = 3796.0
+offset_bottom = 1067.0
+
+[node name="BuyInventory" parent="UI/InventoryInterface" node_paths=PackedStringArray("item_grid") instance=ExtResource("13_yk8kt")]
+layout_mode = 0
+offset_left = 2907.0
+offset_top = 1094.0
+offset_right = 3787.0
+offset_bottom = 2094.0
+item_grid = NodePath("../SellInventory/MarginContainer/ScrollContainer/MarginContainer/ItemGrid")
 
 [node name="GrabSlot" parent="UI/InventoryInterface" instance=ExtResource("10_5kb5e")]
 visible = false
