@@ -4,8 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://ueca5wmtav1v" path="res://inventory/ShelfSlot.tscn" id="2_m8wih"]
 
 [node name="ShelfInventory" type="PanelContainer"]
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 1428.0
+offset_bottom = 1560.0
 script = ExtResource("1_dalje")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]

@@ -22,7 +22,7 @@ func grab_slot_data(index: int) -> SlotData:
 		return null
 
 func drop_slot_data(grabbed_slot_data: SlotData, index: int) -> SlotData:
-	var slot_data = slot_datas[index]
+	var slot_data: SlotData = slot_datas[index]
 	var ret: SlotData = grabbed_slot_data
 
 	match (grabbed_slot_data.item_data.type):
@@ -35,5 +35,13 @@ func drop_slot_data(grabbed_slot_data: SlotData, index: int) -> SlotData:
 			slot_datas[index] = grabbed_slot_data
 			inventory_updated.emit(index, slot_datas[index])
 			ret = slot_data
+		ItemData.Type.TOOL:
+			if slot_data and slot_data.item_data.type == ItemData.Type.PLANT:
+				var plant_data := slot_data.item_data as PlantItemData
+				var tool_data := grabbed_slot_data.item_data as ToolItemData
+				match (tool_data.tool_type):
+					ToolItemData.ToolType.WateringCan:
+						plant_data.water.curr += 10
+						inventory_updated.emit(index, slot_datas[index])
 
 	return ret

@@ -33,6 +33,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="WaterBar" type="ProgressBar" parent="Water/Control"]
+layout_mode = 0
 offset_right = 259.0
 offset_bottom = 32.0
 mouse_filter = 1
@@ -43,6 +44,7 @@ value = 60.0
 show_percentage = false
 
 [node name="WaterLow" type="ColorRect" parent="Water/Control"]
+layout_mode = 0
 offset_left = 119.0
 offset_top = -2.0
 offset_right = 125.0
@@ -50,6 +52,7 @@ offset_bottom = 34.0
 mouse_filter = 1
 
 [node name="WaterHigh" type="ColorRect" parent="Water/Control"]
+layout_mode = 0
 offset_left = 202.0
 offset_top = -2.0
 offset_right = 208.0

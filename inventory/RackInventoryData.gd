@@ -20,9 +20,9 @@ func drop_slot_data(grabbed_slot_data: SlotData, index: int) -> SlotData:
 		return grabbed_slot_data
 
 	for slot_data in slot_datas:
-		if slot_data.item_data == grabbed_rack_item_data:
+		if slot_data and slot_data.item_data == grabbed_rack_item_data:
 			slot_data.quantity += 1
 			inventory_updated.emit(index, slot_data)
-			break
+			return null
 
-	return null
+	return grabbed_slot_data

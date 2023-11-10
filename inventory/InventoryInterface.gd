@@ -10,15 +10,18 @@ var grabbed_slot_index: int
 @onready var seed_inventory: Inventory = $SeedInventory
 @onready var shelf_inventory: Inventory = $ShelfInventory
 @onready var pots_inventory: Inventory = $PotsInventory
+@onready var tools_inventory: Inventory = $ToolsInventory
 
 @export var seed_inventory_data: RackInventoryData
 @export var shelf_inventory_data: ShelfInventoryData
 @export var pot_inventory_data: RackInventoryData
+@export var tools_inventory_data: RackInventoryData
 
 func _ready() -> void:
 	add_inventory(seed_inventory, seed_inventory_data)
 	add_inventory(shelf_inventory, shelf_inventory_data)
 	add_inventory(pots_inventory, pot_inventory_data)
+	add_inventory(tools_inventory, tools_inventory_data)
 
 func add_inventory(inventory: Inventory, inventory_data: InventoryData) -> void:
 	inventory_data.inventory_interact.connect(on_inventory_interact)

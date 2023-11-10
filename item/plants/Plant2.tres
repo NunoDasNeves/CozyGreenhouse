@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="PlantItemData" load_steps=9 format=3 uid="uid://c4ovhq8msl467"]
 
-[ext_resource type="Script" path="res://item/plantfood/PlantFood.gd" id="1_6eih6"]
+[ext_resource type="Script" path="res://item/plants/PlantFood.gd" id="1_6eih6"]
 [ext_resource type="Script" path="res://item/PlantItemData.gd" id="1_egqsv"]
 [ext_resource type="Texture2D" uid="uid://c7ijvac5x1xal" path="res://item/plants/plant2_mature.png" id="1_tvevl"]
 [ext_resource type="PackedScene" uid="uid://d346bhoh8up1g" path="res://item/plants/Plant2.tscn" id="3_joliu"]

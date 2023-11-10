@@ -6,6 +6,7 @@ enum Type {
 	SEED,
 	POT,
 	PLANT,
+	TOOL,
 }
 
 @export var name: String = ""
