@@ -21,6 +21,7 @@ var grabbed_slot_index: int
 @export var tools_inventory_data: RackInventoryData
 
 func _ready() -> void:
+	update_water_tank()
 	next_day_button.button_down.connect(next_day)
 	add_inventory(seed_inventory, seed_inventory_data)
 	add_inventory(shelf_inventory, shelf_inventory_data)
@@ -72,6 +73,7 @@ func update_grabbed_slot() -> void:
 		grab_slot.hide()
 
 func update_water_tank() -> void:
+	water_tank_bar.max_value = Global.max_water_tank_level
 	water_tank_bar.value = Global.water_tank_level
 
 func next_day() -> void:

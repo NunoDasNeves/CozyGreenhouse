@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ProductItemData" load_steps=4 format=3 uid="uid://dk8us7i65t6kj"]
+
+[ext_resource type="Texture2D" uid="uid://emygis8ifxtr" path="res://icon.svg" id="1_3hbl6"]
+[ext_resource type="Script" path="res://item/ProductItemData.gd" id="1_rkuut"]
+[ext_resource type="PackedScene" uid="uid://dxavb0e6jog0m" path="res://item/fruits/Fruit.tscn" id="2_nsx3w"]
+
+[resource]
+script = ExtResource("1_rkuut")
+product_item_texture = ExtResource("1_3hbl6")
+value = 5
+name = "Moon Lettuce Leaf"
+description = "Ummm...Can you eat this?"
+scene = ExtResource("2_nsx3w")
+type = 5

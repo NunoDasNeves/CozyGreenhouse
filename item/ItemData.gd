@@ -7,6 +7,7 @@ enum Type {
 	POT,
 	PLANT,
 	TOOL,
+	FRUIT,
 }
 
 @export var name: String = ""

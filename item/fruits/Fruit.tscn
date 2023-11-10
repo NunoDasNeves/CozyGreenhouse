@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dxavb0e6jog0m"]
+
+[ext_resource type="Script" path="res://item/RackItemScene.gd" id="1_qyclh"]
+[ext_resource type="Texture2D" uid="uid://emygis8ifxtr" path="res://icon.svg" id="2_387ib"]
+
+[node name="Fruit" type="Node2D"]
+scale = Vector2(0.18941, 0.18941)
+script = ExtResource("1_qyclh")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(2.08165e-12, 2.08165e-12)
+scale = Vector2(6.32701, 6.32701)
+texture = ExtResource("2_387ib")

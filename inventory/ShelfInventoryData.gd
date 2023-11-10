@@ -43,10 +43,10 @@ func drop_slot_data(grabbed_slot_data: SlotData, index: int) -> SlotData:
 				var tool_data := grabbed_slot_data.item_data as ToolItemData
 				match (tool_data.tool_type):
 					ToolItemData.ToolType.WateringCan:
-						var water_space: float = plant_data.water.min_max_range.y - plant_data.water.curr
-						var water_to_try_use: float = minf(water_space, 10)
+						var water_space: float = plant_data.water.max_val - plant_data.water.curr_val
+						var water_to_try_use: float = minf(water_space, 0.2)
 						var water_to_use: float = Global.try_use_water(water_to_try_use)
-						plant_data.water.curr += water_to_use
+						plant_data.water.curr_val += water_to_use
 						water_tank_level_updated.emit()
 						inventory_updated.emit(index, slot_datas[index])
 

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="SeedItemData" load_steps=5 format=3 uid="uid://dmsd41lgytg3d"]
+
+[ext_resource type="Resource" uid="uid://c4ovhq8msl467" path="res://item/plants/Plant2.tres" id="1_eqdve"]
+[ext_resource type="Texture2D" uid="uid://cvnpsjtkl4waj" path="res://item/seeds/seed2.png" id="2_kcn5b"]
+[ext_resource type="PackedScene" uid="uid://d1els23yd82ma" path="res://item/seeds/Seed.tscn" id="3_8eiq3"]
+[ext_resource type="Script" path="res://item/SeedItemData.gd" id="4_kutxp"]
+
+[resource]
+script = ExtResource("4_kutxp")
+plant = ExtResource("1_eqdve")
+rack_item_texture = ExtResource("2_kcn5b")
+show_1x_quantity = true
+name = "Galaxy Flower Seeds"
+description = "leafy"
+scene = ExtResource("3_8eiq3")
+type = 1

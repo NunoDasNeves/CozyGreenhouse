@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="SeedItemData" load_steps=5 format=3 uid="uid://dtdm5s0ad2d28"]
+
+[ext_resource type="Resource" uid="uid://b8mtmgo1yeq3h" path="res://item/plants/Plant1.tres" id="1_7mwet"]
+[ext_resource type="Texture2D" uid="uid://c5li56s8ni3gm" path="res://item/seeds/seed1.png" id="2_qjrf4"]
+[ext_resource type="PackedScene" uid="uid://d1els23yd82ma" path="res://item/seeds/Seed.tscn" id="3_dkfwv"]
+[ext_resource type="Script" path="res://item/SeedItemData.gd" id="4_s0sci"]
+
+[resource]
+script = ExtResource("4_s0sci")
+plant = ExtResource("1_7mwet")
+rack_item_texture = ExtResource("2_qjrf4")
+show_1x_quantity = true
+name = "Moon Lettuce Seeds"
+description = "moony"
+scene = ExtResource("3_dkfwv")
+type = 1

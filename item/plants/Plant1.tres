@@ -1,37 +1,47 @@
-[gd_resource type="Resource" script_class="PlantItemData" load_steps=9 format=3 uid="uid://b8mtmgo1yeq3h"]
+[gd_resource type="Resource" script_class="PlantItemData" load_steps=10 format=3 uid="uid://b8mtmgo1yeq3h"]
 
 [ext_resource type="Script" path="res://item/PlantFood.gd" id="1_6eih6"]
 [ext_resource type="Script" path="res://item/PlantItemData.gd" id="1_egqsv"]
+[ext_resource type="Resource" uid="uid://dk8us7i65t6kj" path="res://item/fruits/fruit1.tres" id="2_1ta85"]
 [ext_resource type="Texture2D" uid="uid://berdu0xp4jkpa" path="res://item/plants/plant1_mature.png" id="2_11oqh"]
 [ext_resource type="PackedScene" uid="uid://cf27wt1xakpnq" path="res://item/plants/Plant1.tscn" id="3_7dt1m"]
 [ext_resource type="Texture2D" uid="uid://6gei0a8n81l2" path="res://item/plants/plant1_young.png" id="4_8lts4"]
 
 [sub_resource type="Resource" id="Resource_tqpg0"]
 script = ExtResource("1_6eih6")
-min_max_range = Vector2(0, 100)
-happy_range = Vector2(0, 100)
+max_val = 100.0
+happy_min = 0.0
+happy_max = 100.0
 eat_per_day = 0.0
 happy_fruit_factor = 1.0
 bad_fruit_factor = 0.0
-bad_days_til_death = -1
+happy_growth_factor = 1.0
+bad_growth_factor = 0.0
+bad_days_til_death = 0
 
 [sub_resource type="Resource" id="Resource_77uus"]
 script = ExtResource("1_6eih6")
-min_max_range = Vector2(0, 100)
-happy_range = Vector2(0, 100)
+max_val = 100.0
+happy_min = 0.0
+happy_max = 100.0
 eat_per_day = 0.0
 happy_fruit_factor = 1.0
 bad_fruit_factor = 0.0
-bad_days_til_death = -1
+happy_growth_factor = 1.0
+bad_growth_factor = 0.0
+bad_days_til_death = 0
 
 [sub_resource type="Resource" id="Resource_nnkyw"]
 script = ExtResource("1_6eih6")
-min_max_range = Vector2(0, 100)
-happy_range = Vector2(0, 100)
-eat_per_day = 5.0
+max_val = 5.0
+happy_min = 1.0
+happy_max = 3.0
+eat_per_day = 0.1
 happy_fruit_factor = 1.0
 bad_fruit_factor = 0.0
-bad_days_til_death = -1
+happy_growth_factor = 1.0
+bad_growth_factor = 0.0
+bad_days_til_death = 0
 
 [resource]
 script = ExtResource("1_egqsv")
@@ -40,9 +50,11 @@ mature_texture = ExtResource("2_11oqh")
 light = SubResource("Resource_77uus")
 water = SubResource("Resource_nnkyw")
 fertilizer = SubResource("Resource_tqpg0")
-happy_fruit_per_day = 0.0
-happy_growth_per_day = 25.0
-name = "Moon Flower"
+fruit_per_day = 0.2
+growth_per_day = 0.2
+max_num_fruits = 3
+fruit_item_data = ExtResource("2_1ta85")
+name = "Moon Lettuce"
 description = "Where's the flower?"
 scene = ExtResource("3_7dt1m")
 type = 3

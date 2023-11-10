@@ -1,11 +1,8 @@
 extends Node
 
-var curr_day: int
-var water_tank_level: float
-
-func _ready() -> void:
-	curr_day = 0
-	water_tank_level = 50
+var curr_day: int = 0
+var water_tank_level: float = 10
+var max_water_tank_level: float = 25
 
 func _process(delta: float) -> void:
 	pass

@@ -27,8 +27,11 @@ func set_slot_data(slot_data: SlotData) -> void:
 	elif item_data is PlantItemData:
 		(node as PlantItemScene).set_item_data(item_data)
 		var plant_data := item_data as PlantItemData
-		water_bar.value = plant_data.water.curr
-		fertilizer_bar.value = plant_data.fertilizer.curr / 100 * 5
+		water_bar.max_value = plant_data.water.max_val
+		water_bar.value = plant_data.water.curr_val
+		water_low.position.x = plant_data.water.happy_min / plant_data.water.max_val * water_bar.size.x
+		water_high.position.x = plant_data.water.happy_max / plant_data.water.max_val * water_bar.size.x
+		fertilizer_bar.value = plant_data.fertilizer.curr_val / 100 * 5
 		water.show();
 		fertilizer.show();
 	tooltip_text = "%s\n%s" % [item_data.name, item_data.description]

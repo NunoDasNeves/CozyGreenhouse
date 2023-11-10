@@ -21,7 +21,6 @@ position = Vector2(178, 390)
 [node name="Plant2" parent="Container" instance=ExtResource("2_nv2k6")]
 
 [node name="Water" type="Node2D" parent="."]
-visible = false
 position = Vector2(25, 476)
 rotation = -1.5708
 scale = Vector2(0.72, 0.72)
