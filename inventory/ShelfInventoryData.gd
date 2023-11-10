@@ -1,8 +1,6 @@
 extends InventoryData
 class_name ShelfInventoryData
 
-#@onready var global = get_node("/root/Global") as Globals
-
 func plant_seed(seed_data: SeedItemData, shelf_slot_index: int) -> bool:
 	if not seed_data.plant:
 		return false

@@ -2,7 +2,7 @@ extends PanelContainer
 class_name Inventory
 
 @export var slot_scene: PackedScene
-@onready var item_grid: GridContainer = $MarginContainer/ItemGrid
+@export var item_grid: GridContainer
 
 func set_inventory_data(inventory_data: InventoryData) -> void:
 	inventory_data.inventory_updated.connect(update_slot)

@@ -1,0 +1,65 @@
+[gd_scene load_steps=4 format=3 uid="uid://b8iki5hc8c177"]
+
+[ext_resource type="Script" path="res://inventory/Inventory.gd" id="1_tam3m"]
+[ext_resource type="PackedScene" uid="uid://ba8msageuefh8" path="res://inventory/ProductSlot.tscn" id="2_8h848"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dj4j5"]
+bg_color = Color(0.180392, 0.184314, 0.223529, 1)
+corner_radius_top_left = 64
+corner_radius_top_right = 64
+corner_radius_bottom_right = 64
+corner_radius_bottom_left = 64
+
+[node name="Inventory" type="PanelContainer" node_paths=PackedStringArray("item_grid")]
+offset_right = 880.0
+offset_bottom = 1760.0
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_dj4j5")
+script = ExtResource("1_tam3m")
+slot_scene = ExtResource("2_8h848")
+item_grid = NodePath("MarginContainer/ScrollContainer/MarginContainer/ItemGrid")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 60
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 60
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="ItemGrid" type="GridContainer" parent="MarginContainer/ScrollContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 32
+theme_override_constants/v_separation = 32
+
+[node name="Slot" parent="MarginContainer/ScrollContainer/MarginContainer/ItemGrid" instance=ExtResource("2_8h848")]
+layout_mode = 2
+
+[node name="Slot2" parent="MarginContainer/ScrollContainer/MarginContainer/ItemGrid" instance=ExtResource("2_8h848")]
+layout_mode = 2
+
+[node name="Slot3" parent="MarginContainer/ScrollContainer/MarginContainer/ItemGrid" instance=ExtResource("2_8h848")]
+layout_mode = 2
+
+[node name="Slot4" parent="MarginContainer/ScrollContainer/MarginContainer/ItemGrid" instance=ExtResource("2_8h848")]
+layout_mode = 2
+
+[node name="Slot5" parent="MarginContainer/ScrollContainer/MarginContainer/ItemGrid" instance=ExtResource("2_8h848")]
+layout_mode = 2
+
+[node name="Slot6" parent="MarginContainer/ScrollContainer/MarginContainer/ItemGrid" instance=ExtResource("2_8h848")]
+layout_mode = 2
+
+[node name="Slot7" parent="MarginContainer/ScrollContainer/MarginContainer/ItemGrid" instance=ExtResource("2_8h848")]
+layout_mode = 2

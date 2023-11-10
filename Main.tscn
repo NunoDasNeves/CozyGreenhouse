@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://stabv7nin058"]
+[gd_scene load_steps=13 format=3 uid="uid://stabv7nin058"]
 
 [ext_resource type="Script" path="res://Main.gd" id="1_b7ej4"]
 [ext_resource type="PackedScene" uid="uid://0alw4cfw4g22" path="res://inventory/Inventory.tscn" id="1_occea"]
@@ -6,12 +6,11 @@
 [ext_resource type="Resource" uid="uid://bygkbwxgoognm" path="res://SeedInventory.tres" id="4_5vldi"]
 [ext_resource type="Resource" uid="uid://csw8uhucnfusw" path="res://PotInventory.tres" id="5_0k1wm"]
 [ext_resource type="Resource" uid="uid://d2jo5w7j6juca" path="res://ShelfInventory.tres" id="5_57mvv"]
-[ext_resource type="PackedScene" uid="uid://c7mdwwpba77j0" path="res://inventory/RackSlot.tscn" id="5_py25n"]
 [ext_resource type="Resource" uid="uid://ul721xn0f5r5" path="res://ToolsInventory.tres" id="6_l3v0l"]
 [ext_resource type="PackedScene" uid="uid://b40qsq404h2qt" path="res://inventory/ShelfInventory.tscn" id="8_c0pgr"]
-[ext_resource type="PackedScene" uid="uid://ueca5wmtav1v" path="res://inventory/ShelfSlot.tscn" id="9_gfqsq"]
 [ext_resource type="PackedScene" uid="uid://c1b7r3mdk7q54" path="res://GrabSlot.tscn" id="10_5kb5e"]
 [ext_resource type="PackedScene" uid="uid://ci87co87lm155" path="res://inventory/ToolsInventory.tscn" id="10_t6s3y"]
+[ext_resource type="PackedScene" uid="uid://b8iki5hc8c177" path="res://inventory/ProductsInventory.tscn" id="13_yk8kt"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_10m38"]
 bg_color = Color(0.368627, 0.454902, 0.776471, 1)
@@ -36,10 +35,10 @@ tools_inventory_data = ExtResource("6_l3v0l")
 
 [node name="DayNum" type="Label" parent="UI/InventoryInterface"]
 layout_mode = 0
-offset_left = 2816.0
-offset_top = 1884.0
-offset_right = 3200.0
-offset_bottom = 1997.0
+offset_left = 2845.0
+offset_top = 1960.0
+offset_right = 3229.0
+offset_bottom = 2073.0
 theme_override_font_sizes/font_size = 80
 text = "Day: 0"
 
@@ -49,7 +48,6 @@ offset_left = 153.0
 offset_top = 171.0
 offset_right = 761.0
 offset_bottom = 1067.0
-slot_scene = ExtResource("5_py25n")
 
 [node name="PotsInventory" parent="UI/InventoryInterface" instance=ExtResource("1_occea")]
 layout_mode = 0
@@ -57,7 +55,6 @@ offset_left = 160.0
 offset_top = 1144.0
 offset_right = 768.0
 offset_bottom = 2040.0
-slot_scene = ExtResource("5_py25n")
 
 [node name="ShelfInventory" parent="UI/InventoryInterface" instance=ExtResource("8_c0pgr")]
 layout_mode = 0
@@ -65,7 +62,6 @@ offset_left = 1007.0
 offset_top = 197.0
 offset_right = 2435.0
 offset_bottom = 1757.0
-slot_scene = ExtResource("9_gfqsq")
 
 [node name="ToolsInventory" parent="UI/InventoryInterface" instance=ExtResource("10_t6s3y")]
 layout_mode = 0
@@ -73,27 +69,33 @@ offset_left = 1110.0
 offset_top = 1789.0
 offset_right = 2294.0
 offset_bottom = 2109.0
-slot_scene = ExtResource("5_py25n")
-
-[node name="GrabSlot" parent="UI/InventoryInterface" instance=ExtResource("10_5kb5e")]
-visible = false
 
 [node name="NextDayButton" type="Button" parent="UI/InventoryInterface"]
 layout_mode = 0
-offset_left = 3220.0
-offset_top = 1847.0
-offset_right = 3692.0
-offset_bottom = 2024.0
+offset_left = 3234.0
+offset_top = 1923.0
+offset_right = 3706.0
+offset_bottom = 2100.0
 theme_override_font_sizes/font_size = 80
 text = "NEXT DAY"
 
 [node name="WaterTankBar" type="ProgressBar" parent="UI/InventoryInterface"]
 layout_mode = 0
-offset_left = 2531.0
-offset_top = 214.0
-offset_right = 2911.0
-offset_bottom = 698.0
+offset_left = 2469.0
+offset_top = 181.0
+offset_right = 2849.0
+offset_bottom = 665.0
 theme_override_styles/fill = SubResource("StyleBoxFlat_10m38")
 value = 44.0
 fill_mode = 3
 show_percentage = false
+
+[node name="ProductsInventory" parent="UI/InventoryInterface" instance=ExtResource("13_yk8kt")]
+layout_mode = 0
+offset_left = 2875.0
+offset_top = 131.0
+offset_right = 3755.0
+offset_bottom = 1891.0
+
+[node name="GrabSlot" parent="UI/InventoryInterface" instance=ExtResource("10_5kb5e")]
+visible = false

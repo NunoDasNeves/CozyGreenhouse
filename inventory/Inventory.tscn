@@ -10,11 +10,13 @@ corner_radius_top_right = 64
 corner_radius_bottom_right = 64
 corner_radius_bottom_left = 64
 
-[node name="Inventory" type="PanelContainer"]
+[node name="Inventory" type="PanelContainer" node_paths=PackedStringArray("item_grid")]
 offset_right = 40.0
 offset_bottom = 40.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_dj4j5")
 script = ExtResource("1_ixmn3")
+slot_scene = ExtResource("1_7wyof")
+item_grid = NodePath("MarginContainer/ItemGrid")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
