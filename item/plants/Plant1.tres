@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="PlantItemData" load_steps=9 format=3 uid="uid://b8mtmgo1yeq3h"]
 
-[ext_resource type="Script" path="res://item/plants/PlantFood.gd" id="1_6eih6"]
+[ext_resource type="Script" path="res://item/PlantFood.gd" id="1_6eih6"]
 [ext_resource type="Script" path="res://item/PlantItemData.gd" id="1_egqsv"]
 [ext_resource type="Texture2D" uid="uid://berdu0xp4jkpa" path="res://item/plants/plant1_mature.png" id="2_11oqh"]
 [ext_resource type="PackedScene" uid="uid://cf27wt1xakpnq" path="res://item/plants/Plant1.tscn" id="3_7dt1m"]
@@ -28,7 +28,7 @@ bad_days_til_death = -1
 script = ExtResource("1_6eih6")
 min_max_range = Vector2(0, 100)
 happy_range = Vector2(0, 100)
-eat_per_day = 0.0
+eat_per_day = 5.0
 happy_fruit_factor = 1.0
 bad_fruit_factor = 0.0
 bad_days_til_death = -1

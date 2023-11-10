@@ -4,8 +4,11 @@ class_name InventoryInterface
 var grabbed_slot_data: SlotData
 var grabbed_slot_inventory_data: InventoryData
 var grabbed_slot_index: int
+var curr_day: int
 
+@onready var next_day_button: Button = $NextDayButton
 @onready var grab_slot: Node2D = $GrabSlot
+@onready var day_num: Label = $DayNum
 
 @onready var seed_inventory: Inventory = $SeedInventory
 @onready var shelf_inventory: Inventory = $ShelfInventory
@@ -18,6 +21,8 @@ var grabbed_slot_index: int
 @export var tools_inventory_data: RackInventoryData
 
 func _ready() -> void:
+	curr_day = 0
+	next_day_button.button_down.connect(next_day)
 	add_inventory(seed_inventory, seed_inventory_data)
 	add_inventory(shelf_inventory, shelf_inventory_data)
 	add_inventory(pots_inventory, pot_inventory_data)
@@ -65,3 +70,19 @@ func update_grabbed_slot() -> void:
 		process_grabbed_slot()
 	else:
 		grab_slot.hide()
+
+func next_day() -> void:
+	curr_day += 1
+	day_num.text = "Day: %s" % curr_day
+	for i in shelf_inventory_data.slot_datas.size():
+		var slot_data: SlotData = shelf_inventory_data.slot_datas[i]
+		if not slot_data:
+			continue
+		var plant_data := slot_data.item_data as PlantItemData
+		if not plant_data:
+			continue
+		plant_data.light.next_day()
+		plant_data.water.next_day()
+		plant_data.fertilizer.next_day()
+		shelf_inventory_data.inventory_updated.emit(i, slot_data)
+		

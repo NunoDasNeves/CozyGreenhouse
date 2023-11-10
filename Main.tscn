@@ -31,6 +31,15 @@ shelf_inventory_data = ExtResource("5_57mvv")
 pot_inventory_data = ExtResource("5_0k1wm")
 tools_inventory_data = ExtResource("6_l3v0l")
 
+[node name="DayNum" type="Label" parent="UI/InventoryInterface"]
+layout_mode = 0
+offset_left = 2816.0
+offset_top = 1884.0
+offset_right = 3200.0
+offset_bottom = 1997.0
+theme_override_font_sizes/font_size = 80
+text = "Day: 0"
+
 [node name="SeedInventory" parent="UI/InventoryInterface" instance=ExtResource("1_occea")]
 layout_mode = 0
 offset_left = 153.0
@@ -65,3 +74,12 @@ slot_scene = ExtResource("5_py25n")
 
 [node name="GrabSlot" parent="UI/InventoryInterface" instance=ExtResource("10_5kb5e")]
 visible = false
+
+[node name="NextDayButton" type="Button" parent="UI/InventoryInterface"]
+layout_mode = 0
+offset_left = 3220.0
+offset_top = 1847.0
+offset_right = 3692.0
+offset_bottom = 2024.0
+theme_override_font_sizes/font_size = 80
+text = "NEXT DAY"

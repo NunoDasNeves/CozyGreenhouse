@@ -21,4 +21,7 @@ var pot_item_data: RackItemData
 static func create_from_seed(seed_data: SeedItemData, pot_data: RackItemData) -> PlantItemData:
 	var plant_data : PlantItemData = seed_data.plant.duplicate()
 	plant_data.pot_item_data = pot_data
+	plant_data.light = plant_data.light.duplicate()
+	plant_data.water = plant_data.water.duplicate()
+	plant_data.fertilizer = plant_data.fertilizer.duplicate()
 	return plant_data
