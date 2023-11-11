@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://cf27wt1xakpnq"]
 
 [ext_resource type="Script" path="res://item/PlantItemScene.gd" id="1_i8hj5"]
-[ext_resource type="Texture2D" uid="uid://6gei0a8n81l2" path="res://item/plants/plant1_young.png" id="2_a5vg8"]
-[ext_resource type="Texture2D" uid="uid://berdu0xp4jkpa" path="res://item/plants/plant1_mature.png" id="3_svvev"]
+[ext_resource type="Texture2D" uid="uid://6gei0a8n81l2" path="res://item/plants/MoonPlantYoung.png" id="2_yu2xh"]
+[ext_resource type="Texture2D" uid="uid://58472iewsi0x" path="res://item/plants/MoonPlantMature.png" id="3_kmb8t"]
 [ext_resource type="Texture2D" uid="uid://brvy27s6rqef0" path="res://item/pots/pot1.png" id="4_fd8g1"]
-[ext_resource type="Texture2D" uid="uid://emygis8ifxtr" path="res://icon.svg" id="5_1ksba"]
+[ext_resource type="Texture2D" uid="uid://cppespyw4o1hs" path="res://item/fruits/MoonFruit.png" id="5_rdmva"]
 
 [node name="Plant" type="Node2D"]
 scale = Vector2(0.18941, 0.18941)
@@ -13,11 +13,11 @@ script = ExtResource("1_i8hj5")
 [node name="PlantSpriteYoung" type="Sprite2D" parent="."]
 visible = false
 position = Vector2(2.08165e-12, -855.288)
-texture = ExtResource("2_a5vg8")
+texture = ExtResource("2_yu2xh")
 
 [node name="PlantSpriteMature" type="Sprite2D" parent="."]
 position = Vector2(0, -1224.86)
-texture = ExtResource("3_svvev")
+texture = ExtResource("3_kmb8t")
 
 [node name="PotSprite" type="Sprite2D" parent="."]
 position = Vector2(2.08165e-12, 2.08165e-12)
@@ -27,19 +27,19 @@ texture = ExtResource("4_fd8g1")
 [node name="Fruits" type="Node2D" parent="."]
 
 [node name="Icon" type="Sprite2D" parent="Fruits"]
-position = Vector2(-137.268, -1367.4)
+position = Vector2(-116.15, -1335.73)
 rotation = 0.610739
-scale = Vector2(2.70585, 2.70585)
-texture = ExtResource("5_1ksba")
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_rdmva")
 
 [node name="Icon2" type="Sprite2D" parent="Fruits"]
-position = Vector2(195.343, -923.922)
+position = Vector2(190.064, -918.642)
 rotation = 0.176176
-scale = Vector2(2.70585, 2.70585)
-texture = ExtResource("5_1ksba")
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_rdmva")
 
 [node name="Icon3" type="Sprite2D" parent="Fruits"]
-position = Vector2(-327.332, -601.869)
-rotation = 1.01554
-scale = Vector2(2.70585, 2.70585)
-texture = ExtResource("5_1ksba")
+position = Vector2(-253.418, -707.46)
+rotation = 0.332886
+scale = Vector2(-0.5, 0.5)
+texture = ExtResource("5_rdmva")

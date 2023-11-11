@@ -3,9 +3,9 @@
 [ext_resource type="Script" path="res://item/PlantFood.gd" id="1_6eih6"]
 [ext_resource type="Script" path="res://item/PlantItemData.gd" id="1_egqsv"]
 [ext_resource type="Resource" uid="uid://dk8us7i65t6kj" path="res://item/fruits/fruit1.tres" id="2_1ta85"]
-[ext_resource type="Texture2D" uid="uid://berdu0xp4jkpa" path="res://item/plants/plant1_mature.png" id="2_11oqh"]
+[ext_resource type="Texture2D" uid="uid://58472iewsi0x" path="res://item/plants/MoonPlantMature.png" id="3_3qia8"]
 [ext_resource type="PackedScene" uid="uid://cf27wt1xakpnq" path="res://item/plants/Plant1.tscn" id="3_7dt1m"]
-[ext_resource type="Texture2D" uid="uid://6gei0a8n81l2" path="res://item/plants/plant1_young.png" id="4_8lts4"]
+[ext_resource type="Texture2D" uid="uid://6gei0a8n81l2" path="res://item/plants/MoonPlantYoung.png" id="6_5uiip"]
 
 [sub_resource type="Resource" id="Resource_tqpg0"]
 script = ExtResource("1_6eih6")
@@ -45,8 +45,8 @@ bad_days_til_death = 0
 
 [resource]
 script = ExtResource("1_egqsv")
-young_texture = ExtResource("4_8lts4")
-mature_texture = ExtResource("2_11oqh")
+young_texture = ExtResource("6_5uiip")
+mature_texture = ExtResource("3_3qia8")
 light = SubResource("Resource_77uus")
 water = SubResource("Resource_nnkyw")
 fertilizer = SubResource("Resource_tqpg0")

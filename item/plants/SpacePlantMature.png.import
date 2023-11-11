@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bb8ok53jj6ha1"
-path="res://.godot/imported/plant2_young.png-293b9c608eb1b6a0cda2944cdc8b1e92.ctex"
+uid="uid://cpvvfq300xyao"
+path="res://.godot/imported/SpacePlantMature.png-141c898cf92093c4b6276812cc26785b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://item/plants/plant2_young.png"
-dest_files=["res://.godot/imported/plant2_young.png-293b9c608eb1b6a0cda2944cdc8b1e92.ctex"]
+source_file="res://item/plants/SpacePlantMature.png"
+dest_files=["res://.godot/imported/SpacePlantMature.png-141c898cf92093c4b6276812cc26785b.ctex"]
 
 [params]
 

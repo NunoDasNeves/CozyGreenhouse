@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c7ijvac5x1xal"
-path="res://.godot/imported/plant2_mature.png-aea5baf3b98a042706fa8477b7c616df.ctex"
+uid="uid://bb8ok53jj6ha1"
+path="res://.godot/imported/GalaxyFlowerYoung.png-e4010c2fc4484c5cd42cf1e7ce52681a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://item/plants/plant2_mature.png"
-dest_files=["res://.godot/imported/plant2_mature.png-aea5baf3b98a042706fa8477b7c616df.ctex"]
+source_file="res://item/plants/GalaxyFlowerYoung.png"
+dest_files=["res://.godot/imported/GalaxyFlowerYoung.png-e4010c2fc4484c5cd42cf1e7ce52681a.ctex"]
 
 [params]
 
