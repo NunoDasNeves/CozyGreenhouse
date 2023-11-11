@@ -75,11 +75,13 @@ func update_grabbed_slot() -> void:
 		grab_slot.hide()
 
 func update_water_tank() -> void:
+	var old_water_level: float = water_tank_bar.value
 	water_tank_bar.max_value = Global.max_water_tank_level
 	water_tank_bar.value = Global.water_tank_level
-	var grab_scene: Node2D = grab_slot.get_child(0)
-	if grab_scene and grab_scene is WateringCanScene:
-		(grab_scene as WateringCanScene).play_anim()
+	if old_water_level > 0:
+		var grab_scene: Node2D = grab_slot.get_child(0)
+		if grab_scene and grab_scene is WateringCanScene:
+			(grab_scene as WateringCanScene).play_anim()
 
 func next_day() -> void:
 	Global.next_day()
