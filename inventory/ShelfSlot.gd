@@ -9,6 +9,11 @@ class_name ShelfSlot
 @onready var water: Node2D = $Water
 @onready var fertilizer: Node2D = $Fertilizer
 
+@export var happy_bar_stylebox_fill: StyleBoxFlat
+@export var bad_bar_stylebox_fill: StyleBoxFlat
+@export var happy_bar_stylebox_background: StyleBoxFlat
+@export var bad_bar_stylebox_background: StyleBoxFlat
+
 func set_slot_data(slot_data: SlotData) -> void:
 	for child in container.get_children():
 		child.queue_free()
@@ -31,6 +36,12 @@ func set_slot_data(slot_data: SlotData) -> void:
 		water_bar.value = plant_data.water.curr_val
 		water_low.position.x = plant_data.water.happy_min / plant_data.water.max_val * water_bar.size.x
 		water_high.position.x = plant_data.water.happy_max / plant_data.water.max_val * water_bar.size.x
+		if plant_data.water.in_happy_range():
+			water_bar.add_theme_stylebox_override("background", happy_bar_stylebox_background)
+			water_bar.add_theme_stylebox_override("fill", happy_bar_stylebox_fill)
+		else:
+			water_bar.add_theme_stylebox_override("background", bad_bar_stylebox_background)
+			water_bar.add_theme_stylebox_override("fill", bad_bar_stylebox_fill)
 		fertilizer_bar.value = plant_data.fertilizer.curr_val / 100 * 5
 		water.show();
 		fertilizer.show();

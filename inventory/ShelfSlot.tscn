@@ -1,7 +1,19 @@
-[gd_scene load_steps=5 format=3 uid="uid://ueca5wmtav1v"]
+[gd_scene load_steps=9 format=3 uid="uid://ueca5wmtav1v"]
 
 [ext_resource type="Script" path="res://inventory/ShelfSlot.gd" id="1_4bqis"]
 [ext_resource type="PackedScene" uid="uid://d346bhoh8up1g" path="res://item/plants/Plant2.tscn" id="2_nv2k6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g2ttx"]
+bg_color = Color(0.0313726, 0.635294, 0.94902, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cesdr"]
+bg_color = Color(0.713726, 0.501961, 0.815686, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6g3ss"]
+bg_color = Color(0.254902, 0.254902, 0.254902, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lb03i"]
+bg_color = Color(0.435294, 0.203922, 0.215686, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_85f3j"]
 bg_color = Color(0.27451, 0.247059, 0.203922, 1)
@@ -14,6 +26,10 @@ custom_minimum_size = Vector2(350, 512)
 offset_right = 350.0
 offset_bottom = 512.0
 script = ExtResource("1_4bqis")
+happy_bar_stylebox_fill = SubResource("StyleBoxFlat_g2ttx")
+bad_bar_stylebox_fill = SubResource("StyleBoxFlat_cesdr")
+happy_bar_stylebox_background = SubResource("StyleBoxFlat_6g3ss")
+bad_bar_stylebox_background = SubResource("StyleBoxFlat_lb03i")
 
 [node name="Container" type="Node2D" parent="."]
 position = Vector2(178, 390)
@@ -36,7 +52,6 @@ layout_mode = 0
 offset_right = 259.0
 offset_bottom = 32.0
 mouse_filter = 1
-theme_override_constants/outline_size = 0
 theme_override_styles/background = SubResource("StyleBoxFlat_85f3j")
 theme_override_styles/fill = SubResource("StyleBoxFlat_g50m2")
 value = 60.0
