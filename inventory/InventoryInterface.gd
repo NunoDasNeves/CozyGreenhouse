@@ -50,11 +50,13 @@ func on_inventory_interact(inventory_data: InventoryData, index: int, button: in
 	var old_grabbed_slot_data = grabbed_slot_data
 	grabbed_slot_data = inventory_data.slot_interact(grabbed_slot_data, index, button)
 
-	if grabbed_slot_data != old_grabbed_slot_data and button == MOUSE_BUTTON_LEFT:
-		grabbed_slot_inventory_data = inventory_data
-		grabbed_slot_index = index
+	if button == MOUSE_BUTTON_LEFT:
+		if grabbed_slot_data != old_grabbed_slot_data:
+			grabbed_slot_inventory_data = inventory_data
+			grabbed_slot_index = index
 
-	update_grabbed_slot()
+	if grabbed_slot_data != old_grabbed_slot_data:
+		update_grabbed_slot()
 
 func update_grabbed_slot() -> void:
 	if grabbed_slot_data:
@@ -63,7 +65,7 @@ func update_grabbed_slot() -> void:
 		var item_data := grabbed_slot_data.item_data
 		var node := item_data.scene.instantiate() as Node2D
 		grab_slot.add_child(node)
-		if item_data as RackItemData: # pots are RackItemData
+		if node as RackItemScene: # pots are RackItemData
 			(node as RackItemScene).set_item_data(item_data)
 		elif item_data as PlantItemData:
 			(node as PlantItemScene).set_item_data(item_data)
@@ -75,6 +77,9 @@ func update_grabbed_slot() -> void:
 func update_water_tank() -> void:
 	water_tank_bar.max_value = Global.max_water_tank_level
 	water_tank_bar.value = Global.water_tank_level
+	var grab_scene: Node2D = grab_slot.get_child(0)
+	if grab_scene and grab_scene is WateringCanScene:
+		(grab_scene as WateringCanScene).play_anim()
 
 func next_day() -> void:
 	Global.next_day()

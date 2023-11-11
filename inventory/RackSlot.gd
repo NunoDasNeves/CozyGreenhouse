@@ -19,7 +19,7 @@ func set_slot_data(slot_data: SlotData) -> void:
 
 	var node := item_data.scene.instantiate() as Node2D
 	container.add_child(node)
-	if item_data as RackItemData: # pots are RackItemData
+	if node is RackItemScene:
 		(node as RackItemScene).set_item_data(item_data)
 
 	if slot_data.quantity == 0:

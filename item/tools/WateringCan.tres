@@ -1,15 +1,13 @@
-[gd_resource type="Resource" script_class="ToolItemData" load_steps=4 format=3 uid="uid://00dhhvalh25c"]
+[gd_resource type="Resource" script_class="ToolItemData" load_steps=3 format=3 uid="uid://00dhhvalh25c"]
 
+[ext_resource type="PackedScene" uid="uid://no5s3qiklfpc" path="res://item/tools/WateringCan.tscn" id="1_8a0df"]
 [ext_resource type="Script" path="res://item/ToolItemData.gd" id="1_q2grx"]
-[ext_resource type="Texture2D" uid="uid://emygis8ifxtr" path="res://icon.svg" id="1_txnos"]
-[ext_resource type="PackedScene" uid="uid://bqsux3cuqa7i2" path="res://item/tools/Tool.tscn" id="2_16frs"]
 
 [resource]
 script = ExtResource("1_q2grx")
 tool_type = 0
-rack_item_texture = ExtResource("1_txnos")
 show_1x_quantity = false
 name = "Watering Can"
 description = "Use it to water stuff!"
-scene = ExtResource("2_16frs")
+scene = ExtResource("1_8a0df")
 type = 4

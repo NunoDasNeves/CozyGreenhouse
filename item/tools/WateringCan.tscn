@@ -1,0 +1,76 @@
+[gd_scene load_steps=12 format=3 uid="uid://no5s3qiklfpc"]
+
+[ext_resource type="Script" path="res://item/WateringCanScene.gd" id="1_wgv04"]
+[ext_resource type="Texture2D" uid="uid://deujbnbxbm1bt" path="res://item/tools/watering_can.png" id="3_5ivv1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7vkh3"]
+atlas = ExtResource("3_5ivv1")
+region = Rect2(0, 0, 2048, 2048)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fc7u1"]
+atlas = ExtResource("3_5ivv1")
+region = Rect2(2048, 0, 2048, 2048)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i7x8d"]
+atlas = ExtResource("3_5ivv1")
+region = Rect2(4096, 0, 2048, 2048)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hcm00"]
+atlas = ExtResource("3_5ivv1")
+region = Rect2(6144, 0, 2048, 2048)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_msigk"]
+atlas = ExtResource("3_5ivv1")
+region = Rect2(8192, 0, 2048, 2048)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wqshr"]
+atlas = ExtResource("3_5ivv1")
+region = Rect2(10240, 0, 2048, 2048)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sipfu"]
+atlas = ExtResource("3_5ivv1")
+region = Rect2(12288, 0, 2048, 2048)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2cdn4"]
+atlas = ExtResource("3_5ivv1")
+region = Rect2(14336, 0, 2048, 2048)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2tlox"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7vkh3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fc7u1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i7x8d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hcm00")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_msigk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wqshr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sipfu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2cdn4")
+}],
+"loop": false,
+"name": &"default",
+"speed": 30.0
+}]
+
+[node name="Tool" type="Node2D"]
+scale = Vector2(0.18941, 0.18941)
+script = ExtResource("1_wgv04")
+
+[node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(-158.387, 221.741)
+sprite_frames = SubResource("SpriteFrames_2tlox")
