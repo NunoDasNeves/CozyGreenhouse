@@ -41,9 +41,10 @@ func _physics_process(delta: float) -> void:
 	process_grabbed_slot()
 	if Input.is_action_just_pressed("rmb"):
 		if grabbed_slot_data:
-			grabbed_slot_inventory_data.drop_slot_data(grabbed_slot_data, grabbed_slot_index)
-			grabbed_slot_data = null
-			grabbed_slot_inventory_data = null
+			var old_grabbed_slot_data = grabbed_slot_data
+			grabbed_slot_data = grabbed_slot_inventory_data.drop_slot_data(grabbed_slot_data, grabbed_slot_index)
+			if not grabbed_slot_data:
+				grabbed_slot_inventory_data = null
 			update_grabbed_slot()
 
 func on_inventory_interact(inventory_data: InventoryData, index: int, button: int) -> void:

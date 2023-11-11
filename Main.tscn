@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://stabv7nin058"]
+[gd_scene load_steps=14 format=3 uid="uid://stabv7nin058"]
 
 [ext_resource type="Script" path="res://Main.gd" id="1_b7ej4"]
 [ext_resource type="PackedScene" uid="uid://0alw4cfw4g22" path="res://inventory/Inventory.tscn" id="1_occea"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://b40qsq404h2qt" path="res://inventory/ShelfInventory.tscn" id="8_c0pgr"]
 [ext_resource type="PackedScene" uid="uid://c1b7r3mdk7q54" path="res://GrabSlot.tscn" id="10_5kb5e"]
 [ext_resource type="PackedScene" uid="uid://ci87co87lm155" path="res://inventory/ToolsInventory.tscn" id="10_t6s3y"]
+[ext_resource type="Texture2D" uid="uid://dnw0mdguv067e" path="res://CompostBin.png" id="12_tetco"]
 [ext_resource type="PackedScene" uid="uid://b8iki5hc8c177" path="res://inventory/ProductsInventory.tscn" id="13_yk8kt"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_10m38"]
@@ -104,6 +105,19 @@ offset_top = 1115.0
 offset_right = 3745.0
 offset_bottom = 2115.0
 item_grid = NodePath("../SellInventory/MarginContainer/ScrollContainer/MarginContainer/ItemGrid")
+
+[node name="TextureButton" type="TextureButton" parent="UI/InventoryInterface"]
+layout_mode = 0
+offset_left = 2297.0
+offset_top = 1175.0
+offset_right = 4345.0
+offset_bottom = 3223.0
+scale = Vector2(0.284111, 0.284111)
+texture_normal = ExtResource("12_tetco")
+texture_pressed = ExtResource("12_tetco")
+texture_hover = ExtResource("12_tetco")
+texture_disabled = ExtResource("12_tetco")
+texture_focused = ExtResource("12_tetco")
 
 [node name="GrabSlot" parent="UI/InventoryInterface" instance=ExtResource("10_5kb5e")]
 visible = false
