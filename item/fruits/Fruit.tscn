@@ -3,11 +3,13 @@
 [ext_resource type="Texture2D" uid="uid://cppespyw4o1hs" path="res://item/fruits/MoonFruit.png" id="2_ved2b"]
 [ext_resource type="Script" path="res://item/ProductItemScene.gd" id="3_lam6k"]
 
-[node name="Fruit" type="Node2D"]
+[node name="Fruit" type="Node2D" node_paths=PackedStringArray("sprite_2d")]
 scale = Vector2(0.18941, 0.18941)
 script = ExtResource("3_lam6k")
+sprite_2d = NodePath("Sprite")
 
-[node name="Sprite" type="Sprite2D" parent="."]
+[node name="Sprite" type="Sprite2D" parent="." node_paths=PackedStringArray("sprite_2d")]
 position = Vector2(2.08165e-12, 2.08165e-12)
 texture = ExtResource("2_ved2b")
 script = ExtResource("3_lam6k")
+sprite_2d = NodePath(".")

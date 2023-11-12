@@ -1,7 +1,7 @@
-extends Node2D
+extends ItemScene
 class_name ProductItemScene
 
-@onready var sprite_2d: Sprite2D = $Sprite
+@export var sprite_2d: Sprite2D
 
 func set_item_data(item_data: ItemData) -> void:
 	var product_data := item_data as ProductItemData

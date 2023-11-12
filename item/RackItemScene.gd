@@ -1,4 +1,4 @@
-extends Node2D
+extends ItemScene
 class_name RackItemScene
 
 @onready var sprite_2d: Sprite2D = $Sprite

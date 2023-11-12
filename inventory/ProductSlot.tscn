@@ -1,7 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://buyj6n0hvqkgb"]
+[gd_scene load_steps=6 format=3 uid="uid://buyj6n0hvqkgb"]
 
 [ext_resource type="Script" path="res://inventory/ProductSlot.gd" id="1_bggor"]
-[ext_resource type="PackedScene" uid="uid://d1els23yd82ma" path="res://item/seeds/Seed.tscn" id="2_hu06g"]
+[ext_resource type="PackedScene" uid="uid://dxavb0e6jog0m" path="res://item/fruits/Fruit.tscn" id="2_8st56"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h2ouq"]
 bg_color = Color(0.203922, 0.219608, 0.286275, 1)
@@ -11,13 +11,20 @@ corner_radius_bottom_right = 32
 corner_radius_bottom_left = 32
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2sodo"]
-bg_color = Color(0.415686, 0.423529, 0.588235, 1)
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
+bg_color = Color(0.529412, 0.537255, 0.701961, 1)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
 
-[node name="Slot" type="PanelContainer" node_paths=PackedStringArray("container", "quantity_label", "selected_panel")]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lmuw7"]
+bg_color = Color(0.298039, 0.317647, 0.407843, 1)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+
+[node name="Slot" type="PanelContainer" node_paths=PackedStringArray("container", "quantity_label", "selected_vis", "unselected_vis")]
 custom_minimum_size = Vector2(256, 256)
 offset_right = 40.0
 offset_bottom = 40.0
@@ -25,25 +32,57 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_h2ouq")
 script = ExtResource("1_bggor")
 container = NodePath("Container")
 quantity_label = NodePath("QuantityLabel")
-selected_panel = NodePath("MarginContainer/Panel")
+selected_vis = NodePath("Selected")
+unselected_vis = NodePath("Unselected")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="Selected" type="Control" parent="."]
 layout_mode = 2
+mouse_filter = 1
+
+[node name="Panel" type="Panel" parent="Selected"]
+layout_mode = 2
+offset_right = 256.0
+offset_bottom = 256.0
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_2sodo")
+
+[node name="MarginContainer" type="MarginContainer" parent="Selected"]
+layout_mode = 2
+offset_right = 256.0
+offset_bottom = 256.0
 theme_override_constants/margin_left = 25
 theme_override_constants/margin_top = 25
 theme_override_constants/margin_right = 25
 theme_override_constants/margin_bottom = 25
 
-[node name="Panel" type="Panel" parent="MarginContainer"]
-visible = false
+[node name="Panel2" type="Panel" parent="Selected/MarginContainer"]
 layout_mode = 2
 mouse_filter = 1
-theme_override_styles/panel = SubResource("StyleBoxFlat_2sodo")
+theme_override_styles/panel = SubResource("StyleBoxFlat_h2ouq")
+
+[node name="Unselected" type="Control" parent="."]
+layout_mode = 2
+mouse_filter = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Unselected"]
+layout_mode = 0
+offset_right = 256.0
+offset_bottom = 256.0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Panel2" type="Panel" parent="Unselected/MarginContainer"]
+layout_mode = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_lmuw7")
 
 [node name="Container" type="Node2D" parent="."]
 position = Vector2(128, 128)
 
-[node name="SeedItem" parent="Container" instance=ExtResource("2_hu06g")]
+[node name="Fruit" parent="Container" instance=ExtResource("2_8st56")]
+position = Vector2(2.08165e-12, 2.08165e-12)
 
 [node name="QuantityLabel" type="Label" parent="."]
 layout_mode = 2

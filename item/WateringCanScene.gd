@@ -1,4 +1,4 @@
-extends Node2D
+extends ItemScene
 class_name WateringCanScene
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite

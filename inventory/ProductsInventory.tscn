@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://b8iki5hc8c177"]
+[gd_scene load_steps=9 format=3 uid="uid://b8iki5hc8c177"]
 
 [ext_resource type="Script" path="res://inventory/Inventory.gd" id="1_tam3m"]
 [ext_resource type="PackedScene" uid="uid://buyj6n0hvqkgb" path="res://inventory/ProductSlot.tscn" id="3_hpdid"]
@@ -10,26 +10,82 @@ corner_radius_top_right = 64
 corner_radius_bottom_right = 64
 corner_radius_bottom_left = 64
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jrhq1"]
+bg_color = Color(0.188235, 0.439216, 0.611765, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vlxlm"]
+bg_color = Color(0.364706, 0.662745, 0.866667, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ky5mk"]
+bg_color = Color(0.121569, 0.309804, 0.439216, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dj2fd"]
+bg_color = Color(0.368627, 0.368627, 0.368627, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cdhgc"]
+bg_color = Color(0.188235, 0.439216, 0.611765, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.847059, 0.847059, 0.847059, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
 [node name="Inventory" type="PanelContainer" node_paths=PackedStringArray("item_grid")]
 offset_right = 664.0
-offset_bottom = 1000.0
+offset_bottom = 1138.0
 mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_dj4j5")
 script = ExtResource("1_tam3m")
 slot_scene = ExtResource("3_hpdid")
-item_grid = NodePath("MarginContainer/ScrollContainer/MarginContainer/ItemGrid")
+item_grid = NodePath("VBoxContainer/MarginContainer/ScrollContainer/MarginContainer/ItemGrid")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="MarginContainer3" type="MarginContainer" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 60
+theme_override_constants/margin_top = 40
 theme_override_constants/margin_right = 20
-theme_override_constants/margin_bottom = 60
 
-[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer"]
+[node name="Help text" type="Label" parent="VBoxContainer/MarginContainer3"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Hold down to select items"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/MarginContainer"]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/ScrollContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/MarginContainer/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -38,32 +94,49 @@ theme_override_constants/margin_top = 32
 theme_override_constants/margin_right = 32
 theme_override_constants/margin_bottom = 32
 
-[node name="ItemGrid" type="GridContainer" parent="MarginContainer/ScrollContainer/MarginContainer"]
+[node name="ItemGrid" type="GridContainer" parent="VBoxContainer/MarginContainer/ScrollContainer/MarginContainer"]
 layout_mode = 2
 theme_override_constants/h_separation = 32
 theme_override_constants/v_separation = 32
 columns = 2
 
-[node name="Slot" parent="MarginContainer/ScrollContainer/MarginContainer/ItemGrid" instance=ExtResource("3_hpdid")]
+[node name="Slot" parent="VBoxContainer/MarginContainer/ScrollContainer/MarginContainer/ItemGrid" instance=ExtResource("3_hpdid")]
 layout_mode = 2
 
-[node name="Slot2" parent="MarginContainer/ScrollContainer/MarginContainer/ItemGrid" instance=ExtResource("3_hpdid")]
+[node name="Slot2" parent="VBoxContainer/MarginContainer/ScrollContainer/MarginContainer/ItemGrid" instance=ExtResource("3_hpdid")]
 layout_mode = 2
 
-[node name="Slot3" parent="MarginContainer/ScrollContainer/MarginContainer/ItemGrid" instance=ExtResource("3_hpdid")]
+[node name="Slot3" parent="VBoxContainer/MarginContainer/ScrollContainer/MarginContainer/ItemGrid" instance=ExtResource("3_hpdid")]
 layout_mode = 2
 
-[node name="Slot4" parent="MarginContainer/ScrollContainer/MarginContainer/ItemGrid" instance=ExtResource("3_hpdid")]
+[node name="Slot4" parent="VBoxContainer/MarginContainer/ScrollContainer/MarginContainer/ItemGrid" instance=ExtResource("3_hpdid")]
 layout_mode = 2
 
-[node name="Slot5" parent="MarginContainer/ScrollContainer/MarginContainer/ItemGrid" instance=ExtResource("3_hpdid")]
+[node name="Slot5" parent="VBoxContainer/MarginContainer/ScrollContainer/MarginContainer/ItemGrid" instance=ExtResource("3_hpdid")]
 layout_mode = 2
 
-[node name="Slot6" parent="MarginContainer/ScrollContainer/MarginContainer/ItemGrid" instance=ExtResource("3_hpdid")]
+[node name="Slot6" parent="VBoxContainer/MarginContainer/ScrollContainer/MarginContainer/ItemGrid" instance=ExtResource("3_hpdid")]
 layout_mode = 2
 
-[node name="Slot7" parent="MarginContainer/ScrollContainer/MarginContainer/ItemGrid" instance=ExtResource("3_hpdid")]
+[node name="Slot7" parent="VBoxContainer/MarginContainer/ScrollContainer/MarginContainer/ItemGrid" instance=ExtResource("3_hpdid")]
 layout_mode = 2
 
-[node name="Slot8" parent="MarginContainer/ScrollContainer/MarginContainer/ItemGrid" instance=ExtResource("3_hpdid")]
+[node name="Slot8" parent="VBoxContainer/MarginContainer/ScrollContainer/MarginContainer/ItemGrid" instance=ExtResource("3_hpdid")]
 layout_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 190
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 190
+theme_override_constants/margin_bottom = 40
+
+[node name="Action" type="Button" parent="VBoxContainer/MarginContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_jrhq1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_vlxlm")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ky5mk")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_dj2fd")
+theme_override_styles/focus = SubResource("StyleBoxFlat_cdhgc")
+text = "Sell"

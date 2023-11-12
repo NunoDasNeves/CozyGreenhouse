@@ -1,4 +1,4 @@
-extends Node2D
+extends ItemScene
 class_name PlantItemScene
 
 @onready var plant_sprite_young: Sprite2D = $PlantSpriteYoung

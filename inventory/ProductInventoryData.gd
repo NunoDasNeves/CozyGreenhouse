@@ -2,27 +2,67 @@ extends InventoryData
 class_name ProductInventoryData
 
 var select_mode: bool = false
-var frames_held: int = 0
+var num_selected: int = 0
 
 func slot_interact(grabbed_slot_data: SlotData, index: int, action: Slot.Action) -> SlotData:
-	if action == Slot.Action.Hold:
-		return select_slot_data(index)
-	if action != Slot.Action.Click:
-		return grabbed_slot_data
-	if grabbed_slot_data:
-		return drop_slot_data(grabbed_slot_data, index)
+	if select_mode:
+		if grabbed_slot_data:
+			return grabbed_slot_data
+		match action:
+			Slot.Action.Hold:
+				return null
+			Slot.Action.Click:
+				toggle_select_slot_data(index)
+			Slot.Action.RightClick:
+				pass
 	else:
-		return grab_slot_data(index)
+		match action:
+			Slot.Action.Hold:
+				if grabbed_slot_data:
+					return grabbed_slot_data
+				select_first_slot_data(index)
+				return null
+			Slot.Action.Click:
+				if grabbed_slot_data:
+					return drop_slot_data(grabbed_slot_data, index)
+				else:
+					return grab_slot_data(index)
+			Slot.Action.RightClick:
+				pass
+	return grabbed_slot_data
 
-func select_slot_data(index: int) -> SlotData:
-	var slot_data = slot_datas[index]
-	if slot_data:
-		if slot_data.quantity_selected:
-			slot_data.quantity_selected = 0
+func toggle_select_slot_data(index: int) -> void:
+	assert(select_mode)
+	var selected_slot_data = slot_datas[index]
+	if selected_slot_data:
+		if selected_slot_data.quantity_selected:
+			selected_slot_data.quantity_selected = 0
+			num_selected -= 1
 		else:
-			slot_data.quantity_selected = 1
-		inventory_updated.emit(index, slot_data)
-	return null
+			selected_slot_data.quantity_selected = 1
+			num_selected += 1
+		if not num_selected:
+			select_mode = false
+			for i in slot_datas.size():
+				var slot_data = slot_datas[i]
+				if slot_data:
+					slot_data.select_mode = false
+					inventory_updated.emit(i, slot_data)
+		else:
+			inventory_updated.emit(index, selected_slot_data)
+
+func select_first_slot_data(index: int) -> void:
+	assert(not select_mode)
+	var selected_slot_data = slot_datas[index]
+	if selected_slot_data:
+		selected_slot_data.quantity_selected = 1
+		num_selected = 1
+		select_mode = true
+		for i in slot_datas.size():
+			var slot_data = slot_datas[i]
+			if slot_data:
+				slot_data.select_mode = true
+				inventory_updated.emit(i, slot_data)
 
 func grab_slot_data(index: int) -> SlotData:
 	var slot_data = slot_datas[index]

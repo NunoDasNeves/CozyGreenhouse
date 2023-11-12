@@ -27,10 +27,10 @@ func set_slot_data(slot_data: SlotData) -> void:
 	var item_data: ItemData = slot_data.item_data
 	var node := item_data.scene.instantiate() as Node2D
 	container.add_child(node)
-	if item_data is RackItemData: # pots are RackItemData
-		(node as RackItemScene).set_item_data(item_data)
-	elif item_data is PlantItemData:
-		(node as PlantItemScene).set_item_data(item_data)
+	var item_scene := node as ItemScene
+	assert(item_scene)
+	item_scene.set_item_data(item_data)
+	if item_data is PlantItemData:
 		var plant_data := item_data as PlantItemData
 		water_bar.max_value = plant_data.water.max_val
 		water_bar.value = plant_data.water.curr_val
