@@ -14,7 +14,7 @@ var grabbed_slot_index: int
 
 func _ready() -> void:
 	for inventory in inventories:
-		inventory.inventory_data.inventory_interact.connect(on_inventory_interact)
+		inventory.inventory_interact.connect(on_inventory_interact)
 		inventory.inventory_data.water_tank_level_updated.connect(update_water_tank)
 	update_water_tank()
 	next_day_button.button_down.connect(next_day)
@@ -25,22 +25,31 @@ func process_grabbed_slot() -> void:
 
 func _physics_process(delta: float) -> void:
 	process_grabbed_slot()
-	if Input.is_action_just_pressed("rmb"):
+
+func _input(event: InputEvent) -> void:
+	var mouse_event := event as InputEventMouseButton
+	if mouse_event and mouse_event.button_index == MOUSE_BUTTON_RIGHT:
 		if grabbed_slot_data:
 			var old_grabbed_slot_data = grabbed_slot_data
 			grabbed_slot_data = grabbed_slot_inventory_data.drop_slot_data(grabbed_slot_data, grabbed_slot_index)
 			if not grabbed_slot_data:
 				grabbed_slot_inventory_data = null
 			update_grabbed_slot()
+			accept_event()
 
-func on_inventory_interact(inventory_data: InventoryData, index: int, button: int) -> void:
+func on_inventory_interact(inventory: Inventory, index: int, action: Slot.Action) -> void:
 	var old_grabbed_slot_data = grabbed_slot_data
-	grabbed_slot_data = inventory_data.slot_interact(grabbed_slot_data, index, button)
+	var inventory_data: InventoryData = inventory.inventory_data
+	# ignore rmb if holding something - we should drop it. handle in physics process
+	if action == Slot.Action.RightClick:
+		if grabbed_slot_data:
+			return
 
-	if button == MOUSE_BUTTON_LEFT:
-		if grabbed_slot_data != old_grabbed_slot_data:
-			grabbed_slot_inventory_data = inventory_data
-			grabbed_slot_index = index
+	grabbed_slot_data = inventory_data.slot_interact(grabbed_slot_data, index, action)
+
+	if grabbed_slot_data != old_grabbed_slot_data:
+		grabbed_slot_inventory_data = inventory_data
+		grabbed_slot_index = index
 
 	if grabbed_slot_data != old_grabbed_slot_data:
 		update_grabbed_slot()

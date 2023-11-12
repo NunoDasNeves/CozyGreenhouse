@@ -2,7 +2,6 @@ extends Resource
 class_name InventoryData
 
 signal inventory_updated(index: int, item_data: ItemData)
-signal inventory_interact(inventory_data: InventoryData, index: int, button: int)
 signal water_tank_level_updated
 
 @export var slot_datas: Array[SlotData]
@@ -10,11 +9,8 @@ signal water_tank_level_updated
 func next_day():
 	pass
 
-func on_slot_clicked(index: int, button: int):
-	inventory_interact.emit(self, index, button)
-
-func slot_interact(grabbed_slot_data: SlotData, index: int, button: int) -> SlotData:
-	if button != MOUSE_BUTTON_LEFT:
+func slot_interact(grabbed_slot_data: SlotData, index: int, action: Slot.Action) -> SlotData:
+	if action != Slot.Action.Click && action != Slot.Action.Hold:
 		return grabbed_slot_data
 	if grabbed_slot_data:
 		return drop_slot_data(grabbed_slot_data, index)
