@@ -1,6 +1,17 @@
 extends InventoryData
 class_name ShelfInventoryData
 
+func next_day() -> void:
+	for i in slot_datas.size():
+		var slot_data: SlotData = slot_datas[i]
+		if not slot_data:
+			continue
+		var plant_data := slot_data.item_data as PlantItemData
+		if not plant_data:
+			continue
+		plant_data.next_day()
+		inventory_updated.emit(i, slot_data)
+
 func plant_seed(seed_data: SeedItemData, shelf_slot_index: int) -> bool:
 	if not seed_data.plant:
 		return false

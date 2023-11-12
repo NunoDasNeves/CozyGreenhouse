@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="ProductInventoryData" load_steps=2 format=3 uid="uid://djxch8jows3ky"]
+
+[ext_resource type="Script" path="res://inventory/ProductInventoryData.gd" id="1_wxbat"]
+
+[resource]
+script = ExtResource("1_wxbat")
+slot_datas = Array[Resource("res://inventory/SlotData.gd")]([null, null, null, null, null, null])

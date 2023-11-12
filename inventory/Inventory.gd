@@ -3,16 +3,24 @@ class_name Inventory
 
 @export var slot_scene: PackedScene
 @export var item_grid: GridContainer
+@export var inventory_data: InventoryData
 
-func set_inventory_data(inventory_data: InventoryData) -> void:
+func connect_and_populate() -> void:
 	inventory_data.inventory_updated.connect(update_slot)
-	populate_item_grid(inventory_data)
+	populate_item_grid()
+
+func _ready() -> void:
+	connect_and_populate()
+
+func update_inventory_data(new_inventory_data: InventoryData) -> void:
+	inventory_data = new_inventory_data
+	connect_and_populate()
 
 func update_slot(index: int, slot_data: SlotData) -> void:
 	var slot := item_grid.get_child(index) as Slot
 	slot.set_slot_data(slot_data)
 
-func populate_item_grid(inventory_data: InventoryData) -> void:
+func populate_item_grid() -> void:
 	for child in item_grid.get_children():
 		child.queue_free()
 

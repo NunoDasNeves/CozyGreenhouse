@@ -7,6 +7,9 @@ signal water_tank_level_updated
 
 @export var slot_datas: Array[SlotData]
 
+func next_day():
+	pass
+
 func on_slot_clicked(index: int, button: int):
 	inventory_interact.emit(self, index, button)
 

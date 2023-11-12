@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://stabv7nin058"]
+[gd_scene load_steps=16 format=3 uid="uid://stabv7nin058"]
 
 [ext_resource type="Script" path="res://Main.gd" id="1_b7ej4"]
 [ext_resource type="PackedScene" uid="uid://0alw4cfw4g22" path="res://inventory/Inventory.tscn" id="1_occea"]
@@ -10,6 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://b40qsq404h2qt" path="res://inventory/ShelfInventory.tscn" id="8_c0pgr"]
 [ext_resource type="PackedScene" uid="uid://c1b7r3mdk7q54" path="res://GrabSlot.tscn" id="10_5kb5e"]
 [ext_resource type="PackedScene" uid="uid://ci87co87lm155" path="res://inventory/ToolsInventory.tscn" id="10_t6s3y"]
+[ext_resource type="Resource" uid="uid://djv3x4rgek2xy" path="res://SellInventory.tres" id="11_hpr75"]
+[ext_resource type="Resource" uid="uid://djxch8jows3ky" path="res://BuyInventory.tres" id="12_spbyt"]
 [ext_resource type="Texture2D" uid="uid://dnw0mdguv067e" path="res://CompostBin.png" id="12_tetco"]
 [ext_resource type="PackedScene" uid="uid://b8iki5hc8c177" path="res://inventory/ProductsInventory.tscn" id="13_yk8kt"]
 
@@ -21,7 +23,7 @@ script = ExtResource("1_b7ej4")
 
 [node name="UI" type="CanvasLayer" parent="."]
 
-[node name="InventoryInterface" type="Control" parent="UI"]
+[node name="InventoryInterface" type="Control" parent="UI" node_paths=PackedStringArray("inventories")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -29,10 +31,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_fy0vy")
-seed_inventory_data = ExtResource("4_5vldi")
-shelf_inventory_data = ExtResource("5_57mvv")
-pot_inventory_data = ExtResource("5_0k1wm")
-tools_inventory_data = ExtResource("6_l3v0l")
+inventories = [NodePath("SeedInventory"), NodePath("PotsInventory"), NodePath("ShelfInventory"), NodePath("ToolsInventory"), NodePath("SellInventory"), NodePath("BuyInventory")]
 
 [node name="DayNum" type="Label" parent="UI/InventoryInterface"]
 layout_mode = 0
@@ -49,6 +48,7 @@ offset_left = 153.0
 offset_top = 171.0
 offset_right = 761.0
 offset_bottom = 1067.0
+inventory_data = ExtResource("4_5vldi")
 
 [node name="PotsInventory" parent="UI/InventoryInterface" instance=ExtResource("1_occea")]
 layout_mode = 0
@@ -56,6 +56,7 @@ offset_left = 160.0
 offset_top = 1144.0
 offset_right = 768.0
 offset_bottom = 2040.0
+inventory_data = ExtResource("5_0k1wm")
 
 [node name="ShelfInventory" parent="UI/InventoryInterface" instance=ExtResource("8_c0pgr")]
 layout_mode = 0
@@ -63,6 +64,7 @@ offset_left = 867.0
 offset_top = 197.0
 offset_right = 2295.0
 offset_bottom = 1757.0
+inventory_data = ExtResource("5_57mvv")
 
 [node name="ToolsInventory" parent="UI/InventoryInterface" instance=ExtResource("10_t6s3y")]
 layout_mode = 0
@@ -70,6 +72,23 @@ offset_left = 873.0
 offset_top = 1793.0
 offset_right = 2057.0
 offset_bottom = 2113.0
+inventory_data = ExtResource("6_l3v0l")
+
+[node name="SellInventory" parent="UI/InventoryInterface" instance=ExtResource("13_yk8kt")]
+layout_mode = 0
+offset_left = 2865.0
+offset_top = 71.0
+offset_right = 3529.0
+offset_bottom = 1071.0
+inventory_data = ExtResource("11_hpr75")
+
+[node name="BuyInventory" parent="UI/InventoryInterface" instance=ExtResource("13_yk8kt")]
+layout_mode = 0
+offset_left = 2865.0
+offset_top = 1115.0
+offset_right = 3529.0
+offset_bottom = 2115.0
+inventory_data = ExtResource("12_spbyt")
 
 [node name="NextDayButton" type="Button" parent="UI/InventoryInterface"]
 layout_mode = 0
@@ -90,21 +109,6 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_10m38")
 value = 44.0
 fill_mode = 3
 show_percentage = false
-
-[node name="SellInventory" parent="UI/InventoryInterface" instance=ExtResource("13_yk8kt")]
-layout_mode = 0
-offset_left = 2865.0
-offset_top = 71.0
-offset_right = 3745.0
-offset_bottom = 1071.0
-
-[node name="BuyInventory" parent="UI/InventoryInterface" node_paths=PackedStringArray("item_grid") instance=ExtResource("13_yk8kt")]
-layout_mode = 0
-offset_left = 2865.0
-offset_top = 1115.0
-offset_right = 3745.0
-offset_bottom = 2115.0
-item_grid = NodePath("../SellInventory/MarginContainer/ScrollContainer/MarginContainer/ItemGrid")
 
 [node name="TextureButton" type="TextureButton" parent="UI/InventoryInterface"]
 layout_mode = 0

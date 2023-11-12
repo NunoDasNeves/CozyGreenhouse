@@ -10,28 +10,14 @@ var grabbed_slot_index: int
 @onready var day_num: Label = $DayNum
 @onready var water_tank_bar: ProgressBar = $WaterTankBar
 
-@onready var seed_inventory: Inventory = $SeedInventory
-@onready var shelf_inventory: Inventory = $ShelfInventory
-@onready var pots_inventory: Inventory = $PotsInventory
-@onready var tools_inventory: Inventory = $ToolsInventory
-
-@export var seed_inventory_data: RackInventoryData
-@export var shelf_inventory_data: ShelfInventoryData
-@export var pot_inventory_data: RackInventoryData
-@export var tools_inventory_data: RackInventoryData
+@export var inventories: Array[Inventory]
 
 func _ready() -> void:
+	for inventory in inventories:
+		inventory.inventory_data.inventory_interact.connect(on_inventory_interact)
+		inventory.inventory_data.water_tank_level_updated.connect(update_water_tank)
 	update_water_tank()
 	next_day_button.button_down.connect(next_day)
-	add_inventory(seed_inventory, seed_inventory_data)
-	add_inventory(shelf_inventory, shelf_inventory_data)
-	add_inventory(pots_inventory, pot_inventory_data)
-	add_inventory(tools_inventory, tools_inventory_data)
-	shelf_inventory_data.water_tank_level_updated.connect(update_water_tank)
-
-func add_inventory(inventory: Inventory, inventory_data: InventoryData) -> void:
-	inventory_data.inventory_interact.connect(on_inventory_interact)
-	inventory.set_inventory_data(inventory_data)
 
 func process_grabbed_slot() -> void:
 	if grab_slot.visible:
@@ -87,12 +73,5 @@ func update_water_tank() -> void:
 func next_day() -> void:
 	Global.next_day()
 	day_num.text = "Day: %s" % Global.curr_day
-	for i in shelf_inventory_data.slot_datas.size():
-		var slot_data: SlotData = shelf_inventory_data.slot_datas[i]
-		if not slot_data:
-			continue
-		var plant_data := slot_data.item_data as PlantItemData
-		if not plant_data:
-			continue
-		plant_data.next_day()
-		shelf_inventory_data.inventory_updated.emit(i, slot_data)
+	for inventory in inventories:
+		inventory.inventory_data.next_day()
