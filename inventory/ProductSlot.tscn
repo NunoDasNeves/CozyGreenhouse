@@ -119,3 +119,5 @@ text = "99"
 placeholder_text = "xx"
 max_length = 2
 select_all_on_focus = true
+
+[connection signal="text_changed" from="MarginContainer/QuantitySelectedInput" to="." method="on_quantity_selected_changed"]

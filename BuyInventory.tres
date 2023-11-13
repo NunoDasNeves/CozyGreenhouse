@@ -5,6 +5,5 @@
 [resource]
 script = ExtResource("1_wxbat")
 inventory_type = 0
+action_text = ""
 slot_datas = Array[Resource("res://inventory/SlotData.gd")]([null, null, null, null, null, null])
-buttons = Array[null]([])
-labels_text = Array[String]([])

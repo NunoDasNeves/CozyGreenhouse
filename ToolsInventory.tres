@@ -12,5 +12,3 @@ quantity = 1
 [resource]
 script = ExtResource("1_nigah")
 slot_datas = Array[ExtResource("3_gv33g")]([SubResource("Resource_rg2ox"), null, null, null])
-buttons = Array[null]([])
-labels_text = Array[String]([])

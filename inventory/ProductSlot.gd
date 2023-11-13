@@ -8,6 +8,12 @@ class_name ProductSlot
 @onready var selected_vis: Control = $Selected
 @onready var unselected_vis: Control = $Unselected
 
+signal quantity_selected_changed(index: int, num: int)
+
+func on_quantity_selected_changed(text: String) -> void:
+	if text.is_valid_int():
+		quantity_selected_changed.emit(get_index(), text as int)
+
 func set_slot_data(slot_data: SlotData) -> void:
 	for child in container.get_children():
 		child.queue_free()

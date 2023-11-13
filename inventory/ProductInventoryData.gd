@@ -8,12 +8,26 @@ enum Type {
 
 signal action_button_updated
 signal select_mode_updated
+signal quantity_selected_updated(index: int, quantity_selected: int)
 
 @export var inventory_type: Type
 @export var action_text: String
 
 var select_mode: bool = false
 var num_selected: int = 0
+
+func change_quantity_selected(index: int, num: int) -> void:
+	assert(select_mode)
+	var slot_data: SlotData = slot_datas[index]
+	if not slot_data:
+		return
+
+	num = clampi(num, 0, slot_data.quantity)
+	if num == 0:
+		deselect_slot_data(index)
+	else:
+		slot_data.quantity_selected = num
+		inventory_updated.emit(index, slot_data)
 
 func change_select_mode(enable: bool) -> void:
 	select_mode = enable
@@ -77,38 +91,57 @@ func slot_interact(grabbed_slot_data: SlotData, index: int, action: Slot.Action)
 				pass
 	return grabbed_slot_data
 
-func toggle_select_slot_data(index: int) -> void:
-	assert(select_mode)
+func select_slot_data(index: int, quantity: int = 0) -> void:
 	var selected_slot_data = slot_datas[index]
-	if selected_slot_data:
-		if selected_slot_data.quantity_selected:
-			selected_slot_data.quantity_selected = 0
-			num_selected -= 1
-		else:
-			selected_slot_data.quantity_selected = 1
-			num_selected += 1
-		if not num_selected:
-			change_select_mode(false)
-			for i in slot_datas.size():
-				var slot_data = slot_datas[i]
-				if slot_data:
-					slot_data.select_mode = false
-					inventory_updated.emit(i, slot_data)
-		else:
-			inventory_updated.emit(index, selected_slot_data)
+	assert(selected_slot_data)
+	assert(not selected_slot_data.quantity_selected)
 
-func select_first_slot_data(index: int) -> void:
-	assert(not select_mode)
-	var selected_slot_data = slot_datas[index]
-	if selected_slot_data:
-		selected_slot_data.quantity_selected = 1
-		num_selected = 1
+	selected_slot_data.quantity_selected = quantity if quantity else selected_slot_data.quantity
+	num_selected += 1
+
+	if not select_mode:
 		change_select_mode(true)
 		for i in slot_datas.size():
 			var slot_data = slot_datas[i]
 			if slot_data:
 				slot_data.select_mode = true
 				inventory_updated.emit(i, slot_data)
+	else:
+		inventory_updated.emit(index, selected_slot_data)
+
+func deselect_slot_data(index: int) -> void:
+	var selected_slot_data = slot_datas[index]
+	assert(selected_slot_data)
+	assert(select_mode)
+	assert(selected_slot_data.quantity_selected)
+
+	selected_slot_data.quantity_selected = 0
+	num_selected -= 1
+
+	if not num_selected:
+		change_select_mode(false)
+		for i in slot_datas.size():
+			var slot_data = slot_datas[i]
+			if slot_data:
+				slot_data.select_mode = false
+				inventory_updated.emit(i, slot_data)
+	else:
+		inventory_updated.emit(index, selected_slot_data)
+
+func toggle_select_slot_data(index: int) -> void:
+	assert(select_mode)
+	var selected_slot_data = slot_datas[index]
+	if selected_slot_data:
+		if selected_slot_data.quantity_selected:
+			deselect_slot_data(index)
+		else:
+			select_slot_data(index)
+
+func select_first_slot_data(index: int) -> void:
+	assert(not select_mode)
+	var selected_slot_data = slot_datas[index]
+	if selected_slot_data:
+		select_slot_data(index)
 
 func grab_slot_data(index: int) -> SlotData:
 	var slot_data = slot_datas[index]
