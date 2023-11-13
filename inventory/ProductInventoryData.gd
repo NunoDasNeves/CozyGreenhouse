@@ -26,20 +26,38 @@ func change_quantity_selected(index: int, num: int) -> void:
 	if num == 0:
 		deselect_slot_data(index)
 	else:
-		slot_data.quantity_selected = num
-		inventory_updated.emit(index, slot_data)
+		select_slot_data(index, num)
 
 func change_select_mode(enable: bool) -> void:
 	select_mode = enable
 	select_mode_updated.emit()
+	if select_mode:
+		num_selected = 1
+	else:
+		num_selected = 0
 
-func pack_and_update_slots() -> void:
 	for i in slot_datas.size():
-		if i < slot_datas.size() - 2:
-			if not slot_datas[i] or not slot_datas[i].quantity:
-				slot_datas[i] = slot_datas[i + 1]
-				slot_datas[i + 1] = null
-		inventory_updated.emit(i, slot_datas[i])
+		var slot_data = slot_datas[i]
+		if slot_data:
+			slot_data.select_mode = select_mode
+		# slot_data can be null here
+		inventory_updated.emit(i, slot_data)
+
+func pack_slot_datas() -> void:
+	var j = 0
+	for i in slot_datas.size():
+		j += 1 # j should always be at least i + 1
+		var slot_data: SlotData = slot_datas[i]
+		if slot_data and slot_data.quantity:
+			continue
+		slot_datas[i] = null
+
+		while j < slot_datas.size():
+			if slot_datas[j] and slot_datas[j].quantity:
+				slot_datas[i] = slot_datas[j]
+				slot_datas[j] = null
+				break
+			j += 1
 
 func action_pressed() -> void:
 	if not select_mode:
@@ -55,12 +73,11 @@ func action_pressed() -> void:
 				var product_data := slot_data.item_data as ProductItemData
 				total_value += slot_data.quantity_selected * product_data.value
 				slot_data.quantity -= slot_data.quantity_selected
-				slot_data.select_mode = false
-			pack_and_update_slots()
-			num_selected = 0
-			change_select_mode(false)
+				slot_data.quantity_selected = 0
 			Global.money += total_value
 			money_updated.emit()
+			pack_slot_datas()
+			change_select_mode(false)
 		Type.Buy:
 			pass
 
@@ -93,38 +110,29 @@ func slot_interact(grabbed_slot_data: SlotData, index: int, action: Slot.Action)
 
 func select_slot_data(index: int, quantity: int = 0) -> void:
 	var selected_slot_data = slot_datas[index]
-	assert(selected_slot_data)
-	assert(not selected_slot_data.quantity_selected)
+	if not selected_slot_data:
+		return
 
 	selected_slot_data.quantity_selected = quantity if quantity else selected_slot_data.quantity
-	num_selected += 1
 
 	if not select_mode:
 		change_select_mode(true)
-		for i in slot_datas.size():
-			var slot_data = slot_datas[i]
-			if slot_data:
-				slot_data.select_mode = true
-				inventory_updated.emit(i, slot_data)
 	else:
+		num_selected += 1
 		inventory_updated.emit(index, selected_slot_data)
 
 func deselect_slot_data(index: int) -> void:
-	var selected_slot_data = slot_datas[index]
-	assert(selected_slot_data)
 	assert(select_mode)
-	assert(selected_slot_data.quantity_selected)
+	var selected_slot_data = slot_datas[index]
+	if not selected_slot_data:
+		return
 
-	selected_slot_data.quantity_selected = 0
-	num_selected -= 1
+	if selected_slot_data.quantity_selected:
+		selected_slot_data.quantity_selected = 0
+		num_selected -= 1
 
 	if not num_selected:
 		change_select_mode(false)
-		for i in slot_datas.size():
-			var slot_data = slot_datas[i]
-			if slot_data:
-				slot_data.select_mode = false
-				inventory_updated.emit(i, slot_data)
 	else:
 		inventory_updated.emit(index, selected_slot_data)
 
@@ -167,5 +175,7 @@ func drop_slot_data(grabbed_slot_data: SlotData, index: int) -> SlotData:
 			slot_data.quantity += 1
 			inventory_updated.emit(i, slot_data)
 			return null
+
+	# TODO drop in empty slot so new items can be dropped in!
 
 	return grabbed_slot_data
