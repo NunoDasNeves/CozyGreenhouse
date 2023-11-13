@@ -6,9 +6,18 @@ enum Type {
 	Buy
 }
 
+signal action_button_updated
+signal select_mode_updated
+
 @export var inventory_type: Type
+@export var action_text: String
+
 var select_mode: bool = false
 var num_selected: int = 0
+
+func change_select_mode(enable: bool) -> void:
+	select_mode = enable
+	select_mode_updated.emit()
 
 func pack_and_update_slots() -> void:
 	for i in slot_datas.size():
@@ -18,7 +27,7 @@ func pack_and_update_slots() -> void:
 				slot_datas[i + 1] = null
 		inventory_updated.emit(i, slot_datas[i])
 
-func button_pressed(index: int) -> void:
+func action_pressed() -> void:
 	if not select_mode:
 		return
 	assert(num_selected)
@@ -35,7 +44,7 @@ func button_pressed(index: int) -> void:
 				slot_data.select_mode = false
 			pack_and_update_slots()
 			num_selected = 0
-			select_mode = false
+			change_select_mode(false)
 			Global.money += total_value
 			money_updated.emit()
 		Type.Buy:
@@ -79,7 +88,7 @@ func toggle_select_slot_data(index: int) -> void:
 			selected_slot_data.quantity_selected = 1
 			num_selected += 1
 		if not num_selected:
-			select_mode = false
+			change_select_mode(false)
 			for i in slot_datas.size():
 				var slot_data = slot_datas[i]
 				if slot_data:
@@ -94,7 +103,7 @@ func select_first_slot_data(index: int) -> void:
 	if selected_slot_data:
 		selected_slot_data.quantity_selected = 1
 		num_selected = 1
-		select_mode = true
+		change_select_mode(true)
 		for i in slot_datas.size():
 			var slot_data = slot_datas[i]
 			if slot_data:

@@ -4,21 +4,11 @@ class_name Inventory
 @export var slot_scene: PackedScene
 @export var item_grid: GridContainer
 @export var inventory_data: InventoryData
-@export var buttons: Array[Button]
-@export var labels: Array[Label]
 
 signal inventory_interact(inventory: Inventory, index: int, action: Slot.Action)
 
 func connect_and_populate() -> void:
 	inventory_data.inventory_updated.connect(update_slot)
-	if buttons:
-		for button in buttons:
-			button.button_down.connect(button_pressed)
-			inventory_data.button_label_updated.connect(update_button_text)
-			inventory_data.button_enable_updated.connect(update_button_enable)
-	if labels:
-		for label in labels:
-			inventory_data.label_updated.connect(update_label)
 	populate_item_grid()
 
 func _ready() -> void:
@@ -32,31 +22,6 @@ func on_slot_interact(index: int, action: Slot.Action):
 func update_inventory_data(new_inventory_data: InventoryData) -> void:
 	inventory_data = new_inventory_data
 	connect_and_populate()
-
-func button_pressed() -> void:
-	for i in buttons.size():
-		var button: Button = buttons[i]
-		if button.button_pressed:
-			inventory_data.button_pressed(i)
-			break
-
-func update_label(index: int, text: String) -> void:
-	var label: Label = labels[index]
-	if not label:
-		return
-	label.text = text
-
-func update_button_text(index: int, text: String) -> void:
-	var button: Button = buttons[index]
-	if not button:
-		return
-	button.text = text
-
-func update_button_enable(index: int, enabled: bool) -> void:
-	var button: Button = buttons[index]
-	if not button:
-		return
-	button.disabled = not enabled
 
 func update_slot(index: int, slot_data: SlotData) -> void:
 	var slot := item_grid.get_child(index) as Slot

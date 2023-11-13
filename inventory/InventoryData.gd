@@ -4,16 +4,10 @@ class_name InventoryData
 signal inventory_updated(index: int, item_data: ItemData)
 signal water_tank_level_updated
 signal money_updated
-signal label_updated(index: int, text: String)
-signal button_label_updated(index: int, text: String)
-signal button_enable_updated(index: int, enabled: bool)
 
 @export var slot_datas: Array[SlotData]
 
 func next_day() -> void:
-	pass
-
-func button_pressed(index: int) -> void:
 	pass
 
 func slot_interact(grabbed_slot_data: SlotData, index: int, action: Slot.Action) -> SlotData:

@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://b8iki5hc8c177"]
 
-[ext_resource type="Script" path="res://inventory/Inventory.gd" id="1_tam3m"]
+[ext_resource type="Script" path="res://inventory/ProductsInventory.gd" id="1_s3ynm"]
 [ext_resource type="PackedScene" uid="uid://buyj6n0hvqkgb" path="res://inventory/ProductSlot.tscn" id="3_hpdid"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dj4j5"]
@@ -50,16 +50,14 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
-[node name="Inventory" type="PanelContainer" node_paths=PackedStringArray("item_grid", "buttons", "labels")]
+[node name="Inventory" type="PanelContainer" node_paths=PackedStringArray("item_grid")]
 offset_right = 664.0
 offset_bottom = 1138.0
 mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_dj4j5")
-script = ExtResource("1_tam3m")
+script = ExtResource("1_s3ynm")
 slot_scene = ExtResource("3_hpdid")
 item_grid = NodePath("VBoxContainer/MarginContainer/ScrollContainer/MarginContainer/ItemGrid")
-buttons = [NodePath("VBoxContainer/MarginContainer2/Action")]
-labels = [NodePath("VBoxContainer/MarginContainer3/Help text")]
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
@@ -141,4 +139,5 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_vlxlm")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_ky5mk")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_dj2fd")
 theme_override_styles/focus = SubResource("StyleBoxFlat_cdhgc")
+disabled = true
 text = "Sell"

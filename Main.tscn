@@ -91,7 +91,7 @@ offset_right = 3771.0
 offset_bottom = 1955.0
 inventory_data = ExtResource("11_hpr75")
 
-[node name="BuyInventory" parent="UI/InventoryInterface" node_paths=PackedStringArray("buttons", "labels") instance=ExtResource("13_yk8kt")]
+[node name="BuyInventory" parent="UI/InventoryInterface" instance=ExtResource("13_yk8kt")]
 visible = false
 layout_mode = 0
 offset_left = 3107.0
@@ -99,8 +99,6 @@ offset_top = 92.0
 offset_right = 3771.0
 offset_bottom = 1955.0
 inventory_data = ExtResource("12_spbyt")
-buttons = []
-labels = []
 
 [node name="NextDayButton" type="Button" parent="UI/InventoryInterface"]
 layout_mode = 0

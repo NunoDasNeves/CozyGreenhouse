@@ -24,3 +24,5 @@ quantity = 5
 [resource]
 script = ExtResource("1_iio4w")
 slot_datas = Array[ExtResource("3_mj3t0")]([SubResource("Resource_b0fpt"), SubResource("Resource_ob8ik"), SubResource("Resource_uftxd"), null])
+buttons = Array[null]([])
+labels_text = Array[String]([])

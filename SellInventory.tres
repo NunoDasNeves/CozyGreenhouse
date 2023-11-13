@@ -17,4 +17,6 @@ quantity = 1
 
 [resource]
 script = ExtResource("1_xj8rh")
+inventory_type = 0
+action_text = "Sell"
 slot_datas = Array[ExtResource("3_actek")]([SubResource("Resource_yh5px"), SubResource("Resource_w7401"), null, null, null, null])
