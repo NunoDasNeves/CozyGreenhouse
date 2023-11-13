@@ -42,6 +42,15 @@ offset_bottom = 1873.0
 theme_override_font_sizes/font_size = 80
 text = "Day: 0"
 
+[node name="MoneyAmount" type="Label" parent="UI/InventoryInterface"]
+layout_mode = 0
+offset_left = 3240.0
+offset_top = 1995.0
+offset_right = 3684.0
+offset_bottom = 2108.0
+theme_override_font_sizes/font_size = 80
+text = "Money: $69"
+
 [node name="SeedInventory" parent="UI/InventoryInterface" instance=ExtResource("1_occea")]
 layout_mode = 0
 offset_left = 153.0
@@ -76,19 +85,22 @@ inventory_data = ExtResource("6_l3v0l")
 
 [node name="SellInventory" parent="UI/InventoryInterface" instance=ExtResource("13_yk8kt")]
 layout_mode = 0
-offset_left = 2865.0
-offset_top = 71.0
-offset_right = 3529.0
-offset_bottom = 1071.0
+offset_left = 3107.0
+offset_top = 92.0
+offset_right = 3771.0
+offset_bottom = 1955.0
 inventory_data = ExtResource("11_hpr75")
 
-[node name="BuyInventory" parent="UI/InventoryInterface" instance=ExtResource("13_yk8kt")]
+[node name="BuyInventory" parent="UI/InventoryInterface" node_paths=PackedStringArray("buttons", "labels") instance=ExtResource("13_yk8kt")]
+visible = false
 layout_mode = 0
-offset_left = 2865.0
-offset_top = 1115.0
-offset_right = 3529.0
-offset_bottom = 2115.0
+offset_left = 3107.0
+offset_top = 92.0
+offset_right = 3771.0
+offset_bottom = 1955.0
 inventory_data = ExtResource("12_spbyt")
+buttons = []
+labels = []
 
 [node name="NextDayButton" type="Button" parent="UI/InventoryInterface"]
 layout_mode = 0

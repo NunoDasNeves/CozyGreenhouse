@@ -50,7 +50,7 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
-[node name="Inventory" type="PanelContainer" node_paths=PackedStringArray("item_grid")]
+[node name="Inventory" type="PanelContainer" node_paths=PackedStringArray("item_grid", "buttons", "labels")]
 offset_right = 664.0
 offset_bottom = 1138.0
 mouse_filter = 1
@@ -58,6 +58,8 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_dj4j5")
 script = ExtResource("1_tam3m")
 slot_scene = ExtResource("3_hpdid")
 item_grid = NodePath("VBoxContainer/MarginContainer/ScrollContainer/MarginContainer/ItemGrid")
+buttons = [NodePath("VBoxContainer/MarginContainer2/Action")]
+labels = [NodePath("VBoxContainer/MarginContainer3/Help text")]
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2

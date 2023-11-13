@@ -3,6 +3,7 @@ extends Node
 var curr_day: int = 0
 var water_tank_level: float = 10
 var max_water_tank_level: float = 25
+var money: float = 10
 
 func _process(delta: float) -> void:
 	pass

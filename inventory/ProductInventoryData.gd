@@ -1,8 +1,45 @@
 extends InventoryData
 class_name ProductInventoryData
 
+enum Type {
+	Sell,
+	Buy
+}
+
+@export var inventory_type: Type
 var select_mode: bool = false
 var num_selected: int = 0
+
+func pack_and_update_slots() -> void:
+	for i in slot_datas.size():
+		if i < slot_datas.size() - 2:
+			if not slot_datas[i] or not slot_datas[i].quantity:
+				slot_datas[i] = slot_datas[i + 1]
+				slot_datas[i + 1] = null
+		inventory_updated.emit(i, slot_datas[i])
+
+func button_pressed(index: int) -> void:
+	if not select_mode:
+		return
+	assert(num_selected)
+	match inventory_type:
+		Type.Sell:
+			var total_value: float = 0
+			for slot_data in slot_datas:
+				if not slot_data or not slot_data.quantity_selected:
+					continue
+				assert(slot_data.quantity >= slot_data.quantity_selected)
+				var product_data := slot_data.item_data as ProductItemData
+				total_value += slot_data.quantity_selected * product_data.value
+				slot_data.quantity -= slot_data.quantity_selected
+				slot_data.select_mode = false
+			pack_and_update_slots()
+			num_selected = 0
+			select_mode = false
+			Global.money += total_value
+			money_updated.emit()
+		Type.Buy:
+			pass
 
 func slot_interact(grabbed_slot_data: SlotData, index: int, action: Slot.Action) -> SlotData:
 	if select_mode:
