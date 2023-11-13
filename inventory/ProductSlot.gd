@@ -1,10 +1,12 @@
 extends Slot
 class_name ProductSlot
 
-@export var container: Node2D
-@export var quantity_label: Label
-@export var selected_vis: Control
-@export var unselected_vis: Control
+@onready var container: Node2D = $Container
+@onready var quantity_label: Label = $MarginContainer/QuantityLabel
+@onready var price_label: Label = $MarginContainer/PriceLabel
+@onready var quantity_selected_input: LineEdit = $MarginContainer/QuantitySelectedInput
+@onready var selected_vis: Control = $Selected
+@onready var unselected_vis: Control = $Unselected
 
 func set_slot_data(slot_data: SlotData) -> void:
 	for child in container.get_children():
@@ -12,6 +14,8 @@ func set_slot_data(slot_data: SlotData) -> void:
 	quantity_label.hide()
 	selected_vis.hide()
 	unselected_vis.hide()
+	price_label.hide()
+	quantity_selected_input.hide()
 	tooltip_text = ""
 
 	if not slot_data:
@@ -33,9 +37,19 @@ func set_slot_data(slot_data: SlotData) -> void:
 		quantity_label.text = "x%s" % slot_data.quantity
 		quantity_label.show()
 
+	var slot_display_price: float = item_data.value
+	var slot_price_color: Color = Color.LIGHT_GRAY
 	if slot_data.select_mode:
 		unselected_vis.show()
 		if slot_data.quantity_selected:
+			slot_display_price = slot_data.quantity_selected * item_data.value
+			slot_price_color = Color.GOLD
 			selected_vis.show()
-
+			if slot_data.quantity > 1:
+				quantity_selected_input.show()
+				quantity_selected_input.text = "%s" % slot_data.quantity_selected
+	price_label.remove_theme_color_override("font_color")
+	price_label.add_theme_color_override("font_color", slot_price_color)
+	price_label.text = "$%s" % slot_display_price
+	price_label.show()
 	tooltip_text = "%s\n%s" % [item_data.name, item_data.description]
