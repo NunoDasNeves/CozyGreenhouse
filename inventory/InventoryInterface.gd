@@ -15,11 +15,9 @@ class_name InventoryInterface
 @onready var buy_inventory: PanelContainer = $BuyInventory
 
 @export var initial_state: State
-var inventories: Array[Inventory]
 var state: State
 
 func init_inventory(inventory: Inventory, inventory_data: InventoryData):
-	inventories.push_back(inventory)
 	inventory.inventory_data = inventory_data
 	inventory.inventory_interact.connect(grab_slot.on_inventory_interact)
 	inventory.inventory_data.water_tank_level_updated.connect(update_water_tank)
@@ -60,5 +58,3 @@ func update_money_text() -> void:
 func next_day() -> void:
 	state.next_day()
 	day_num.text = "Day: %s" % state.curr_day
-	for inventory in inventories:
-		inventory.inventory_data.next_day()

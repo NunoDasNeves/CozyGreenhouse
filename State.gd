@@ -16,6 +16,8 @@ class_name State
 var grab_slot_data: GrabSlotData
 
 func next_day() -> void:
+	# TODO other inventories need this?
+	shelf_inventory_data.next_day()
 	curr_day += 1
 
 func try_use_water(amount: float) -> float:
