@@ -1,7 +1,7 @@
 extends Node2D
 class_name GrabSlot
 
-@onready var grab_data: GrabSlotData = GrabSlotData.new()
+var grab_data: GrabSlotData
 
 func process() -> void:
 	if visible:
@@ -12,16 +12,16 @@ func _physics_process(delta: float) -> void:
 
 func dismiss() -> bool:
 	if grab_data.dismiss():
-		update_grabbed_slot()
+		update()
 		return true
 	return false
 
 func on_inventory_interact(inventory: Inventory, index: int, action: Slot.Action) -> void:
 	var do_update: bool = grab_data.inventory_interact(inventory.inventory_data, index, action)
 	if do_update:
-		update_grabbed_slot()
+		update()
 
-func update_grabbed_slot() -> void:
+func update() -> void:
 	if grab_data.slot_data:
 		for child in get_children():
 			child.queue_free()

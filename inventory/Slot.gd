@@ -16,7 +16,7 @@ signal slot_clicked(index: int, action: Action)
 
 func set_slot_data(slot_data: SlotData) -> void:
 	pass
-	
+
 func _process(delta: float) -> void:
 	if lmb_pressed:
 		if lmb_hold_time < LMB_HOLD_TIME:

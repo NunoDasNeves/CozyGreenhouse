@@ -5,9 +5,6 @@ class_name ProductsInventory
 @onready var help_text: Label = $"VBoxContainer/MarginContainer3/Help text"
 
 func populate_item_grid() -> void:
-	for child in item_grid.get_children():
-		child.queue_free()
-
 	var prod_inventory_data := inventory_data as ProductInventoryData
 	for slot_data in inventory_data.slot_datas:
 		var slot: ProductSlot = slot_scene.instantiate()
@@ -16,15 +13,12 @@ func populate_item_grid() -> void:
 		slot.quantity_selected_changed.connect(prod_inventory_data.change_quantity_selected)
 		slot.set_slot_data(slot_data)
 
-func connect_and_populate() -> void:
-	inventory_data.inventory_updated.connect(update_slot)
-
+func init(inv_data: InventoryData) -> void:
+	super.init(inv_data)
 	var prod_inventory_data := inventory_data as ProductInventoryData
 	action.button_down.connect(prod_inventory_data.action_pressed)
 	prod_inventory_data.action_button_updated.connect(update_action_button)
 	prod_inventory_data.select_mode_updated.connect(update_select_mode)
-
-	populate_item_grid()
 
 func update_select_mode() -> void:
 	var prod_inventory_data := inventory_data as ProductInventoryData

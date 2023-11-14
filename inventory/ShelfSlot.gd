@@ -14,6 +14,12 @@ class_name ShelfSlot
 @export var happy_bar_stylebox_background: StyleBoxFlat
 @export var bad_bar_stylebox_background: StyleBoxFlat
 
+signal fruit_gathered(index: int)
+
+func fruit_clicked() -> void:
+	var index = get_index()
+	fruit_gathered.emit(index)
+
 func set_slot_data(slot_data: SlotData) -> void:
 	for child in container.get_children():
 		child.queue_free()
@@ -30,6 +36,8 @@ func set_slot_data(slot_data: SlotData) -> void:
 	var item_scene := node as ItemScene
 	assert(item_scene)
 	item_scene.set_item_data(item_data)
+	if item_scene is PlantItemScene:
+		(item_scene as PlantItemScene).fruit_clicked.connect(fruit_clicked)
 	if item_data is PlantItemData:
 		var plant_data := item_data as PlantItemData
 		water_bar.max_value = plant_data.water.max_val

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://stabv7nin058"]
+[gd_scene load_steps=12 format=3 uid="uid://stabv7nin058"]
 
 [ext_resource type="Script" path="res://Main.gd" id="1_b7ej4"]
 [ext_resource type="PackedScene" uid="uid://0alw4cfw4g22" path="res://inventory/Inventory.tscn" id="1_occea"]
@@ -7,8 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://b40qsq404h2qt" path="res://inventory/ShelfInventory.tscn" id="8_c0pgr"]
 [ext_resource type="PackedScene" uid="uid://c1b7r3mdk7q54" path="res://GrabSlot.tscn" id="10_5kb5e"]
 [ext_resource type="PackedScene" uid="uid://ci87co87lm155" path="res://inventory/ToolsInventory.tscn" id="10_t6s3y"]
-[ext_resource type="Resource" uid="uid://djv3x4rgek2xy" path="res://SellInventory.tres" id="11_hpr75"]
-[ext_resource type="Resource" uid="uid://djxch8jows3ky" path="res://BuyInventory.tres" id="12_spbyt"]
 [ext_resource type="Texture2D" uid="uid://dnw0mdguv067e" path="res://CompostBin.png" id="12_tetco"]
 [ext_resource type="PackedScene" uid="uid://b8iki5hc8c177" path="res://inventory/ProductsInventory.tscn" id="13_yk8kt"]
 [ext_resource type="Script" path="res://GrabSlot.gd" id="15_0jfwc"]
@@ -83,7 +81,6 @@ offset_left = 3107.0
 offset_top = 92.0
 offset_right = 3771.0
 offset_bottom = 1955.0
-inventory_data = ExtResource("11_hpr75")
 
 [node name="BuyInventory" parent="UI/InventoryInterface" instance=ExtResource("13_yk8kt")]
 visible = false
@@ -92,7 +89,6 @@ offset_left = 3107.0
 offset_top = 92.0
 offset_right = 3771.0
 offset_bottom = 1955.0
-inventory_data = ExtResource("12_spbyt")
 
 [node name="NextDayButton" type="Button" parent="UI/InventoryInterface"]
 layout_mode = 0

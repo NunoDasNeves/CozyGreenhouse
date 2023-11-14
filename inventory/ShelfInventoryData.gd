@@ -1,6 +1,17 @@
 extends InventoryData
 class_name ShelfInventoryData
 
+func gather_fruit(index: int) -> void:
+	var slot_data: SlotData = slot_datas[index]
+	if not slot_data:
+		return
+	var plant_data = slot_data.item_data as PlantItemData
+	if not plant_data:
+		return
+	var products_gathered: Array[ProductItemData] = plant_data.gather_fruit()
+	Global.state.add_products_to_sell(products_gathered)
+	inventory_updated.emit(index, slot_data)
+
 func next_day() -> void:
 	for i in slot_datas.size():
 		var slot_data: SlotData = slot_datas[i]

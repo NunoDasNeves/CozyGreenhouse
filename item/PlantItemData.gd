@@ -30,6 +30,16 @@ static func create_from_seed(seed_data: SeedItemData, pot_data: RackItemData) ->
 	plant_data.fertilizer = plant_data.fertilizer.duplicate()
 	return plant_data
 
+func gather_fruit() -> Array[ProductItemData]:
+	var ret: Array[ProductItemData] = []
+
+	for i in num_fruits:
+		ret.push_back(fruit_item_data)
+
+	num_fruits = 0
+
+	return ret
+
 func next_day() -> void:
 	light.next_day()
 	water.next_day()

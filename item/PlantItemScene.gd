@@ -5,6 +5,12 @@ class_name PlantItemScene
 @onready var plant_sprite_mature: Sprite2D = $PlantSpriteMature
 @onready var pot_sprite: Sprite2D = $PotSprite
 @onready var fruits: Node2D = $Fruits
+@onready var fruit_button: Button = $FruitButton
+
+signal fruit_clicked
+
+func on_fruit_clicked() -> void:
+	fruit_clicked.emit()
 
 func set_item_data(item_data: ItemData) -> void:
 	var plant_data := item_data as PlantItemData
@@ -14,6 +20,7 @@ func set_item_data(item_data: ItemData) -> void:
 	pot_sprite.texture = plant_data.pot_item_data.rack_item_texture
 	plant_sprite_young.hide()
 	plant_sprite_mature.hide()
+	fruit_button.hide()
 	for fruit in fruits.get_children():
 		(fruit as Node2D).hide()
 	match plant_data.growth_stage:
@@ -22,9 +29,12 @@ func set_item_data(item_data: ItemData) -> void:
 		PlantItemData.GrowthStage.MATURE:
 			plant_sprite_mature.show()
 	if plant_data.num_fruits > 0:
+		fruit_button.show()
+		fruit_button.self_modulate = Color(Color.WHITE, 0)
 		for i in plant_data.num_fruits:
 			if i >= fruits.get_child_count():
 				break
 			var fruit: Sprite2D = fruits.get_child(i)
 			fruit.texture = plant_data.fruit_item_data.product_item_texture
 			fruit.show()
+

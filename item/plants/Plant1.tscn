@@ -24,6 +24,13 @@ position = Vector2(2.08165e-12, 2.08165e-12)
 scale = Vector2(0.477667, 0.477667)
 texture = ExtResource("4_fd8g1")
 
+[node name="FruitButton" type="Button" parent="."]
+offset_left = -500.0
+offset_top = -1900.0
+offset_right = 500.0
+offset_bottom = -450.0
+mouse_default_cursor_shape = 2
+
 [node name="Fruits" type="Node2D" parent="."]
 
 [node name="Icon" type="Sprite2D" parent="Fruits"]
@@ -43,3 +50,5 @@ position = Vector2(-253.418, -707.46)
 rotation = 0.332886
 scale = Vector2(-0.5, 0.5)
 texture = ExtResource("5_rdmva")
+
+[connection signal="pressed" from="FruitButton" to="." method="on_fruit_clicked"]

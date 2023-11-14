@@ -18,7 +18,7 @@ class_name InventoryInterface
 var state: State
 
 func init_inventory(inventory: Inventory, inventory_data: InventoryData):
-	inventory.inventory_data = inventory_data
+	inventory.init(inventory_data)
 	inventory.inventory_interact.connect(grab_slot.on_inventory_interact)
 	inventory.inventory_data.water_tank_level_updated.connect(update_water_tank)
 	inventory.inventory_data.money_updated.connect(update_money_text)
@@ -26,6 +26,10 @@ func init_inventory(inventory: Inventory, inventory_data: InventoryData):
 func _ready() -> void:
 	Global.state = initial_state.duplicate()
 	state = Global.state
+
+	grab_slot.grab_data = state.grab_data
+	grab_slot.update()
+
 	init_inventory(seed_inventory, state.seed_inventory_data)
 	init_inventory(pots_inventory, state.pot_inventory_data)
 	init_inventory(tools_inventory, state.tool_inventory_data)
@@ -57,4 +61,5 @@ func update_money_text() -> void:
 
 func next_day() -> void:
 	state.next_day()
+	grab_slot.update()
 	day_num.text = "Day: %s" % state.curr_day
