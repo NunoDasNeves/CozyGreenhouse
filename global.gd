@@ -5,6 +5,10 @@ var water_tank_level: float = 10
 var max_water_tank_level: float = 25
 var money: float = 10
 
+var grabbed_slot_data: SlotData
+var grabbed_slot_inventory_data: InventoryData
+var grabbed_slot_index: int
+
 func _process(delta: float) -> void:
 	pass
 

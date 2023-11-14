@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://stabv7nin058"]
+[gd_scene load_steps=17 format=3 uid="uid://stabv7nin058"]
 
 [ext_resource type="Script" path="res://Main.gd" id="1_b7ej4"]
 [ext_resource type="PackedScene" uid="uid://0alw4cfw4g22" path="res://inventory/Inventory.tscn" id="1_occea"]
@@ -14,6 +14,7 @@
 [ext_resource type="Resource" uid="uid://djxch8jows3ky" path="res://BuyInventory.tres" id="12_spbyt"]
 [ext_resource type="Texture2D" uid="uid://dnw0mdguv067e" path="res://CompostBin.png" id="12_tetco"]
 [ext_resource type="PackedScene" uid="uid://b8iki5hc8c177" path="res://inventory/ProductsInventory.tscn" id="13_yk8kt"]
+[ext_resource type="Script" path="res://GrabSlot.gd" id="15_0jfwc"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_10m38"]
 bg_color = Color(0.368627, 0.454902, 0.776471, 1)
@@ -135,3 +136,4 @@ texture_focused = ExtResource("12_tetco")
 
 [node name="GrabSlot" parent="UI/InventoryInterface" instance=ExtResource("10_5kb5e")]
 visible = false
+script = ExtResource("15_0jfwc")
