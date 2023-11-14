@@ -1,12 +1,9 @@
-[gd_scene load_steps=17 format=3 uid="uid://stabv7nin058"]
+[gd_scene load_steps=14 format=3 uid="uid://stabv7nin058"]
 
 [ext_resource type="Script" path="res://Main.gd" id="1_b7ej4"]
 [ext_resource type="PackedScene" uid="uid://0alw4cfw4g22" path="res://inventory/Inventory.tscn" id="1_occea"]
 [ext_resource type="Script" path="res://inventory/InventoryInterface.gd" id="2_fy0vy"]
-[ext_resource type="Resource" uid="uid://bygkbwxgoognm" path="res://SeedInventory.tres" id="4_5vldi"]
-[ext_resource type="Resource" uid="uid://csw8uhucnfusw" path="res://PotInventory.tres" id="5_0k1wm"]
-[ext_resource type="Resource" uid="uid://d2jo5w7j6juca" path="res://ShelfInventory.tres" id="5_57mvv"]
-[ext_resource type="Resource" uid="uid://ul721xn0f5r5" path="res://ToolsInventory.tres" id="6_l3v0l"]
+[ext_resource type="Resource" uid="uid://vwd5ajiujm1q" path="res://InitialState.tres" id="3_eyqdm"]
 [ext_resource type="PackedScene" uid="uid://b40qsq404h2qt" path="res://inventory/ShelfInventory.tscn" id="8_c0pgr"]
 [ext_resource type="PackedScene" uid="uid://c1b7r3mdk7q54" path="res://GrabSlot.tscn" id="10_5kb5e"]
 [ext_resource type="PackedScene" uid="uid://ci87co87lm155" path="res://inventory/ToolsInventory.tscn" id="10_t6s3y"]
@@ -24,7 +21,7 @@ script = ExtResource("1_b7ej4")
 
 [node name="UI" type="CanvasLayer" parent="."]
 
-[node name="InventoryInterface" type="Control" parent="UI" node_paths=PackedStringArray("inventories")]
+[node name="InventoryInterface" type="Control" parent="UI"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -32,7 +29,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_fy0vy")
-inventories = [NodePath("SeedInventory"), NodePath("PotsInventory"), NodePath("ShelfInventory"), NodePath("ToolsInventory"), NodePath("SellInventory"), NodePath("BuyInventory")]
+initial_state = ExtResource("3_eyqdm")
 
 [node name="DayNum" type="Label" parent="UI/InventoryInterface"]
 layout_mode = 0
@@ -58,7 +55,6 @@ offset_left = 153.0
 offset_top = 171.0
 offset_right = 761.0
 offset_bottom = 1067.0
-inventory_data = ExtResource("4_5vldi")
 
 [node name="PotsInventory" parent="UI/InventoryInterface" instance=ExtResource("1_occea")]
 layout_mode = 0
@@ -66,7 +62,6 @@ offset_left = 160.0
 offset_top = 1144.0
 offset_right = 768.0
 offset_bottom = 2040.0
-inventory_data = ExtResource("5_0k1wm")
 
 [node name="ShelfInventory" parent="UI/InventoryInterface" instance=ExtResource("8_c0pgr")]
 layout_mode = 0
@@ -74,7 +69,6 @@ offset_left = 867.0
 offset_top = 197.0
 offset_right = 2295.0
 offset_bottom = 1757.0
-inventory_data = ExtResource("5_57mvv")
 
 [node name="ToolsInventory" parent="UI/InventoryInterface" instance=ExtResource("10_t6s3y")]
 layout_mode = 0
@@ -82,7 +76,6 @@ offset_left = 873.0
 offset_top = 1793.0
 offset_right = 2057.0
 offset_bottom = 2113.0
-inventory_data = ExtResource("6_l3v0l")
 
 [node name="SellInventory" parent="UI/InventoryInterface" instance=ExtResource("13_yk8kt")]
 layout_mode = 0

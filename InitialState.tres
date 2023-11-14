@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="State" load_steps=8 format=3 uid="uid://vwd5ajiujm1q"]
+
+[ext_resource type="Resource" uid="uid://djxch8jows3ky" path="res://BuyInventory.tres" id="1_00aw4"]
+[ext_resource type="Script" path="res://State.gd" id="1_il68n"]
+[ext_resource type="Resource" uid="uid://csw8uhucnfusw" path="res://PotInventory.tres" id="2_mut2j"]
+[ext_resource type="Resource" uid="uid://bygkbwxgoognm" path="res://SeedInventory.tres" id="4_l0aur"]
+[ext_resource type="Resource" uid="uid://djv3x4rgek2xy" path="res://SellInventory.tres" id="5_udqup"]
+[ext_resource type="Resource" uid="uid://d2jo5w7j6juca" path="res://ShelfInventory.tres" id="6_fe20h"]
+[ext_resource type="Resource" uid="uid://ul721xn0f5r5" path="res://ToolsInventory.tres" id="7_holtf"]
+
+[resource]
+script = ExtResource("1_il68n")
+curr_day = 0
+water_tank_level = 10.0
+max_water_tank_level = 25.0
+money = 10.0
+seed_inventory_data = ExtResource("4_l0aur")
+pot_inventory_data = ExtResource("2_mut2j")
+tool_inventory_data = ExtResource("7_holtf")
+shelf_inventory_data = ExtResource("6_fe20h")
+sell_inventory_data = ExtResource("5_udqup")
+buy_inventory_data = ExtResource("1_00aw4")

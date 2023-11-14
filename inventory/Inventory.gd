@@ -3,7 +3,7 @@ class_name Inventory
 
 @export var slot_scene: PackedScene
 @export var item_grid: GridContainer
-@export var inventory_data: InventoryData
+var inventory_data: InventoryData
 
 signal inventory_interact(inventory: Inventory, index: int, action: Slot.Action)
 
@@ -14,6 +14,7 @@ func connect_and_populate() -> void:
 func _ready() -> void:
 	# you can't (ever?) add child nodes properly in _ready.
 	# so defer this. ugh
+	# also inventory interface will init inventory_data in its ready()
 	call_deferred("connect_and_populate")
 
 func on_slot_interact(index: int, action: Slot.Action):

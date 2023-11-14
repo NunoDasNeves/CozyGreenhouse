@@ -74,7 +74,7 @@ func action_pressed() -> void:
 				total_value += slot_data.quantity_selected * product_data.value
 				slot_data.quantity -= slot_data.quantity_selected
 				slot_data.quantity_selected = 0
-			Global.money += total_value
+			Global.state.money += total_value
 			money_updated.emit()
 			pack_slot_datas()
 			change_select_mode(false)
