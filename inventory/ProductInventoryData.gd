@@ -59,19 +59,35 @@ func pack_slot_datas() -> void:
 				break
 			j += 1
 
+func get_selected_value() -> float:
+	var total_value: float = 0
+	for slot_data in slot_datas:
+		if not slot_data or not slot_data.quantity_selected:
+			continue
+		assert(slot_data.quantity >= slot_data.quantity_selected)
+		var product_data := slot_data.item_data as ProductItemData
+		if product_data:
+			total_value += slot_data.quantity_selected * product_data.value
+		else:
+			match inventory_type:
+				Type.Sell:
+					var sell_component := slot_data.item_data.get_component("Sell") as BuyComponent
+					total_value += slot_data.quantity_selected * sell_component.base_value
+				Type.Buy:
+					var buy_component := slot_data.item_data.get_component("Buy") as BuyComponent
+					total_value += slot_data.quantity_selected * buy_component.base_value
+	return total_value
+
 func action_pressed() -> void:
 	if not select_mode:
 		return
 	assert(num_selected)
+	var total_value: float = get_selected_value()
 	match inventory_type:
 		Type.Sell:
-			var total_value: float = 0
 			for slot_data in slot_datas:
 				if not slot_data or not slot_data.quantity_selected:
 					continue
-				assert(slot_data.quantity >= slot_data.quantity_selected)
-				var product_data := slot_data.item_data as ProductItemData
-				total_value += slot_data.quantity_selected * product_data.value
 				slot_data.quantity -= slot_data.quantity_selected
 				slot_data.quantity_selected = 0
 			Global.state.money += total_value
@@ -79,7 +95,23 @@ func action_pressed() -> void:
 			pack_slot_datas()
 			change_select_mode(false)
 		Type.Buy:
-			pass
+			if Global.state.money < total_value:
+				return
+			var bought_items: Array[SlotData] = []
+			for slot_data in slot_datas:
+				if not slot_data or not slot_data.quantity_selected:
+					continue
+				var new_slot_data: SlotData = SlotData.new()
+				new_slot_data.item_data = slot_data.item_data
+				new_slot_data.quantity = slot_data.quantity_selected
+				bought_items.push_back(new_slot_data)
+				slot_data.quantity -= slot_data.quantity_selected
+				slot_data.quantity_selected = 0
+			Global.state.acquire_items(bought_items)
+			Global.state.money -= total_value
+			money_updated.emit()
+			pack_slot_datas()
+			change_select_mode(false)
 
 func slot_interact(grabbed_slot_data: SlotData, index: int, action: Slot.Action) -> SlotData:
 	if select_mode:

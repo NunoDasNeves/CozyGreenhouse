@@ -38,3 +38,10 @@ func add_products_to_sell(products: Array[ProductItemData]) -> void:
 		product_slot_data.item_data = product
 		product_slot_data.quantity = 1
 		sell_inventory_data.drop_slot_data(product_slot_data, 0)
+
+func acquire_items(slot_datas: Array[SlotData]) -> void:
+	for slot_data in slot_datas:
+		var item_data = slot_data.item_data
+		var seed_component: SeedComponent = item_data.get_component("Seed")
+		if seed_component:
+			seed_inventory_data.drop_slot_data(slot_data, 0)
