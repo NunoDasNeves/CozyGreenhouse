@@ -1,10 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://c1b7r3mdk7q54"]
 
 [ext_resource type="PackedScene" uid="uid://d346bhoh8up1g" path="res://item/plants/Plant2.tscn" id="1_m2sgs"]
-[ext_resource type="PackedScene" uid="uid://d1els23yd82ma" path="res://Seed.tscn" id="2_tcjgg"]
+[ext_resource type="PackedScene" uid="uid://bw145ublkri14" path="res://item/SpriteItem.tscn" id="2_sgmje"]
 
 [node name="GrabSlot" type="Node2D"]
 
 [node name="Plant2" parent="." instance=ExtResource("1_m2sgs")]
 
-[node name="SeedItem" parent="." instance=ExtResource("2_tcjgg")]
+[node name="SpriteItem" parent="." instance=ExtResource("2_sgmje")]

@@ -1,9 +1,35 @@
-[gd_resource type="Resource" script_class="SeedItemData" load_steps=5 format=3 uid="uid://dmsd41lgytg3d"]
+[gd_resource type="Resource" script_class="SeedItemData" load_steps=15 format=3 uid="uid://dmsd41lgytg3d"]
 
 [ext_resource type="Resource" uid="uid://c4ovhq8msl467" path="res://item/plants/Plant2.tres" id="1_eqdve"]
 [ext_resource type="Texture2D" uid="uid://cvnpsjtkl4waj" path="res://item/seeds/seed2.png" id="2_kcn5b"]
-[ext_resource type="PackedScene" uid="uid://d1els23yd82ma" path="res://item/seeds/Seed.tscn" id="3_8eiq3"]
+[ext_resource type="PackedScene" uid="uid://bw145ublkri14" path="res://item/SpriteItem.tscn" id="3_613sn"]
 [ext_resource type="Script" path="res://item/SeedItemData.gd" id="4_kutxp"]
+[ext_resource type="Script" path="res://item/components/StackableComponent.gd" id="5_nutnt"]
+[ext_resource type="Script" path="res://item/components/SeedComponent.gd" id="6_qgw5y"]
+[ext_resource type="Script" path="res://item/components/BuyComponent.gd" id="7_hvdw5"]
+[ext_resource type="Script" path="res://item/ItemType.gd" id="8_sl4g8"]
+[ext_resource type="Script" path="res://item/components/TextureComponent.gd" id="8_vfj76"]
+
+[sub_resource type="Resource" id="Resource_frjy3"]
+script = ExtResource("5_nutnt")
+max_stack_size = 99
+show_1x_quantity = true
+
+[sub_resource type="Resource" id="Resource_klvue"]
+script = ExtResource("6_qgw5y")
+plant = ExtResource("1_eqdve")
+
+[sub_resource type="Resource" id="Resource_38uir"]
+script = ExtResource("7_hvdw5")
+base_value = 2.0
+
+[sub_resource type="Resource" id="Resource_addr6"]
+script = ExtResource("8_vfj76")
+texture = ExtResource("2_kcn5b")
+
+[sub_resource type="Resource" id="Resource_d6nle"]
+script = ExtResource("8_sl4g8")
+components = Array[Resource("res://item/components/ItemComponent.gd")]([SubResource("Resource_frjy3"), SubResource("Resource_klvue"), SubResource("Resource_38uir"), SubResource("Resource_addr6")])
 
 [resource]
 script = ExtResource("4_kutxp")
@@ -12,5 +38,6 @@ rack_item_texture = ExtResource("2_kcn5b")
 show_1x_quantity = true
 name = "Galaxy Flower Seeds"
 description = "leafy"
-scene = ExtResource("3_8eiq3")
+scene = ExtResource("3_613sn")
 type_name = 1
+type = SubResource("Resource_d6nle")

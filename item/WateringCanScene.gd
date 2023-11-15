@@ -18,4 +18,3 @@ func anim_finished():
 func play_anim() -> void:
 	animated_sprite.play()
 	animating_forward = true
-

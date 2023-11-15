@@ -14,3 +14,7 @@ enum TypeName {
 @export_multiline var description: String = ""
 @export var scene: PackedScene
 @export var type_name: TypeName
+@export var type: ItemType
+
+func get_component(component_name: StringName) -> Variant:
+	return type.components_dict.get(component_name)
