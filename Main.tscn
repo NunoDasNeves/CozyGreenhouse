@@ -144,6 +144,7 @@ theme_override_styles/tab_hovered = SubResource("StyleBoxFlat_64ggw")
 theme_override_styles/tab_unselected = SubResource("StyleBoxFlat_6gk88")
 theme_override_styles/panel = SubResource("StyleBoxFlat_5obpi")
 tab_alignment = 1
+all_tabs_in_front = true
 
 [node name="Inventory" parent="UI/InventoryInterface/TabContainer" instance=ExtResource("13_yk8kt")]
 layout_mode = 2
