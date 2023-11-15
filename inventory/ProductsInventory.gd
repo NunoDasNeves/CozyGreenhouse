@@ -19,6 +19,8 @@ func init(inv_data: InventoryData) -> void:
 	action.button_down.connect(prod_inventory_data.action_pressed)
 	prod_inventory_data.action_button_updated.connect(update_action_button)
 	prod_inventory_data.select_mode_updated.connect(update_select_mode)
+	update_action_button()
+	update_select_mode()
 
 func update_select_mode() -> void:
 	var prod_inventory_data := inventory_data as ProductInventoryData
