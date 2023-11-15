@@ -58,4 +58,3 @@ name = "Galaxy Flower"
 description = "Tasty!"
 scene = ExtResource("3_joliu")
 type_name = 3
-type = 3
