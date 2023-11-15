@@ -1,6 +1,10 @@
 extends Resource
 class_name State
 
+const WATERING_CAN_WATER_AMOUNT: float = 0.5
+
+var water_per_day: float = 0.5
+
 @export var curr_day: int = 0
 @export var water_tank_level: float = 10
 @export var max_water_tank_level: float = 25
@@ -20,6 +24,7 @@ func next_day() -> void:
 	# TODO other inventories need this?
 	shelf_inventory_data.next_day()
 	curr_day += 1
+	water_tank_level += water_per_day
 
 func try_use_water(amount: float) -> float:
 	var water_left: float = water_tank_level

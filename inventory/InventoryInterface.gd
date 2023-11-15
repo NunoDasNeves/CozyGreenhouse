@@ -61,5 +61,7 @@ func update_money_text() -> void:
 
 func next_day() -> void:
 	state.next_day()
+	update_water_tank()
+	update_money_text()
 	grab_slot.update()
 	day_num.text = "Day: %s" % state.curr_day
