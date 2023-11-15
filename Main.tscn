@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://stabv7nin058"]
+[gd_scene load_steps=15 format=3 uid="uid://stabv7nin058"]
 
 [ext_resource type="Script" path="res://Main.gd" id="1_b7ej4"]
 [ext_resource type="PackedScene" uid="uid://0alw4cfw4g22" path="res://inventory/Inventory.tscn" id="1_occea"]
@@ -13,6 +13,29 @@
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_10m38"]
 bg_color = Color(0.368627, 0.454902, 0.776471, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_64ggw"]
+content_margin_left = 36.0
+content_margin_top = 0.0
+content_margin_right = 36.0
+content_margin_bottom = 0.0
+bg_color = Color(0.180392, 0.184314, 0.223529, 1)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+expand_margin_bottom = 80.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6gk88"]
+content_margin_left = 36.0
+content_margin_top = 0.0
+content_margin_right = 36.0
+content_margin_bottom = 0.0
+bg_color = Color(0.0862745, 0.0901961, 0.113725, 1)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+expand_margin_bottom = 80.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5obpi"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [node name="Main" type="Node"]
 script = ExtResource("1_b7ej4")
@@ -75,21 +98,6 @@ offset_top = 1793.0
 offset_right = 2057.0
 offset_bottom = 2113.0
 
-[node name="SellInventory" parent="UI/InventoryInterface" instance=ExtResource("13_yk8kt")]
-layout_mode = 0
-offset_left = 3107.0
-offset_top = 92.0
-offset_right = 3771.0
-offset_bottom = 1955.0
-
-[node name="BuyInventory" parent="UI/InventoryInterface" instance=ExtResource("13_yk8kt")]
-visible = false
-layout_mode = 0
-offset_left = 3107.0
-offset_top = 92.0
-offset_right = 3771.0
-offset_bottom = 1955.0
-
 [node name="NextDayButton" type="Button" parent="UI/InventoryInterface"]
 layout_mode = 0
 offset_left = 2267.0
@@ -122,6 +130,27 @@ texture_pressed = ExtResource("12_tetco")
 texture_hover = ExtResource("12_tetco")
 texture_disabled = ExtResource("12_tetco")
 texture_focused = ExtResource("12_tetco")
+
+[node name="TabContainer" type="TabContainer" parent="UI/InventoryInterface"]
+layout_mode = 0
+offset_left = 3085.0
+offset_top = 494.0
+offset_right = 3737.0
+offset_bottom = 1796.0
+pivot_offset = Vector2(2.08165e-12, 2.08165e-12)
+theme_override_font_sizes/font_size = 48
+theme_override_styles/tab_selected = SubResource("StyleBoxFlat_64ggw")
+theme_override_styles/tab_hovered = SubResource("StyleBoxFlat_64ggw")
+theme_override_styles/tab_unselected = SubResource("StyleBoxFlat_6gk88")
+theme_override_styles/panel = SubResource("StyleBoxFlat_5obpi")
+tab_alignment = 1
+
+[node name="Inventory" parent="UI/InventoryInterface/TabContainer" instance=ExtResource("13_yk8kt")]
+layout_mode = 2
+
+[node name="Shop" parent="UI/InventoryInterface/TabContainer" instance=ExtResource("13_yk8kt")]
+visible = false
+layout_mode = 2
 
 [node name="GrabSlot" parent="UI/InventoryInterface" instance=ExtResource("10_5kb5e")]
 visible = false

@@ -11,8 +11,8 @@ class_name InventoryInterface
 @onready var pots_inventory: PanelContainer = $PotsInventory
 @onready var tools_inventory: PanelContainer = $ToolsInventory
 @onready var shelf_inventory: PanelContainer = $ShelfInventory
-@onready var sell_inventory: PanelContainer = $SellInventory
-@onready var buy_inventory: PanelContainer = $BuyInventory
+@onready var sell_inventory: PanelContainer = $TabContainer/Inventory
+@onready var buy_inventory: PanelContainer = $TabContainer/Shop
 
 @export var initial_state: State
 var state: State
