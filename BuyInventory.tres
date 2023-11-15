@@ -1,9 +1,22 @@
-[gd_resource type="Resource" script_class="ProductInventoryData" load_steps=2 format=3 uid="uid://djxch8jows3ky"]
+[gd_resource type="Resource" script_class="ProductInventoryData" load_steps=7 format=3 uid="uid://djxch8jows3ky"]
 
 [ext_resource type="Script" path="res://inventory/ProductInventoryData.gd" id="1_wxbat"]
+[ext_resource type="Resource" uid="uid://dtdm5s0ad2d28" path="res://item/seeds/seed1.tres" id="2_fuq00"]
+[ext_resource type="Script" path="res://inventory/SlotData.gd" id="3_7jofv"]
+[ext_resource type="Resource" uid="uid://dmsd41lgytg3d" path="res://item/seeds/seed2.tres" id="4_gas8w"]
+
+[sub_resource type="Resource" id="Resource_f68im"]
+script = ExtResource("3_7jofv")
+item_data = ExtResource("2_fuq00")
+quantity = 4
+
+[sub_resource type="Resource" id="Resource_w8qij"]
+script = ExtResource("3_7jofv")
+item_data = ExtResource("4_gas8w")
+quantity = 2
 
 [resource]
 script = ExtResource("1_wxbat")
 inventory_type = 1
 action_text = "Buy"
-slot_datas = Array[Resource("res://inventory/SlotData.gd")]([null, null, null, null, null, null])
+slot_datas = Array[ExtResource("3_7jofv")]([SubResource("Resource_f68im"), SubResource("Resource_w8qij"), null, null, null, null])

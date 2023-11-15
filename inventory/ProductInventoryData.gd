@@ -95,15 +95,21 @@ func slot_interact(grabbed_slot_data: SlotData, index: int, action: Slot.Action)
 	else:
 		match action:
 			Slot.Action.Hold:
+				match inventory_type:
+					Type.Sell:
+						if grabbed_slot_data:
+							return drop_slot_data(grabbed_slot_data, index)
+						else:
+							return grab_slot_data(index)
+						return null
+					Type.Buy:
+						if grabbed_slot_data:
+							return grabbed_slot_data
+						select_first_slot_data(index)
+			Slot.Action.Click:
 				if grabbed_slot_data:
 					return grabbed_slot_data
 				select_first_slot_data(index)
-				return null
-			Slot.Action.Click:
-				if grabbed_slot_data:
-					return drop_slot_data(grabbed_slot_data, index)
-				else:
-					return grab_slot_data(index)
 			Slot.Action.RightClick:
 				pass
 	return grabbed_slot_data
