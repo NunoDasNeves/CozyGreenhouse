@@ -1,43 +1,40 @@
-[gd_resource type="Resource" script_class="SeedItemData" load_steps=15 format=3 uid="uid://dtdm5s0ad2d28"]
+[gd_resource type="Resource" script_class="ItemData" load_steps=15 format=3 uid="uid://dtdm5s0ad2d28"]
 
 [ext_resource type="Resource" uid="uid://b8mtmgo1yeq3h" path="res://item/plants/Plant1.tres" id="1_7mwet"]
+[ext_resource type="Script" path="res://item/ItemData.gd" id="2_f8418"]
 [ext_resource type="Texture2D" uid="uid://c5li56s8ni3gm" path="res://item/seeds/seed1.png" id="2_qjrf4"]
 [ext_resource type="PackedScene" uid="uid://bw145ublkri14" path="res://item/SpriteItem.tscn" id="3_hgea6"]
-[ext_resource type="Script" path="res://item/SeedItemData.gd" id="4_s0sci"]
 [ext_resource type="Script" path="res://item/components/StackableComponent.gd" id="5_fublf"]
 [ext_resource type="Script" path="res://item/components/SeedComponent.gd" id="6_clty7"]
 [ext_resource type="Script" path="res://item/components/BuyComponent.gd" id="7_cglbn"]
 [ext_resource type="Script" path="res://item/ItemType.gd" id="8_i2qgh"]
 [ext_resource type="Script" path="res://item/components/TextureComponent.gd" id="8_tob0h"]
 
-[sub_resource type="Resource" id="Resource_frjy3"]
+[sub_resource type="Resource" id="Resource_qhakd"]
 script = ExtResource("5_fublf")
 max_stack_size = 99
 show_1x_quantity = true
 
-[sub_resource type="Resource" id="Resource_gojs0"]
+[sub_resource type="Resource" id="Resource_trrlq"]
 script = ExtResource("6_clty7")
 plant = ExtResource("1_7mwet")
 
-[sub_resource type="Resource" id="Resource_38uir"]
-script = ExtResource("7_cglbn")
-base_value = 2.0
-
-[sub_resource type="Resource" id="Resource_gehmg"]
+[sub_resource type="Resource" id="Resource_qlcin"]
 script = ExtResource("8_tob0h")
 texture = ExtResource("2_qjrf4")
 
-[sub_resource type="Resource" id="Resource_1ttuq"]
+[sub_resource type="Resource" id="Resource_8qach"]
+script = ExtResource("7_cglbn")
+base_value = 1.0
+
+[sub_resource type="Resource" id="Resource_xn3da"]
 script = ExtResource("8_i2qgh")
-components = Array[Resource("res://item/components/ItemComponent.gd")]([SubResource("Resource_frjy3"), SubResource("Resource_gojs0"), SubResource("Resource_38uir"), SubResource("Resource_gehmg")])
+components = Array[Resource("res://item/components/ItemComponent.gd")]([SubResource("Resource_qhakd"), SubResource("Resource_trrlq"), SubResource("Resource_qlcin"), SubResource("Resource_8qach")])
 
 [resource]
-script = ExtResource("4_s0sci")
-plant = ExtResource("1_7mwet")
-rack_item_texture = ExtResource("2_qjrf4")
-show_1x_quantity = true
-name = "Moon Lettuce Seeds"
-description = "moony"
+script = ExtResource("2_f8418")
+name = "Moon Lettuce Seed"
+description = "Moonyyyy"
 scene = ExtResource("3_hgea6")
 type_name = 1
-type = SubResource("Resource_1ttuq")
+type = SubResource("Resource_xn3da")

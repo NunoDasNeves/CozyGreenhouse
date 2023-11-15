@@ -22,8 +22,8 @@ var curr_growth: float = 0 # at 1, advance to next GrowthStage
 var pot_item_data: RackItemData
 var num_fruits: int = 0
 
-static func create_from_seed(seed_data: SeedItemData, pot_data: RackItemData) -> PlantItemData:
-	var plant_data : PlantItemData = seed_data.plant.duplicate()
+static func create_from_seed(seed_component: SeedComponent, pot_data: RackItemData) -> PlantItemData:
+	var plant_data : PlantItemData = seed_component.plant.duplicate()
 	plant_data.pot_item_data = pot_data
 	plant_data.light = plant_data.light.duplicate()
 	plant_data.water = plant_data.water.duplicate()

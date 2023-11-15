@@ -1,10 +1,24 @@
-[gd_scene load_steps=3 format=3 uid="uid://c1b7r3mdk7q54"]
+[gd_scene load_steps=4 format=3 uid="uid://c1b7r3mdk7q54"]
 
+[ext_resource type="Script" path="res://GrabSlot.gd" id="1_fuaro"]
 [ext_resource type="PackedScene" uid="uid://d346bhoh8up1g" path="res://item/plants/Plant2.tscn" id="1_m2sgs"]
 [ext_resource type="PackedScene" uid="uid://bw145ublkri14" path="res://item/SpriteItem.tscn" id="2_sgmje"]
 
 [node name="GrabSlot" type="Node2D"]
+script = ExtResource("1_fuaro")
 
-[node name="Plant2" parent="." instance=ExtResource("1_m2sgs")]
+[node name="Container" type="Node2D" parent="."]
 
-[node name="SpriteItem" parent="." instance=ExtResource("2_sgmje")]
+[node name="Plant2" parent="Container" instance=ExtResource("1_m2sgs")]
+
+[node name="SpriteItem" parent="Container" instance=ExtResource("2_sgmje")]
+
+[node name="QuantityLabel" type="Label" parent="."]
+offset_left = 83.0
+offset_top = -128.0
+offset_right = 163.0
+offset_bottom = -58.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 48
+text = "x99"

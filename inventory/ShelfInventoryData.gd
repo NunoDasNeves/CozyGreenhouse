@@ -23,13 +23,12 @@ func next_day() -> void:
 		plant_data.next_day()
 		inventory_updated.emit(i, slot_data)
 
-func plant_seed(seed_data: SeedItemData, shelf_slot_index: int) -> bool:
-	if not seed_data.plant:
-		return false
+func plant_seed(seed_component: SeedComponent, shelf_slot_index: int) -> bool:
+	assert(seed_component.plant)
 	var slot_data: SlotData = slot_datas[shelf_slot_index]
 	if not slot_data or slot_data.item_data.type_name != ItemData.TypeName.POT:
 		return false
-	var plant_item_data: PlantItemData = PlantItemData.create_from_seed(seed_data, slot_data.item_data as RackItemData)
+	var plant_item_data: PlantItemData = PlantItemData.create_from_seed(seed_component, slot_data.item_data as RackItemData)
 	slot_data.item_data = plant_item_data
 	slot_data.quantity = 1
 	return true
@@ -46,14 +45,33 @@ func grab_slot_data(index: int) -> SlotData:
 func drop_slot_data(grabbed_slot_data: SlotData, index: int) -> SlotData:
 	var slot_data: SlotData = slot_datas[index]
 	var ret: SlotData = grabbed_slot_data
+	var grabbed_item_data: ItemData = grabbed_slot_data.item_data
+
+	var seed_component := grabbed_item_data.get_component("Seed") as SeedComponent
+	if seed_component:
+		if slot_data and slot_data.item_data.type_name == ItemData.TypeName.POT:
+			if plant_seed(seed_component, index):
+				grabbed_slot_data.quantity -= 1
+				if !grabbed_slot_data.quantity:
+					ret = null
+				inventory_updated.emit(index, slot_datas[index])
 
 	match (grabbed_slot_data.item_data.type_name):
-		ItemData.TypeName.SEED:
-			if slot_data and slot_data.item_data.type_name == ItemData.TypeName.POT:
-				if plant_seed(grabbed_slot_data.item_data as SeedItemData, index):
+		ItemData.TypeName.POT:
+			if slot_data and slot_data.item_data == grabbed_item_data:
+				grabbed_slot_data.quantity += 1
+				slot_datas[index] = null
+			elif grabbed_slot_data.quantity == 1:
+				slot_datas[index] = grabbed_slot_data
+				ret = slot_data
+			elif not slot_data:
+				slot_datas[index] = grabbed_slot_data.duplicate()
+				slot_datas[index].quantity = 1
+				grabbed_slot_data.quantity -= 1
+				if !grabbed_slot_data.quantity:
 					ret = null
-					inventory_updated.emit(index, slot_datas[index])
-		ItemData.TypeName.POT, ItemData.TypeName.PLANT:
+			inventory_updated.emit(index, slot_datas[index])
+		ItemData.TypeName.PLANT:
 			slot_datas[index] = grabbed_slot_data
 			inventory_updated.emit(index, slot_datas[index])
 			ret = slot_data

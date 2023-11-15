@@ -13,9 +13,7 @@ func set_slot_data(slot_data: SlotData) -> void:
 	if not slot_data:
 		return
 
-	var item_data: RackItemData = slot_data.item_data
-	if not item_data:
-		return
+	var item_data: ItemData = slot_data.item_data
 
 	var node := item_data.scene.instantiate() as Node2D
 	container.add_child(node)
@@ -25,7 +23,7 @@ func set_slot_data(slot_data: SlotData) -> void:
 
 	if slot_data.quantity == 0:
 		node.modulate = Color(Color.WHITE, 0.5)
-	elif item_data.show_1x_quantity or slot_data.quantity > 1:
+	else:
 		quantity_label.text = "x%s" % slot_data.quantity
 		quantity_label.show()
 	tooltip_text = "%s\n%s" % [item_data.name, item_data.description]

@@ -17,4 +17,6 @@ enum TypeName {
 @export var type: ItemType
 
 func get_component(component_name: StringName) -> Variant:
+	if not type:
+		return null
 	return type.components_dict.get(component_name)
