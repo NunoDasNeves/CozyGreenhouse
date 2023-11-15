@@ -13,4 +13,4 @@ show_1x_quantity = true
 name = "Galaxy Flower Seeds"
 description = "leafy"
 scene = ExtResource("3_8eiq3")
-type = 1
+type_name = 1

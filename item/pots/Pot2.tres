@@ -11,4 +11,5 @@ show_1x_quantity = true
 name = "Pink Pot"
 description = "Blushing!"
 scene = ExtResource("2_wqkmh")
+type_name = 2
 type = 2

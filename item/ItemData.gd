@@ -1,7 +1,7 @@
 extends Resource
 class_name ItemData
 
-enum Type {
+enum TypeName {
 	NONE,
 	SEED,
 	POT,
@@ -13,4 +13,4 @@ enum Type {
 @export var name: String = ""
 @export_multiline var description: String = ""
 @export var scene: PackedScene
-@export var type: Type
+@export var type_name: TypeName

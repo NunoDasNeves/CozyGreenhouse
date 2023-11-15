@@ -57,4 +57,5 @@ fruit_item_data = ExtResource("2_1ta85")
 name = "Moon Lettuce"
 description = "Where's the flower?"
 scene = ExtResource("3_7dt1m")
+type_name = 3
 type = 3

@@ -57,4 +57,5 @@ fruit_item_data = ExtResource("2_6vk2i")
 name = "Galaxy Flower"
 description = "Tasty!"
 scene = ExtResource("3_joliu")
+type_name = 3
 type = 3

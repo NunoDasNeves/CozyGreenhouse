@@ -27,7 +27,7 @@ func plant_seed(seed_data: SeedItemData, shelf_slot_index: int) -> bool:
 	if not seed_data.plant:
 		return false
 	var slot_data: SlotData = slot_datas[shelf_slot_index]
-	if not slot_data or slot_data.item_data.type != ItemData.Type.POT:
+	if not slot_data or slot_data.item_data.type_name != ItemData.TypeName.POT:
 		return false
 	var plant_item_data: PlantItemData = PlantItemData.create_from_seed(seed_data, slot_data.item_data as RackItemData)
 	slot_data.item_data = plant_item_data
@@ -47,18 +47,18 @@ func drop_slot_data(grabbed_slot_data: SlotData, index: int) -> SlotData:
 	var slot_data: SlotData = slot_datas[index]
 	var ret: SlotData = grabbed_slot_data
 
-	match (grabbed_slot_data.item_data.type):
-		ItemData.Type.SEED:
-			if slot_data and slot_data.item_data.type == ItemData.Type.POT:
+	match (grabbed_slot_data.item_data.type_name):
+		ItemData.TypeName.SEED:
+			if slot_data and slot_data.item_data.type_name == ItemData.TypeName.POT:
 				if plant_seed(grabbed_slot_data.item_data as SeedItemData, index):
 					ret = null
 					inventory_updated.emit(index, slot_datas[index])
-		ItemData.Type.POT, ItemData.Type.PLANT:
+		ItemData.TypeName.POT, ItemData.TypeName.PLANT:
 			slot_datas[index] = grabbed_slot_data
 			inventory_updated.emit(index, slot_datas[index])
 			ret = slot_data
-		ItemData.Type.TOOL:
-			if slot_data and slot_data.item_data.type == ItemData.Type.PLANT:
+		ItemData.TypeName.TOOL:
+			if slot_data and slot_data.item_data.type_name == ItemData.TypeName.PLANT:
 				var plant_data := slot_data.item_data as PlantItemData
 				var tool_data := grabbed_slot_data.item_data as ToolItemData
 				match (tool_data.tool_type):

@@ -11,4 +11,5 @@ show_1x_quantity = true
 name = "Fertilizer"
 description = "It's what plants crave!"
 scene = ExtResource("2_h2eiw")
+type_name = 4
 type = 2

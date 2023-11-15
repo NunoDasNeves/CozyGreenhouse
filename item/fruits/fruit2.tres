@@ -11,4 +11,5 @@ value = 15
 name = "Galaxy Flower"
 description = "So...galaxy-y..."
 scene = ExtResource("2_u1gce")
+type_name = 5
 type = 5

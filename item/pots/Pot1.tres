@@ -11,4 +11,5 @@ show_1x_quantity = true
 name = "Purple Pot"
 description = "A nice purple pot"
 scene = ExtResource("1_ofi7j")
+type_name = 2
 type = 2

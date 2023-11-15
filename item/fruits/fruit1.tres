@@ -11,4 +11,5 @@ value = 5
 name = "Moon Lettuce Leaf"
 description = "Ummm...Can you eat this?"
 scene = ExtResource("2_nsx3w")
+type_name = 5
 type = 5

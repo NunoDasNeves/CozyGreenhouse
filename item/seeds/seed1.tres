@@ -13,4 +13,4 @@ show_1x_quantity = true
 name = "Moon Lettuce Seeds"
 description = "moony"
 scene = ExtResource("3_dkfwv")
-type = 1
+type_name = 1

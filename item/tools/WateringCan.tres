@@ -10,4 +10,5 @@ show_1x_quantity = false
 name = "Watering Can"
 description = "Use it to water stuff!"
 scene = ExtResource("1_8a0df")
+type_name = 4
 type = 4
