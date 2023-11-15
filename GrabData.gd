@@ -1,5 +1,5 @@
 extends Resource
-class_name GrabSlotData
+class_name GrabData
 
 var slot_data: SlotData
 var from_inventory_data: InventoryData

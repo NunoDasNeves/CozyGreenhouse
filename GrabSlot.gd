@@ -1,7 +1,7 @@
 extends Node2D
 class_name GrabSlot
 
-var grab_data: GrabSlotData
+var grab_data: GrabData
 
 func process() -> void:
 	if visible:

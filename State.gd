@@ -13,7 +13,7 @@ class_name State
 @export var sell_inventory_data: ProductInventoryData
 @export var buy_inventory_data: ProductInventoryData
 
-var grab_data: GrabSlotData = GrabSlotData.new()
+var grab_data: GrabData = GrabData.new()
 
 func next_day() -> void:
 	grab_data.dismiss() # not really needed because called in inventory interface, but should be here anyway
