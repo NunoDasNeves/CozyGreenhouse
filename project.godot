@@ -46,6 +46,10 @@ window/size/resizable=false
 window/stretch/mode="canvas_items"
 window/per_pixel_transparency/allowed=true
 
+[gui]
+
+theme/custom="res://themes/GameTheme.tres"
+
 [importer_defaults]
 
 texture={

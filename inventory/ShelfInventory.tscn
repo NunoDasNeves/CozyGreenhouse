@@ -4,21 +4,25 @@
 [ext_resource type="PackedScene" uid="uid://ueca5wmtav1v" path="res://inventory/ShelfSlot.tscn" id="2_m8wih"]
 
 [node name="ShelfInventory" type="PanelContainer" node_paths=PackedStringArray("item_grid")]
-offset_right = 1228.0
-offset_bottom = 1374.0
+clip_contents = true
+offset_right = 1136.0
+offset_bottom = 1426.0
+theme_type_variation = &"ShelfBackground"
 script = ExtResource("1_ie64b")
 slot_scene = ExtResource("2_m8wih")
 item_grid = NodePath("MarginContainer/ItemGrid")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
-theme_override_constants/margin_left = 8
-theme_override_constants/margin_top = 8
-theme_override_constants/margin_right = 8
-theme_override_constants/margin_bottom = 8
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
 
 [node name="ItemGrid" type="GridContainer" parent="MarginContainer"]
 layout_mode = 2
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 30
 columns = 4
 
 [node name="ShelfSlot" parent="MarginContainer/ItemGrid" instance=ExtResource("2_m8wih")]

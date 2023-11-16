@@ -1,14 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://b8iki5hc8c177"]
+[gd_scene load_steps=8 format=3 uid="uid://b8iki5hc8c177"]
 
 [ext_resource type="Script" path="res://inventory/ProductsInventory.gd" id="1_s3ynm"]
 [ext_resource type="PackedScene" uid="uid://buyj6n0hvqkgb" path="res://inventory/ProductSlot.tscn" id="3_hpdid"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fk7o7"]
-bg_color = Color(0.180392, 0.184314, 0.223529, 1)
-corner_radius_top_left = 64
-corner_radius_top_right = 64
-corner_radius_bottom_right = 64
-corner_radius_bottom_left = 64
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jrhq1"]
 bg_color = Color(0.188235, 0.439216, 0.611765, 1)
@@ -54,7 +47,7 @@ corner_radius_bottom_left = 10
 offset_right = 562.0
 offset_bottom = 1078.0
 mouse_filter = 1
-theme_override_styles/panel = SubResource("StyleBoxFlat_fk7o7")
+theme_type_variation = &"InventoryBackground"
 script = ExtResource("1_s3ynm")
 slot_scene = ExtResource("3_hpdid")
 item_grid = NodePath("VBoxContainer/MarginContainer/ScrollContainer/MarginContainer/ItemGrid")
