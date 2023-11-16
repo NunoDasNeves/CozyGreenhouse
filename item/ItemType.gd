@@ -2,6 +2,7 @@ extends Resource
 class_name ItemType
 
 @export var components: Array[ItemComponent]
+
 var components_dict: Dictionary:
 	get:
 		if _dict.is_empty():

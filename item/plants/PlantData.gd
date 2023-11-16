@@ -1,5 +1,5 @@
-extends ShelfItemData
-class_name PlantItemData
+extends Resource
+class_name PlantData
 
 enum GrowthStage {
 	YOUNG,
@@ -21,14 +21,6 @@ var curr_fruit_growth: float = 0
 var curr_growth: float = 0 # at 1, advance to next GrowthStage
 var pot_item_data: ItemData
 var num_fruits: int = 0
-
-static func create_from_seed(seed_component: SeedComponent, pot_data: ItemData) -> PlantItemData:
-	var plant_data : PlantItemData = seed_component.plant.duplicate()
-	plant_data.pot_item_data = pot_data
-	plant_data.light = plant_data.light.duplicate()
-	plant_data.water = plant_data.water.duplicate()
-	plant_data.fertilizer = plant_data.fertilizer.duplicate()
-	return plant_data
 
 func gather_fruit() -> Array[ProductItemData]:
 	var ret: Array[ProductItemData] = []

@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://ueca5wmtav1v"]
 
 [ext_resource type="Script" path="res://inventory/ShelfSlot.gd" id="1_4bqis"]
-[ext_resource type="PackedScene" uid="uid://d346bhoh8up1g" path="res://item/plants/Plant2.tscn" id="2_nv2k6"]
+[ext_resource type="PackedScene" uid="uid://d346bhoh8up1g" path="res://item/plants/GalaxyFlower.tscn" id="2_nv2k6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g2ttx"]
 bg_color = Color(0.0313726, 0.635294, 0.94902, 1)

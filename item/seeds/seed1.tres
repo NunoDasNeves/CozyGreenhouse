@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="ItemData" load_steps=15 format=3 uid="uid://dtdm5s0ad2d28"]
 
-[ext_resource type="Resource" uid="uid://b8mtmgo1yeq3h" path="res://item/plants/Plant1.tres" id="1_7mwet"]
 [ext_resource type="Script" path="res://item/ItemData.gd" id="2_f8418"]
 [ext_resource type="Texture2D" uid="uid://c5li56s8ni3gm" path="res://item/seeds/seed1.png" id="2_qjrf4"]
 [ext_resource type="PackedScene" uid="uid://bw145ublkri14" path="res://item/SpriteItem.tscn" id="3_hgea6"]
+[ext_resource type="Resource" uid="uid://d2gov5vt6tmcq" path="res://item/plants/MoonLettuce.tres" id="4_he1pf"]
 [ext_resource type="Script" path="res://item/components/StackableComponent.gd" id="5_fublf"]
 [ext_resource type="Script" path="res://item/components/SeedComponent.gd" id="6_clty7"]
 [ext_resource type="Script" path="res://item/components/BuyComponent.gd" id="7_cglbn"]
@@ -17,7 +17,7 @@ show_1x_quantity = true
 
 [sub_resource type="Resource" id="Resource_trrlq"]
 script = ExtResource("6_clty7")
-plant = ExtResource("1_7mwet")
+plant = ExtResource("4_he1pf")
 
 [sub_resource type="Resource" id="Resource_qlcin"]
 script = ExtResource("8_tob0h")

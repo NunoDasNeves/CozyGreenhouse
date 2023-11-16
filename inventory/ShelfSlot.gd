@@ -36,10 +36,11 @@ func set_slot_data(slot_data: SlotData) -> void:
 	var item_scene := node as ItemScene
 	assert(item_scene)
 	item_scene.set_item_data(item_data)
-	if item_scene is PlantItemScene:
+
+	var plant_component: PlantItemComponent = item_data.get_component("Plant")
+	if plant_component:
 		(item_scene as PlantItemScene).fruit_clicked.connect(fruit_clicked)
-	if item_data is PlantItemData:
-		var plant_data := item_data as PlantItemData
+		var plant_data: PlantData = plant_component.plant
 		water_bar.max_value = plant_data.water.max_val
 		water_bar.value = plant_data.water.curr_val
 		water_low.position.x = plant_data.water.happy_min / plant_data.water.max_val * water_bar.size.x

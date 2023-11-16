@@ -5,9 +5,10 @@ func gather_fruit(index: int) -> void:
 	var slot_data: SlotData = slot_datas[index]
 	if not slot_data:
 		return
-	var plant_data = slot_data.item_data as PlantItemData
-	if not plant_data:
+	var plant_component: PlantItemComponent = slot_data.item_data.get_component("Plant")
+	if not plant_component:
 		return
+	var plant_data: PlantData = plant_component.plant
 	var products_gathered: Array[ProductItemData] = plant_data.gather_fruit()
 	Global.state.add_products_to_sell(products_gathered)
 	inventory_updated.emit(index, slot_data)
@@ -17,10 +18,10 @@ func next_day() -> void:
 		var slot_data: SlotData = slot_datas[i]
 		if not slot_data:
 			continue
-		var plant_data := slot_data.item_data as PlantItemData
-		if not plant_data:
-			continue
-		plant_data.next_day()
+		var plant_component: PlantItemComponent = slot_data.item_data.get_component("Plant")
+		if not plant_component:
+			return
+		plant_component.plant.next_day()
 		inventory_updated.emit(i, slot_data)
 
 func plant_seed(seed_component: SeedComponent, shelf_slot_index: int) -> bool:
@@ -28,9 +29,10 @@ func plant_seed(seed_component: SeedComponent, shelf_slot_index: int) -> bool:
 	var slot_data: SlotData = slot_datas[shelf_slot_index]
 	if not slot_data or not slot_data.item_data.has_component("Pot"):
 		return false
-	var plant_item_data: PlantItemData = PlantItemData.create_from_seed(seed_component, slot_data.item_data)
+	var plant_item_data: ItemData = seed_component.create_plant_item(slot_data.item_data)
 	slot_data.item_data = plant_item_data
 	slot_data.quantity = 1
+
 	return true
 
 func grab_slot_data(index: int) -> SlotData:
@@ -73,8 +75,9 @@ func drop_slot_data(grabbed_slot_data: SlotData, index: int) -> SlotData:
 		inventory_updated.emit(index, slot_datas[index])
 
 	if grabbed_item_data.has_component("WateringCan") and slot_data:
-		var plant_data := slot_data.item_data as PlantItemData
-		if plant_data:
+		var plant_component: PlantItemComponent = slot_data.item_data.get_component("Plant")
+		if plant_component:
+			var plant_data: PlantData = plant_component.plant
 			var water_space: float = plant_data.water.max_val - plant_data.water.curr_val
 			var water_to_try_use: float = minf(water_space, State.WATERING_CAN_WATER_AMOUNT)
 			var water_to_use: float = Global.state.try_use_water(water_to_try_use)

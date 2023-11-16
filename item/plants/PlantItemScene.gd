@@ -13,7 +13,8 @@ func on_fruit_clicked() -> void:
 	fruit_clicked.emit()
 
 func set_item_data(item_data: ItemData) -> void:
-	var plant_data := item_data as PlantItemData
+	var plant_component: PlantItemComponent = item_data.get_component("Plant")
+	var plant_data := plant_component.plant
 	assert(plant_data)
 	plant_sprite_young.texture = plant_data.young_texture
 	plant_sprite_mature.texture = plant_data.mature_texture
@@ -25,9 +26,9 @@ func set_item_data(item_data: ItemData) -> void:
 	for fruit in fruits.get_children():
 		(fruit as Node2D).hide()
 	match plant_data.growth_stage:
-		PlantItemData.GrowthStage.YOUNG:
+		PlantData.GrowthStage.YOUNG:
 			plant_sprite_young.show()
-		PlantItemData.GrowthStage.MATURE:
+		PlantData.GrowthStage.MATURE:
 			plant_sprite_mature.show()
 	if plant_data.num_fruits > 0:
 		fruit_button.show()
