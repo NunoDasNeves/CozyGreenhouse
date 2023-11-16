@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="PlantFood" load_steps=2 format=3 uid="uid://dx346lfbubap"]
+
+[ext_resource type="Script" path="res://item/plants/PlantFood.gd" id="1_djv5w"]
+
+[resource]
+script = ExtResource("1_djv5w")
+max_val = 5.0
+happy_min = 1.0
+happy_max = 5.0
+eat_per_day = 1.0
+happy_fruit_factor = 1.5
+bad_fruit_factor = 1.0
+happy_growth_factor = 2.0
+bad_growth_factor = 1.0
+bad_days_til_death = 0

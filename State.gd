@@ -4,6 +4,7 @@ class_name State
 signal water_updated
 signal money_updated
 
+const FERTILIZER_AMOUNT: float = 1
 const WATERING_CAN_WATER_AMOUNT: float = 0.5
 
 var water_per_day: float = 0.1

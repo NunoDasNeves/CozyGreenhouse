@@ -69,6 +69,20 @@ func drop_slot_data(grabbed_slot_data: SlotData, index: int) -> SlotData:
 			inventory_updated.emit(index, slot_datas[index])
 		return ret
 
+	if grabbed_item_data.has_component("Fertilizer") and slot_data:
+		var plant_component: PlantItemComponent = slot_data.item_data.get_component("Plant")
+		if plant_component:
+			var plant_data: PlantData = plant_component.plant
+			var fert_space: float = plant_data.fertilizer.max_val - plant_data.fertilizer.curr_val
+			if fert_space >= State.FERTILIZER_AMOUNT:
+				plant_data.fertilizer.curr_val += State.FERTILIZER_AMOUNT
+				inventory_updated.emit(index, slot_datas[index])
+				if grabbed_slot_data.quantity == 1:
+					ret = null
+				else:
+					grabbed_slot_data.quantity -= 1
+		return ret
+
 	if grabbed_item_data.has_component("Stackable"):
 		if slot_data and slot_data.item_data == grabbed_item_data:
 			grabbed_slot_data.quantity += 1

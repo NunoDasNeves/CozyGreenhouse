@@ -51,7 +51,9 @@ func set_slot_data(slot_data: SlotData) -> void:
 		else:
 			water_bar.add_theme_stylebox_override("background", bad_bar_stylebox_background)
 			water_bar.add_theme_stylebox_override("fill", bad_bar_stylebox_fill)
-		fertilizer_bar.value = plant_data.fertilizer.curr_val / 100 * 5
+		fertilizer_bar.max_value = plant_data.fertilizer.max_val
+		fertilizer_bar.value = plant_data.fertilizer.curr_val
 		water.show();
-		fertilizer.show();
+		if plant_data.fertilizer.curr_val > 0:
+			fertilizer.show();
 	tooltip_text = "%s\n%s" % [item_data.name, item_data.description]

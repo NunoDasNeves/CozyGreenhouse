@@ -2,23 +2,12 @@
 
 [ext_resource type="PackedScene" uid="uid://cf27wt1xakpnq" path="res://item/plants/MoonLettuce.tscn" id="1_5mlvi"]
 [ext_resource type="Script" path="res://item/ItemData.gd" id="1_y7pwd"]
+[ext_resource type="Resource" uid="uid://dx346lfbubap" path="res://item/plants/FertilizerPlantFood.tres" id="3_04b31"]
 [ext_resource type="Script" path="res://item/plants/PlantFood.gd" id="3_fmvh8"]
 [ext_resource type="Resource" uid="uid://dk8us7i65t6kj" path="res://item/fruits/fruit1.tres" id="4_o2nsf"]
 [ext_resource type="Script" path="res://item/plants/PlantData.gd" id="7_j857u"]
 [ext_resource type="Script" path="res://item/components/PlantItemComponent.gd" id="8_tsjqw"]
 [ext_resource type="Script" path="res://item/ItemType.gd" id="9_8prrs"]
-
-[sub_resource type="Resource" id="Resource_28xyy"]
-script = ExtResource("3_fmvh8")
-max_val = 100.0
-happy_min = 0.0
-happy_max = 100.0
-eat_per_day = 0.0
-happy_fruit_factor = 1.0
-bad_fruit_factor = 0.0
-happy_growth_factor = 1.0
-bad_growth_factor = 0.0
-bad_days_til_death = 0
 
 [sub_resource type="Resource" id="Resource_a238k"]
 script = ExtResource("3_fmvh8")
@@ -56,7 +45,7 @@ young_texture = SubResource("CompressedTexture2D_a0cu5")
 mature_texture = SubResource("CompressedTexture2D_6lpbq")
 light = SubResource("Resource_a238k")
 water = SubResource("Resource_rswtq")
-fertilizer = SubResource("Resource_28xyy")
+fertilizer = ExtResource("3_04b31")
 fruit_per_day = 0.2
 growth_per_day = 0.2
 max_num_fruits = 3
