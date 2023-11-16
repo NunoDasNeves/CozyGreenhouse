@@ -15,12 +15,40 @@ enum GrowthStage {
 @export var growth_per_day: float
 @export var max_num_fruits: int
 @export var fruit_item_data: ItemData
+@export var mature_compost_bonus: float = 4
 
 var growth_stage: GrowthStage = GrowthStage.YOUNG
 var curr_fruit_growth: float = 0
 var curr_growth: float = 0 # at 1, advance to next GrowthStage
 var pot_item_data: ItemData
 var num_fruits: int = 0
+
+func get_compost_bonus() -> float:
+	match growth_stage:
+		GrowthStage.MATURE:
+			return mature_compost_bonus
+		_, GrowthStage.YOUNG:
+			return 0
+
+func get_tooltip_string() -> String:
+	var light_happy: String = "happy"
+	var water_happy: String = "happy"
+
+	if light.above_happy_range():
+		light_happy = "too light"
+	elif light.below_happy_range():
+		light_happy = "too dark"
+
+	if not water.in_happy_range():
+		if water.curr_val == 0:
+			water_happy = "no growth!"
+		elif water.above_happy_range():
+			water_happy = "overwatered"
+		elif water.below_happy_range():
+			water_happy = "thirsty"
+
+	return "Light:      %s (%s)\nWater:      %s (%s)\nFertilizer: %s" % \
+			[light.curr_val, light_happy, water.curr_val, water_happy, fertilizer.curr_val]
 
 func gather_fruit() -> void:
 	if fruit_item_data:

@@ -1,7 +1,8 @@
-[gd_resource type="Theme" load_steps=9 format=3 uid="uid://4xswugnup0ea"]
+[gd_resource type="Theme" load_steps=10 format=3 uid="uid://4xswugnup0ea"]
 
 [ext_resource type="StyleBox" uid="uid://35agf86cl1ni" path="res://themes/inventory_background.tres" id="1_m3m8h"]
 [ext_resource type="StyleBox" uid="uid://be8glpa5ycxb8" path="res://themes/slot_background.tres" id="2_bnqkd"]
+[ext_resource type="FontFile" uid="uid://ditlhn3ndo28d" path="res://fonts/RobotoMono-VariableFont_wght.ttf" id="3_thel2"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8os3b"]
 bg_color = Color(0.372549, 0.458824, 0.780392, 1)
@@ -62,3 +63,4 @@ SlotSelected/base_type = &"PanelContainer"
 SlotSelected/styles/panel = SubResource("StyleBoxFlat_1ewmq")
 SlotSelectedInner/base_type = &"Panel"
 SlotSelectedInner/styles/panel = SubResource("StyleBoxFlat_vnf65")
+TooltipLabel/fonts/font = ExtResource("3_thel2")

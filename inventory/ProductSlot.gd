@@ -76,4 +76,9 @@ func set_slot_data(slot_data: SlotData) -> void:
 	price_label.text = "$%s" % slot_display_price
 	price_label.show()
 
-	tooltip_text = "%s\n%s" % [item_data.name, item_data.description]
+	var compost_string: String = ""
+	var compost_component: CompostComponent = item_data.get_component("Compost")
+	if compost_component:
+		compost_string = "Compost value: %s\n" % compost_component.get_compost_value(item_data)
+
+	tooltip_text = "%s\n%s\n%s" % [item_data.name, compost_string, item_data.description]

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ItemData" load_steps=16 format=3 uid="uid://d2gov5vt6tmcq"]
+[gd_resource type="Resource" script_class="ItemData" load_steps=18 format=3 uid="uid://d2gov5vt6tmcq"]
 
 [ext_resource type="PackedScene" uid="uid://cf27wt1xakpnq" path="res://item/plants/MoonLettuce.tscn" id="1_5mlvi"]
 [ext_resource type="Script" path="res://item/ItemData.gd" id="1_y7pwd"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://item/plants/PlantFood.gd" id="3_fmvh8"]
 [ext_resource type="Resource" uid="uid://dk8us7i65t6kj" path="res://item/fruits/fruit1.tres" id="4_o2nsf"]
 [ext_resource type="Script" path="res://item/plants/PlantData.gd" id="7_j857u"]
+[ext_resource type="Script" path="res://item/components/CompostComponent.gd" id="8_4bdfp"]
 [ext_resource type="Script" path="res://item/components/PlantItemComponent.gd" id="8_tsjqw"]
 [ext_resource type="Script" path="res://item/ItemType.gd" id="9_8prrs"]
 
@@ -50,14 +51,19 @@ fruit_per_day = 0.2
 growth_per_day = 0.2
 max_num_fruits = 3
 fruit_item_data = ExtResource("4_o2nsf")
+mature_compost_bonus = 4.0
 
 [sub_resource type="Resource" id="Resource_64g1u"]
 script = ExtResource("8_tsjqw")
 plant = SubResource("Resource_x2j6i")
 
+[sub_resource type="Resource" id="Resource_bllog"]
+script = ExtResource("8_4bdfp")
+base_compost_value = 2.0
+
 [sub_resource type="Resource" id="Resource_nhvxe"]
 script = ExtResource("9_8prrs")
-components = Array[Resource("res://item/components/ItemComponent.gd")]([SubResource("Resource_64g1u")])
+components = Array[Resource("res://item/components/ItemComponent.gd")]([SubResource("Resource_64g1u"), SubResource("Resource_bllog")])
 
 [resource]
 script = ExtResource("1_y7pwd")

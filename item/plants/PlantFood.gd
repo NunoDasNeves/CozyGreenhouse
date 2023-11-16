@@ -13,6 +13,12 @@ class_name PlantFood
 var curr_val: float
 var bad_days_count: int
 
+func above_happy_range() -> bool:
+	return curr_val > happy_max
+
+func below_happy_range() -> bool:
+	return curr_val < happy_min
+
 func in_happy_range() -> bool:
 	return curr_val >= happy_min && \
 		   curr_val <= happy_max
