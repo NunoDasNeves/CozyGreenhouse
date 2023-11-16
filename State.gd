@@ -42,6 +42,14 @@ func add_products_to_sell(products: Array[ProductItemData]) -> void:
 func acquire_items(slot_datas: Array[SlotData]) -> void:
 	for slot_data in slot_datas:
 		var item_data = slot_data.item_data
-		var seed_component: SeedComponent = item_data.get_component("Seed")
-		if seed_component:
-			seed_inventory_data.drop_slot_data(slot_data, 0)
+		match item_data.home_inventory:
+			ItemData.HomeName.Seed:
+				seed_inventory_data.drop_slot_data(slot_data, 0)
+			ItemData.HomeName.Tool:
+				tool_inventory_data.drop_slot_data(slot_data, 0)
+			ItemData.HomeName.Shelf:
+				pass
+			ItemData.HomeName.Sell:
+				sell_inventory_data.drop_slot_data(slot_data, 0)
+			ItemData.HomeName.Buy:
+				pass

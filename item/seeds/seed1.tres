@@ -37,4 +37,5 @@ name = "Moon Lettuce Seed"
 description = "Moonyyyy"
 scene = ExtResource("3_hgea6")
 type_name = 1
+home_inventory = 0
 type = SubResource("Resource_xn3da")

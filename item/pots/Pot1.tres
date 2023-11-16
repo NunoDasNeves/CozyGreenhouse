@@ -1,15 +1,39 @@
-[gd_resource type="Resource" script_class="RackItemData" load_steps=4 format=3 uid="uid://cp3r4g23icnd8"]
+[gd_resource type="Resource" script_class="ItemData" load_steps=14 format=3 uid="uid://cp3r4g23icnd8"]
 
 [ext_resource type="PackedScene" uid="uid://dtj0d6y0w8ljp" path="res://item/pots/Pot.tscn" id="1_ofi7j"]
 [ext_resource type="Texture2D" uid="uid://brvy27s6rqef0" path="res://item/pots/pot1.png" id="1_sq8yh"]
-[ext_resource type="Script" path="res://item/RackItemData.gd" id="2_3rs2h"]
+[ext_resource type="Script" path="res://item/ItemData.gd" id="2_wo6lb"]
+[ext_resource type="Script" path="res://item/components/StackableComponent.gd" id="3_cqrsi"]
+[ext_resource type="Script" path="res://item/ItemType.gd" id="4_gvctl"]
+[ext_resource type="Script" path="res://item/components/PotComponent.gd" id="4_u5lcw"]
+[ext_resource type="Script" path="res://item/components/BuyComponent.gd" id="5_pyyvl"]
+[ext_resource type="Script" path="res://item/components/TextureComponent.gd" id="6_vejsk"]
+
+[sub_resource type="Resource" id="Resource_jr75w"]
+script = ExtResource("3_cqrsi")
+max_stack_size = 99
+show_1x_quantity = true
+
+[sub_resource type="Resource" id="Resource_uah1s"]
+script = ExtResource("4_u5lcw")
+
+[sub_resource type="Resource" id="Resource_2qdar"]
+script = ExtResource("5_pyyvl")
+base_value = 3.0
+
+[sub_resource type="Resource" id="Resource_252de"]
+script = ExtResource("6_vejsk")
+texture = ExtResource("1_sq8yh")
+
+[sub_resource type="Resource" id="Resource_gqllb"]
+script = ExtResource("4_gvctl")
+components = Array[Resource("res://item/components/ItemComponent.gd")]([SubResource("Resource_jr75w"), SubResource("Resource_uah1s"), SubResource("Resource_2qdar"), SubResource("Resource_252de")])
 
 [resource]
-script = ExtResource("2_3rs2h")
-rack_item_texture = ExtResource("1_sq8yh")
-show_1x_quantity = true
+script = ExtResource("2_wo6lb")
 name = "Purple Pot"
 description = "A nice purple pot"
 scene = ExtResource("1_ofi7j")
 type_name = 2
-type = 2
+home_inventory = 1
+type = SubResource("Resource_gqllb")

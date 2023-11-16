@@ -17,7 +17,8 @@ func set_item_data(item_data: ItemData) -> void:
 	assert(plant_data)
 	plant_sprite_young.texture = plant_data.young_texture
 	plant_sprite_mature.texture = plant_data.mature_texture
-	pot_sprite.texture = plant_data.pot_item_data.rack_item_texture
+	var pot_texture_component := plant_data.pot_item_data.get_component("Texture") as TextureComponent
+	pot_sprite.texture = pot_texture_component.texture
 	plant_sprite_young.hide()
 	plant_sprite_mature.hide()
 	fruit_button.hide()

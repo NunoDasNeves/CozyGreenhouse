@@ -1,15 +1,39 @@
-[gd_resource type="Resource" script_class="RackItemData" load_steps=4 format=3 uid="uid://bmkyc8c3c3yfu"]
+[gd_resource type="Resource" script_class="ItemData" load_steps=14 format=3 uid="uid://bmkyc8c3c3yfu"]
 
 [ext_resource type="Texture2D" uid="uid://bt36uq1ax4xvv" path="res://item/pots/pot2.png" id="1_u2mdx"]
+[ext_resource type="Script" path="res://item/ItemData.gd" id="2_6gpxq"]
 [ext_resource type="PackedScene" uid="uid://dtj0d6y0w8ljp" path="res://item/pots/Pot.tscn" id="2_wqkmh"]
-[ext_resource type="Script" path="res://item/RackItemData.gd" id="3_c6mf2"]
+[ext_resource type="Script" path="res://item/components/StackableComponent.gd" id="3_s5fmt"]
+[ext_resource type="Script" path="res://item/components/PotComponent.gd" id="4_f23k6"]
+[ext_resource type="Script" path="res://item/components/BuyComponent.gd" id="5_wc7jq"]
+[ext_resource type="Script" path="res://item/components/TextureComponent.gd" id="6_wijvs"]
+[ext_resource type="Script" path="res://item/ItemType.gd" id="8_qnera"]
+
+[sub_resource type="Resource" id="Resource_jr75w"]
+script = ExtResource("3_s5fmt")
+max_stack_size = 99
+show_1x_quantity = true
+
+[sub_resource type="Resource" id="Resource_uah1s"]
+script = ExtResource("4_f23k6")
+
+[sub_resource type="Resource" id="Resource_2qdar"]
+script = ExtResource("5_wc7jq")
+base_value = 3.0
+
+[sub_resource type="Resource" id="Resource_o2dcy"]
+script = ExtResource("6_wijvs")
+texture = ExtResource("1_u2mdx")
+
+[sub_resource type="Resource" id="Resource_ftybk"]
+script = ExtResource("8_qnera")
+components = Array[Resource("res://item/components/ItemComponent.gd")]([SubResource("Resource_jr75w"), SubResource("Resource_uah1s"), SubResource("Resource_2qdar"), SubResource("Resource_o2dcy")])
 
 [resource]
-script = ExtResource("3_c6mf2")
-rack_item_texture = ExtResource("1_u2mdx")
-show_1x_quantity = true
+script = ExtResource("2_6gpxq")
 name = "Pink Pot"
 description = "Blushing!"
 scene = ExtResource("2_wqkmh")
 type_name = 2
-type = 2
+home_inventory = 1
+type = SubResource("Resource_ftybk")

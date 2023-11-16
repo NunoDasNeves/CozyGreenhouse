@@ -18,7 +18,7 @@ func goes_on_rack(item_data: ItemData) -> bool:
 		return false
 	if item_data is RackItemData:
 		return true
-	if item_data.get_component("Seed"):
+	if item_data.has_any_component(["Seed", "Pot"]):
 		return true
 	return false
 

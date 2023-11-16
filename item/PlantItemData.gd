@@ -19,10 +19,10 @@ enum GrowthStage {
 var growth_stage: GrowthStage = GrowthStage.YOUNG
 var curr_fruit_growth: float = 0
 var curr_growth: float = 0 # at 1, advance to next GrowthStage
-var pot_item_data: RackItemData
+var pot_item_data: ItemData
 var num_fruits: int = 0
 
-static func create_from_seed(seed_component: SeedComponent, pot_data: RackItemData) -> PlantItemData:
+static func create_from_seed(seed_component: SeedComponent, pot_data: ItemData) -> PlantItemData:
 	var plant_data : PlantItemData = seed_component.plant.duplicate()
 	plant_data.pot_item_data = pot_data
 	plant_data.light = plant_data.light.duplicate()

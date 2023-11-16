@@ -37,4 +37,5 @@ name = "Galaxy Flower Seeds"
 description = "leafy"
 scene = ExtResource("3_613sn")
 type_name = 1
+home_inventory = 0
 type = SubResource("Resource_n4dmy")
