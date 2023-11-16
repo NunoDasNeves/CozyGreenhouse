@@ -20,12 +20,12 @@ var state: State
 func init_inventory(inventory: Inventory, inventory_data: InventoryData):
 	inventory.init(inventory_data)
 	inventory.inventory_interact.connect(grab_slot.on_inventory_interact)
-	inventory.inventory_data.water_tank_level_updated.connect(update_water_tank)
-	inventory.inventory_data.money_updated.connect(update_money_text)
 
 func _ready() -> void:
 	Global.state = initial_state.duplicate()
 	state = Global.state
+	state.water_updated.connect(update_water_tank)
+	state.money_updated.connect(update_money_text)
 
 	grab_slot.grab_data = state.grab_data
 	grab_slot.update()

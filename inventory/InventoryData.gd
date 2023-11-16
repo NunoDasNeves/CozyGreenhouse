@@ -2,8 +2,6 @@ extends Resource
 class_name InventoryData
 
 signal inventory_updated(index: int, item_data: ItemData)
-signal water_tank_level_updated
-signal money_updated
 
 @export var slot_datas: Array[SlotData]
 

@@ -22,15 +22,15 @@ var curr_growth: float = 0 # at 1, advance to next GrowthStage
 var pot_item_data: ItemData
 var num_fruits: int = 0
 
-func gather_fruit() -> Array[ItemData]:
-	var ret: Array[ItemData] = []
+func gather_fruit() -> void:
+	if fruit_item_data:
+		var fruit_component: FruitComponent = fruit_item_data.get_component("Fruit")
 
-	for i in num_fruits:
-		ret.push_back(fruit_item_data)
+		if fruit_component:
+			for i in num_fruits:
+				fruit_component.gather(fruit_item_data)
 
 	num_fruits = 0
-
-	return ret
 
 func next_day() -> void:
 	light.next_day()

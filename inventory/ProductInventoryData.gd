@@ -86,12 +86,11 @@ func action_pressed() -> void:
 					continue
 				slot_data.quantity -= slot_data.quantity_selected
 				slot_data.quantity_selected = 0
-			Global.state.money += total_value
-			money_updated.emit()
+			Global.state.add_money(total_value)
 			pack_slot_datas()
 			change_select_mode(false)
 		Type.Buy:
-			if Global.state.money < total_value:
+			if not Global.state.try_spend_money(total_value):
 				return
 			var bought_items: Array[SlotData] = []
 			for slot_data in slot_datas:
@@ -104,8 +103,6 @@ func action_pressed() -> void:
 				slot_data.quantity -= slot_data.quantity_selected
 				slot_data.quantity_selected = 0
 			Global.state.acquire_items(bought_items)
-			Global.state.money -= total_value
-			money_updated.emit()
 			pack_slot_datas()
 			change_select_mode(false)
 

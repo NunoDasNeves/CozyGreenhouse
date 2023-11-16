@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ItemData" load_steps=12 format=3 uid="uid://dk8us7i65t6kj"]
+[gd_resource type="Resource" script_class="ItemData" load_steps=14 format=3 uid="uid://dk8us7i65t6kj"]
 
 [ext_resource type="Texture2D" uid="uid://cppespyw4o1hs" path="res://item/fruits/MoonFruit.png" id="1_pvlkv"]
 [ext_resource type="PackedScene" uid="uid://dxavb0e6jog0m" path="res://item/fruits/Fruit.tscn" id="2_nsx3w"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://item/components/SellComponent.gd" id="4_umyfr"]
 [ext_resource type="Script" path="res://item/components/TextureComponent.gd" id="5_221sl"]
 [ext_resource type="Script" path="res://item/ItemType.gd" id="5_ts3rt"]
+[ext_resource type="Script" path="res://item/components/FruitComponent.gd" id="7_m1wwm"]
 
 [sub_resource type="Resource" id="Resource_seg17"]
 script = ExtResource("3_y6kmm")
@@ -21,9 +22,12 @@ base_value = 5.0
 script = ExtResource("5_221sl")
 texture = ExtResource("1_pvlkv")
 
+[sub_resource type="Resource" id="Resource_8seyf"]
+script = ExtResource("7_m1wwm")
+
 [sub_resource type="Resource" id="Resource_xpdjg"]
 script = ExtResource("5_ts3rt")
-components = Array[Resource("res://item/components/ItemComponent.gd")]([SubResource("Resource_seg17"), SubResource("Resource_tgs2i"), SubResource("Resource_utewc")])
+components = Array[Resource("res://item/components/ItemComponent.gd")]([SubResource("Resource_seg17"), SubResource("Resource_tgs2i"), SubResource("Resource_utewc"), SubResource("Resource_8seyf")])
 
 [resource]
 script = ExtResource("2_wkwpf")

@@ -9,8 +9,7 @@ func gather_fruit(index: int) -> void:
 	if not plant_component:
 		return
 	var plant_data: PlantData = plant_component.plant
-	var products_gathered: Array[ItemData] = plant_data.gather_fruit()
-	Global.state.add_products_to_sell(products_gathered)
+	plant_data.gather_fruit()
 	inventory_updated.emit(index, slot_data)
 
 func next_day() -> void:
@@ -59,7 +58,18 @@ func drop_slot_data(grabbed_slot_data: SlotData, index: int) -> SlotData:
 				inventory_updated.emit(index, slot_datas[index])
 		return ret
 
-	if grabbed_item_data.has_component("Pot"):
+	if grabbed_item_data.has_component("WateringCan") and slot_data:
+		var plant_component: PlantItemComponent = slot_data.item_data.get_component("Plant")
+		if plant_component:
+			var plant_data: PlantData = plant_component.plant
+			var water_space: float = plant_data.water.max_val - plant_data.water.curr_val
+			var water_to_try_use: float = minf(water_space, State.WATERING_CAN_WATER_AMOUNT)
+			var water_to_use: float = Global.state.try_use_water(water_to_try_use)
+			plant_data.water.curr_val += water_to_use
+			inventory_updated.emit(index, slot_datas[index])
+		return ret
+
+	if grabbed_item_data.has_component("Stackable"):
 		if slot_data and slot_data.item_data == grabbed_item_data:
 			grabbed_slot_data.quantity += 1
 			slot_datas[index] = null
@@ -73,22 +83,10 @@ func drop_slot_data(grabbed_slot_data: SlotData, index: int) -> SlotData:
 			if !grabbed_slot_data.quantity:
 				ret = null
 		inventory_updated.emit(index, slot_datas[index])
-
-	if grabbed_item_data.has_component("WateringCan") and slot_data:
-		var plant_component: PlantItemComponent = slot_data.item_data.get_component("Plant")
-		if plant_component:
-			var plant_data: PlantData = plant_component.plant
-			var water_space: float = plant_data.water.max_val - plant_data.water.curr_val
-			var water_to_try_use: float = minf(water_space, State.WATERING_CAN_WATER_AMOUNT)
-			var water_to_use: float = Global.state.try_use_water(water_to_try_use)
-			plant_data.water.curr_val += water_to_use
-			water_tank_level_updated.emit()
-			inventory_updated.emit(index, slot_datas[index])
-
-	match (grabbed_slot_data.item_data.type_name):
-		ItemData.TypeName.PLANT:
-			slot_datas[index] = grabbed_slot_data
-			inventory_updated.emit(index, slot_datas[index])
-			ret = slot_data
+		return ret
+	else:
+		slot_datas[index] = grabbed_slot_data
+		inventory_updated.emit(index, slot_datas[index])
+		ret = slot_data
 
 	return ret
