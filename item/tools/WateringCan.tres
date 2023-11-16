@@ -1,14 +1,22 @@
-[gd_resource type="Resource" script_class="ToolItemData" load_steps=3 format=3 uid="uid://00dhhvalh25c"]
+[gd_resource type="Resource" script_class="ItemData" load_steps=7 format=3 uid="uid://00dhhvalh25c"]
 
 [ext_resource type="PackedScene" uid="uid://no5s3qiklfpc" path="res://item/tools/WateringCan.tscn" id="1_8a0df"]
-[ext_resource type="Script" path="res://item/ToolItemData.gd" id="1_q2grx"]
+[ext_resource type="Script" path="res://item/ItemData.gd" id="2_j1f8n"]
+[ext_resource type="Script" path="res://item/components/WateringCanComponent.gd" id="3_lhy68"]
+[ext_resource type="Script" path="res://item/ItemType.gd" id="4_hnbp6"]
+
+[sub_resource type="Resource" id="Resource_v3owh"]
+script = ExtResource("3_lhy68")
+
+[sub_resource type="Resource" id="Resource_xx72e"]
+script = ExtResource("4_hnbp6")
+components = Array[Resource("res://item/components/ItemComponent.gd")]([SubResource("Resource_v3owh")])
 
 [resource]
-script = ExtResource("1_q2grx")
-tool_type = 0
-show_1x_quantity = false
+script = ExtResource("2_j1f8n")
 name = "Watering Can"
 description = "Use it to water stuff!"
 scene = ExtResource("1_8a0df")
 type_name = 4
-type = 4
+home_inventory = 2
+type = SubResource("Resource_xx72e")
