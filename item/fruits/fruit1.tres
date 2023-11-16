@@ -1,15 +1,35 @@
-[gd_resource type="Resource" script_class="ProductItemData" load_steps=4 format=3 uid="uid://dk8us7i65t6kj"]
+[gd_resource type="Resource" script_class="ItemData" load_steps=12 format=3 uid="uid://dk8us7i65t6kj"]
 
 [ext_resource type="Texture2D" uid="uid://cppespyw4o1hs" path="res://item/fruits/MoonFruit.png" id="1_pvlkv"]
-[ext_resource type="Script" path="res://item/ProductItemData.gd" id="1_rkuut"]
 [ext_resource type="PackedScene" uid="uid://dxavb0e6jog0m" path="res://item/fruits/Fruit.tscn" id="2_nsx3w"]
+[ext_resource type="Script" path="res://item/ItemData.gd" id="2_wkwpf"]
+[ext_resource type="Script" path="res://item/components/StackableComponent.gd" id="3_y6kmm"]
+[ext_resource type="Script" path="res://item/components/SellComponent.gd" id="4_umyfr"]
+[ext_resource type="Script" path="res://item/components/TextureComponent.gd" id="5_221sl"]
+[ext_resource type="Script" path="res://item/ItemType.gd" id="5_ts3rt"]
+
+[sub_resource type="Resource" id="Resource_seg17"]
+script = ExtResource("3_y6kmm")
+max_stack_size = 99
+show_1x_quantity = true
+
+[sub_resource type="Resource" id="Resource_tgs2i"]
+script = ExtResource("4_umyfr")
+base_value = 5.0
+
+[sub_resource type="Resource" id="Resource_utewc"]
+script = ExtResource("5_221sl")
+texture = ExtResource("1_pvlkv")
+
+[sub_resource type="Resource" id="Resource_xpdjg"]
+script = ExtResource("5_ts3rt")
+components = Array[Resource("res://item/components/ItemComponent.gd")]([SubResource("Resource_seg17"), SubResource("Resource_tgs2i"), SubResource("Resource_utewc")])
 
 [resource]
-script = ExtResource("1_rkuut")
-product_item_texture = ExtResource("1_pvlkv")
-value = 5
-name = "Moon Lettuce Leaf"
+script = ExtResource("2_wkwpf")
+name = "Moon Lettuce Pod"
 description = "Ummm...Can you eat this?"
 scene = ExtResource("2_nsx3w")
 type_name = 5
-type = 5
+home_inventory = 4
+type = SubResource("Resource_xpdjg")

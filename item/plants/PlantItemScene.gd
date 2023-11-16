@@ -37,6 +37,7 @@ func set_item_data(item_data: ItemData) -> void:
 			if i >= fruits.get_child_count():
 				break
 			var fruit: Sprite2D = fruits.get_child(i)
-			fruit.texture = plant_data.fruit_item_data.product_item_texture
+			var fruit_texture_component: TextureComponent = plant_data.fruit_item_data.get_component("Texture")
+			fruit.texture = fruit_texture_component.texture
 			fruit.show()
 

@@ -9,7 +9,7 @@ func gather_fruit(index: int) -> void:
 	if not plant_component:
 		return
 	var plant_data: PlantData = plant_component.plant
-	var products_gathered: Array[ProductItemData] = plant_data.gather_fruit()
+	var products_gathered: Array[ItemData] = plant_data.gather_fruit()
 	Global.state.add_products_to_sell(products_gathered)
 	inventory_updated.emit(index, slot_data)
 

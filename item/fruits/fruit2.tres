@@ -1,15 +1,35 @@
-[gd_resource type="Resource" script_class="ProductItemData" load_steps=4 format=3 uid="uid://crnlb0o7j32b1"]
+[gd_resource type="Resource" script_class="ItemData" load_steps=12 format=3 uid="uid://crnlb0o7j32b1"]
 
+[ext_resource type="Script" path="res://item/ItemData.gd" id="1_8f5g0"]
 [ext_resource type="Texture2D" uid="uid://btnmprj80vbam" path="res://item/fruits/GalaxyFlower.png" id="1_ipahs"]
+[ext_resource type="Script" path="res://item/components/StackableComponent.gd" id="2_n5l0p"]
 [ext_resource type="PackedScene" uid="uid://dxavb0e6jog0m" path="res://item/fruits/Fruit.tscn" id="2_u1gce"]
-[ext_resource type="Script" path="res://item/ProductItemData.gd" id="3_a3y8y"]
+[ext_resource type="Script" path="res://item/components/SellComponent.gd" id="3_7w6mg"]
+[ext_resource type="Script" path="res://item/components/TextureComponent.gd" id="4_uj2b8"]
+[ext_resource type="Script" path="res://item/ItemType.gd" id="6_w0266"]
+
+[sub_resource type="Resource" id="Resource_seg17"]
+script = ExtResource("2_n5l0p")
+max_stack_size = 99
+show_1x_quantity = true
+
+[sub_resource type="Resource" id="Resource_7anjs"]
+script = ExtResource("3_7w6mg")
+base_value = 10.0
+
+[sub_resource type="Resource" id="Resource_thijl"]
+script = ExtResource("4_uj2b8")
+texture = ExtResource("1_ipahs")
+
+[sub_resource type="Resource" id="Resource_nl0v7"]
+script = ExtResource("6_w0266")
+components = Array[Resource("res://item/components/ItemComponent.gd")]([SubResource("Resource_seg17"), SubResource("Resource_7anjs"), SubResource("Resource_thijl")])
 
 [resource]
-script = ExtResource("3_a3y8y")
-product_item_texture = ExtResource("1_ipahs")
-value = 15
+script = ExtResource("1_8f5g0")
 name = "Galaxy Flower"
 description = "So...galaxy-y..."
 scene = ExtResource("2_u1gce")
 type_name = 5
-type = 5
+home_inventory = 4
+type = SubResource("Resource_nl0v7")

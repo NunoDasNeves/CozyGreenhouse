@@ -32,8 +32,9 @@ func try_use_water(amount: float) -> float:
 	water_tank_level -= water_to_use
 	return water_to_use
 
-func add_products_to_sell(products: Array[ProductItemData]) -> void:
+func add_products_to_sell(products: Array[ItemData]) -> void:
 	for product in products:
+		assert(product.has_component("Sell"))
 		var product_slot_data: SlotData = SlotData.new()
 		product_slot_data.item_data = product
 		product_slot_data.quantity = 1

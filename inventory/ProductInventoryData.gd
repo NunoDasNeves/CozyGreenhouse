@@ -65,17 +65,13 @@ func get_selected_value() -> float:
 		if not slot_data or not slot_data.quantity_selected:
 			continue
 		assert(slot_data.quantity >= slot_data.quantity_selected)
-		var product_data := slot_data.item_data as ProductItemData
-		if product_data:
-			total_value += slot_data.quantity_selected * product_data.value
-		else:
-			match inventory_type:
-				Type.Sell:
-					var sell_component := slot_data.item_data.get_component("Sell") as BuyComponent
-					total_value += slot_data.quantity_selected * sell_component.base_value
-				Type.Buy:
-					var buy_component := slot_data.item_data.get_component("Buy") as BuyComponent
-					total_value += slot_data.quantity_selected * buy_component.base_value
+		match inventory_type:
+			Type.Sell:
+				var sell_component := slot_data.item_data.get_component("Sell") as SellComponent
+				total_value += slot_data.quantity_selected * sell_component.base_value
+			Type.Buy:
+				var buy_component := slot_data.item_data.get_component("Buy") as BuyComponent
+				total_value += slot_data.quantity_selected * buy_component.base_value
 	return total_value
 
 func action_pressed() -> void:
@@ -202,14 +198,14 @@ func grab_slot_data(index: int) -> SlotData:
 		return null
 
 func drop_slot_data(grabbed_slot_data: SlotData, index: int) -> SlotData:
-	var grabbed_product_item_data := grabbed_slot_data.item_data as ProductItemData
+	var grabbed_item_data := grabbed_slot_data.item_data
 
-	if not grabbed_product_item_data:
+	if not grabbed_item_data.has_component("Sell"):
 		return grabbed_slot_data
 
 	for i in slot_datas.size():
 		var slot_data: SlotData = slot_datas[i]
-		if slot_data and slot_data.item_data == grabbed_product_item_data:
+		if slot_data and slot_data.item_data == grabbed_item_data:
 			slot_data.quantity += grabbed_slot_data.quantity
 			inventory_updated.emit(i, slot_data)
 			return null

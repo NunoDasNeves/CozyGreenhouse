@@ -42,19 +42,14 @@ func set_slot_data(slot_data: SlotData) -> void:
 		quantity_label.text = "x%s" % slot_data.quantity
 		quantity_label.show()
 
-	var prod_item_data := slot_data.item_data as ProductItemData
 	var item_value: float = 0
-
-	if prod_item_data:
-		item_value = prod_item_data.value
-	else:
-		match prod_inventory_type:
-			ProductInventoryData.Type.Sell:
-				var sell_component = item_data.get_component("Sell") as SellComponent
-				item_value = sell_component.base_value
-			ProductInventoryData.Type.Buy:
-				var buy_component = item_data.get_component("Buy") as BuyComponent
-				item_value = buy_component.base_value
+	match prod_inventory_type:
+		ProductInventoryData.Type.Sell:
+			var sell_component = item_data.get_component("Sell") as SellComponent
+			item_value = sell_component.base_value
+		ProductInventoryData.Type.Buy:
+			var buy_component = item_data.get_component("Buy") as BuyComponent
+			item_value = buy_component.base_value
 
 	var slot_display_price: float = item_value
 	var slot_price_color: Color = Color.LIGHT_GRAY

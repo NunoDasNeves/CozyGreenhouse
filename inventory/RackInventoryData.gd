@@ -16,8 +16,6 @@ func grab_slot_data(index: int) -> SlotData:
 func goes_on_rack(item_data: ItemData) -> bool:
 	if not item_data:
 		return false
-	if item_data is RackItemData:
-		return true
 	if item_data.has_any_component(["Seed", "Pot", "Fertilizer", "WateringCan"]):
 		return true
 	return false

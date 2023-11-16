@@ -14,7 +14,7 @@ enum GrowthStage {
 @export var fruit_per_day: float
 @export var growth_per_day: float
 @export var max_num_fruits: int
-@export var fruit_item_data: ProductItemData
+@export var fruit_item_data: ItemData
 
 var growth_stage: GrowthStage = GrowthStage.YOUNG
 var curr_fruit_growth: float = 0
@@ -22,8 +22,8 @@ var curr_growth: float = 0 # at 1, advance to next GrowthStage
 var pot_item_data: ItemData
 var num_fruits: int = 0
 
-func gather_fruit() -> Array[ProductItemData]:
-	var ret: Array[ProductItemData] = []
+func gather_fruit() -> Array[ItemData]:
+	var ret: Array[ItemData] = []
 
 	for i in num_fruits:
 		ret.push_back(fruit_item_data)
