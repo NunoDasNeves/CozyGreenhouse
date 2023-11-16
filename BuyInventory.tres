@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ProductInventoryData" load_steps=11 format=3 uid="uid://djxch8jows3ky"]
+[gd_resource type="Resource" script_class="ProductInventoryData" load_steps=13 format=3 uid="uid://djxch8jows3ky"]
 
 [ext_resource type="Script" path="res://inventory/ProductInventoryData.gd" id="1_wxbat"]
 [ext_resource type="Resource" uid="uid://dtdm5s0ad2d28" path="res://item/seeds/seed1.tres" id="2_fuq00"]
@@ -6,6 +6,7 @@
 [ext_resource type="Resource" uid="uid://dmsd41lgytg3d" path="res://item/seeds/seed2.tres" id="4_gas8w"]
 [ext_resource type="Resource" uid="uid://cp3r4g23icnd8" path="res://item/pots/Pot1.tres" id="5_do7n0"]
 [ext_resource type="Resource" uid="uid://bmkyc8c3c3yfu" path="res://item/pots/Pot2.tres" id="6_adqq6"]
+[ext_resource type="Resource" uid="uid://cfylxy8n4c12y" path="res://item/tools/Fertilizer.tres" id="7_rbqlb"]
 
 [sub_resource type="Resource" id="Resource_f68im"]
 script = ExtResource("3_7jofv")
@@ -27,8 +28,13 @@ script = ExtResource("3_7jofv")
 item_data = ExtResource("6_adqq6")
 quantity = 5
 
+[sub_resource type="Resource" id="Resource_65ldy"]
+script = ExtResource("3_7jofv")
+item_data = ExtResource("7_rbqlb")
+quantity = 8
+
 [resource]
 script = ExtResource("1_wxbat")
 inventory_type = 1
 action_text = "Buy"
-slot_datas = Array[ExtResource("3_7jofv")]([SubResource("Resource_f68im"), SubResource("Resource_w8qij"), SubResource("Resource_0mhbp"), SubResource("Resource_0jxst"), null, null])
+slot_datas = Array[ExtResource("3_7jofv")]([SubResource("Resource_f68im"), SubResource("Resource_w8qij"), SubResource("Resource_0mhbp"), SubResource("Resource_0jxst"), SubResource("Resource_65ldy"), null])

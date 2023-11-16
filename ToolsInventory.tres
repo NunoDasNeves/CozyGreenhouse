@@ -1,14 +1,20 @@
-[gd_resource type="Resource" script_class="RackInventoryData" load_steps=5 format=3 uid="uid://ul721xn0f5r5"]
+[gd_resource type="Resource" script_class="RackInventoryData" load_steps=7 format=3 uid="uid://ul721xn0f5r5"]
 
 [ext_resource type="Script" path="res://inventory/RackInventoryData.gd" id="1_nigah"]
 [ext_resource type="Resource" uid="uid://00dhhvalh25c" path="res://item/tools/WateringCan.tres" id="2_w501x"]
 [ext_resource type="Script" path="res://inventory/SlotData.gd" id="3_gv33g"]
+[ext_resource type="Resource" uid="uid://cfylxy8n4c12y" path="res://item/tools/Fertilizer.tres" id="4_6nicx"]
 
 [sub_resource type="Resource" id="Resource_rg2ox"]
 script = ExtResource("3_gv33g")
 item_data = ExtResource("2_w501x")
 quantity = 1
 
+[sub_resource type="Resource" id="Resource_yotia"]
+script = ExtResource("3_gv33g")
+item_data = ExtResource("4_6nicx")
+quantity = 2
+
 [resource]
 script = ExtResource("1_nigah")
-slot_datas = Array[ExtResource("3_gv33g")]([SubResource("Resource_rg2ox"), null, null, null])
+slot_datas = Array[ExtResource("3_gv33g")]([SubResource("Resource_rg2ox"), SubResource("Resource_yotia"), null, null])

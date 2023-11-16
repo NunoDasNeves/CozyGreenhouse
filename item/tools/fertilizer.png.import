@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cs6yecwpctcom"
-path="res://.godot/imported/fertilizer.png-5f90cd14e8c3026002de3dd38fb18b5c.ctex"
+path="res://.godot/imported/fertilizer.png-f71e99b61cde1a13f84bc44c5eb9e944.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://item/fertilizer.png"
-dest_files=["res://.godot/imported/fertilizer.png-5f90cd14e8c3026002de3dd38fb18b5c.ctex"]
+source_file="res://item/tools/fertilizer.png"
+dest_files=["res://.godot/imported/fertilizer.png-f71e99b61cde1a13f84bc44c5eb9e944.ctex"]
 
 [params]
 

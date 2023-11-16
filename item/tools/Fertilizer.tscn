@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://kbop5v4tyhi8"]
+
+[ext_resource type="Script" path="res://item/SpriteItemScene.gd" id="1_mnpcp"]
+[ext_resource type="Texture2D" uid="uid://cs6yecwpctcom" path="res://item/tools/fertilizer.png" id="2_20ml5"]
+
+[node name="Fertilizer" type="Node2D"]
+scale = Vector2(0.18941, 0.18941)
+script = ExtResource("1_mnpcp")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(2.08165e-12, 2.08165e-12)
+scale = Vector2(0.720218, 0.720218)
+texture = ExtResource("2_20ml5")
