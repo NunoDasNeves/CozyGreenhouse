@@ -4,8 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://ueca5wmtav1v" path="res://inventory/ShelfSlot.tscn" id="2_m8wih"]
 
 [node name="ShelfInventory" type="PanelContainer" node_paths=PackedStringArray("item_grid")]
-offset_right = 1428.0
-offset_bottom = 1560.0
+offset_right = 1228.0
+offset_bottom = 1374.0
 script = ExtResource("1_ie64b")
 slot_scene = ExtResource("2_m8wih")
 item_grid = NodePath("MarginContainer/ItemGrid")
