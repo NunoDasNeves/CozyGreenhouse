@@ -47,6 +47,7 @@ func acquire_items(slot_datas: Array[SlotData]) -> void:
 				seed_inventory_data.drop_slot_data(slot_data, 0)
 			ItemData.HomeName.Tool:
 				tool_inventory_data.drop_slot_data(slot_data, 0)
+				pot_inventory_data.drop_slot_data(slot_data, 0)
 			ItemData.HomeName.Shelf:
 				pass
 			ItemData.HomeName.Sell:
