@@ -12,6 +12,7 @@ enum TypeName {
 
 enum HomeName {
 	Seed,
+	Pot,
 	Tool,
 	Shelf,
 	Sell,
