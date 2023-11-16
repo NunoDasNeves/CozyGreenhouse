@@ -1,13 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://dtj0d6y0w8ljp"]
+[gd_scene load_steps=3 format=3 uid="uid://cab51jmxeuqpd"]
 
 [ext_resource type="Script" path="res://item/SpriteItemScene.gd" id="1_sbv5h"]
 [ext_resource type="Texture2D" uid="uid://brvy27s6rqef0" path="res://item/pots/pot1.png" id="2_dmua7"]
 
 [node name="Pot" type="Node2D"]
-scale = Vector2(0.18941, 0.18941)
 script = ExtResource("1_sbv5h")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 position = Vector2(2.08165e-12, 2.08165e-12)
-scale = Vector2(0.477667, 0.477667)
+scale = Vector2(0.09, 0.09)
 texture = ExtResource("2_dmua7")

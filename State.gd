@@ -58,19 +58,24 @@ func add_item_to_sell(item_data: ItemData) -> void:
 	product_slot_data.quantity = 1
 	sell_inventory_data.drop_slot_data(product_slot_data, 0)
 
+func get_home_inventory_data(home_name: ItemData.HomeName) -> InventoryData:
+	match home_name:
+		ItemData.HomeName.Seed:
+			return seed_inventory_data
+		ItemData.HomeName.Pot:
+			return pot_inventory_data
+		ItemData.HomeName.Tool:
+			return tool_inventory_data
+		ItemData.HomeName.Shelf:
+			pass
+		ItemData.HomeName.Sell:
+			return sell_inventory_data
+		ItemData.HomeName.Buy:
+			pass
+	return null
+
 func acquire_items(slot_datas: Array[SlotData]) -> void:
 	for slot_data in slot_datas:
 		var item_data = slot_data.item_data
-		match item_data.home_inventory:
-			ItemData.HomeName.Seed:
-				seed_inventory_data.drop_slot_data(slot_data, 0)
-			ItemData.HomeName.Pot:
-				pot_inventory_data.drop_slot_data(slot_data, 0)
-			ItemData.HomeName.Tool:
-				tool_inventory_data.drop_slot_data(slot_data, 0)
-			ItemData.HomeName.Shelf:
-				pass
-			ItemData.HomeName.Sell:
-				sell_inventory_data.drop_slot_data(slot_data, 0)
-			ItemData.HomeName.Buy:
-				pass
+		var acquire_component: AcquireComponent = item_data.get_component("Acquire")
+		acquire_component.acquire(slot_data)

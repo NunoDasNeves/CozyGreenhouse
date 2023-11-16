@@ -5,10 +5,10 @@
 
 [node name="Slot" type="PanelContainer"]
 custom_minimum_size = Vector2(200, 200)
-offset_left = -16.0
-offset_top = 53.0
-offset_right = 184.0
-offset_bottom = 253.0
+offset_right = 200.0
+offset_bottom = 200.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
 theme_type_variation = &"SlotBackground"
 script = ExtResource("1_bs6xc")
 

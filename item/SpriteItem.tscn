@@ -1,12 +1,12 @@
 [gd_scene load_steps=3 format=3 uid="uid://bw145ublkri14"]
 
 [ext_resource type="Script" path="res://item/SpriteItemScene.gd" id="1_vdmbw"]
-[ext_resource type="Texture2D" uid="uid://cvnpsjtkl4waj" path="res://item/seeds/seed2.png" id="2_pf06a"]
+[ext_resource type="Texture2D" uid="uid://dx04bqwohtn83" path="res://item/misc/Water_Jug.png" id="2_rvf17"]
 
 [node name="SpriteItem" type="Node2D"]
 script = ExtResource("1_vdmbw")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 position = Vector2(2.08165e-12, 2.08165e-12)
-scale = Vector2(0.0884711, 0.0884711)
-texture = ExtResource("2_pf06a")
+scale = Vector2(0.14, 0.14)
+texture = ExtResource("2_rvf17")

@@ -1,14 +1,15 @@
-[gd_resource type="Resource" script_class="ItemData" load_steps=15 format=3 uid="uid://dtdm5s0ad2d28"]
+[gd_resource type="Resource" script_class="ItemData" load_steps=17 format=3 uid="uid://dtdm5s0ad2d28"]
 
+[ext_resource type="PackedScene" uid="uid://kbop5v4tyhi8" path="res://item/BigSpriteItemScene.tscn" id="1_hk12k"]
 [ext_resource type="Script" path="res://item/ItemData.gd" id="2_f8418"]
 [ext_resource type="Texture2D" uid="uid://c5li56s8ni3gm" path="res://item/seeds/seed1.png" id="2_qjrf4"]
-[ext_resource type="PackedScene" uid="uid://bw145ublkri14" path="res://item/SpriteItem.tscn" id="3_hgea6"]
 [ext_resource type="Resource" uid="uid://d2gov5vt6tmcq" path="res://item/plants/MoonLettuce.tres" id="4_he1pf"]
 [ext_resource type="Script" path="res://item/components/StackableComponent.gd" id="5_fublf"]
 [ext_resource type="Script" path="res://item/components/SeedComponent.gd" id="6_clty7"]
 [ext_resource type="Script" path="res://item/components/BuyComponent.gd" id="7_cglbn"]
 [ext_resource type="Script" path="res://item/ItemType.gd" id="8_i2qgh"]
 [ext_resource type="Script" path="res://item/components/TextureComponent.gd" id="8_tob0h"]
+[ext_resource type="Script" path="res://item/components/AcquireComponent.gd" id="9_m2ewb"]
 
 [sub_resource type="Resource" id="Resource_qhakd"]
 script = ExtResource("5_fublf")
@@ -27,15 +28,18 @@ texture = ExtResource("2_qjrf4")
 script = ExtResource("7_cglbn")
 base_value = 1.0
 
+[sub_resource type="Resource" id="Resource_oxtnb"]
+script = ExtResource("9_m2ewb")
+
 [sub_resource type="Resource" id="Resource_xn3da"]
 script = ExtResource("8_i2qgh")
-components = Array[Resource("res://item/components/ItemComponent.gd")]([SubResource("Resource_qhakd"), SubResource("Resource_trrlq"), SubResource("Resource_qlcin"), SubResource("Resource_8qach")])
+components = Array[Resource("res://item/components/ItemComponent.gd")]([SubResource("Resource_qhakd"), SubResource("Resource_trrlq"), SubResource("Resource_qlcin"), SubResource("Resource_8qach"), SubResource("Resource_oxtnb")])
 
 [resource]
 script = ExtResource("2_f8418")
 name = "Moon Lettuce Seed"
 description = "Moonyyyy"
-scene = ExtResource("3_hgea6")
+scene = ExtResource("1_hk12k")
 type_name = 1
 home_inventory = 0
 type = SubResource("Resource_xn3da")

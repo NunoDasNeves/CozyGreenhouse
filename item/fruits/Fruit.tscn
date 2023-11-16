@@ -4,9 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://cppespyw4o1hs" path="res://item/fruits/MoonFruit.png" id="2_ved2b"]
 
 [node name="Fruit" type="Node2D"]
-scale = Vector2(0.18941, 0.18941)
 script = ExtResource("1_yt1pe")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 position = Vector2(2.08165e-12, 2.08165e-12)
+scale = Vector2(0.189, 0.189)
 texture = ExtResource("2_ved2b")

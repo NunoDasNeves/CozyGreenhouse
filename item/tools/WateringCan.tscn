@@ -68,9 +68,9 @@ animations = [{
 }]
 
 [node name="Tool" type="Node2D"]
-scale = Vector2(0.18941, 0.18941)
 script = ExtResource("1_wgv04")
 
 [node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
-position = Vector2(-158.387, 221.741)
+position = Vector2(-41, 52)
+scale = Vector2(0.189, 0.189)
 sprite_frames = SubResource("SpriteFrames_2tlox")

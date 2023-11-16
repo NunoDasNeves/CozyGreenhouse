@@ -1,6 +1,6 @@
-[gd_resource type="Resource" script_class="ItemData" load_steps=14 format=3 uid="uid://cp3r4g23icnd8"]
+[gd_resource type="Resource" script_class="ItemData" load_steps=16 format=3 uid="uid://cp3r4g23icnd8"]
 
-[ext_resource type="PackedScene" uid="uid://dtj0d6y0w8ljp" path="res://item/pots/Pot.tscn" id="1_ofi7j"]
+[ext_resource type="PackedScene" uid="uid://kbop5v4tyhi8" path="res://item/BigSpriteItemScene.tscn" id="1_kuyhn"]
 [ext_resource type="Texture2D" uid="uid://brvy27s6rqef0" path="res://item/pots/pot1.png" id="1_sq8yh"]
 [ext_resource type="Script" path="res://item/ItemData.gd" id="2_wo6lb"]
 [ext_resource type="Script" path="res://item/components/StackableComponent.gd" id="3_cqrsi"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://item/components/PotComponent.gd" id="4_u5lcw"]
 [ext_resource type="Script" path="res://item/components/BuyComponent.gd" id="5_pyyvl"]
 [ext_resource type="Script" path="res://item/components/TextureComponent.gd" id="6_vejsk"]
+[ext_resource type="Script" path="res://item/components/AcquireComponent.gd" id="8_tepaj"]
 
 [sub_resource type="Resource" id="Resource_jr75w"]
 script = ExtResource("3_cqrsi")
@@ -25,15 +26,18 @@ base_value = 3.0
 script = ExtResource("6_vejsk")
 texture = ExtResource("1_sq8yh")
 
+[sub_resource type="Resource" id="Resource_dyf7i"]
+script = ExtResource("8_tepaj")
+
 [sub_resource type="Resource" id="Resource_gqllb"]
 script = ExtResource("4_gvctl")
-components = Array[Resource("res://item/components/ItemComponent.gd")]([SubResource("Resource_jr75w"), SubResource("Resource_uah1s"), SubResource("Resource_2qdar"), SubResource("Resource_252de")])
+components = Array[Resource("res://item/components/ItemComponent.gd")]([SubResource("Resource_jr75w"), SubResource("Resource_uah1s"), SubResource("Resource_2qdar"), SubResource("Resource_252de"), SubResource("Resource_dyf7i")])
 
 [resource]
 script = ExtResource("2_wo6lb")
 name = "Purple Pot"
 description = "A nice purple pot"
-scene = ExtResource("1_ofi7j")
+scene = ExtResource("1_kuyhn")
 type_name = 2
 home_inventory = 1
 type = SubResource("Resource_gqllb")

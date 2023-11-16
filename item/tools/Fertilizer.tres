@@ -1,13 +1,14 @@
-[gd_resource type="Resource" script_class="ItemData" load_steps=14 format=3 uid="uid://cfylxy8n4c12y"]
+[gd_resource type="Resource" script_class="ItemData" load_steps=16 format=3 uid="uid://cfylxy8n4c12y"]
 
 [ext_resource type="Texture2D" uid="uid://cs6yecwpctcom" path="res://item/tools/fertilizer.png" id="1_2wray"]
-[ext_resource type="PackedScene" uid="uid://kbop5v4tyhi8" path="res://item/tools/Fertilizer.tscn" id="2_h2eiw"]
+[ext_resource type="PackedScene" uid="uid://bw145ublkri14" path="res://item/SpriteItem.tscn" id="1_a8jw3"]
 [ext_resource type="Script" path="res://item/ItemData.gd" id="2_s6dro"]
 [ext_resource type="Script" path="res://item/components/StackableComponent.gd" id="3_0p55l"]
 [ext_resource type="Script" path="res://item/components/TextureComponent.gd" id="4_lmeuq"]
 [ext_resource type="Script" path="res://item/components/BuyComponent.gd" id="6_hqf5g"]
 [ext_resource type="Script" path="res://item/components/FertilizerComponent.gd" id="7_o5boa"]
 [ext_resource type="Script" path="res://item/ItemType.gd" id="7_qowhx"]
+[ext_resource type="Script" path="res://item/components/AcquireComponent.gd" id="8_e6j34"]
 
 [sub_resource type="Resource" id="Resource_a54dh"]
 script = ExtResource("3_0p55l")
@@ -25,15 +26,18 @@ base_value = 6.0
 [sub_resource type="Resource" id="Resource_kd2m0"]
 script = ExtResource("7_o5boa")
 
+[sub_resource type="Resource" id="Resource_ir7ow"]
+script = ExtResource("8_e6j34")
+
 [sub_resource type="Resource" id="Resource_uxkby"]
 script = ExtResource("7_qowhx")
-components = Array[Resource("res://item/components/ItemComponent.gd")]([SubResource("Resource_a54dh"), SubResource("Resource_f1yfw"), SubResource("Resource_yi1bc"), SubResource("Resource_kd2m0")])
+components = Array[Resource("res://item/components/ItemComponent.gd")]([SubResource("Resource_a54dh"), SubResource("Resource_f1yfw"), SubResource("Resource_yi1bc"), SubResource("Resource_kd2m0"), SubResource("Resource_ir7ow")])
 
 [resource]
 script = ExtResource("2_s6dro")
 name = "Fertilizer"
 description = "It's what plants crave!"
-scene = ExtResource("2_h2eiw")
+scene = ExtResource("1_a8jw3")
 type_name = 4
 home_inventory = 2
 type = SubResource("Resource_uxkby")

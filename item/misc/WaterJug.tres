@@ -1,0 +1,39 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=14 format=3 uid="uid://siehjtkkcskh"]
+
+[ext_resource type="PackedScene" uid="uid://bw145ublkri14" path="res://item/SpriteItem.tscn" id="1_5vwrw"]
+[ext_resource type="Script" path="res://item/ItemData.gd" id="1_gid7q"]
+[ext_resource type="Script" path="res://item/components/StackableComponent.gd" id="3_tce1r"]
+[ext_resource type="Script" path="res://item/components/BuyComponent.gd" id="4_fxdy2"]
+[ext_resource type="Script" path="res://item/components/WaterJugComponent.gd" id="5_rv8uu"]
+[ext_resource type="Script" path="res://item/components/TextureComponent.gd" id="6_o8y0r"]
+[ext_resource type="Texture2D" uid="uid://dx04bqwohtn83" path="res://item/misc/Water_Jug.png" id="7_7ndxx"]
+[ext_resource type="Script" path="res://item/ItemType.gd" id="8_gwokq"]
+
+[sub_resource type="Resource" id="Resource_j8l6k"]
+script = ExtResource("3_tce1r")
+max_stack_size = 99
+show_1x_quantity = true
+
+[sub_resource type="Resource" id="Resource_5m3g3"]
+script = ExtResource("4_fxdy2")
+base_value = 5.0
+
+[sub_resource type="Resource" id="Resource_hl16v"]
+script = ExtResource("5_rv8uu")
+
+[sub_resource type="Resource" id="Resource_uomw3"]
+script = ExtResource("6_o8y0r")
+texture = ExtResource("7_7ndxx")
+
+[sub_resource type="Resource" id="Resource_l44ph"]
+script = ExtResource("8_gwokq")
+components = Array[Resource("res://item/components/ItemComponent.gd")]([SubResource("Resource_j8l6k"), SubResource("Resource_5m3g3"), SubResource("Resource_hl16v"), SubResource("Resource_uomw3")])
+
+[resource]
+script = ExtResource("1_gid7q")
+name = "Water Jug"
+description = "1 litre of delicious life-giving water!"
+scene = ExtResource("1_5vwrw")
+type_name = 0
+home_inventory = 5
+type = SubResource("Resource_l44ph")
