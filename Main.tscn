@@ -143,9 +143,9 @@ text = "NEXT DAY"
 
 [node name="WaterTankBar" type="ProgressBar" parent="UI/InventoryInterface"]
 layout_mode = 0
-offset_left = 756.0
+offset_left = 810.0
 offset_top = 109.0
-offset_right = 1229.0
+offset_right = 1257.0
 offset_bottom = 522.0
 theme_override_styles/fill = SubResource("StyleBoxFlat_10m38")
 value = 44.0
@@ -159,9 +159,9 @@ texture = ExtResource("10_8wd6m")
 
 [node name="TextureButton" type="TextureButton" parent="UI/InventoryInterface"]
 layout_mode = 0
-offset_left = 3282.0
+offset_left = 3333.0
 offset_top = 1596.0
-offset_right = 5330.0
+offset_right = 5381.0
 offset_bottom = 3644.0
 scale = Vector2(0.25, 0.25)
 texture_normal = ExtResource("12_tetco")

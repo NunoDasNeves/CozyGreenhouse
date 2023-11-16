@@ -1,9 +1,10 @@
-[gd_resource type="Resource" script_class="RackInventoryData" load_steps=7 format=3 uid="uid://bygkbwxgoognm"]
+[gd_resource type="Resource" script_class="RackInventoryData" load_steps=9 format=3 uid="uid://bygkbwxgoognm"]
 
 [ext_resource type="Script" path="res://inventory/RackInventoryData.gd" id="1_jklir"]
 [ext_resource type="Script" path="res://inventory/SlotData.gd" id="2_5vje2"]
 [ext_resource type="Resource" uid="uid://dtdm5s0ad2d28" path="res://item/seeds/seed1.tres" id="2_hfwtt"]
 [ext_resource type="Resource" uid="uid://dmsd41lgytg3d" path="res://item/seeds/seed2.tres" id="4_nb84j"]
+[ext_resource type="Resource" uid="uid://b4sv4fdgbonmb" path="res://item/seeds/WaterPlantSeed.tres" id="5_4h1cb"]
 
 [sub_resource type="Resource" id="Resource_xkwtf"]
 script = ExtResource("2_5vje2")
@@ -15,6 +16,11 @@ script = ExtResource("2_5vje2")
 item_data = ExtResource("4_nb84j")
 quantity = 1
 
+[sub_resource type="Resource" id="Resource_vd0wp"]
+script = ExtResource("2_5vje2")
+item_data = ExtResource("5_4h1cb")
+quantity = 3
+
 [resource]
 script = ExtResource("1_jklir")
-slot_datas = Array[ExtResource("2_5vje2")]([SubResource("Resource_xkwtf"), SubResource("Resource_hhrr4")])
+slot_datas = Array[ExtResource("2_5vje2")]([SubResource("Resource_xkwtf"), SubResource("Resource_hhrr4"), SubResource("Resource_vd0wp"), null])
