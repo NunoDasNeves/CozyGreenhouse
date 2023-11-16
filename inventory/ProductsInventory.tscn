@@ -63,8 +63,8 @@ theme_override_constants/margin_right = 20
 
 [node name="Help text" type="Label" parent="VBoxContainer/MarginContainer3"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 40
-text = "Hold down to select items"
+theme_override_font_sizes/font_size = 36
+text = "Click to select. Hold to drag"
 horizontal_alignment = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]

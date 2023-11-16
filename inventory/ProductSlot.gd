@@ -4,7 +4,7 @@ class_name ProductSlot
 @onready var container: Node2D = $Container
 @onready var quantity_label: Label = $MarginContainer/QuantityLabel
 @onready var price_label: Label = $MarginContainer/PriceLabel
-@onready var quantity_selected_input: LineEdit = $MarginContainer/QuantitySelectedInput
+@onready var quantity_selected_input: LineEdit = $MarginContainer/MarginContainer/QuantitySelectedInput
 @onready var selected_vis: Control = $Selected
 @onready var unselected_vis: Control = $Unselected
 
@@ -23,10 +23,13 @@ func set_slot_data(slot_data: SlotData) -> void:
 	selected_vis.hide()
 	unselected_vis.hide()
 	price_label.hide()
-	quantity_selected_input.hide()
+	# NOTE we don't hide the LineEdit here or it will lose and then
+	# regain focus, triggering another text_changed, and making it
+	# impossible to type more than 1 char at a time! arg
 	tooltip_text = ""
 
 	if not slot_data:
+		quantity_selected_input.hide()
 		return
 
 	var item_data: ItemData = slot_data.item_data
@@ -62,6 +65,12 @@ func set_slot_data(slot_data: SlotData) -> void:
 			if slot_data.quantity > 1:
 				quantity_selected_input.show()
 				quantity_selected_input.text = "%s" % slot_data.quantity_selected
+			else:
+				quantity_selected_input.hide()
+		else:
+			quantity_selected_input.hide()
+	else:
+		quantity_selected_input.hide()
 	price_label.remove_theme_color_override("font_color")
 	price_label.add_theme_color_override("font_color", slot_price_color)
 	price_label.text = "$%s" % slot_display_price

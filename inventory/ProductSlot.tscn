@@ -7,10 +7,13 @@
 custom_minimum_size = Vector2(200, 200)
 offset_right = 40.0
 offset_bottom = 40.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
 theme_type_variation = &"SlotBackground"
 script = ExtResource("1_bggor")
 
 [node name="Unselected" type="PanelContainer" parent="."]
+visible = false
 layout_mode = 2
 theme_type_variation = &"SlotBackground"
 
@@ -26,7 +29,6 @@ layout_mode = 2
 theme_type_variation = &"SlotSelectedInner"
 
 [node name="Selected" type="PanelContainer" parent="."]
-visible = false
 layout_mode = 2
 theme_type_variation = &"SlotSelected"
 
@@ -63,26 +65,26 @@ theme_type_variation = &"SlotLabel"
 text = "x99"
 horizontal_alignment = 2
 
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer"]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme_override_constants/margin_left = -20
+
+[node name="QuantitySelectedInput" type="LineEdit" parent="MarginContainer/MarginContainer"]
+layout_mode = 2
+theme_type_variation = &"SlotLineEdit"
+text = "99"
+alignment = 2
+max_length = 2
+
 [node name="PriceLabel" type="Label" parent="MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
 theme_type_variation = &"SlotLabel"
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 3
-theme_override_font_sizes/font_size = 48
 text = "$1000"
 horizontal_alignment = 2
 
-[node name="QuantitySelectedInput" type="LineEdit" parent="MarginContainer"]
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 8
-theme_override_constants/minimum_character_width = 2
-theme_override_font_sizes/font_size = 46
-text = "99"
-placeholder_text = "xx"
-max_length = 2
-select_all_on_focus = true
-
-[connection signal="text_changed" from="MarginContainer/QuantitySelectedInput" to="." method="on_quantity_selected_changed"]
+[connection signal="text_changed" from="MarginContainer/MarginContainer/QuantitySelectedInput" to="." method="on_quantity_selected_changed"]

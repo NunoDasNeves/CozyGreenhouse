@@ -17,12 +17,12 @@ var select_mode: bool = false
 var num_selected: int = 0
 
 func change_quantity_selected(index: int, num: int) -> void:
-	assert(select_mode)
 	var slot_data: SlotData = slot_datas[index]
 	if not slot_data:
 		return
 
 	num = clampi(num, 0, slot_data.quantity)
+
 	if num == 0:
 		deselect_slot_data(index)
 	else:
@@ -147,23 +147,29 @@ func select_slot_data(index: int, quantity: int = 0) -> void:
 	if not selected_slot_data:
 		return
 
+	assert(selected_slot_data.quantity)
+	if !selected_slot_data.quantity_selected:
+		num_selected += 1
 	selected_slot_data.quantity_selected = quantity if quantity else selected_slot_data.quantity
 
 	if not select_mode:
 		change_select_mode(true)
 	else:
-		num_selected += 1
 		inventory_updated.emit(index, selected_slot_data)
 
 func deselect_slot_data(index: int) -> void:
-	assert(select_mode)
+	# IDK why but for text_changed we get 2 events and that breaks
+	# this if we assert(select_mode) here
+	if not select_mode:
+		return
+
 	var selected_slot_data = slot_datas[index]
 	if not selected_slot_data:
 		return
 
 	if selected_slot_data.quantity_selected:
-		selected_slot_data.quantity_selected = 0
 		num_selected -= 1
+		selected_slot_data.quantity_selected = 0
 
 	if not num_selected:
 		change_select_mode(false)

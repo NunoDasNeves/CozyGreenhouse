@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=8 format=3 uid="uid://4xswugnup0ea"]
+[gd_resource type="Theme" load_steps=9 format=3 uid="uid://4xswugnup0ea"]
 
 [ext_resource type="StyleBox" uid="uid://35agf86cl1ni" path="res://themes/inventory_background.tres" id="1_m3m8h"]
 [ext_resource type="StyleBox" uid="uid://be8glpa5ycxb8" path="res://themes/slot_background.tres" id="2_bnqkd"]
@@ -19,6 +19,10 @@ corner_radius_bottom_left = 64
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8f3cp"]
 bg_color = Color(0.215686, 0.184314, 0.286275, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xam77"]
+content_margin_right = 5.0
+bg_color = Color(0.12549, 0.12549, 0.12549, 0.764706)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1ewmq"]
 bg_color = Color(0.635294, 0.67451, 0.866667, 1)
@@ -49,7 +53,11 @@ SlotLabel/base_type = &"Label"
 SlotLabel/colors/font_color = Color(1, 1, 1, 1)
 SlotLabel/colors/font_outline_color = Color(0, 0, 0, 1)
 SlotLabel/constants/outline_size = 3
-SlotLabel/font_sizes/font_size = 32
+SlotLabel/font_sizes/font_size = 38
+SlotLineEdit/base_type = &"LineEdit"
+SlotLineEdit/constants/minimum_character_width = 2
+SlotLineEdit/font_sizes/font_size = 36
+SlotLineEdit/styles/normal = SubResource("StyleBoxFlat_xam77")
 SlotSelected/base_type = &"PanelContainer"
 SlotSelected/styles/panel = SubResource("StyleBoxFlat_1ewmq")
 SlotSelectedInner/base_type = &"Panel"
