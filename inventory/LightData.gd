@@ -1,6 +1,5 @@
 extends Resource
-class_name LightSlotData
+class_name LightData
 
-var item_data: ItemData
 var base_light: float
 var final_light: float

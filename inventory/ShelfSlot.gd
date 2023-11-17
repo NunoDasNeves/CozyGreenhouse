@@ -9,7 +9,10 @@ class_name ShelfSlot
 @onready var water: Node2D = $Water
 @onready var fertilizer: Node2D = $Fertilizer
 @onready var shelf: ColorRect = $Shelf
-@onready var uv_light: Sprite2D = $UVLight
+@onready var light_beam_back: Sprite2D = $LightBeamBack
+@onready var light_beam_front: Sprite2D = $LightBeamFront
+@onready var attachment: Node2D = $Attachment
+@onready var attach_container: Node2D = $Attachment/Container
 
 @export var happy_bar_stylebox_fill: StyleBoxFlat
 @export var bad_bar_stylebox_fill: StyleBoxFlat
@@ -18,16 +21,37 @@ class_name ShelfSlot
 
 signal fruit_gathered(index: int)
 
-func set_light_level(light_slot_data: LightSlotData) -> void:
-	var base_color: Color = Color.DIM_GRAY.lerp(Color.WHITE, light_slot_data.base_light)
-	var final_color: Color = Color.DIM_GRAY.lerp(Color.WHITE, light_slot_data.final_light)
+func set_attachment(slot_data: SlotData) -> void:
+	for child in attach_container.get_children():
+		child.queue_free()
+	light_beam_back.hide()
+	light_beam_front.hide()
+	attachment.hide()
+
+	if slot_data:
+		attachment.show()
+		var item_data: ItemData = slot_data.item_data
+		var node := item_data.scene.instantiate() as Node2D
+		attach_container.add_child(node)
+		var item_scene := node as ItemScene
+		assert(item_scene)
+		item_scene.set_item_data(item_data)
+
+		var light_component: UVLightComponent = item_data.get_component("UVLight")
+		if light_component:
+			light_beam_back.show()
+			light_beam_front.show()
+
+func set_light(light_data: LightData) -> void:
+	var base_color: Color = Color.DIM_GRAY.lerp(Color.WHITE, light_data.base_light)
+	var final_color: Color = Color.DIM_GRAY.lerp(Color.WHITE, light_data.final_light)
 	self_modulate = base_color
 	shelf.modulate = base_color
 	container.modulate = final_color
-	if light_slot_data.item_data:
-		uv_light.show()
-	else:
-		uv_light.hide()
+
+func attachment_clicked() -> void:
+	var index = get_index()
+	slot_clicked.emit(index, Action.AttachClick)
 
 func fruit_clicked() -> void:
 	var index = get_index()

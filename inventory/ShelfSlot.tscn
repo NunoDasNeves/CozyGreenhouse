@@ -2,6 +2,9 @@
 
 [ext_resource type="Script" path="res://inventory/ShelfSlot.gd" id="1_4bqis"]
 [ext_resource type="PackedScene" uid="uid://d346bhoh8up1g" path="res://item/plants/GalaxyFlower.tscn" id="2_nv2k6"]
+[ext_resource type="PackedScene" uid="uid://csaqaax1n0q6u" path="res://item/tools/LightItemScene.tscn" id="3_5natj"]
+[ext_resource type="Texture2D" uid="uid://c6yeb8ko4fd8s" path="res://item/tools/LightBeamBack.png" id="4_6n4as"]
+[ext_resource type="Texture2D" uid="uid://s1ol78wd2bog" path="res://item/tools/LightBeamFront.png" id="5_np73f"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g2ttx"]
 bg_color = Color(0.0313726, 0.635294, 0.94902, 1)
@@ -14,16 +17,6 @@ bg_color = Color(0.254902, 0.254902, 0.254902, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lb03i"]
 bg_color = Color(0.435294, 0.203922, 0.215686, 1)
-
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_6sxiy"]
-blend_mode = 1
-
-[sub_resource type="Gradient" id="Gradient_w7fes"]
-offsets = PackedFloat32Array(0, 0.315517, 0.405172, 0.587931, 0.684483, 1)
-colors = PackedColorArray(1, 1, 1, 0, 0.52549, 0.133333, 0.588235, 0.686275, 0.52549, 0.133333, 0.588235, 0.686275, 0.52549, 0.133333, 0.588235, 0.686275, 0.52549, 0.133333, 0.588235, 0.686275, 1, 1, 1, 0)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_ix48y"]
-gradient = SubResource("Gradient_w7fes")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_85f3j"]
 bg_color = Color(0.27451, 0.247059, 0.203922, 1)
@@ -49,6 +42,29 @@ size_flags_vertical = 8
 mouse_filter = 1
 color = Color(0.34902, 0.313726, 0.647059, 1)
 
+[node name="LightBeamBack" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(140, 225)
+scale = Vector2(0.445, 0.445)
+texture = ExtResource("4_6n4as")
+
+[node name="Attachment" type="Node2D" parent="."]
+position = Vector2(140, 107)
+
+[node name="Button" type="Button" parent="Attachment"]
+offset_left = -69.0
+offset_top = -124.0
+offset_right = 69.0
+offset_bottom = -65.0
+theme_type_variation = &"ShelfAttachButton"
+
+[node name="Container" type="Node2D" parent="Attachment"]
+position = Vector2(0, -94)
+scale = Vector2(0.4, 0.4)
+
+[node name="LightItem" parent="Attachment/Container" instance=ExtResource("3_5natj")]
+position = Vector2(2.08165e-12, 2.08165e-12)
+
 [node name="Container" type="Node2D" parent="."]
 position = Vector2(140, 328)
 scale = Vector2(0.9, 0.9)
@@ -56,13 +72,11 @@ scale = Vector2(0.9, 0.9)
 [node name="Plant2" parent="Container" instance=ExtResource("2_nv2k6")]
 position = Vector2(2.08165e-12, 2.08165e-12)
 
-[node name="UVLight" type="Sprite2D" parent="."]
+[node name="LightBeamFront" type="Sprite2D" parent="."]
 visible = false
-modulate = Color(1, 1, 1, 0.584314)
-material = SubResource("CanvasItemMaterial_6sxiy")
-position = Vector2(139.5, 452)
-scale = Vector2(0.917969, 454)
-texture = SubResource("GradientTexture1D_ix48y")
+position = Vector2(140, 225)
+scale = Vector2(0.445, 0.445)
+texture = ExtResource("5_np73f")
 
 [node name="Water" type="Node2D" parent="."]
 position = Vector2(13, 416)
@@ -116,3 +130,5 @@ step = 1.0
 value = 4.0
 fill_mode = 3
 show_percentage = false
+
+[connection signal="pressed" from="Attachment/Button" to="." method="attachment_clicked"]

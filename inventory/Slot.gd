@@ -6,6 +6,7 @@ enum Action {
 	Click,
 	Hold,
 	RightClick,
+	AttachClick,
 }
 
 const LMB_HOLD_TIME: float = 0.5

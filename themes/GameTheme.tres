@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=10 format=3 uid="uid://4xswugnup0ea"]
+[gd_resource type="Theme" load_steps=15 format=3 uid="uid://4xswugnup0ea"]
 
 [ext_resource type="StyleBox" uid="uid://35agf86cl1ni" path="res://themes/inventory_background.tres" id="1_m3m8h"]
 [ext_resource type="StyleBox" uid="uid://be8glpa5ycxb8" path="res://themes/slot_background.tres" id="2_bnqkd"]
@@ -10,6 +10,36 @@ corner_radius_top_left = 64
 corner_radius_top_right = 64
 corner_radius_bottom_right = 64
 corner_radius_bottom_left = 64
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bra63"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3lrsa"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yrlkw"]
+bg_color = Color(0.294118, 0.294118, 0.294118, 0.478431)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.87451, 0.823529, 0.701961, 1)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0oykr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xnko3"]
+bg_color = Color(0.294118, 0.294118, 0.294118, 0.478431)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.87451, 0.823529, 0.701961, 1)
+corner_radius_top_left = 60
+corner_radius_top_right = 60
+corner_radius_bottom_right = 60
+corner_radius_bottom_left = 60
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jrsav"]
 bg_color = Color(0.513726, 0.576471, 0.882353, 1)
@@ -44,6 +74,12 @@ default_font_size = 32
 InventoryBackground/base_type = &"PanelContainer"
 InventoryBackground/styles/panel = SubResource("StyleBoxFlat_8os3b")
 PanelContainer/styles/panel = ExtResource("1_m3m8h")
+ShelfAttachButton/base_type = &"Button"
+ShelfAttachButton/styles/disabled = SubResource("StyleBoxEmpty_bra63")
+ShelfAttachButton/styles/focus = SubResource("StyleBoxEmpty_3lrsa")
+ShelfAttachButton/styles/hover = SubResource("StyleBoxFlat_yrlkw")
+ShelfAttachButton/styles/normal = SubResource("StyleBoxEmpty_0oykr")
+ShelfAttachButton/styles/pressed = SubResource("StyleBoxFlat_xnko3")
 ShelfBackground/base_type = &"PanelContainer"
 ShelfBackground/styles/panel = SubResource("StyleBoxFlat_jrsav")
 ShelfSlotBackground/base_type = &"PanelContainer"

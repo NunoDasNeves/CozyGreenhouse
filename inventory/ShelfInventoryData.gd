@@ -1,24 +1,24 @@
 extends InventoryData
 class_name ShelfInventoryData
 
-signal slot_light_updated(index: int)
+signal attach_slot_updated(index: int)
+signal light_data_updated(index: int)
 
 const NUM_COLS: int = 4
 const NUM_ROWS: int = 3
 
-var light_slot_datas: Array[LightSlotData] = []
+var light_datas: Array[LightData] = []
+var attach_slot_datas: Array[SlotData] = []
 
 func init() -> void:
 	for i in slot_datas.size():
+		attach_slot_datas.push_back(null)
+
 		var light_f: float = 1 - (get_row(i) as float / (NUM_ROWS - 1) )
-		var light_slot_data: LightSlotData = LightSlotData.new()
-		light_slot_data.base_light = light_f
-		light_slot_data.final_light = light_f
-		light_slot_datas.push_back(light_slot_data)
-	light_slot_datas[9].final_light = 0.5
-	light_slot_datas[10].final_light = 1
-	light_slot_datas[10].item_data = ItemData.new()
-	light_slot_datas[11].final_light = 0.5
+		var light_data: LightData = LightData.new()
+		light_data.base_light = light_f
+		light_data.final_light = light_f
+		light_datas.push_back(light_data)
 
 func get_row(index: int) -> int:
 	return index / NUM_COLS
@@ -26,11 +26,10 @@ func get_row(index: int) -> int:
 func get_col(index: int) -> int:
 	return index % NUM_COLS
 
-# TODO update lights whenever slots are updated. use this:
 func update_slot(index: int) -> void:
 	slot_updated.emit(index)
-	# TODO recompute lights?? or idk
-	slot_light_updated.emit(index)
+	light_data_updated.emit(index)
+	attach_slot_updated.emit(index)
 
 func gather_fruit(index: int) -> void:
 	var slot_data: SlotData = slot_datas[index]
@@ -41,7 +40,7 @@ func gather_fruit(index: int) -> void:
 		return
 	var plant_data: PlantData = plant_component.plant
 	plant_data.gather_fruit()
-	slot_updated.emit(index)
+	update_slot(index)
 
 func next_day() -> void:
 	for i in slot_datas.size():
@@ -52,7 +51,7 @@ func next_day() -> void:
 		if not plant_component:
 			return
 		plant_component.plant.next_day()
-		slot_updated.emit(i)
+		update_slot(i)
 
 func plant_seed(seed_component: SeedComponent, shelf_slot_index: int) -> bool:
 	assert(seed_component.plant)
@@ -65,14 +64,66 @@ func plant_seed(seed_component: SeedComponent, shelf_slot_index: int) -> bool:
 
 	return true
 
-func grab_slot_data(index: int) -> SlotData:
-	var slot_data = slot_datas[index]
+func slot_interact(grabbed_slot_data: SlotData, index: int, action: Slot.Action) -> SlotData:
+	match action:
+		Slot.Action.Click, Slot.Action.Hold:
+			if grabbed_slot_data:
+				return drop_slot_data(grabbed_slot_data, index)
+			else:
+				return grab_slot_data(index)
+		Slot.Action.AttachClick:
+			if grabbed_slot_data:
+				return drop_attach_slot_data(grabbed_slot_data, index)
+			else:
+				return grab_attach_slot_data(index)
+	return grabbed_slot_data
+
+func _grab_slot_data(index: int, the_slot_datas: Array[SlotData]) -> SlotData:
+	var slot_data = the_slot_datas[index]
 	if slot_data:
-		slot_datas[index] = null
-		slot_updated.emit(index)
+		the_slot_datas[index] = null
+		update_slot(index)
 		return slot_data
 	else:
 		return null
+
+func grab_attach_slot_data(index: int) -> SlotData:
+	return _grab_slot_data(index, attach_slot_datas)
+
+func grab_slot_data(index: int) -> SlotData:
+	return _grab_slot_data(index, slot_datas)
+
+func _drop_slot_data(grabbed_slot_data: SlotData, index: int, the_slot_datas: Array) -> SlotData:
+	var slot_data: SlotData = the_slot_datas[index]
+	var ret: SlotData = grabbed_slot_data
+	var grabbed_item_data: ItemData = grabbed_slot_data.item_data
+
+	if grabbed_item_data.has_component("Stackable"):
+		if slot_data and slot_data.item_data == grabbed_item_data:
+			grabbed_slot_data.quantity += 1
+			the_slot_datas[index] = null
+		elif grabbed_slot_data.quantity == 1:
+			the_slot_datas[index] = grabbed_slot_data
+			ret = slot_data
+		elif not slot_data:
+			the_slot_datas[index] = grabbed_slot_data.duplicate()
+			the_slot_datas[index].quantity = 1
+			grabbed_slot_data.quantity -= 1
+			if !grabbed_slot_data.quantity:
+				ret = null
+	else:
+		the_slot_datas[index] = grabbed_slot_data
+		ret = slot_data
+
+	update_slot(index)
+
+	return ret
+
+func drop_attach_slot_data(grabbed_slot_data: SlotData, index: int) -> SlotData:
+	var grabbed_item_data: ItemData = grabbed_slot_data.item_data
+	if grabbed_item_data.has_component("Attach"):
+		return _drop_slot_data(grabbed_slot_data, index, attach_slot_datas)
+	return grabbed_slot_data
 
 func drop_slot_data(grabbed_slot_data: SlotData, index: int) -> SlotData:
 	var slot_data: SlotData = slot_datas[index]
@@ -81,15 +132,16 @@ func drop_slot_data(grabbed_slot_data: SlotData, index: int) -> SlotData:
 
 	var seed_component := grabbed_item_data.get_component("Seed") as SeedComponent
 	if seed_component:
-		if slot_data and slot_data.item_data.has_component("Pot"):
-			if plant_seed(seed_component, index):
-				grabbed_slot_data.quantity -= 1
-				if !grabbed_slot_data.quantity:
-					ret = null
-				slot_updated.emit(index)
+		if plant_seed(seed_component, index):
+			grabbed_slot_data.quantity -= 1
+			if !grabbed_slot_data.quantity:
+				ret = null
+			update_slot(index)
 		return ret
 
-	if grabbed_item_data.has_component("WateringCan") and slot_data:
+	if grabbed_item_data.has_component("WateringCan"):
+		if not slot_data:
+			return ret
 		var plant_component: PlantItemComponent = slot_data.item_data.get_component("Plant")
 		if plant_component:
 			var plant_data: PlantData = plant_component.plant
@@ -97,41 +149,28 @@ func drop_slot_data(grabbed_slot_data: SlotData, index: int) -> SlotData:
 			var water_to_try_use: float = minf(water_space, State.WATERING_CAN_WATER_AMOUNT)
 			var water_to_use: float = Global.state.try_use_water(water_to_try_use)
 			plant_data.water.curr_val += water_to_use
-			slot_updated.emit(index)
+			update_slot(index)
 		return ret
 
-	if grabbed_item_data.has_component("Fertilizer") and slot_data:
+	if grabbed_item_data.has_component("Fertilizer"):
+		if not slot_data:
+			return ret
 		var plant_component: PlantItemComponent = slot_data.item_data.get_component("Plant")
 		if plant_component:
 			var plant_data: PlantData = plant_component.plant
 			var fert_space: float = plant_data.fertilizer.max_val - plant_data.fertilizer.curr_val
 			if fert_space >= State.FERTILIZER_AMOUNT:
 				plant_data.fertilizer.curr_val += State.FERTILIZER_AMOUNT
-				slot_updated.emit(index)
+				update_slot(index)
 				if grabbed_slot_data.quantity == 1:
 					ret = null
 				else:
 					grabbed_slot_data.quantity -= 1
 		return ret
 
-	if grabbed_item_data.has_component("Stackable"):
-		if slot_data and slot_data.item_data == grabbed_item_data:
-			grabbed_slot_data.quantity += 1
-			slot_datas[index] = null
-		elif grabbed_slot_data.quantity == 1:
-			slot_datas[index] = grabbed_slot_data
-			ret = slot_data
-		elif not slot_data:
-			slot_datas[index] = grabbed_slot_data.duplicate()
-			slot_datas[index].quantity = 1
-			grabbed_slot_data.quantity -= 1
-			if !grabbed_slot_data.quantity:
-				ret = null
-		slot_updated.emit(index)
-		return ret
-	else:
-		slot_datas[index] = grabbed_slot_data
-		slot_updated.emit(index)
-		ret = slot_data
+	if grabbed_item_data.has_component("Attach"):
+		return _drop_slot_data(grabbed_slot_data, index, attach_slot_datas)
 
-	return ret
+	return _drop_slot_data(grabbed_slot_data, index, slot_datas)
+
+
