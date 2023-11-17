@@ -77,17 +77,17 @@ func next_day() -> void:
 	if curr_growth >= 1:
 		growth_stage = GrowthStage.MATURE
 
-	if growth_stage == GrowthStage.MATURE:
-		if total_fruit_produced < max_total_fruit_produced:
-			if plant_is_fruit:
-				num_fruits = max_num_fruits
-				total_fruit_produced = max_total_fruit_produced
-			elif num_fruits < max_num_fruits:
-				curr_fruit_growth += fruit_per_day * fruit_factors
-				if curr_fruit_growth >= 1:
-					var added_fruit: int = floori(curr_fruit_growth)
-					total_fruit_produced += added_fruit
-					num_fruits = clampi(num_fruits + added_fruit, 0, max_num_fruits)
-					curr_fruit_growth -= added_fruit
-			else:
-				curr_fruit_growth = 0
+	var can_make_fruit: bool = max_total_fruit_produced < 0 or total_fruit_produced < max_total_fruit_produced
+	if growth_stage == GrowthStage.MATURE and can_make_fruit:
+		if plant_is_fruit:
+			num_fruits = max_num_fruits
+			total_fruit_produced = max_total_fruit_produced
+		elif num_fruits < max_num_fruits:
+			curr_fruit_growth += fruit_per_day * fruit_factors
+			if curr_fruit_growth >= 1:
+				var added_fruit: int = floori(curr_fruit_growth)
+				total_fruit_produced += added_fruit
+				num_fruits = clampi(num_fruits + added_fruit, 0, max_num_fruits)
+				curr_fruit_growth -= added_fruit
+		else:
+			curr_fruit_growth = 0

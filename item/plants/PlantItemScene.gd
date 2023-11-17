@@ -33,7 +33,10 @@ func set_item_data(item_data: ItemData) -> void:
 	if plant_data.num_fruits > 0:
 		fruit_button.show()
 		fruit_button.self_modulate = Color(Color.WHITE, 0)
-		if not plant_data.plant_is_fruit:
+		if plant_data.plant_is_fruit:
+			fruit_button.tooltip_text = "Click to pick %s" % plant_data.fruit_item_data.name
+		else:
+			fruit_button.tooltip_text = "Click to pick %s %s" % [plant_data.num_fruits, plant_data.fruit_item_data.name]
 			for i in plant_data.num_fruits:
 				if i >= fruits.get_child_count():
 					break
