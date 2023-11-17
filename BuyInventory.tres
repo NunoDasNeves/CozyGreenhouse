@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="ProductInventoryData" load_steps=15 format=3 uid="uid://djxch8jows3ky"]
 
 [ext_resource type="Script" path="res://inventory/ProductInventoryData.gd" id="1_wxbat"]
-[ext_resource type="Resource" uid="uid://dtdm5s0ad2d28" path="res://item/seeds/seed1.tres" id="2_fuq00"]
+[ext_resource type="Resource" uid="uid://dtdm5s0ad2d28" path="res://item/plants/SaturnStalk/SaturnStalkSeed.tres" id="2_fuq00"]
 [ext_resource type="Script" path="res://inventory/SlotData.gd" id="3_7jofv"]
-[ext_resource type="Resource" uid="uid://dmsd41lgytg3d" path="res://item/seeds/seed2.tres" id="4_gas8w"]
+[ext_resource type="Resource" uid="uid://dmsd41lgytg3d" path="res://item/plants/GalaxyFlower/GalaxyFlowerSeed.tres" id="4_gas8w"]
 [ext_resource type="Resource" uid="uid://cp3r4g23icnd8" path="res://item/pots/Pot1.tres" id="5_do7n0"]
 [ext_resource type="Resource" uid="uid://bmkyc8c3c3yfu" path="res://item/pots/Pot2.tres" id="6_adqq6"]
 [ext_resource type="Resource" uid="uid://cfylxy8n4c12y" path="res://item/tools/Fertilizer.tres" id="7_rbqlb"]

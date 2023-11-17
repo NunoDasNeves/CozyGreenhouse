@@ -1,0 +1,45 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=17 format=3 uid="uid://b4sv4fdgbonmb"]
+
+[ext_resource type="PackedScene" uid="uid://bw145ublkri14" path="res://item/SpriteItem.tscn" id="1_cfsuj"]
+[ext_resource type="Script" path="res://item/ItemData.gd" id="2_p645e"]
+[ext_resource type="Script" path="res://item/components/StackableComponent.gd" id="3_b085k"]
+[ext_resource type="Resource" uid="uid://cnadjap8qkrb1" path="res://item/plants/CloudCoral/CloudCoral.tres" id="4_6lojn"]
+[ext_resource type="Script" path="res://item/components/SeedComponent.gd" id="5_v2as6"]
+[ext_resource type="Script" path="res://item/components/TextureComponent.gd" id="6_5yvd1"]
+[ext_resource type="Texture2D" uid="uid://ci6naj3uqi254" path="res://item/plants/CloudCoral/CloudCoralSeed.png" id="7_a2aud"]
+[ext_resource type="Script" path="res://item/components/BuyComponent.gd" id="8_p2b3q"]
+[ext_resource type="Script" path="res://item/ItemType.gd" id="9_c55aj"]
+[ext_resource type="Script" path="res://item/components/AcquireComponent.gd" id="9_j2eeo"]
+
+[sub_resource type="Resource" id="Resource_qhakd"]
+script = ExtResource("3_b085k")
+max_stack_size = 99
+show_1x_quantity = true
+
+[sub_resource type="Resource" id="Resource_websp"]
+script = ExtResource("5_v2as6")
+plant = ExtResource("4_6lojn")
+
+[sub_resource type="Resource" id="Resource_1mvr6"]
+script = ExtResource("6_5yvd1")
+texture = ExtResource("7_a2aud")
+
+[sub_resource type="Resource" id="Resource_8qach"]
+script = ExtResource("8_p2b3q")
+base_value = 1.0
+
+[sub_resource type="Resource" id="Resource_3bt5k"]
+script = ExtResource("9_j2eeo")
+
+[sub_resource type="Resource" id="Resource_jledp"]
+script = ExtResource("9_c55aj")
+components = Array[Resource("res://item/components/ItemComponent.gd")]([SubResource("Resource_qhakd"), SubResource("Resource_websp"), SubResource("Resource_1mvr6"), SubResource("Resource_8qach"), SubResource("Resource_3bt5k")])
+
+[resource]
+script = ExtResource("2_p645e")
+name = "Water Plant Seed"
+description = "Water...plant?"
+scene = ExtResource("1_cfsuj")
+type_name = 1
+home_inventory = 0
+type = SubResource("Resource_jledp")

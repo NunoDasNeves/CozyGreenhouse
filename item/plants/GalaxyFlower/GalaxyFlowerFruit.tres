@@ -1,0 +1,44 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=16 format=3 uid="uid://crnlb0o7j32b1"]
+
+[ext_resource type="Script" path="res://item/ItemData.gd" id="1_8f5g0"]
+[ext_resource type="Texture2D" uid="uid://btnmprj80vbam" path="res://item/plants/GalaxyFlower/GalaxyFlowerFruit.png" id="1_ipahs"]
+[ext_resource type="Script" path="res://item/components/StackableComponent.gd" id="2_n5l0p"]
+[ext_resource type="PackedScene" uid="uid://dxavb0e6jog0m" path="res://item/fruits/Fruit.tscn" id="2_u1gce"]
+[ext_resource type="Script" path="res://item/components/SellComponent.gd" id="3_7w6mg"]
+[ext_resource type="Script" path="res://item/components/TextureComponent.gd" id="4_uj2b8"]
+[ext_resource type="Script" path="res://item/ItemType.gd" id="6_w0266"]
+[ext_resource type="Script" path="res://item/components/FruitComponent.gd" id="7_js3dt"]
+[ext_resource type="Script" path="res://item/components/CompostComponent.gd" id="8_ky8tp"]
+
+[sub_resource type="Resource" id="Resource_seg17"]
+script = ExtResource("2_n5l0p")
+max_stack_size = 99
+show_1x_quantity = true
+
+[sub_resource type="Resource" id="Resource_7anjs"]
+script = ExtResource("3_7w6mg")
+base_value = 10.0
+
+[sub_resource type="Resource" id="Resource_thijl"]
+script = ExtResource("4_uj2b8")
+texture = ExtResource("1_ipahs")
+
+[sub_resource type="Resource" id="Resource_s6r3q"]
+script = ExtResource("7_js3dt")
+
+[sub_resource type="Resource" id="Resource_6nglh"]
+script = ExtResource("8_ky8tp")
+base_compost_value = 1.0
+
+[sub_resource type="Resource" id="Resource_nl0v7"]
+script = ExtResource("6_w0266")
+components = Array[Resource("res://item/components/ItemComponent.gd")]([SubResource("Resource_seg17"), SubResource("Resource_7anjs"), SubResource("Resource_thijl"), SubResource("Resource_s6r3q"), SubResource("Resource_6nglh")])
+
+[resource]
+script = ExtResource("1_8f5g0")
+name = "Galaxy Flower"
+description = "So...galaxy-y..."
+scene = ExtResource("2_u1gce")
+type_name = 5
+home_inventory = 4
+type = SubResource("Resource_nl0v7")

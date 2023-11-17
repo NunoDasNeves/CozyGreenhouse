@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://kbop5v4tyhi8"]
 
 [ext_resource type="Script" path="res://item/SpriteItemScene.gd" id="1_x3aak"]
-[ext_resource type="Texture2D" uid="uid://cvnpsjtkl4waj" path="res://item/seeds/seed2.png" id="2_2mxm7"]
+[ext_resource type="Texture2D" uid="uid://cvnpsjtkl4waj" path="res://item/plants/GalaxyFlower/GalaxyFlowerSeed.png" id="2_2mxm7"]
 
 [node name="Fertilizer" type="Node2D"]
 script = ExtResource("1_x3aak")

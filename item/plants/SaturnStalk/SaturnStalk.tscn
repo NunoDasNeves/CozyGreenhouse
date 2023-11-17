@@ -1,0 +1,54 @@
+[gd_scene load_steps=6 format=3 uid="uid://cf27wt1xakpnq"]
+
+[ext_resource type="Script" path="res://item/plants/PlantItemScene.gd" id="1_i8hj5"]
+[ext_resource type="Texture2D" uid="uid://6gei0a8n81l2" path="res://item/plants/SaturnStalk/SaturnStalkYoung.png" id="2_yu2xh"]
+[ext_resource type="Texture2D" uid="uid://58472iewsi0x" path="res://item/plants/SaturnStalk/SaturnStalkMature.png" id="3_kmb8t"]
+[ext_resource type="Texture2D" uid="uid://brvy27s6rqef0" path="res://item/pots/pot1.png" id="4_fd8g1"]
+[ext_resource type="Texture2D" uid="uid://cppespyw4o1hs" path="res://item/fruits/MoonFruit.png" id="5_rdmva"]
+
+[node name="Plant" type="Node2D"]
+scale = Vector2(0.18941, 0.18941)
+script = ExtResource("1_i8hj5")
+
+[node name="PlantSpriteYoung" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(2.08165e-12, -855.288)
+texture = ExtResource("2_yu2xh")
+
+[node name="PlantSpriteMature" type="Sprite2D" parent="."]
+position = Vector2(0, -1224.86)
+texture = ExtResource("3_kmb8t")
+
+[node name="PotSprite" type="Sprite2D" parent="."]
+position = Vector2(2.08165e-12, 2.08165e-12)
+scale = Vector2(0.477667, 0.477667)
+texture = ExtResource("4_fd8g1")
+
+[node name="FruitButton" type="Button" parent="."]
+offset_left = -500.0
+offset_top = -1900.0
+offset_right = 500.0
+offset_bottom = -450.0
+mouse_default_cursor_shape = 2
+
+[node name="Fruits" type="Node2D" parent="."]
+
+[node name="Icon" type="Sprite2D" parent="Fruits"]
+position = Vector2(-116.15, -1335.73)
+rotation = 0.610739
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_rdmva")
+
+[node name="Icon2" type="Sprite2D" parent="Fruits"]
+position = Vector2(190.064, -918.642)
+rotation = 0.176176
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_rdmva")
+
+[node name="Icon3" type="Sprite2D" parent="Fruits"]
+position = Vector2(-253.418, -707.46)
+rotation = 0.332886
+scale = Vector2(-0.5, 0.5)
+texture = ExtResource("5_rdmva")
+
+[connection signal="pressed" from="FruitButton" to="." method="on_fruit_clicked"]

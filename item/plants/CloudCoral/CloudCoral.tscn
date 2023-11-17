@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://cx560eanj14oo"]
+
+[ext_resource type="Script" path="res://item/plants/PlantItemScene.gd" id="1_ncuyb"]
+[ext_resource type="Texture2D" uid="uid://b25h2klpwtfit" path="res://item/plants/CloudCoral/CloudCoralBaby.png" id="2_78otj"]
+[ext_resource type="Texture2D" uid="uid://dx2qo0afw482o" path="res://item/plants/CloudCoral/CloudCoralMature.png" id="3_7x0uv"]
+[ext_resource type="Texture2D" uid="uid://brvy27s6rqef0" path="res://item/pots/pot1.png" id="4_xqb8t"]
+[ext_resource type="Texture2D" uid="uid://dxvrro1wtvbe6" path="res://item/fruits/Cloud.png" id="5_d68v3"]
+
+[node name="Plant" type="Node2D"]
+scale = Vector2(0.18941, 0.18941)
+script = ExtResource("1_ncuyb")
+
+[node name="PlantSpriteYoung" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(52.7957, -881.685)
+scale = Vector2(0.806771, 0.806771)
+texture = ExtResource("2_78otj")
+
+[node name="PlantSpriteMature" type="Sprite2D" parent="."]
+position = Vector2(0, -1008.39)
+texture = ExtResource("3_7x0uv")
+
+[node name="PotSprite" type="Sprite2D" parent="."]
+position = Vector2(2.08165e-12, 2.08165e-12)
+scale = Vector2(0.477667, 0.477667)
+texture = ExtResource("4_xqb8t")
+
+[node name="FruitButton" type="Button" parent="."]
+visible = false
+offset_left = -813.0
+offset_top = -2239.0
+offset_right = 839.0
+offset_bottom = -660.0
+mouse_default_cursor_shape = 2
+
+[node name="Fruits" type="Node2D" parent="."]
+
+[node name="Icon" type="Sprite2D" parent="Fruits"]
+self_modulate = Color(1, 1, 1, 0.698039)
+position = Vector2(-5.27956, -1657.78)
+scale = Vector2(1.10187, 1.10187)
+texture = ExtResource("5_d68v3")
+
+[connection signal="pressed" from="FruitButton" to="." method="on_fruit_clicked"]

@@ -1,0 +1,45 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=17 format=3 uid="uid://dmsd41lgytg3d"]
+
+[ext_resource type="PackedScene" uid="uid://kbop5v4tyhi8" path="res://item/BigSpriteItemScene.tscn" id="1_fcqij"]
+[ext_resource type="Texture2D" uid="uid://cvnpsjtkl4waj" path="res://item/plants/GalaxyFlower/GalaxyFlowerSeed.png" id="2_kcn5b"]
+[ext_resource type="Script" path="res://item/ItemData.gd" id="2_rtcwe"]
+[ext_resource type="Resource" uid="uid://dbaovufolo0w6" path="res://item/plants/GalaxyFlower/GalaxyFlower.tres" id="4_w1ugi"]
+[ext_resource type="Script" path="res://item/components/StackableComponent.gd" id="5_nutnt"]
+[ext_resource type="Script" path="res://item/components/SeedComponent.gd" id="6_qgw5y"]
+[ext_resource type="Script" path="res://item/components/BuyComponent.gd" id="7_hvdw5"]
+[ext_resource type="Script" path="res://item/ItemType.gd" id="8_sl4g8"]
+[ext_resource type="Script" path="res://item/components/TextureComponent.gd" id="8_vfj76"]
+[ext_resource type="Script" path="res://item/components/AcquireComponent.gd" id="9_r5gtd"]
+
+[sub_resource type="Resource" id="Resource_qhakd"]
+script = ExtResource("5_nutnt")
+max_stack_size = 99
+show_1x_quantity = true
+
+[sub_resource type="Resource" id="Resource_wiprf"]
+script = ExtResource("6_qgw5y")
+plant = ExtResource("4_w1ugi")
+
+[sub_resource type="Resource" id="Resource_6bu0t"]
+script = ExtResource("8_vfj76")
+texture = ExtResource("2_kcn5b")
+
+[sub_resource type="Resource" id="Resource_8qach"]
+script = ExtResource("7_hvdw5")
+base_value = 1.0
+
+[sub_resource type="Resource" id="Resource_uj7p8"]
+script = ExtResource("9_r5gtd")
+
+[sub_resource type="Resource" id="Resource_n4dmy"]
+script = ExtResource("8_sl4g8")
+components = Array[Resource("res://item/components/ItemComponent.gd")]([SubResource("Resource_qhakd"), SubResource("Resource_wiprf"), SubResource("Resource_6bu0t"), SubResource("Resource_8qach"), SubResource("Resource_uj7p8")])
+
+[resource]
+script = ExtResource("2_rtcwe")
+name = "Galaxy Flower Seeds"
+description = "leafy"
+scene = ExtResource("1_fcqij")
+type_name = 1
+home_inventory = 0
+type = SubResource("Resource_n4dmy")

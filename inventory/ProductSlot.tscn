@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://buyj6n0hvqkgb"]
 
 [ext_resource type="Script" path="res://inventory/ProductSlot.gd" id="1_bggor"]
-[ext_resource type="PackedScene" uid="uid://dxavb0e6jog0m" path="res://item/fruits/Fruit.tscn" id="2_8st56"]
+[ext_resource type="PackedScene" uid="uid://dxavb0e6jog0m" path="res://item/Fruit.tscn" id="2_8st56"]
 
 [node name="Slot" type="PanelContainer"]
 custom_minimum_size = Vector2(200, 200)

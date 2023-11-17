@@ -1,0 +1,44 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=16 format=3 uid="uid://dk8us7i65t6kj"]
+
+[ext_resource type="Texture2D" uid="uid://cppespyw4o1hs" path="res://item/plants/SaturnStalk/SaturnPod.png" id="1_pvlkv"]
+[ext_resource type="PackedScene" uid="uid://dxavb0e6jog0m" path="res://item/fruits/Fruit.tscn" id="2_nsx3w"]
+[ext_resource type="Script" path="res://item/ItemData.gd" id="2_wkwpf"]
+[ext_resource type="Script" path="res://item/components/StackableComponent.gd" id="3_y6kmm"]
+[ext_resource type="Script" path="res://item/components/SellComponent.gd" id="4_umyfr"]
+[ext_resource type="Script" path="res://item/components/TextureComponent.gd" id="5_221sl"]
+[ext_resource type="Script" path="res://item/ItemType.gd" id="5_ts3rt"]
+[ext_resource type="Script" path="res://item/components/FruitComponent.gd" id="7_m1wwm"]
+[ext_resource type="Script" path="res://item/components/CompostComponent.gd" id="8_2vc2c"]
+
+[sub_resource type="Resource" id="Resource_seg17"]
+script = ExtResource("3_y6kmm")
+max_stack_size = 99
+show_1x_quantity = true
+
+[sub_resource type="Resource" id="Resource_tgs2i"]
+script = ExtResource("4_umyfr")
+base_value = 5.0
+
+[sub_resource type="Resource" id="Resource_utewc"]
+script = ExtResource("5_221sl")
+texture = ExtResource("1_pvlkv")
+
+[sub_resource type="Resource" id="Resource_8seyf"]
+script = ExtResource("7_m1wwm")
+
+[sub_resource type="Resource" id="Resource_kj4cr"]
+script = ExtResource("8_2vc2c")
+base_compost_value = 1.0
+
+[sub_resource type="Resource" id="Resource_xpdjg"]
+script = ExtResource("5_ts3rt")
+components = Array[Resource("res://item/components/ItemComponent.gd")]([SubResource("Resource_seg17"), SubResource("Resource_tgs2i"), SubResource("Resource_utewc"), SubResource("Resource_8seyf"), SubResource("Resource_kj4cr")])
+
+[resource]
+script = ExtResource("2_wkwpf")
+name = "Moon Lettuce Pod"
+description = "Ummm...Can you eat this?"
+scene = ExtResource("2_nsx3w")
+type_name = 5
+home_inventory = 4
+type = SubResource("Resource_xpdjg")

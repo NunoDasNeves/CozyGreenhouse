@@ -10,7 +10,7 @@
 
 [sub_resource type="Resource" id="Resource_qcaug"]
 script = ExtResource("6_4yw2r")
-initial_days = Array[Resource("res://merchants/MerchantData.gd")]([])
+initial_days = Array[Resource("res://merchants/MerchantData.gd")]([null])
 random_merchant_pool = Array[Resource("res://merchants/MerchantData.gd")]([])
 
 [resource]
