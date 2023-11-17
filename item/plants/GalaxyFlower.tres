@@ -1,10 +1,11 @@
-[gd_resource type="Resource" script_class="ItemData" load_steps=16 format=3 uid="uid://dbaovufolo0w6"]
+[gd_resource type="Resource" script_class="ItemData" load_steps=18 format=3 uid="uid://dbaovufolo0w6"]
 
 [ext_resource type="PackedScene" uid="uid://d346bhoh8up1g" path="res://item/plants/GalaxyFlower.tscn" id="1_cvjfe"]
 [ext_resource type="Script" path="res://item/ItemData.gd" id="1_l7h0w"]
 [ext_resource type="Script" path="res://item/plants/PlantFood.gd" id="3_uvh1g"]
 [ext_resource type="Resource" uid="uid://crnlb0o7j32b1" path="res://item/fruits/fruit2.tres" id="4_rwylr"]
 [ext_resource type="Script" path="res://item/plants/PlantData.gd" id="7_f4b44"]
+[ext_resource type="Script" path="res://item/components/CompostComponent.gd" id="7_uk34p"]
 [ext_resource type="Script" path="res://item/components/PlantItemComponent.gd" id="8_eyja2"]
 [ext_resource type="Script" path="res://item/ItemType.gd" id="9_7252r"]
 
@@ -67,9 +68,13 @@ mature_compost_bonus = 4.0
 script = ExtResource("8_eyja2")
 plant = SubResource("Resource_0eiey")
 
+[sub_resource type="Resource" id="Resource_2k0fn"]
+script = ExtResource("7_uk34p")
+base_compost_value = 1.0
+
 [sub_resource type="Resource" id="Resource_u7cma"]
 script = ExtResource("9_7252r")
-components = Array[Resource("res://item/components/ItemComponent.gd")]([SubResource("Resource_7glwq")])
+components = Array[Resource("res://item/components/ItemComponent.gd")]([SubResource("Resource_7glwq"), SubResource("Resource_2k0fn")])
 
 [resource]
 script = ExtResource("1_l7h0w")

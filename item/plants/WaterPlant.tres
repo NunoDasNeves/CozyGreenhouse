@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ItemData" load_steps=16 format=3 uid="uid://cnadjap8qkrb1"]
+[gd_resource type="Resource" script_class="ItemData" load_steps=18 format=3 uid="uid://cnadjap8qkrb1"]
 
 [ext_resource type="PackedScene" uid="uid://cx560eanj14oo" path="res://item/plants/WaterPlant.tscn" id="1_yee40"]
 [ext_resource type="Script" path="res://item/ItemData.gd" id="2_c0yjs"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://item/components/PlantItemComponent.gd" id="6_han1x"]
 [ext_resource type="Texture2D" uid="uid://b25h2klpwtfit" path="res://item/plants/Water_Plant_Baby.png" id="7_oe666"]
 [ext_resource type="Script" path="res://item/ItemType.gd" id="7_wysgw"]
+[ext_resource type="Script" path="res://item/components/CompostComponent.gd" id="9_fbt5o"]
 
 [sub_resource type="Resource" id="Resource_cijr5"]
 script = ExtResource("3_iyv6g")
@@ -63,9 +64,13 @@ mature_compost_bonus = 4.0
 script = ExtResource("6_han1x")
 plant = SubResource("Resource_8bf1t")
 
+[sub_resource type="Resource" id="Resource_uop7n"]
+script = ExtResource("9_fbt5o")
+base_compost_value = 1.0
+
 [sub_resource type="Resource" id="Resource_odlxj"]
 script = ExtResource("7_wysgw")
-components = Array[Resource("res://item/components/ItemComponent.gd")]([SubResource("Resource_5etn3")])
+components = Array[Resource("res://item/components/ItemComponent.gd")]([SubResource("Resource_5etn3"), SubResource("Resource_uop7n")])
 
 [resource]
 script = ExtResource("2_c0yjs")

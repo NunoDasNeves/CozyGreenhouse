@@ -133,7 +133,7 @@ func slot_interact(grabbed_slot_data: SlotData, index: int, action: Slot.Action)
 						select_first_slot_data(index)
 			Slot.Action.Click:
 				if grabbed_slot_data:
-					return grabbed_slot_data
+					return drop_slot_data(grabbed_slot_data, index)
 				select_first_slot_data(index)
 			Slot.Action.RightClick:
 				pass
@@ -189,16 +189,26 @@ func select_first_slot_data(index: int) -> void:
 		select_slot_data(index)
 
 func grab_slot_data(index: int) -> SlotData:
+	var ret = null
 	var slot_data = slot_datas[index]
-	if slot_data and slot_data.quantity > 0:
-		slot_data.quantity -= 1
-		inventory_updated.emit(index, slot_data)
-		var ret_slot_data: SlotData = SlotData.new()
-		ret_slot_data.item_data = slot_data.item_data
-		ret_slot_data.quantity = 1
-		return ret_slot_data
-	else:
-		return null
+
+	if not slot_data:
+		return ret
+
+	assert(slot_data.quantity)
+	assert(slot_data.item_data)
+
+	slot_data.quantity -= 1
+	var ret_slot_data: SlotData = SlotData.new()
+	ret_slot_data.item_data = slot_data.item_data
+	ret_slot_data.quantity = 1
+	ret = ret_slot_data
+
+	if slot_data.quantity == 0:
+		slot_data = null
+	inventory_updated.emit(index, slot_data)
+
+	return ret
 
 func drop_slot_data(grabbed_slot_data: SlotData, index: int) -> SlotData:
 	var grabbed_item_data := grabbed_slot_data.item_data
