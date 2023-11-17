@@ -23,12 +23,15 @@ func init_inventory(inventory: Inventory, inventory_data: InventoryData):
 	inventory.init(inventory_data)
 	inventory.inventory_interact.connect(grab_slot.on_inventory_interact)
 
-func _ready() -> void:
+func init() -> void:
 	Global.state = initial_state.duplicate()
 	state = Global.state
+	state.init_curr_day()
+
 	state.water_updated.connect(update_water_tank)
 	state.money_updated.connect(update_money_text)
 	state.compost_updated.connect(update_compost_bar)
+	state.shop_updated.connect(update_shop)
 
 	grab_slot.grab_data = state.grab_data
 	grab_slot.update()
@@ -38,13 +41,16 @@ func _ready() -> void:
 	init_inventory(tools_inventory, state.tool_inventory_data)
 	init_inventory(shelf_inventory, state.shelf_inventory_data)
 	init_inventory(sell_inventory, state.sell_inventory_data)
-	init_inventory(buy_inventory, state.buy_inventory_data)
 
 	compost_button.composted_grabbed_item.connect(clear_grab_slot)
 	next_day_button.button_down.connect(next_day)
 	update_water_tank()
 	update_money_text()
 	update_compost_bar()
+	update_shop()
+
+func _ready() -> void:
+	init()
 
 func _input(event: InputEvent) -> void:
 	var mouse_event := event as InputEventMouseButton
@@ -58,6 +64,17 @@ func clear_grab_slot() -> void:
 func update_compost_bar() -> void:
 	compost_bar.max_value = Global.state.COMPOST_MAX
 	compost_bar.value = Global.state.compost
+
+func init_merchant(merchant_data: MerchantData) -> void:
+	pass
+
+func update_shop() -> void:
+	var buy_inventory_data: ProductInventoryData = state.buy_inventory_data
+	if buy_inventory_data:
+		init_inventory(buy_inventory, buy_inventory_data)
+	var merchant_data: MerchantData = state.curr_merchant
+	if merchant_data:
+		init_merchant(merchant_data)
 
 func update_water_tank() -> void:
 	var old_water_level: float = water_tank_bar.value

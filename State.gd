@@ -4,6 +4,7 @@ class_name State
 signal water_updated
 signal money_updated
 signal compost_updated
+signal shop_updated
 
 const FERTILIZER_AMOUNT: float = 1
 const WATERING_CAN_WATER_AMOUNT: float = 0.5
@@ -24,16 +25,33 @@ var water_per_day: float = 0.1
 @export var tool_inventory_data: RackInventoryData
 @export var shelf_inventory_data: ShelfInventoryData
 @export var sell_inventory_data: ProductInventoryData
-@export var buy_inventory_data: ProductInventoryData
+
+var buy_inventory_data: ProductInventoryData
+var curr_merchant: MerchantData
+
+@export var shop_schedule: ShopSchedule
 
 var grab_data: GrabData = GrabData.new()
 
+func init_curr_day() -> void:
+	grab_data.dismiss()
+	update_shop()
+
 func next_day() -> void:
-	grab_data.dismiss() # not really needed because called in inventory interface, but should be here anyway
-	# TODO other inventories need this?
-	shelf_inventory_data.next_day()
 	curr_day += 1
+	shelf_inventory_data.next_day()
 	add_water(water_per_day)
+
+func update_shop() -> void:
+	var merchant_data: MerchantData = shop_schedule.get_todays_merchant(curr_day)
+	curr_merchant = merchant_data
+	var restock_params: RestockParams = null
+
+	if curr_merchant:
+		restock_params = curr_merchant.restock_params
+	buy_inventory_data = ProductInventoryData.generate_shop_inventory(restock_params)
+
+	shop_updated.emit()
 
 func add_compost(amount: float) -> void:
 	compost += amount

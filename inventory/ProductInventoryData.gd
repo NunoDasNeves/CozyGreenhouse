@@ -125,7 +125,6 @@ func slot_interact(grabbed_slot_data: SlotData, index: int, action: Slot.Action)
 							return drop_slot_data(grabbed_slot_data, index)
 						else:
 							return grab_slot_data(index)
-						return null
 					Type.Buy:
 						if grabbed_slot_data:
 							return grabbed_slot_data
@@ -210,7 +209,7 @@ func grab_slot_data(index: int) -> SlotData:
 
 	return ret
 
-func drop_slot_data(grabbed_slot_data: SlotData, index: int) -> SlotData:
+func drop_slot_data(grabbed_slot_data: SlotData, _index: int) -> SlotData:
 	var grabbed_item_data := grabbed_slot_data.item_data
 
 	if not grabbed_item_data.has_component("Sell"):
@@ -234,3 +233,16 @@ func drop_slot_data(grabbed_slot_data: SlotData, index: int) -> SlotData:
 	slot_appended.emit(grabbed_slot_data)
 
 	return null
+
+static func generate_shop_inventory(restock_params: RestockParams) -> ProductInventoryData:
+	var buy_inv_data: ProductInventoryData = ProductInventoryData.new()
+	if restock_params:
+		var restock_items: Array[RestockItem] = restock_params.items
+
+		for restock_item in restock_items:
+			var slot_data: SlotData = SlotData.new()
+			slot_data.item_data = restock_item.item_data
+			slot_data.quantity = restock_item.min_num
+			buy_inv_data.slot_datas.push_back(slot_data)
+
+	return buy_inv_data
