@@ -34,6 +34,14 @@ func update_slot(index: int) -> void:
 		if item_data.has_component("UVLight"):
 			light_datas[index].final_light = 1
 
+	var slot_data: SlotData = slot_datas[index]
+	if slot_data:
+		var item_data: ItemData = slot_data.item_data
+		var plant_component: PlantItemComponent = item_data.get_component("Plant")
+		if plant_component:
+			var plant_data: PlantData = plant_component.plant
+			plant_data.light.curr_val = light_datas[index].final_light * plant_data.light.max_val
+
 	slot_updated.emit(index)
 	light_data_updated.emit(index)
 	attach_slot_updated.emit(index)
