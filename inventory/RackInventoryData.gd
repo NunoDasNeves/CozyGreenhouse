@@ -13,17 +13,10 @@ func grab_slot_data(index: int) -> SlotData:
 	else:
 		return null
 
-func goes_on_rack(item_data: ItemData) -> bool:
-	if not item_data:
-		return false
-	if item_data.has_any_component(["Seed", "Pot", "Fertilizer", "WateringCan"]):
-		return true
-	return false
-
 func drop_slot_data(grabbed_slot_data: SlotData, index: int) -> SlotData:
 	var grabbed_item_data := grabbed_slot_data.item_data
 
-	if not goes_on_rack(grabbed_item_data):
+	if not is_home_to_item(grabbed_item_data):
 		return grabbed_slot_data
 
 	for i in slot_datas.size():
@@ -33,4 +26,14 @@ func drop_slot_data(grabbed_slot_data: SlotData, index: int) -> SlotData:
 			slot_updated.emit(i)
 			return null
 
-	return grabbed_slot_data
+	for i in slot_datas.size():
+		var slot_data: SlotData = slot_datas[i]
+		if not slot_data:
+			slot_datas[i] = grabbed_slot_data
+			slot_updated.emit(i)
+			return null
+
+	slot_datas.push_back(grabbed_slot_data)
+	slot_appended.emit(grabbed_slot_data)
+
+	return null

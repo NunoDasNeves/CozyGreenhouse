@@ -12,11 +12,19 @@ func init(inv_data: InventoryData) -> void:
 	for connection in inventory_data.slot_updated.get_connections():
 		inventory_data.slot_updated.disconnect(connection.callable)
 	inventory_data.slot_updated.connect(update_slot)
+	inventory_data.slot_appended.connect(append_slot)
 	clear_item_grid()
 	populate_item_grid()
 
 func on_slot_interact(index: int, action: Slot.Action):
 	inventory_interact.emit(self, index, action)
+
+func append_slot(slot_data: SlotData) -> void:
+	var slot: Slot = slot_scene.instantiate()
+	item_grid.add_child(slot)
+	slot.slot_clicked.connect(on_slot_interact)
+	slot.set_slot_data(slot_data)
+	assert(slot.slot_clicked.get_connections().size() == 1)
 
 func update_slot(index: int) -> void:
 	var slot_data: SlotData = inventory_data.slot_datas[index]
@@ -29,9 +37,4 @@ func clear_item_grid() -> void:
 
 func populate_item_grid() -> void:
 	for slot_data in inventory_data.slot_datas:
-		var slot: Slot = slot_scene.instantiate()
-		item_grid.add_child(slot)#, inventory_data is SeedInventoryData)
-		slot.slot_clicked.connect(on_slot_interact)
-		slot.set_slot_data(slot_data)
-		#print(slot.name)
-		assert(slot.slot_clicked.get_connections().size() == 1)
+		append_slot(slot_data)

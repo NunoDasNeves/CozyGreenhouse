@@ -230,4 +230,7 @@ func drop_slot_data(grabbed_slot_data: SlotData, index: int) -> SlotData:
 			slot_updated.emit(i)
 			return null
 
-	return grabbed_slot_data
+	slot_datas.push_back(grabbed_slot_data)
+	slot_appended.emit(grabbed_slot_data)
+
+	return null
