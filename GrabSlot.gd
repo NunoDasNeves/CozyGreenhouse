@@ -47,9 +47,6 @@ func update() -> void:
 			if stackable_component.show_1x_quantity or quantity > 1:
 				quantity_label.text = "x%s" % quantity
 				quantity_label.show()
-		else:
-			quantity_label.text = "x%s" % grab_data.slot_data.quantity
-			quantity_label.show()
 
 		show()
 		process()

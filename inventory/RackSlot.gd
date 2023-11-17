@@ -21,9 +21,13 @@ func set_slot_data(slot_data: SlotData) -> void:
 	assert(item_scene)
 	item_scene.set_item_data(item_data)
 
+	var stackable_component := item_data.get_component("Stackable") as StackableComponent
 	if slot_data.quantity == 0:
 		node.modulate = Color(Color.WHITE, 0.5)
-	else:
-		quantity_label.text = "x%s" % slot_data.quantity
-		quantity_label.show()
+	elif stackable_component:
+		var quantity: int = slot_data.quantity
+		if stackable_component.show_1x_quantity or quantity > 1:
+			quantity_label.text = "x%s" % quantity
+			quantity_label.show()
+
 	tooltip_text = "%s\n%s" % [item_data.name, item_data.description]
