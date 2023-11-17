@@ -1,6 +1,20 @@
 extends InventoryData
 class_name ShelfInventoryData
 
+signal slot_light_updated(index: int)
+
+var light_levels: Array[float] = []
+
+func init() -> void:
+	# TODO populate light levels
+	pass
+
+# TODO update lights whenever slots are updated. use this:
+func update_slot(index: int) -> void:
+	slot_updated.emit(index)
+	# TODO recompute lights?? or idk
+	slot_light_updated.emit(index)
+
 func gather_fruit(index: int) -> void:
 	var slot_data: SlotData = slot_datas[index]
 	if not slot_data:

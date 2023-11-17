@@ -16,6 +16,10 @@ class_name ShelfSlot
 
 signal fruit_gathered(index: int)
 
+func set_light_level(light_level: float) -> void:
+	# TODO
+	pass
+
 func fruit_clicked() -> void:
 	var index = get_index()
 	fruit_gathered.emit(index)

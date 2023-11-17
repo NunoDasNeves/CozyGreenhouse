@@ -9,6 +9,7 @@ signal inventory_interact(inventory: Inventory, index: int, action: Slot.Action)
 
 func init(inv_data: InventoryData) -> void:
 	inventory_data = inv_data
+	inventory_data.init()
 	for connection in inventory_data.slot_updated.get_connections():
 		inventory_data.slot_updated.disconnect(connection.callable)
 	inventory_data.slot_updated.connect(update_slot)
