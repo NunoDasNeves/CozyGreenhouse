@@ -8,7 +8,7 @@ func grab_slot_data(index: int) -> SlotData:
 		ret_slot_data.item_data = slot_data.item_data
 		ret_slot_data.quantity = slot_data.quantity
 		slot_data.quantity = 0
-		inventory_updated.emit(index, slot_data)
+		slot_updated.emit(index)
 		return ret_slot_data
 	else:
 		return null
@@ -30,7 +30,7 @@ func drop_slot_data(grabbed_slot_data: SlotData, index: int) -> SlotData:
 		var slot_data: SlotData = slot_datas[i]
 		if slot_data and slot_data.item_data == grabbed_item_data:
 			slot_data.quantity += grabbed_slot_data.quantity
-			inventory_updated.emit(i, slot_data)
+			slot_updated.emit(i)
 			return null
 
 	return grabbed_slot_data

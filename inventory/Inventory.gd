@@ -9,16 +9,17 @@ signal inventory_interact(inventory: Inventory, index: int, action: Slot.Action)
 
 func init(inv_data: InventoryData) -> void:
 	inventory_data = inv_data
-	if inventory_data.inventory_updated.get_connections().size() == 1:
-		inventory_data.inventory_updated.disconnect(update_slot)
-	inventory_data.inventory_updated.connect(update_slot)
+	for connection in inventory_data.slot_updated.get_connections():
+		inventory_data.slot_updated.disconnect(connection.callable)
+	inventory_data.slot_updated.connect(update_slot)
 	clear_item_grid()
 	populate_item_grid()
 
 func on_slot_interact(index: int, action: Slot.Action):
 	inventory_interact.emit(self, index, action)
 
-func update_slot(index: int, slot_data: SlotData) -> void:
+func update_slot(index: int) -> void:
+	var slot_data: SlotData = inventory_data.slot_datas[index]
 	var slot := item_grid.get_child(index) as Slot
 	slot.set_slot_data(slot_data)
 

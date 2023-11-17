@@ -10,7 +10,7 @@ func gather_fruit(index: int) -> void:
 		return
 	var plant_data: PlantData = plant_component.plant
 	plant_data.gather_fruit()
-	inventory_updated.emit(index, slot_data)
+	slot_updated.emit(index)
 
 func next_day() -> void:
 	for i in slot_datas.size():
@@ -21,7 +21,7 @@ func next_day() -> void:
 		if not plant_component:
 			return
 		plant_component.plant.next_day()
-		inventory_updated.emit(i, slot_data)
+		slot_updated.emit(i)
 
 func plant_seed(seed_component: SeedComponent, shelf_slot_index: int) -> bool:
 	assert(seed_component.plant)
@@ -38,7 +38,7 @@ func grab_slot_data(index: int) -> SlotData:
 	var slot_data = slot_datas[index]
 	if slot_data:
 		slot_datas[index] = null
-		inventory_updated.emit(index, null)
+		slot_updated.emit(index)
 		return slot_data
 	else:
 		return null
@@ -55,7 +55,7 @@ func drop_slot_data(grabbed_slot_data: SlotData, index: int) -> SlotData:
 				grabbed_slot_data.quantity -= 1
 				if !grabbed_slot_data.quantity:
 					ret = null
-				inventory_updated.emit(index, slot_datas[index])
+				slot_updated.emit(index)
 		return ret
 
 	if grabbed_item_data.has_component("WateringCan") and slot_data:
@@ -66,7 +66,7 @@ func drop_slot_data(grabbed_slot_data: SlotData, index: int) -> SlotData:
 			var water_to_try_use: float = minf(water_space, State.WATERING_CAN_WATER_AMOUNT)
 			var water_to_use: float = Global.state.try_use_water(water_to_try_use)
 			plant_data.water.curr_val += water_to_use
-			inventory_updated.emit(index, slot_datas[index])
+			slot_updated.emit(index)
 		return ret
 
 	if grabbed_item_data.has_component("Fertilizer") and slot_data:
@@ -76,7 +76,7 @@ func drop_slot_data(grabbed_slot_data: SlotData, index: int) -> SlotData:
 			var fert_space: float = plant_data.fertilizer.max_val - plant_data.fertilizer.curr_val
 			if fert_space >= State.FERTILIZER_AMOUNT:
 				plant_data.fertilizer.curr_val += State.FERTILIZER_AMOUNT
-				inventory_updated.emit(index, slot_datas[index])
+				slot_updated.emit(index)
 				if grabbed_slot_data.quantity == 1:
 					ret = null
 				else:
@@ -96,11 +96,11 @@ func drop_slot_data(grabbed_slot_data: SlotData, index: int) -> SlotData:
 			grabbed_slot_data.quantity -= 1
 			if !grabbed_slot_data.quantity:
 				ret = null
-		inventory_updated.emit(index, slot_datas[index])
+		slot_updated.emit(index)
 		return ret
 	else:
 		slot_datas[index] = grabbed_slot_data
-		inventory_updated.emit(index, slot_datas[index])
+		slot_updated.emit(index)
 		ret = slot_data
 
 	return ret

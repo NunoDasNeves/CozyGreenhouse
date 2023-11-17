@@ -40,8 +40,7 @@ func change_select_mode(enable: bool) -> void:
 		var slot_data = slot_datas[i]
 		if slot_data:
 			slot_data.select_mode = select_mode
-		# slot_data can be null here
-		inventory_updated.emit(i, slot_data)
+		slot_updated.emit(i)
 
 func pack_slot_datas() -> void:
 	var j = 0
@@ -152,7 +151,7 @@ func select_slot_data(index: int, quantity: int = 0) -> void:
 	if not select_mode:
 		change_select_mode(true)
 	else:
-		inventory_updated.emit(index, selected_slot_data)
+		slot_updated.emit(index)
 
 func deselect_slot_data(index: int) -> void:
 	# IDK why but for text_changed we get 2 events and that breaks
@@ -171,7 +170,7 @@ func deselect_slot_data(index: int) -> void:
 	if not num_selected:
 		change_select_mode(false)
 	else:
-		inventory_updated.emit(index, selected_slot_data)
+		slot_updated.emit(index)
 
 func toggle_select_slot_data(index: int) -> void:
 	assert(select_mode)
@@ -205,8 +204,9 @@ func grab_slot_data(index: int) -> SlotData:
 	ret = ret_slot_data
 
 	if slot_data.quantity == 0:
-		slot_data = null
-	inventory_updated.emit(index, slot_data)
+		slot_datas[index] = null
+
+	slot_updated.emit(index)
 
 	return ret
 
@@ -220,13 +220,14 @@ func drop_slot_data(grabbed_slot_data: SlotData, index: int) -> SlotData:
 		var slot_data: SlotData = slot_datas[i]
 		if slot_data and slot_data.item_data == grabbed_item_data:
 			slot_data.quantity += grabbed_slot_data.quantity
-			inventory_updated.emit(i, slot_data)
+			slot_updated.emit(i)
 			return null
 
 	for i in slot_datas.size():
 		var slot_data: SlotData = slot_datas[i]
 		if not slot_data:
 			slot_datas[i] = grabbed_slot_data
+			slot_updated.emit(i)
 			return null
 
 	return grabbed_slot_data
