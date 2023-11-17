@@ -6,6 +6,8 @@ class_name InventoryInterface
 @onready var day_num: Label = $DayNum
 @onready var water_tank_bar: ProgressBar = $WaterTankBar
 @onready var money_amount: Label = $MoneyAmount
+@onready var compost_bar: ProgressBar = $Compost/ProgressBar
+@onready var compost_button: CompostBin = $Compost/TextureButton
 
 @onready var seed_inventory: PanelContainer = $SeedInventory
 @onready var pots_inventory: PanelContainer = $PotsInventory
@@ -26,6 +28,7 @@ func _ready() -> void:
 	state = Global.state
 	state.water_updated.connect(update_water_tank)
 	state.money_updated.connect(update_money_text)
+	state.compost_updated.connect(update_compost_bar)
 
 	grab_slot.grab_data = state.grab_data
 	grab_slot.update()
@@ -37,15 +40,24 @@ func _ready() -> void:
 	init_inventory(sell_inventory, state.sell_inventory_data)
 	init_inventory(buy_inventory, state.buy_inventory_data)
 
+	compost_button.composted_grabbed_item.connect(clear_grab_slot)
 	next_day_button.button_down.connect(next_day)
 	update_water_tank()
 	update_money_text()
+	update_compost_bar()
 
 func _input(event: InputEvent) -> void:
 	var mouse_event := event as InputEventMouseButton
 	if mouse_event and mouse_event.button_index == MOUSE_BUTTON_RIGHT:
 		if grab_slot.dismiss():
 			accept_event()
+
+func clear_grab_slot() -> void:
+	grab_slot.clear()
+
+func update_compost_bar() -> void:
+	compost_bar.max_value = Global.state.COMPOST_MAX
+	compost_bar.value = Global.state.compost
 
 func update_water_tank() -> void:
 	var old_water_level: float = water_tank_bar.value

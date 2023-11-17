@@ -3,9 +3,13 @@ class_name State
 
 signal water_updated
 signal money_updated
+signal compost_updated
 
 const FERTILIZER_AMOUNT: float = 1
 const WATERING_CAN_WATER_AMOUNT: float = 0.5
+const COMPOST_MAX: float = 10
+
+const fertilizer_item_data: ItemData = preload("res://item/tools/Fertilizer.tres")
 
 var water_per_day: float = 0.1
 
@@ -13,6 +17,7 @@ var water_per_day: float = 0.1
 @export var water_tank_level: float = 10
 @export var max_water_tank_level: float = 25
 @export var money: float = 10
+@export var compost: float = 0
 
 @export var seed_inventory_data: RackInventoryData
 @export var pot_inventory_data: RackInventoryData
@@ -29,6 +34,16 @@ func next_day() -> void:
 	shelf_inventory_data.next_day()
 	curr_day += 1
 	add_water(water_per_day)
+
+func add_compost(amount: float) -> void:
+	compost += amount
+	if compost >= COMPOST_MAX:
+		compost -= COMPOST_MAX
+		var slot_data: SlotData = SlotData.new()
+		slot_data.quantity = 1
+		slot_data.item_data = fertilizer_item_data
+		acquire_items([slot_data])
+	compost_updated.emit()
 
 func add_money(amount: float) -> void:
 	money += amount

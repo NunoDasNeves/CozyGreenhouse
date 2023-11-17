@@ -13,6 +13,10 @@ func process() -> void:
 func _physics_process(delta: float) -> void:
 	process()
 
+func clear() -> void:
+	grab_data.clear()
+	update()
+
 func dismiss() -> bool:
 	if grab_data.dismiss():
 		update()

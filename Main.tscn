@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://stabv7nin058"]
+[gd_scene load_steps=21 format=3 uid="uid://stabv7nin058"]
 
 [ext_resource type="Script" path="res://Main.gd" id="1_b7ej4"]
 [ext_resource type="PackedScene" uid="uid://0alw4cfw4g22" path="res://inventory/Inventory.tscn" id="1_occea"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://ci87co87lm155" path="res://inventory/ToolsInventory.tscn" id="10_t6s3y"]
 [ext_resource type="Texture2D" uid="uid://dnw0mdguv067e" path="res://CompostBin.png" id="12_tetco"]
 [ext_resource type="PackedScene" uid="uid://b8iki5hc8c177" path="res://inventory/ProductsInventory.tscn" id="13_yk8kt"]
+[ext_resource type="Script" path="res://CompostBin.gd" id="14_fn1qj"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_10m38"]
 bg_color = Color(0.12549, 0.403922, 0.87451, 1)
@@ -157,18 +158,38 @@ position = Vector2(1034.23, 316)
 scale = Vector2(0.414673, 0.414673)
 texture = ExtResource("10_8wd6m")
 
-[node name="TextureButton" type="TextureButton" parent="UI/InventoryInterface"]
+[node name="Compost" type="Control" parent="UI/InventoryInterface"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureButton" type="TextureButton" parent="UI/InventoryInterface/Compost"]
 layout_mode = 0
 offset_left = 3333.0
 offset_top = 1596.0
 offset_right = 5381.0
 offset_bottom = 3644.0
 scale = Vector2(0.25, 0.25)
+tooltip_text = "Compost Bin
+
+Drop plants or their products here to recycle them and make Fertilizer."
+mouse_default_cursor_shape = 2
 texture_normal = ExtResource("12_tetco")
 texture_pressed = ExtResource("12_tetco")
 texture_hover = ExtResource("12_tetco")
 texture_disabled = ExtResource("12_tetco")
 texture_focused = ExtResource("12_tetco")
+script = ExtResource("14_fn1qj")
+
+[node name="ProgressBar" type="ProgressBar" parent="UI/InventoryInterface/Compost"]
+layout_mode = 0
+offset_left = 3362.0
+offset_top = 1702.0
+offset_right = 3401.0
+offset_bottom = 1999.0
+fill_mode = 3
+show_percentage = false
 
 [node name="TabContainer" type="TabContainer" parent="UI/InventoryInterface"]
 layout_mode = 0
@@ -194,3 +215,5 @@ layout_mode = 2
 
 [node name="GrabSlot" parent="UI/InventoryInterface" instance=ExtResource("10_5kb5e")]
 visible = false
+
+[connection signal="pressed" from="UI/InventoryInterface/Compost/TextureButton" to="UI/InventoryInterface/Compost/TextureButton" method="_on_pressed"]
