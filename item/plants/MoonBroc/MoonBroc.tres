@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=10 format=3 uid="uid://t8nq22s1ut1a"]
+
+[ext_resource type="PackedScene" uid="uid://lsaty52sg8xc" path="res://item/plants/MoonBroc/MoonBroc.tscn" id="1_lh45f"]
+[ext_resource type="Script" path="res://item/ItemData.gd" id="2_3qp4r"]
+[ext_resource type="Resource" uid="uid://bmtdt8n0cnkyy" path="res://item/plants/MoonBroc/MoonBrocData.tres" id="3_dl5lr"]
+[ext_resource type="Script" path="res://item/components/PlantItemComponent.gd" id="6_65jau"]
+[ext_resource type="Script" path="res://item/components/CompostComponent.gd" id="7_xs7tv"]
+[ext_resource type="Script" path="res://item/ItemType.gd" id="8_7v1mu"]
+
+[sub_resource type="Resource" id="Resource_qko2a"]
+script = ExtResource("6_65jau")
+plant = ExtResource("3_dl5lr")
+
+[sub_resource type="Resource" id="Resource_rbu2n"]
+script = ExtResource("7_xs7tv")
+base_compost_value = 1.0
+
+[sub_resource type="Resource" id="Resource_8uq8f"]
+script = ExtResource("8_7v1mu")
+components = Array[Resource("res://item/components/ItemComponent.gd")]([SubResource("Resource_qko2a"), SubResource("Resource_rbu2n")])
+
+[resource]
+script = ExtResource("2_3qp4r")
+name = "Moon Broc"
+description = "Grows fast, tastes...ok"
+scene = ExtResource("1_lh45f")
+type_name = 3
+home_inventory = 3
+type = SubResource("Resource_8uq8f")

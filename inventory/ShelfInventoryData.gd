@@ -55,6 +55,9 @@ func gather_fruit(index: int) -> void:
 		return
 	var plant_data: PlantData = plant_component.plant
 	plant_data.gather_fruit()
+	if plant_data.plant_is_fruit:
+		slot_data.item_data = plant_data.pot_item_data
+
 	update_slot(index)
 
 func next_day() -> void:

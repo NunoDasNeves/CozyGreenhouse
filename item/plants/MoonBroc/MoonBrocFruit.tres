@@ -1,0 +1,44 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=16 format=3 uid="uid://eylkbu5hsxa6"]
+
+[ext_resource type="PackedScene" uid="uid://b1r1uxuwrbaly" path="res://item/plants/MoonBroc/MoonBrocFruit.tscn" id="1_6kny1"]
+[ext_resource type="Script" path="res://item/ItemData.gd" id="2_bvq2s"]
+[ext_resource type="Script" path="res://item/components/StackableComponent.gd" id="3_gafy1"]
+[ext_resource type="Script" path="res://item/components/SellComponent.gd" id="4_l5wjb"]
+[ext_resource type="Script" path="res://item/components/TextureComponent.gd" id="5_7855x"]
+[ext_resource type="Texture2D" uid="uid://d7cbk5rawys2" path="res://item/plants/MoonBroc/Brocoli_Mature.png" id="6_xp4h2"]
+[ext_resource type="Script" path="res://item/components/FruitComponent.gd" id="7_tl6s0"]
+[ext_resource type="Script" path="res://item/components/CompostComponent.gd" id="8_6xrs2"]
+[ext_resource type="Script" path="res://item/ItemType.gd" id="9_itf70"]
+
+[sub_resource type="Resource" id="Resource_seg17"]
+script = ExtResource("3_gafy1")
+max_stack_size = 99
+show_1x_quantity = true
+
+[sub_resource type="Resource" id="Resource_2l001"]
+script = ExtResource("4_l5wjb")
+base_value = 2.0
+
+[sub_resource type="Resource" id="Resource_nkdis"]
+script = ExtResource("5_7855x")
+texture = ExtResource("6_xp4h2")
+
+[sub_resource type="Resource" id="Resource_s6r3q"]
+script = ExtResource("7_tl6s0")
+
+[sub_resource type="Resource" id="Resource_6nglh"]
+script = ExtResource("8_6xrs2")
+base_compost_value = 1.0
+
+[sub_resource type="Resource" id="Resource_13hmg"]
+script = ExtResource("9_itf70")
+components = Array[Resource("res://item/components/ItemComponent.gd")]([SubResource("Resource_seg17"), SubResource("Resource_2l001"), SubResource("Resource_nkdis"), SubResource("Resource_s6r3q"), SubResource("Resource_6nglh")])
+
+[resource]
+script = ExtResource("2_bvq2s")
+name = "Moon Broc"
+description = "Smells like nice socks."
+scene = ExtResource("1_6kny1")
+type_name = 5
+home_inventory = 4
+type = SubResource("Resource_13hmg")

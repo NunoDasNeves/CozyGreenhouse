@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://d346bhoh8up1g" path="res://item/plants/GalaxyFlower/GalaxyFlower.tscn" id="1_cvjfe"]
 [ext_resource type="Script" path="res://item/ItemData.gd" id="1_l7h0w"]
 [ext_resource type="Script" path="res://item/plants/PlantFood.gd" id="3_uvh1g"]
-[ext_resource type="Resource" uid="uid://crnlb0o7j32b1" path="res://item/plants/GalaxyFlower/GalaxyFlowerFruit.tres" id="4_rwylr"]
+[ext_resource type="Resource" uid="uid://crnlb0o7j32b1" path="res://item/plants/GalaxyFlower/GalaxyFlowerFruit.tres" id="4_e1rn0"]
 [ext_resource type="Script" path="res://item/plants/PlantData.gd" id="7_f4b44"]
 [ext_resource type="Script" path="res://item/components/CompostComponent.gd" id="7_uk34p"]
 [ext_resource type="Script" path="res://item/components/PlantItemComponent.gd" id="8_eyja2"]
@@ -61,7 +61,7 @@ fertilizer = SubResource("Resource_u1ut5")
 fruit_per_day = 0.15
 growth_per_day = 0.15
 max_num_fruits = 4
-fruit_item_data = ExtResource("4_rwylr")
+fruit_item_data = ExtResource("4_e1rn0")
 mature_compost_bonus = 4.0
 
 [sub_resource type="Resource" id="Resource_7glwq"]

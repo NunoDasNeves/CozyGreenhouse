@@ -16,12 +16,15 @@ enum GrowthStage {
 @export var max_num_fruits: int
 @export var fruit_item_data: ItemData
 @export var mature_compost_bonus: float = 4
+@export var max_total_fruit_produced: int = -1 # -1 means infinite
+@export var plant_is_fruit: bool
 
 var growth_stage: GrowthStage = GrowthStage.YOUNG
 var curr_fruit_growth: float = 0
 var curr_growth: float = 0 # at 1, advance to next GrowthStage
 var pot_item_data: ItemData
 var num_fruits: int = 0
+var total_fruit_produced: int = 0
 
 func get_compost_bonus() -> float:
 	match growth_stage:
@@ -73,11 +76,18 @@ func next_day() -> void:
 	curr_growth += growth_per_day * growth_factors
 	if curr_growth >= 1:
 		growth_stage = GrowthStage.MATURE
-	if num_fruits < max_num_fruits:
-		curr_fruit_growth += fruit_per_day * fruit_factors
-		if curr_fruit_growth >= 1:
-			var added_fruit: int = floori(curr_fruit_growth)
-			num_fruits = clampi(num_fruits + added_fruit, 0, max_num_fruits)
-			curr_fruit_growth -= added_fruit
-	else:
-		curr_fruit_growth = 0
+
+	if growth_stage == GrowthStage.MATURE:
+		if total_fruit_produced < max_total_fruit_produced:
+			if plant_is_fruit:
+				num_fruits = max_num_fruits
+				total_fruit_produced = max_total_fruit_produced
+			elif num_fruits < max_num_fruits:
+				curr_fruit_growth += fruit_per_day * fruit_factors
+				if curr_fruit_growth >= 1:
+					var added_fruit: int = floori(curr_fruit_growth)
+					total_fruit_produced += added_fruit
+					num_fruits = clampi(num_fruits + added_fruit, 0, max_num_fruits)
+					curr_fruit_growth -= added_fruit
+			else:
+				curr_fruit_growth = 0
