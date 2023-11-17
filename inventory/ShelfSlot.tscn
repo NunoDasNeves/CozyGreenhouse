@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://ueca5wmtav1v"]
+[gd_scene load_steps=12 format=3 uid="uid://ueca5wmtav1v"]
 
 [ext_resource type="Script" path="res://inventory/ShelfSlot.gd" id="1_4bqis"]
 [ext_resource type="PackedScene" uid="uid://d346bhoh8up1g" path="res://item/plants/GalaxyFlower.tscn" id="2_nv2k6"]
@@ -14,6 +14,16 @@ bg_color = Color(0.254902, 0.254902, 0.254902, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lb03i"]
 bg_color = Color(0.435294, 0.203922, 0.215686, 1)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_6sxiy"]
+blend_mode = 1
+
+[sub_resource type="Gradient" id="Gradient_w7fes"]
+offsets = PackedFloat32Array(0, 0.315517, 0.405172, 0.587931, 0.684483, 1)
+colors = PackedColorArray(1, 1, 1, 0, 0.52549, 0.133333, 0.588235, 0.686275, 0.52549, 0.133333, 0.588235, 0.686275, 0.52549, 0.133333, 0.588235, 0.686275, 0.52549, 0.133333, 0.588235, 0.686275, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ix48y"]
+gradient = SubResource("Gradient_w7fes")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_85f3j"]
 bg_color = Color(0.27451, 0.247059, 0.203922, 1)
@@ -32,7 +42,7 @@ bad_bar_stylebox_fill = SubResource("StyleBoxFlat_cesdr")
 happy_bar_stylebox_background = SubResource("StyleBoxFlat_6g3ss")
 bad_bar_stylebox_background = SubResource("StyleBoxFlat_lb03i")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="Shelf" type="ColorRect" parent="."]
 custom_minimum_size = Vector2(2.08165e-12, 100)
 layout_mode = 2
 size_flags_vertical = 8
@@ -45,6 +55,14 @@ scale = Vector2(0.9, 0.9)
 
 [node name="Plant2" parent="Container" instance=ExtResource("2_nv2k6")]
 position = Vector2(2.08165e-12, 2.08165e-12)
+
+[node name="UVLight" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0.584314)
+material = SubResource("CanvasItemMaterial_6sxiy")
+position = Vector2(139.5, 452)
+scale = Vector2(0.917969, 454)
+texture = SubResource("GradientTexture1D_ix48y")
 
 [node name="Water" type="Node2D" parent="."]
 position = Vector2(13, 416)

@@ -3,11 +3,28 @@ class_name ShelfInventoryData
 
 signal slot_light_updated(index: int)
 
-var light_levels: Array[float] = []
+const NUM_COLS: int = 4
+const NUM_ROWS: int = 3
+
+var light_slot_datas: Array[LightSlotData] = []
 
 func init() -> void:
-	# TODO populate light levels
-	pass
+	for i in slot_datas.size():
+		var light_f: float = 1 - (get_row(i) as float / (NUM_ROWS - 1) )
+		var light_slot_data: LightSlotData = LightSlotData.new()
+		light_slot_data.base_light = light_f
+		light_slot_data.final_light = light_f
+		light_slot_datas.push_back(light_slot_data)
+	light_slot_datas[9].final_light = 0.5
+	light_slot_datas[10].final_light = 1
+	light_slot_datas[10].item_data = ItemData.new()
+	light_slot_datas[11].final_light = 0.5
+
+func get_row(index: int) -> int:
+	return index / NUM_COLS
+
+func get_col(index: int) -> int:
+	return index % NUM_COLS
 
 # TODO update lights whenever slots are updated. use this:
 func update_slot(index: int) -> void:

@@ -8,6 +8,8 @@ class_name ShelfSlot
 @onready var fertilizer_bar: ProgressBar = $Fertilizer/FertilizerBar
 @onready var water: Node2D = $Water
 @onready var fertilizer: Node2D = $Fertilizer
+@onready var shelf: ColorRect = $Shelf
+@onready var uv_light: Sprite2D = $UVLight
 
 @export var happy_bar_stylebox_fill: StyleBoxFlat
 @export var bad_bar_stylebox_fill: StyleBoxFlat
@@ -16,9 +18,16 @@ class_name ShelfSlot
 
 signal fruit_gathered(index: int)
 
-func set_light_level(light_level: float) -> void:
-	# TODO
-	pass
+func set_light_level(light_slot_data: LightSlotData) -> void:
+	var base_color: Color = Color.DIM_GRAY.lerp(Color.WHITE, light_slot_data.base_light)
+	var final_color: Color = Color.DIM_GRAY.lerp(Color.WHITE, light_slot_data.final_light)
+	self_modulate = base_color
+	shelf.modulate = base_color
+	container.modulate = final_color
+	if light_slot_data.item_data:
+		uv_light.show()
+	else:
+		uv_light.hide()
 
 func fruit_clicked() -> void:
 	var index = get_index()
