@@ -27,6 +27,13 @@ func get_col(index: int) -> int:
 	return index % NUM_COLS
 
 func update_slot(index: int) -> void:
+	var attach_slot_data: SlotData = attach_slot_datas[index]
+	light_datas[index].final_light = light_datas[index].base_light
+	if attach_slot_data:
+		var item_data: ItemData = attach_slot_data.item_data
+		if item_data.has_component("UVLight"):
+			light_datas[index].final_light = 1
+
 	slot_updated.emit(index)
 	light_data_updated.emit(index)
 	attach_slot_updated.emit(index)
