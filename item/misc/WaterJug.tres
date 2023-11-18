@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="ItemData" load_steps=14 format=3 uid="uid://siehjtkkcskh"]
 
-[ext_resource type="PackedScene" uid="uid://bw145ublkri14" path="res://item/SpriteItem.tscn" id="1_5vwrw"]
+[ext_resource type="PackedScene" uid="uid://ccc0q42vlb8gu" path="res://item/SmolItemScene.tscn" id="1_260yn"]
 [ext_resource type="Script" path="res://item/ItemData.gd" id="1_gid7q"]
 [ext_resource type="Script" path="res://item/components/StackableComponent.gd" id="3_tce1r"]
 [ext_resource type="Script" path="res://item/components/BuyComponent.gd" id="4_fxdy2"]
@@ -34,7 +34,7 @@ components = Array[Resource("res://item/components/ItemComponent.gd")]([SubResou
 script = ExtResource("1_gid7q")
 name = "Water Jug"
 description = "3 litres of delicious life-giving water!"
-scene = ExtResource("1_5vwrw")
+scene = ExtResource("1_260yn")
 type_name = 0
 home_inventory = 5
 type = SubResource("Resource_l44ph")

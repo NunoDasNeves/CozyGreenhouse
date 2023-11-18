@@ -78,6 +78,7 @@ theme_type_variation = &"SlotLineEdit"
 text = "99"
 alignment = 2
 max_length = 2
+select_all_on_focus = true
 
 [node name="PriceLabel" type="Label" parent="MarginContainer"]
 layout_mode = 2
