@@ -11,12 +11,12 @@ class_name InventoryInterface
 @onready var merchant: Node2D = $MerchantContainer/Merchant
 @onready var merchant_sprite: Sprite2D = $MerchantContainer/Merchant/background/Sprite
 
-@onready var seed_inventory: PanelContainer = $SeedInventory
-@onready var pots_inventory: PanelContainer = $PotsInventory
-@onready var tools_inventory: PanelContainer = $ToolsInventory
-@onready var shelf_inventory: PanelContainer = $ShelfInventory
-@onready var sell_inventory: PanelContainer = $TabContainer/Inventory
-@onready var buy_inventory: PanelContainer = $TabContainer/Shop
+@onready var seed_inventory: Inventory = $SeedInventory
+@onready var pots_inventory: Inventory = $PotsInventory
+@onready var tools_inventory: Inventory = $ToolsInventory
+@onready var shelf_inventory: Inventory = $ShelfInventory
+@onready var sell_inventory: Inventory = $TabContainer/Inventory
+@onready var buy_inventory: Inventory = $TabContainer/Shop
 
 @export var initial_state: State
 @export var debug_state: State
@@ -25,6 +25,8 @@ var state: State
 
 func init_inventory(inventory: Inventory, inventory_data: InventoryData):
 	inventory.init(inventory_data)
+	if inventory.inventory_interact.is_connected(grab_slot.on_inventory_interact):
+		inventory.inventory_interact.disconnect(grab_slot.on_inventory_interact)
 	inventory.inventory_interact.connect(grab_slot.on_inventory_interact)
 
 func init_game_state(the_state: State) -> void:
@@ -91,7 +93,7 @@ func init_merchant(merchant_data: MerchantData) -> void:
 
 func update_shop() -> void:
 	var buy_inventory_data: ProductInventoryData = state.buy_inventory_data
-	if buy_inventory_data:
+	if buy_inventory_data != buy_inventory.inventory_data:
 		init_inventory(buy_inventory, buy_inventory_data)
 	var merchant_data: MerchantData = state.curr_merchant
 	init_merchant(merchant_data)
