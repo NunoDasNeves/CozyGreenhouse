@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dxavb0e6jog0m"]
 
 [ext_resource type="Script" path="res://item/SpriteItemScene.gd" id="1_yt1pe"]
-[ext_resource type="Texture2D" uid="uid://cppespyw4o1hs" path="res://item/plants/SaturnStalk/SaturnPod.png" id="2_ved2b"]
+[ext_resource type="Texture2D" uid="uid://cppespyw4o1hs" path="res://item/SaturnPod.png" id="2_ved2b"]
 
 [node name="Fruit" type="Node2D"]
 script = ExtResource("1_yt1pe")

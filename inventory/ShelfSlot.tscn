@@ -1,8 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://ueca5wmtav1v"]
+[gd_scene load_steps=11 format=3 uid="uid://ueca5wmtav1v"]
 
 [ext_resource type="Script" path="res://inventory/ShelfSlot.gd" id="1_4bqis"]
 [ext_resource type="PackedScene" uid="uid://d346bhoh8up1g" path="res://item/plants/GalaxyFlower/GalaxyFlower.tscn" id="2_nv2k6"]
-[ext_resource type="PackedScene" uid="uid://csaqaax1n0q6u" path="res://item/tools/LightItemScene.tscn" id="3_5natj"]
 [ext_resource type="Texture2D" uid="uid://c6yeb8ko4fd8s" path="res://item/tools/LightBeamBack.png" id="4_6n4as"]
 [ext_resource type="Texture2D" uid="uid://s1ol78wd2bog" path="res://item/tools/LightBeamFront.png" id="5_np73f"]
 
@@ -61,9 +60,6 @@ theme_type_variation = &"ShelfAttachButton"
 [node name="Container" type="Node2D" parent="Attachment"]
 position = Vector2(0, -94)
 scale = Vector2(0.4, 0.4)
-
-[node name="LightItem" parent="Attachment/Container" instance=ExtResource("3_5natj")]
-position = Vector2(2.08165e-12, 2.08165e-12)
 
 [node name="Container" type="Node2D" parent="."]
 position = Vector2(140, 328)

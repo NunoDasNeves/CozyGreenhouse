@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="ItemData" load_steps=16 format=3 uid="uid://ckaftb5onqnbn"]
 
-[ext_resource type="PackedScene" uid="uid://ccc0q42vlb8gu" path="res://item/SmolItemScene.tscn" id="1_7qqji"]
+[ext_resource type="PackedScene" uid="uid://ijgtlbuv1100" path="res://item/pots/PotItemScene.tscn" id="1_3jbut"]
 [ext_resource type="Script" path="res://item/ItemData.gd" id="2_13op3"]
 [ext_resource type="Script" path="res://item/components/StackableComponent.gd" id="3_dmkir"]
 [ext_resource type="Script" path="res://item/components/PotComponent.gd" id="4_4pmpl"]
@@ -37,7 +37,7 @@ components = Array[Resource("res://item/components/ItemComponent.gd")]([SubResou
 script = ExtResource("2_13op3")
 name = "Pot"
 description = "A basic, sturdy pot"
-scene = ExtResource("1_7qqji")
+scene = ExtResource("1_3jbut")
 type_name = 2
 home_inventory = 1
 type = SubResource("Resource_gqllb")

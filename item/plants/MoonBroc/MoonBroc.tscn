@@ -3,33 +3,30 @@
 [ext_resource type="Script" path="res://item/plants/PlantItemScene.gd" id="1_2wmd6"]
 [ext_resource type="Texture2D" uid="uid://cmcqvupt1bc3l" path="res://item/plants/MoonBroc/Brocoli_Baby.png" id="2_4nrdj"]
 [ext_resource type="Texture2D" uid="uid://d7cbk5rawys2" path="res://item/plants/MoonBroc/Brocoli_Mature.png" id="3_67ixu"]
-[ext_resource type="Texture2D" uid="uid://brvy27s6rqef0" path="res://item/pots/pot1.png" id="4_dfuwt"]
+[ext_resource type="PackedScene" uid="uid://ijgtlbuv1100" path="res://item/pots/PotItemScene.tscn" id="4_8oboo"]
 
 [node name="Plant" type="Node2D"]
-scale = Vector2(0.18941, 0.18941)
 script = ExtResource("1_2wmd6")
 
 [node name="PlantSpriteYoung" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(5.27956, -718.019)
-scale = Vector2(0.77068, 0.77068)
+position = Vector2(1, -112)
+scale = Vector2(0.114646, 0.114646)
 texture = ExtResource("2_4nrdj")
 
 [node name="PlantSpriteMature" type="Sprite2D" parent="."]
-position = Vector2(26.3978, -987.276)
-scale = Vector2(0.86357, 0.86357)
+visible = false
+position = Vector2(12, -151)
+scale = Vector2(0.143231, 0.143231)
 texture = ExtResource("3_67ixu")
 
-[node name="PotSprite" type="Sprite2D" parent="."]
-position = Vector2(2.08165e-12, 2.08165e-12)
-scale = Vector2(0.477667, 0.477667)
-texture = ExtResource("4_dfuwt")
+[node name="Pot" parent="." instance=ExtResource("4_8oboo")]
 
 [node name="FruitButton" type="Button" parent="."]
-offset_left = -500.0
-offset_top = -1779.0
-offset_right = 500.0
-offset_bottom = -450.0
+visible = false
+offset_left = -101.0
+offset_top = -267.0
+offset_right = 125.0
+offset_bottom = -75.0
 mouse_default_cursor_shape = 2
 
 [node name="Fruits" type="Node2D" parent="."]

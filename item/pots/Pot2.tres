@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="ItemData" load_steps=16 format=3 uid="uid://bmkyc8c3c3yfu"]
 
-[ext_resource type="PackedScene" uid="uid://ccc0q42vlb8gu" path="res://item/SmolItemScene.tscn" id="1_vqto0"]
+[ext_resource type="PackedScene" uid="uid://ijgtlbuv1100" path="res://item/pots/PotItemScene.tscn" id="1_15wra"]
 [ext_resource type="Script" path="res://item/ItemData.gd" id="2_6gpxq"]
 [ext_resource type="Script" path="res://item/components/StackableComponent.gd" id="3_s5fmt"]
 [ext_resource type="Script" path="res://item/components/PotComponent.gd" id="4_f23k6"]
@@ -37,7 +37,7 @@ components = Array[Resource("res://item/components/ItemComponent.gd")]([SubResou
 script = ExtResource("2_6gpxq")
 name = "Purple Pot"
 description = "Barbara made this pot with her bare...arms?"
-scene = ExtResource("1_vqto0")
+scene = ExtResource("1_15wra")
 type_name = 2
 home_inventory = 1
 type = SubResource("Resource_ftybk")

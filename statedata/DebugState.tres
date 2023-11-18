@@ -10,7 +10,7 @@
 [ext_resource type="Resource" uid="uid://sbv704hyihg2" path="res://merchants/Merchant2.tres" id="8_eoeow"]
 [ext_resource type="Resource" uid="uid://6yo8nhfivaqd" path="res://merchants/Merchant3.tres" id="9_va57l"]
 [ext_resource type="Script" path="res://merchants/ShopSchedule.gd" id="10_o6lcy"]
-[ext_resource type="Resource" uid="uid://bbw3guqju3uxn" path="res://statedata/InitialToolsInventory.tres" id="11_lvrl7"]
+[ext_resource type="Resource" uid="uid://ul721xn0f5r5" path="res://statedata/DebugToolsInventory.tres" id="11_kg7iu"]
 
 [sub_resource type="Resource" id="Resource_qcaug"]
 script = ExtResource("10_o6lcy")
@@ -26,7 +26,7 @@ money = 10.0
 compost = 0.0
 seed_inventory_data = ExtResource("3_6my3r")
 pot_inventory_data = ExtResource("1_q5g1l")
-tool_inventory_data = ExtResource("11_lvrl7")
+tool_inventory_data = ExtResource("11_kg7iu")
 shelf_inventory_data = ExtResource("5_7df82")
 sell_inventory_data = ExtResource("4_6uyjr")
 shop_schedule = SubResource("Resource_qcaug")

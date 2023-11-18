@@ -1,68 +1,68 @@
-[gd_scene load_steps=7 format=3 uid="uid://du2hqh8a7uo3l"]
+[gd_scene load_steps=6 format=3 uid="uid://du2hqh8a7uo3l"]
 
 [ext_resource type="Script" path="res://item/plants/PlantItemScene.gd" id="1_wny2f"]
 [ext_resource type="Texture2D" uid="uid://qcc3q41lbsg" path="res://item/plants/BrightLeaf/BrightLeafYoung.png" id="2_sl68t"]
 [ext_resource type="Texture2D" uid="uid://cpvvfq300xyao" path="res://item/plants/BrightLeaf/BrightLeafMature.png" id="3_qbh1p"]
-[ext_resource type="Texture2D" uid="uid://dgeqvdlpvyepi" path="res://item/pots/Pot0.png" id="4_7tmts"]
-[ext_resource type="Texture2D" uid="uid://b61560tugupur" path="res://item/plants/BrightLeaf/Combined_LVs-12.png" id="5_chrkl"]
-[ext_resource type="Texture2D" uid="uid://b5s7taphxx4x5" path="res://item/plants/BrightLeaf/BrightLeaf.png" id="5_trkkf"]
+[ext_resource type="Texture2D" uid="uid://b61560tugupur" path="res://item/plants/BrightLeaf/BrightLeaf.png" id="5_trkkf"]
+[ext_resource type="PackedScene" uid="uid://ijgtlbuv1100" path="res://item/pots/PotItemScene.tscn" id="6_65dbi"]
 
 [node name="Plant" type="Node2D"]
 script = ExtResource("1_wny2f")
 
 [node name="PlantSpriteYoung" type="Sprite2D" parent="."]
-position = Vector2(-31.6773, -686.342)
-scale = Vector2(0.1, 0.1)
+position = Vector2(-3, -115)
+scale = Vector2(0.08, 0.08)
 texture = ExtResource("2_sl68t")
 
 [node name="PlantSpriteMature" type="Sprite2D" parent="."]
 visible = false
-position = Vector2(42.2363, -1261.81)
-scale = Vector2(0.1, 0.1)
+position = Vector2(10, -208)
+scale = Vector2(0.19, 0.19)
 texture = ExtResource("3_qbh1p")
 
-[node name="PotSprite" type="Sprite2D" parent="."]
+[node name="Pot" parent="." instance=ExtResource("6_65dbi")]
 position = Vector2(2.08165e-12, 2.08165e-12)
-texture = ExtResource("4_7tmts")
 
 [node name="FruitButton" type="Button" parent="."]
 visible = false
-offset_left = -500.0
-offset_top = -1779.0
-offset_right = 500.0
-offset_bottom = -450.0
+offset_left = -82.0
+offset_top = -366.0
+offset_right = 79.0
+offset_bottom = -73.0
 mouse_default_cursor_shape = 2
 
 [node name="Fruits" type="Node2D" parent="."]
+visible = false
 
 [node name="BrightLeaf" type="Sprite2D" parent="Fruits"]
-position = Vector2(116.15, -1636.66)
-rotation = 0.449545
-texture = ExtResource("5_chrkl")
+position = Vector2(23, -245)
+rotation = 0.490835
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("5_trkkf")
 
 [node name="BrightLeaf2" type="Sprite2D" parent="Fruits"]
-position = Vector2(-209.359, -618.284)
+position = Vector2(-53, -128)
 rotation = -0.546234
-scale = Vector2(0.477339, 0.437934)
+scale = Vector2(0.36, 0.331)
 texture = ExtResource("5_trkkf")
 flip_h = true
 
 [node name="BrightLeaf3" type="Sprite2D" parent="Fruits"]
-position = Vector2(63.3545, -1034.79)
-rotation = 0.449545
-scale = Vector2(0.400746, 0.386081)
+position = Vector2(11, -179)
+rotation = 0.0545929
+scale = Vector2(0.3, 0.29)
 texture = ExtResource("5_trkkf")
 
 [node name="BrightLeaf4" type="Sprite2D" parent="Fruits"]
-position = Vector2(195.344, -506.837)
+position = Vector2(54, -93)
 rotation = 0.952136
 scale = Vector2(0.400746, 0.386081)
 texture = ExtResource("5_trkkf")
 
 [node name="BrightLeaf5" type="Sprite2D" parent="Fruits"]
-position = Vector2(-216.462, -1256.53)
+position = Vector2(-32, -305)
 rotation = -0.414234
-scale = Vector2(0.462176, 0.445264)
+scale = Vector2(0.3, 0.289)
 texture = ExtResource("5_trkkf")
 flip_h = true
 

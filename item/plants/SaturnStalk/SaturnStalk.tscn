@@ -3,52 +3,52 @@
 [ext_resource type="Script" path="res://item/plants/PlantItemScene.gd" id="1_3n6eg"]
 [ext_resource type="Texture2D" uid="uid://6gei0a8n81l2" path="res://item/plants/SaturnStalk/SaturnStalkYoung.png" id="2_uilfj"]
 [ext_resource type="Texture2D" uid="uid://58472iewsi0x" path="res://item/plants/SaturnStalk/SaturnStalkMature.png" id="3_tsd7f"]
-[ext_resource type="Texture2D" uid="uid://brvy27s6rqef0" path="res://item/pots/pot1.png" id="4_s7ehp"]
-[ext_resource type="Texture2D" uid="uid://cppespyw4o1hs" path="res://item/plants/SaturnStalk/SaturnPod.png" id="5_r5ygt"]
+[ext_resource type="PackedScene" uid="uid://ijgtlbuv1100" path="res://item/pots/PotItemScene.tscn" id="4_wci85"]
+[ext_resource type="Texture2D" uid="uid://dhsxagnom6wx4" path="res://item/plants/SaturnStalk/SaturnPod.png" id="5_r5ygt"]
 
 [node name="Plant" type="Node2D"]
-scale = Vector2(0.18941, 0.18941)
 script = ExtResource("1_3n6eg")
 
 [node name="PlantSpriteYoung" type="Sprite2D" parent="."]
 visible = false
-position = Vector2(2.08165e-12, -855.288)
+position = Vector2(-5, -123)
+scale = Vector2(0.16, 0.16)
 texture = ExtResource("2_uilfj")
 
 [node name="PlantSpriteMature" type="Sprite2D" parent="."]
-position = Vector2(0, -1224.86)
+position = Vector2(-5, -202)
+scale = Vector2(0.18, 0.18)
 texture = ExtResource("3_tsd7f")
 
-[node name="PotSprite" type="Sprite2D" parent="."]
+[node name="Pot" parent="." instance=ExtResource("4_wci85")]
 position = Vector2(2.08165e-12, 2.08165e-12)
-scale = Vector2(0.477667, 0.477667)
-texture = ExtResource("4_s7ehp")
 
 [node name="FruitButton" type="Button" parent="."]
-offset_left = -500.0
-offset_top = -1900.0
-offset_right = 500.0
-offset_bottom = -450.0
+visible = false
+offset_left = -84.0
+offset_top = -324.0
+offset_right = 89.0
+offset_bottom = -73.0
 mouse_default_cursor_shape = 2
 
 [node name="Fruits" type="Node2D" parent="."]
 
 [node name="Icon" type="Sprite2D" parent="Fruits"]
-position = Vector2(-116.15, -1335.73)
+position = Vector2(-37, -231)
 rotation = 0.610739
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.4, 0.4)
 texture = ExtResource("5_r5ygt")
 
 [node name="Icon2" type="Sprite2D" parent="Fruits"]
-position = Vector2(190.064, -918.642)
+position = Vector2(26, -169)
 rotation = 0.176176
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.4, 0.4)
 texture = ExtResource("5_r5ygt")
 
 [node name="Icon3" type="Sprite2D" parent="Fruits"]
-position = Vector2(-253.418, -707.46)
+position = Vector2(-43, -119)
 rotation = 0.332886
-scale = Vector2(-0.5, 0.5)
+scale = Vector2(-0.4, 0.4)
 texture = ExtResource("5_r5ygt")
 
 [connection signal="pressed" from="FruitButton" to="." method="on_fruit_clicked"]

@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="ItemData" load_steps=16 format=3 uid="uid://cp3r4g23icnd8"]
 
-[ext_resource type="PackedScene" uid="uid://ccc0q42vlb8gu" path="res://item/SmolItemScene.tscn" id="1_rd74f"]
+[ext_resource type="PackedScene" uid="uid://ijgtlbuv1100" path="res://item/pots/PotItemScene.tscn" id="1_p8oq4"]
 [ext_resource type="Script" path="res://item/ItemData.gd" id="2_wo6lb"]
 [ext_resource type="Script" path="res://item/components/StackableComponent.gd" id="3_cqrsi"]
 [ext_resource type="Script" path="res://item/ItemType.gd" id="4_gvctl"]
@@ -37,7 +37,7 @@ components = Array[Resource("res://item/components/ItemComponent.gd")]([SubResou
 script = ExtResource("2_wo6lb")
 name = "Pink Pot"
 description = "Blushingly pink!"
-scene = ExtResource("1_rd74f")
+scene = ExtResource("1_p8oq4")
 type_name = 2
 home_inventory = 1
 type = SubResource("Resource_gqllb")

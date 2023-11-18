@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="PlantData" load_steps=10 format=3 uid="uid://dov1u6sj2fkt0"]
+[gd_resource type="Resource" script_class="PlantData" load_steps=9 format=3 uid="uid://dov1u6sj2fkt0"]
 
 [ext_resource type="Script" path="res://item/plants/PlantFood.gd" id="1_sgqsc"]
 [ext_resource type="Texture2D" uid="uid://cpvvfq300xyao" path="res://item/plants/BrightLeaf/BrightLeafMature.png" id="2_2fb6f"]
@@ -19,18 +19,6 @@ happy_growth_factor = 2.0
 bad_growth_factor = 1.0
 bad_days_til_death = 0
 
-[sub_resource type="Resource" id="Resource_133mj"]
-script = ExtResource("1_sgqsc")
-max_val = 100.0
-happy_min = 0.0
-happy_max = 100.0
-eat_per_day = 0.0
-happy_fruit_factor = 1.0
-bad_fruit_factor = 0.0
-happy_growth_factor = 1.0
-bad_growth_factor = 0.0
-bad_days_til_death = 0
-
 [sub_resource type="Resource" id="Resource_datnu"]
 script = ExtResource("5_caka1")
 over_water_growth_factor = 0.8
@@ -49,7 +37,6 @@ bad_days_til_death = 0
 script = ExtResource("3_hw4ll")
 young_texture = ExtResource("4_kmm8h")
 mature_texture = ExtResource("2_2fb6f")
-light = SubResource("Resource_133mj")
 water = SubResource("Resource_datnu")
 fertilizer = SubResource("Resource_2i8n8")
 fruit_per_day = 1.0
