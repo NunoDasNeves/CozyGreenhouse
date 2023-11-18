@@ -73,20 +73,20 @@ func next_day() -> void:
 	var growth_factors: float = 1
 	var fruit_factors: float = 1
 	if light:
-		light.next_day()
 		is_happy = is_happy and light.in_happy_range()
 		growth_factors *= light.growth_factor()
 		fruit_factors *= light.fruit_factor()
+		light.next_day()
 	if water:
-		water.next_day()
 		is_happy = is_happy and water.in_happy_range()
 		growth_factors *= water.growth_factor()
 		fruit_factors *= water.fruit_factor()
+		water.next_day()
 	if fertilizer:
-		fertilizer.next_day()
 		is_happy = is_happy and fertilizer.in_happy_range()
 		growth_factors *= fertilizer.growth_factor()
 		fruit_factors *= fertilizer.fruit_factor()
+		fertilizer.next_day()
 
 	curr_growth_factor = growth_factors
 	curr_fruit_factor = fruit_factors
@@ -100,6 +100,9 @@ func next_day() -> void:
 		if plant_is_fruit:
 			num_fruits = max_num_fruits
 			total_fruit_produced = max_total_fruit_produced
+			water = null
+			fertilizer = null
+			light = null
 		elif num_fruits < max_num_fruits:
 			curr_fruit_growth += fruit_per_day * fruit_factors
 			if curr_fruit_growth >= 1:

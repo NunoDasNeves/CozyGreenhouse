@@ -68,7 +68,7 @@ func next_day() -> void:
 			continue
 		var plant_component: PlantItemComponent = slot_data.item_data.get_component("Plant")
 		if not plant_component:
-			return
+			continue
 		plant_component.plant.next_day()
 		update_slot(i)
 
