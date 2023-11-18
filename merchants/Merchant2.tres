@@ -1,6 +1,43 @@
-[gd_resource type="Resource" script_class="MerchantData" load_steps=2 format=3 uid="uid://sbv704hyihg2"]
+[gd_resource type="Resource" script_class="MerchantData" load_steps=15 format=3 uid="uid://sbv704hyihg2"]
 
 [ext_resource type="Script" path="res://merchants/MerchantData.gd" id="1_4secr"]
+[ext_resource type="Resource" uid="uid://siehjtkkcskh" path="res://item/misc/WaterJug.tres" id="1_6daoh"]
+[ext_resource type="Script" path="res://merchants/RestockItem.gd" id="2_anh62"]
+[ext_resource type="Resource" uid="uid://bmkyc8c3c3yfu" path="res://item/pots/Pot2.tres" id="3_qckt5"]
+[ext_resource type="Resource" uid="uid://cfylxy8n4c12y" path="res://item/tools/Fertilizer.tres" id="4_de1vf"]
+[ext_resource type="Resource" uid="uid://b4sv4fdgbonmb" path="res://item/plants/CloudCoral/CloudCoralSeed.tres" id="5_rne2t"]
+[ext_resource type="Resource" uid="uid://cq6me3j8ea8uy" path="res://item/plants/BrightLeaf/RadiantSeed.tres" id="6_1u8yx"]
+[ext_resource type="Script" path="res://merchants/RestockParams.gd" id="6_806hm"]
+
+[sub_resource type="Resource" id="Resource_5u4u3"]
+script = ExtResource("2_anh62")
+item_data = ExtResource("1_6daoh")
+min_num = 10
+
+[sub_resource type="Resource" id="Resource_8fbs8"]
+script = ExtResource("2_anh62")
+item_data = ExtResource("3_qckt5")
+min_num = 10
+
+[sub_resource type="Resource" id="Resource_lhhci"]
+script = ExtResource("2_anh62")
+item_data = ExtResource("4_de1vf")
+min_num = 10
+
+[sub_resource type="Resource" id="Resource_1puyu"]
+script = ExtResource("2_anh62")
+item_data = ExtResource("5_rne2t")
+min_num = 10
+
+[sub_resource type="Resource" id="Resource_icmmm"]
+script = ExtResource("2_anh62")
+item_data = ExtResource("6_1u8yx")
+min_num = 10
+
+[sub_resource type="Resource" id="Resource_il0mj"]
+script = ExtResource("6_806hm")
+items = Array[ExtResource("2_anh62")]([SubResource("Resource_5u4u3"), SubResource("Resource_8fbs8"), SubResource("Resource_lhhci"), SubResource("Resource_1puyu"), SubResource("Resource_icmmm")])
 
 [resource]
 script = ExtResource("1_4secr")
+restock_params = SubResource("Resource_il0mj")

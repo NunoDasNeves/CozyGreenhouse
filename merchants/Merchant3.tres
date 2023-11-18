@@ -1,6 +1,49 @@
-[gd_resource type="Resource" script_class="MerchantData" load_steps=2 format=3 uid="uid://6yo8nhfivaqd"]
+[gd_resource type="Resource" script_class="MerchantData" load_steps=17 format=3 uid="uid://6yo8nhfivaqd"]
 
 [ext_resource type="Script" path="res://merchants/MerchantData.gd" id="1_8kahk"]
+[ext_resource type="Resource" uid="uid://siehjtkkcskh" path="res://item/misc/WaterJug.tres" id="1_luqt1"]
+[ext_resource type="Script" path="res://merchants/RestockItem.gd" id="2_g6q1n"]
+[ext_resource type="Resource" uid="uid://cfylxy8n4c12y" path="res://item/tools/Fertilizer.tres" id="3_aummi"]
+[ext_resource type="Resource" uid="uid://cp3r4g23icnd8" path="res://item/pots/Pot1.tres" id="3_jychu"]
+[ext_resource type="Resource" uid="uid://boxl2ywmgr5nr" path="res://item/tools/UVLight.tres" id="4_aa6cd"]
+[ext_resource type="Resource" uid="uid://b4sv4fdgbonmb" path="res://item/plants/CloudCoral/CloudCoralSeed.tres" id="5_tseba"]
+[ext_resource type="Resource" uid="uid://dmsd41lgytg3d" path="res://item/plants/GalaxyFlower/GalaxyFlowerSeed.tres" id="6_cjndw"]
+[ext_resource type="Script" path="res://merchants/RestockParams.gd" id="7_aknbk"]
+
+[sub_resource type="Resource" id="Resource_j3fst"]
+script = ExtResource("2_g6q1n")
+item_data = ExtResource("1_luqt1")
+min_num = 10
+
+[sub_resource type="Resource" id="Resource_3ocy5"]
+script = ExtResource("2_g6q1n")
+item_data = ExtResource("3_jychu")
+min_num = 10
+
+[sub_resource type="Resource" id="Resource_tt2tj"]
+script = ExtResource("2_g6q1n")
+item_data = ExtResource("3_aummi")
+min_num = 10
+
+[sub_resource type="Resource" id="Resource_7fh5o"]
+script = ExtResource("2_g6q1n")
+item_data = ExtResource("4_aa6cd")
+min_num = 10
+
+[sub_resource type="Resource" id="Resource_ilrqx"]
+script = ExtResource("2_g6q1n")
+item_data = ExtResource("5_tseba")
+min_num = 10
+
+[sub_resource type="Resource" id="Resource_k6hg3"]
+script = ExtResource("2_g6q1n")
+item_data = ExtResource("6_cjndw")
+min_num = 10
+
+[sub_resource type="Resource" id="Resource_prv3v"]
+script = ExtResource("7_aknbk")
+items = Array[ExtResource("2_g6q1n")]([SubResource("Resource_j3fst"), SubResource("Resource_3ocy5"), SubResource("Resource_tt2tj"), SubResource("Resource_7fh5o"), SubResource("Resource_ilrqx"), SubResource("Resource_k6hg3")])
 
 [resource]
 script = ExtResource("1_8kahk")
+restock_params = SubResource("Resource_prv3v")

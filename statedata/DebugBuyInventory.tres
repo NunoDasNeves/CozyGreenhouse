@@ -9,16 +9,6 @@
 [ext_resource type="Resource" uid="uid://cfylxy8n4c12y" path="res://item/tools/Fertilizer.tres" id="7_rbqlb"]
 [ext_resource type="Resource" uid="uid://siehjtkkcskh" path="res://item/misc/WaterJug.tres" id="8_c0jv2"]
 
-[sub_resource type="Resource" id="Resource_f68im"]
-script = ExtResource("3_7jofv")
-item_data = ExtResource("2_fuq00")
-quantity = 4
-
-[sub_resource type="Resource" id="Resource_w8qij"]
-script = ExtResource("3_7jofv")
-item_data = ExtResource("4_gas8w")
-quantity = 2
-
 [sub_resource type="Resource" id="Resource_0mhbp"]
 script = ExtResource("3_7jofv")
 item_data = ExtResource("5_do7n0")
@@ -29,18 +19,28 @@ script = ExtResource("3_7jofv")
 item_data = ExtResource("6_adqq6")
 quantity = 5
 
-[sub_resource type="Resource" id="Resource_65ldy"]
-script = ExtResource("3_7jofv")
-item_data = ExtResource("7_rbqlb")
-quantity = 8
-
 [sub_resource type="Resource" id="Resource_47xn8"]
 script = ExtResource("3_7jofv")
 item_data = ExtResource("8_c0jv2")
 quantity = 4
 
+[sub_resource type="Resource" id="Resource_65ldy"]
+script = ExtResource("3_7jofv")
+item_data = ExtResource("7_rbqlb")
+quantity = 8
+
+[sub_resource type="Resource" id="Resource_f68im"]
+script = ExtResource("3_7jofv")
+item_data = ExtResource("2_fuq00")
+quantity = 4
+
+[sub_resource type="Resource" id="Resource_w8qij"]
+script = ExtResource("3_7jofv")
+item_data = ExtResource("4_gas8w")
+quantity = 2
+
 [resource]
 script = ExtResource("1_wxbat")
 inventory_type = 1
 action_text = "Buy"
-slot_datas = Array[ExtResource("3_7jofv")]([SubResource("Resource_f68im"), SubResource("Resource_w8qij"), SubResource("Resource_0mhbp"), SubResource("Resource_0jxst"), SubResource("Resource_65ldy"), SubResource("Resource_47xn8")])
+slot_datas = Array[ExtResource("3_7jofv")]([SubResource("Resource_0mhbp"), SubResource("Resource_0jxst"), SubResource("Resource_47xn8"), SubResource("Resource_65ldy"), SubResource("Resource_f68im"), SubResource("Resource_w8qij")])

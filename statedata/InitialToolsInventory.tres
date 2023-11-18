@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="RackInventoryData" load_steps=5 format=3 uid="uid://bbw3guqju3uxn"]
+
+[ext_resource type="Script" path="res://inventory/RackInventoryData.gd" id="1_2ofx8"]
+[ext_resource type="Resource" uid="uid://00dhhvalh25c" path="res://item/tools/WateringCan.tres" id="2_sf160"]
+[ext_resource type="Script" path="res://inventory/SlotData.gd" id="3_li55c"]
+
+[sub_resource type="Resource" id="Resource_rg2ox"]
+script = ExtResource("3_li55c")
+item_data = ExtResource("2_sf160")
+quantity = 1
+
+[resource]
+script = ExtResource("1_2ofx8")
+slot_datas = Array[ExtResource("3_li55c")]([SubResource("Resource_rg2ox"), null, null, null])

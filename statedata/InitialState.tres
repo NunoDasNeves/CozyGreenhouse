@@ -1,17 +1,21 @@
-[gd_resource type="Resource" script_class="State" load_steps=9 format=3 uid="uid://vwd5ajiujm1q"]
+[gd_resource type="Resource" script_class="State" load_steps=13 format=3 uid="uid://vwd5ajiujm1q"]
 
-[ext_resource type="Resource" uid="uid://csw8uhucnfusw" path="res://statedata/PotInventory.tres" id="1_etila"]
+[ext_resource type="Resource" uid="uid://b3j8po0j67p55" path="res://statedata/InitialPotsInventory.tres" id="1_7t275"]
 [ext_resource type="Script" path="res://statedata/State.gd" id="2_tffkv"]
-[ext_resource type="Resource" uid="uid://djv3x4rgek2xy" path="res://statedata/SellInventory.tres" id="4_fewq5"]
-[ext_resource type="Resource" uid="uid://bygkbwxgoognm" path="res://statedata/AllSeedsInventory.tres" id="4_l0aur"]
-[ext_resource type="Resource" uid="uid://d2jo5w7j6juca" path="res://statedata/ShelfInventory.tres" id="5_jyj5y"]
+[ext_resource type="Resource" uid="uid://bpd56guaw7ihd" path="res://statedata/InitialSeedsInventory.tres" id="3_38l3q"]
+[ext_resource type="Resource" uid="uid://csqr1gvw2npo3" path="res://statedata/InitialSellInventory.tres" id="4_8tkus"]
+[ext_resource type="Resource" uid="uid://d2jo5w7j6juca" path="res://statedata/InitialShelfInventory.tres" id="5_62sx8"]
 [ext_resource type="Script" path="res://merchants/ShopSchedule.gd" id="6_4yw2r"]
-[ext_resource type="Resource" uid="uid://ul721xn0f5r5" path="res://statedata/ToolsInventory.tres" id="7_d20mi"]
+[ext_resource type="Resource" uid="uid://bljdxwel327w5" path="res://merchants/Merchant0.tres" id="6_jnn0c"]
+[ext_resource type="Resource" uid="uid://dcmo1dlje5wsm" path="res://merchants/Merchant1.tres" id="7_ntay7"]
+[ext_resource type="Resource" uid="uid://sbv704hyihg2" path="res://merchants/Merchant2.tres" id="8_mvb8t"]
+[ext_resource type="Resource" uid="uid://6yo8nhfivaqd" path="res://merchants/Merchant3.tres" id="9_ea8v0"]
+[ext_resource type="Resource" uid="uid://bbw3guqju3uxn" path="res://statedata/InitialToolsInventory.tres" id="11_kf017"]
 
 [sub_resource type="Resource" id="Resource_qcaug"]
 script = ExtResource("6_4yw2r")
-initial_days = Array[Resource("res://merchants/MerchantData.gd")]([null])
-random_merchant_pool = Array[Resource("res://merchants/MerchantData.gd")]([])
+initial_days = Array[Resource("res://merchants/MerchantData.gd")]([null, null, ExtResource("6_jnn0c"), null, null, ExtResource("7_ntay7"), null, null, ExtResource("8_mvb8t"), null, null, ExtResource("9_ea8v0"), null])
+random_merchant_pool = Array[Resource("res://merchants/MerchantData.gd")]([ExtResource("6_jnn0c"), ExtResource("7_ntay7"), ExtResource("8_mvb8t"), ExtResource("9_ea8v0")])
 
 [resource]
 script = ExtResource("2_tffkv")
@@ -20,9 +24,9 @@ water_tank_level = 10.0
 max_water_tank_level = 25.0
 money = 10.0
 compost = 0.0
-seed_inventory_data = ExtResource("4_l0aur")
-pot_inventory_data = ExtResource("1_etila")
-tool_inventory_data = ExtResource("7_d20mi")
-shelf_inventory_data = ExtResource("5_jyj5y")
-sell_inventory_data = ExtResource("4_fewq5")
+seed_inventory_data = ExtResource("3_38l3q")
+pot_inventory_data = ExtResource("1_7t275")
+tool_inventory_data = ExtResource("11_kf017")
+shelf_inventory_data = ExtResource("5_62sx8")
+sell_inventory_data = ExtResource("4_8tkus")
 shop_schedule = SubResource("Resource_qcaug")

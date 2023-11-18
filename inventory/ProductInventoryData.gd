@@ -236,6 +236,9 @@ func drop_slot_data(grabbed_slot_data: SlotData, _index: int) -> SlotData:
 
 static func generate_shop_inventory(restock_params: RestockParams) -> ProductInventoryData:
 	var buy_inv_data: ProductInventoryData = ProductInventoryData.new()
+	buy_inv_data.inventory_type = Type.Buy
+	buy_inv_data.action_text = "Buy"
+
 	if restock_params:
 		var restock_items: Array[RestockItem] = restock_params.items
 

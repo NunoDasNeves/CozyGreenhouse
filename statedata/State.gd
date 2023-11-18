@@ -41,6 +41,7 @@ func next_day() -> void:
 	curr_day += 1
 	shelf_inventory_data.next_day()
 	add_water(water_per_day)
+	update_shop()
 
 func update_shop() -> void:
 	var merchant_data: MerchantData = shop_schedule.get_todays_merchant(curr_day)
