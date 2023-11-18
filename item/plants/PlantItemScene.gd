@@ -3,9 +3,9 @@ class_name PlantItemScene
 
 @onready var plant_sprite_young: Sprite2D = $PlantSpriteYoung
 @onready var plant_sprite_mature: Sprite2D = $PlantSpriteMature
-@onready var pot_sprite: Sprite2D = $PotSprite
 @onready var fruits: Node2D = $Fruits
 @onready var fruit_button: Button = $FruitButton
+@onready var pot: ItemScene = $Pot
 
 signal fruit_clicked
 
@@ -18,8 +18,7 @@ func set_item_data(item_data: ItemData) -> void:
 	assert(plant_data)
 	plant_sprite_young.texture = plant_data.young_texture
 	plant_sprite_mature.texture = plant_data.mature_texture
-	var pot_texture_component := plant_data.pot_item_data.get_component("Texture") as TextureComponent
-	pot_sprite.texture = pot_texture_component.texture
+	pot.set_item_data(plant_data.pot_item_data)
 	plant_sprite_young.hide()
 	plant_sprite_mature.hide()
 	fruit_button.hide()
