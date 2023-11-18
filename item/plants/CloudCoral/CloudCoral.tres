@@ -1,70 +1,15 @@
-[gd_resource type="Resource" script_class="ItemData" load_steps=18 format=3 uid="uid://cnadjap8qkrb1"]
+[gd_resource type="Resource" script_class="ItemData" load_steps=10 format=3 uid="uid://cnadjap8qkrb1"]
 
 [ext_resource type="PackedScene" uid="uid://cx560eanj14oo" path="res://item/plants/CloudCoral/CloudCoral.tscn" id="1_c6fxs"]
 [ext_resource type="Script" path="res://item/ItemData.gd" id="2_gp7pm"]
-[ext_resource type="Script" path="res://item/plants/PlantFood.gd" id="3_u4vvq"]
-[ext_resource type="Resource" uid="uid://f756475ajskx" path="res://item/plants/CloudCoral/CloudFruit.tres" id="4_mcl8e"]
-[ext_resource type="Texture2D" uid="uid://dx2qo0afw482o" path="res://item/plants/CloudCoral/CloudCoralMature.png" id="5_sms0e"]
-[ext_resource type="Script" path="res://item/plants/PlantData.gd" id="6_u546u"]
-[ext_resource type="Texture2D" uid="uid://b25h2klpwtfit" path="res://item/plants/CloudCoral/CloudCoralBaby.png" id="7_gi8rm"]
+[ext_resource type="Resource" uid="uid://cgki5q6y5s70h" path="res://item/plants/CloudCoral/CloudCoralData.tres" id="3_j5q2h"]
 [ext_resource type="Script" path="res://item/components/PlantItemComponent.gd" id="8_extbp"]
 [ext_resource type="Script" path="res://item/components/CompostComponent.gd" id="9_rjpdb"]
 [ext_resource type="Script" path="res://item/ItemType.gd" id="10_m6a3k"]
 
-[sub_resource type="Resource" id="Resource_cijr5"]
-script = ExtResource("3_u4vvq")
-max_val = 5.0
-happy_min = 1.0
-happy_max = 5.0
-eat_per_day = 1.0
-happy_fruit_factor = 1.5
-bad_fruit_factor = 1.0
-happy_growth_factor = 2.0
-bad_growth_factor = 1.0
-bad_days_til_death = 0
-
-[sub_resource type="Resource" id="Resource_knm0l"]
-script = ExtResource("3_u4vvq")
-max_val = 100.0
-happy_min = 0.0
-happy_max = 100.0
-eat_per_day = 0.0
-happy_fruit_factor = 1.0
-bad_fruit_factor = 0.0
-happy_growth_factor = 1.0
-bad_growth_factor = 0.0
-bad_days_til_death = -1
-
-[sub_resource type="Resource" id="Resource_fs3or"]
-script = ExtResource("3_u4vvq")
-max_val = 2.08165e-12
-happy_min = 0.0
-happy_max = 100.0
-eat_per_day = 0.0
-happy_fruit_factor = 1.0
-bad_fruit_factor = 0.0
-happy_growth_factor = 1.0
-bad_growth_factor = 0.0
-bad_days_til_death = -1
-
-[sub_resource type="Resource" id="Resource_8bf1t"]
-script = ExtResource("6_u546u")
-young_texture = ExtResource("7_gi8rm")
-mature_texture = ExtResource("5_sms0e")
-light = SubResource("Resource_knm0l")
-water = SubResource("Resource_fs3or")
-fertilizer = SubResource("Resource_cijr5")
-fruit_per_day = 0.25
-growth_per_day = 0.5
-max_num_fruits = 1
-fruit_item_data = ExtResource("4_mcl8e")
-mature_compost_bonus = 4.0
-max_total_fruit_produced = -1
-plant_is_fruit = false
-
 [sub_resource type="Resource" id="Resource_5etn3"]
 script = ExtResource("8_extbp")
-plant = SubResource("Resource_8bf1t")
+plant = ExtResource("3_j5q2h")
 
 [sub_resource type="Resource" id="Resource_uop7n"]
 script = ExtResource("9_rjpdb")

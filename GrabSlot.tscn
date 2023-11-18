@@ -12,6 +12,7 @@ script = ExtResource("1_fuaro")
 [node name="Plant2" parent="Container" instance=ExtResource("1_m2sgs")]
 
 [node name="SpriteItem" parent="Container" instance=ExtResource("2_sgmje")]
+scale = Vector2(0.9, 0.9)
 
 [node name="QuantityLabel" type="Label" parent="."]
 offset_left = 83.0

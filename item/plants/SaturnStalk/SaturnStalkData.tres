@@ -1,0 +1,54 @@
+[gd_resource type="Resource" script_class="PlantData" load_steps=10 format=3 uid="uid://lrpx33gpokvs"]
+
+[ext_resource type="Resource" uid="uid://dx346lfbubap" path="res://item/plants/FertilizerPlantFood.tres" id="1_hptmr"]
+[ext_resource type="Resource" uid="uid://dk8us7i65t6kj" path="res://item/plants/SaturnStalk/SaturnPod.tres" id="2_dbf1y"]
+[ext_resource type="Script" path="res://item/plants/PlantFood.gd" id="3_xqixk"]
+[ext_resource type="Script" path="res://item/plants/PlantData.gd" id="4_1kf2m"]
+[ext_resource type="Script" path="res://item/plants/WaterPlantFood.gd" id="5_io5m1"]
+
+[sub_resource type="Resource" id="Resource_a238k"]
+script = ExtResource("3_xqixk")
+max_val = 100.0
+happy_min = 50.0
+happy_max = 100.0
+eat_per_day = 0.0
+happy_fruit_factor = 1.0
+bad_fruit_factor = 0.6
+happy_growth_factor = 1.0
+bad_growth_factor = 0.4
+bad_days_til_death = 0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_6lpbq"]
+load_path = "res://.godot/imported/MoonPlantMature.png-1f67e6cc2dccefc35f327f064377ae51.ctex"
+
+[sub_resource type="Resource" id="Resource_ui3f0"]
+script = ExtResource("5_io5m1")
+over_water_growth_factor = 0.8
+under_water_growth_factor = 0.0
+max_val = 4.0
+happy_min = 1.0
+happy_max = 3.0
+eat_per_day = 0.3
+happy_fruit_factor = 1.0
+bad_fruit_factor = 0.4
+happy_growth_factor = 1.0
+bad_growth_factor = 1.0
+bad_days_til_death = 0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_a0cu5"]
+load_path = "res://.godot/imported/MoonPlantYoung.png-6d61b9983f20e10499986ef15e71c345.ctex"
+
+[resource]
+script = ExtResource("4_1kf2m")
+young_texture = SubResource("CompressedTexture2D_a0cu5")
+mature_texture = SubResource("CompressedTexture2D_6lpbq")
+light = SubResource("Resource_a238k")
+water = SubResource("Resource_ui3f0")
+fertilizer = ExtResource("1_hptmr")
+fruit_per_day = 1.0
+growth_per_day = 0.5
+max_num_fruits = 3
+fruit_item_data = ExtResource("2_dbf1y")
+mature_compost_bonus = 3.0
+max_total_fruit_produced = -1
+plant_is_fruit = false

@@ -6,7 +6,7 @@
 [ext_resource type="Script" path="res://item/components/BuyComponent.gd" id="4_fxdy2"]
 [ext_resource type="Script" path="res://item/components/WaterJugComponent.gd" id="5_rv8uu"]
 [ext_resource type="Script" path="res://item/components/TextureComponent.gd" id="6_o8y0r"]
-[ext_resource type="Texture2D" uid="uid://dx04bqwohtn83" path="res://item/misc/Water_Jug.png" id="7_7ndxx"]
+[ext_resource type="Texture2D" uid="uid://jh0nf3vx7s0c" path="res://item/misc/Combined_LVs-8.png" id="7_s8rrk"]
 [ext_resource type="Script" path="res://item/ItemType.gd" id="8_gwokq"]
 
 [sub_resource type="Resource" id="Resource_j8l6k"]
@@ -23,7 +23,7 @@ script = ExtResource("5_rv8uu")
 
 [sub_resource type="Resource" id="Resource_uomw3"]
 script = ExtResource("6_o8y0r")
-texture = ExtResource("7_7ndxx")
+texture = ExtResource("7_s8rrk")
 
 [sub_resource type="Resource" id="Resource_l44ph"]
 script = ExtResource("8_gwokq")

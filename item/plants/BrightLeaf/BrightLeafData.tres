@@ -1,10 +1,11 @@
-[gd_resource type="Resource" script_class="PlantData" load_steps=9 format=3 uid="uid://dov1u6sj2fkt0"]
+[gd_resource type="Resource" script_class="PlantData" load_steps=10 format=3 uid="uid://dov1u6sj2fkt0"]
 
 [ext_resource type="Script" path="res://item/plants/PlantFood.gd" id="1_sgqsc"]
 [ext_resource type="Texture2D" uid="uid://cpvvfq300xyao" path="res://item/plants/BrightLeaf/BrightLeafMature.png" id="2_2fb6f"]
 [ext_resource type="Resource" uid="uid://b1liwmtnm4h5d" path="res://item/plants/BrightLeaf/BrightLeafFruit.tres" id="2_boan4"]
 [ext_resource type="Script" path="res://item/plants/PlantData.gd" id="3_hw4ll"]
 [ext_resource type="Texture2D" uid="uid://qcc3q41lbsg" path="res://item/plants/BrightLeaf/BrightLeafYoung.png" id="4_kmm8h"]
+[ext_resource type="Script" path="res://item/plants/WaterPlantFood.gd" id="5_caka1"]
 
 [sub_resource type="Resource" id="Resource_2i8n8"]
 script = ExtResource("1_sgqsc")
@@ -12,7 +13,7 @@ max_val = 5.0
 happy_min = 1.0
 happy_max = 5.0
 eat_per_day = 1.0
-happy_fruit_factor = 1.5
+happy_fruit_factor = 1.8
 bad_fruit_factor = 1.0
 happy_growth_factor = 2.0
 bad_growth_factor = 1.0
@@ -30,16 +31,18 @@ happy_growth_factor = 1.0
 bad_growth_factor = 0.0
 bad_days_til_death = 0
 
-[sub_resource type="Resource" id="Resource_4j8ec"]
-script = ExtResource("1_sgqsc")
+[sub_resource type="Resource" id="Resource_datnu"]
+script = ExtResource("5_caka1")
+over_water_growth_factor = 0.8
+under_water_growth_factor = 0.0
 max_val = 5.0
 happy_min = 3.0
 happy_max = 4.0
-eat_per_day = 0.4
+eat_per_day = 0.3
 happy_fruit_factor = 1.0
-bad_fruit_factor = 0.0
+bad_fruit_factor = 1.0
 happy_growth_factor = 1.0
-bad_growth_factor = 0.0
+bad_growth_factor = 1.0
 bad_days_til_death = 0
 
 [resource]
@@ -47,7 +50,7 @@ script = ExtResource("3_hw4ll")
 young_texture = ExtResource("4_kmm8h")
 mature_texture = ExtResource("2_2fb6f")
 light = SubResource("Resource_133mj")
-water = SubResource("Resource_4j8ec")
+water = SubResource("Resource_datnu")
 fertilizer = SubResource("Resource_2i8n8")
 fruit_per_day = 1.0
 growth_per_day = 0.2
