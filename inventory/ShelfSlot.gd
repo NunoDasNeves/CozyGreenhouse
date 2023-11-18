@@ -78,21 +78,25 @@ func set_slot_data(slot_data: SlotData) -> void:
 	if plant_component:
 		(item_scene as PlantItemScene).fruit_clicked.connect(fruit_clicked)
 		var plant_data: PlantData = plant_component.plant
-		water_bar.max_value = plant_data.water.max_val
-		water_bar.value = plant_data.water.curr_val
-		water_low.position.x = plant_data.water.happy_min / plant_data.water.max_val * water_bar.size.x
-		water_high.position.x = plant_data.water.happy_max / plant_data.water.max_val * water_bar.size.x
-		if plant_data.water.in_happy_range():
-			water_bar.add_theme_stylebox_override("background", happy_bar_stylebox_background)
-			water_bar.add_theme_stylebox_override("fill", happy_bar_stylebox_fill)
-		else:
-			water_bar.add_theme_stylebox_override("background", bad_bar_stylebox_background)
-			water_bar.add_theme_stylebox_override("fill", bad_bar_stylebox_fill)
-		fertilizer_bar.max_value = plant_data.fertilizer.max_val
-		fertilizer_bar.value = plant_data.fertilizer.curr_val
-		water.show();
-		if plant_data.fertilizer.curr_val > 0:
-			fertilizer.show();
+		if plant_data.water:
+			water_bar.max_value = plant_data.water.max_val
+			water_bar.value = plant_data.water.curr_val
+			water_low.position.x = plant_data.water.happy_min / plant_data.water.max_val * water_bar.size.x
+			water_high.position.x = plant_data.water.happy_max / plant_data.water.max_val * water_bar.size.x
+			if plant_data.water.in_happy_range():
+				water_bar.add_theme_stylebox_override("background", happy_bar_stylebox_background)
+				water_bar.add_theme_stylebox_override("fill", happy_bar_stylebox_fill)
+			else:
+				water_bar.add_theme_stylebox_override("background", bad_bar_stylebox_background)
+				water_bar.add_theme_stylebox_override("fill", bad_bar_stylebox_fill)
+			water.show();
+
+		if plant_data.fertilizer:
+			fertilizer_bar.max_value = plant_data.fertilizer.max_val
+			fertilizer_bar.value = plant_data.fertilizer.curr_val
+			if plant_data.fertilizer.curr_val > 0:
+				fertilizer.show();
+
 		var compost_string: String = ""
 		var compost_component: CompostComponent = item_data.get_component("Compost")
 		if compost_component:

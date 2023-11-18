@@ -25,8 +25,11 @@ func create_plant_item(pot_item: ItemData) -> ItemData:
 	assert(plant_data == (plant_item.get_component("Plant") as PlantItemComponent).plant)
 	plant_data.pot_item_data = pot_item
 	# pick which to duplicate; e.g. want the fruit to not be copied
-	plant_data.light = plant_data.light.duplicate()
-	plant_data.water = plant_data.water.duplicate()
-	plant_data.fertilizer = plant_data.fertilizer.duplicate()
+	if plant_data.light:
+		plant_data.light = plant_data.light.duplicate()
+	if plant_data.water:
+		plant_data.water = plant_data.water.duplicate()
+	if plant_data.fertilizer:
+		plant_data.fertilizer = plant_data.fertilizer.duplicate()
 
 	return plant_item

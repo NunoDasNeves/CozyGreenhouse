@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="ItemData" load_steps=16 format=3 uid="uid://dk8us7i65t6kj"]
 
 [ext_resource type="Texture2D" uid="uid://cppespyw4o1hs" path="res://item/plants/SaturnStalk/SaturnPod.png" id="1_pvlkv"]
-[ext_resource type="PackedScene" uid="uid://dxavb0e6jog0m" path="res://item/fruits/Fruit.tscn" id="2_nsx3w"]
+[ext_resource type="PackedScene" uid="uid://dxavb0e6jog0m" path="res://item/Fruit.tscn" id="2_nsx3w"]
 [ext_resource type="Script" path="res://item/ItemData.gd" id="2_wkwpf"]
 [ext_resource type="Script" path="res://item/components/StackableComponent.gd" id="3_y6kmm"]
 [ext_resource type="Script" path="res://item/components/SellComponent.gd" id="4_umyfr"]

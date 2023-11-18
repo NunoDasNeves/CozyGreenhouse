@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://State.gd" id="1_il68n"]
 [ext_resource type="Resource" uid="uid://csw8uhucnfusw" path="res://PotInventory.tres" id="2_mut2j"]
-[ext_resource type="Resource" uid="uid://bygkbwxgoognm" path="res://SeedInventory.tres" id="4_l0aur"]
+[ext_resource type="Resource" uid="uid://bygkbwxgoognm" path="res://AllSeedsInventory.tres" id="4_l0aur"]
 [ext_resource type="Resource" uid="uid://djv3x4rgek2xy" path="res://SellInventory.tres" id="5_udqup"]
 [ext_resource type="Script" path="res://merchants/ShopSchedule.gd" id="6_4yw2r"]
 [ext_resource type="Resource" uid="uid://d2jo5w7j6juca" path="res://ShelfInventory.tres" id="6_fe20h"]
