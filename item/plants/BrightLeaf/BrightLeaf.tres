@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=10 format=3 uid="uid://nlu4hujgm06a"]
+
+[ext_resource type="PackedScene" uid="uid://du2hqh8a7uo3l" path="res://item/plants/BrightLeaf/BrightLeaf.tscn" id="1_86x5v"]
+[ext_resource type="Script" path="res://item/ItemData.gd" id="2_v43qe"]
+[ext_resource type="Resource" uid="uid://dov1u6sj2fkt0" path="res://item/plants/BrightLeaf/BrightLeafData.tres" id="3_7vq77"]
+[ext_resource type="Script" path="res://item/components/PlantItemComponent.gd" id="4_8nya3"]
+[ext_resource type="Script" path="res://item/components/CompostComponent.gd" id="5_pmy6u"]
+[ext_resource type="Script" path="res://item/ItemType.gd" id="6_1vcog"]
+
+[sub_resource type="Resource" id="Resource_8scfa"]
+script = ExtResource("4_8nya3")
+plant = ExtResource("3_7vq77")
+
+[sub_resource type="Resource" id="Resource_sufno"]
+script = ExtResource("5_pmy6u")
+base_compost_value = 2.0
+
+[sub_resource type="Resource" id="Resource_edact"]
+script = ExtResource("6_1vcog")
+components = Array[Resource("res://item/components/ItemComponent.gd")]([SubResource("Resource_8scfa"), SubResource("Resource_sufno")])
+
+[resource]
+script = ExtResource("2_v43qe")
+name = "Bright Leaf"
+description = "Oooooh - it glows!"
+scene = ExtResource("1_86x5v")
+type_name = 3
+home_inventory = 3
+type = SubResource("Resource_edact")

@@ -1,0 +1,44 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=16 format=3 uid="uid://b1liwmtnm4h5d"]
+
+[ext_resource type="PackedScene" uid="uid://dxavb0e6jog0m" path="res://item/Fruit.tscn" id="1_ex4us"]
+[ext_resource type="Script" path="res://item/ItemData.gd" id="2_i8epx"]
+[ext_resource type="Script" path="res://item/components/StackableComponent.gd" id="3_ov255"]
+[ext_resource type="Script" path="res://item/components/SellComponent.gd" id="4_qbsl3"]
+[ext_resource type="Script" path="res://item/components/TextureComponent.gd" id="5_rhibh"]
+[ext_resource type="Texture2D" uid="uid://b5s7taphxx4x5" path="res://item/plants/BrightLeaf/BrightLeaf.png" id="6_c8jjm"]
+[ext_resource type="Script" path="res://item/components/FruitComponent.gd" id="7_2j2dp"]
+[ext_resource type="Script" path="res://item/components/CompostComponent.gd" id="8_bi61y"]
+[ext_resource type="Script" path="res://item/ItemType.gd" id="9_m3deb"]
+
+[sub_resource type="Resource" id="Resource_seg17"]
+script = ExtResource("3_ov255")
+max_stack_size = 99
+show_1x_quantity = true
+
+[sub_resource type="Resource" id="Resource_0aho4"]
+script = ExtResource("4_qbsl3")
+base_value = 6.0
+
+[sub_resource type="Resource" id="Resource_thijl"]
+script = ExtResource("5_rhibh")
+texture = ExtResource("6_c8jjm")
+
+[sub_resource type="Resource" id="Resource_m8kul"]
+script = ExtResource("7_2j2dp")
+
+[sub_resource type="Resource" id="Resource_7kvdp"]
+script = ExtResource("8_bi61y")
+base_compost_value = 2.0
+
+[sub_resource type="Resource" id="Resource_e8nax"]
+script = ExtResource("9_m3deb")
+components = Array[Resource("res://item/components/ItemComponent.gd")]([SubResource("Resource_seg17"), SubResource("Resource_0aho4"), SubResource("Resource_thijl"), SubResource("Resource_m8kul"), SubResource("Resource_7kvdp")])
+
+[resource]
+script = ExtResource("2_i8epx")
+name = "Bright Leaf"
+description = "It's a leaf. It glows. Whadda want?"
+scene = ExtResource("1_ex4us")
+type_name = 5
+home_inventory = 4
+type = SubResource("Resource_e8nax")

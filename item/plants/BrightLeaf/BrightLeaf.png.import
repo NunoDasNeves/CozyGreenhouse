@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cpvvfq300xyao"
-path="res://.godot/imported/SpacePlantMature.png-98a6cf750be34cac74d4699eb54c8388.ctex"
+uid="uid://b5s7taphxx4x5"
+path="res://.godot/imported/BrightLeaf.png-590b85a60d98434b298b661551e7eddb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://item/plants/RadiantGreens/SpacePlantMature.png"
-dest_files=["res://.godot/imported/SpacePlantMature.png-98a6cf750be34cac74d4699eb54c8388.ctex"]
+source_file="res://item/plants/BrightLeaf/BrightLeaf.png"
+dest_files=["res://.godot/imported/BrightLeaf.png-590b85a60d98434b298b661551e7eddb.ctex"]
 
 [params]
 
