@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="MerchantData" load_steps=13 format=3 uid="uid://bljdxwel327w5"]
+[gd_resource type="Resource" script_class="MerchantData" load_steps=14 format=3 uid="uid://bljdxwel327w5"]
 
 [ext_resource type="Resource" uid="uid://siehjtkkcskh" path="res://item/misc/WaterJug.tres" id="1_47ov4"]
 [ext_resource type="Script" path="res://merchants/MerchantData.gd" id="1_cycfi"]
@@ -7,6 +7,7 @@
 [ext_resource type="Resource" uid="uid://cp3r4g23icnd8" path="res://item/pots/Pot1.tres" id="3_yvw50"]
 [ext_resource type="Resource" uid="uid://bs14e5gpwnc76" path="res://item/plants/MoonBroc/MoonBrocSeed.tres" id="4_u2w5y"]
 [ext_resource type="Resource" uid="uid://dtdm5s0ad2d28" path="res://item/plants/SaturnStalk/SaturnStalkSeed.tres" id="5_tklg8"]
+[ext_resource type="Texture2D" uid="uid://tvit1guael3d" path="res://merchants/Merchant0.png" id="8_uxb0i"]
 
 [sub_resource type="Resource" id="Resource_hufy0"]
 script = ExtResource("1_jeil5")
@@ -34,4 +35,6 @@ items = Array[ExtResource("1_jeil5")]([SubResource("Resource_hufy0"), SubResourc
 
 [resource]
 script = ExtResource("1_cycfi")
+name = "Floof"
 restock_params = SubResource("Resource_wehoo")
+texture = ExtResource("8_uxb0i")

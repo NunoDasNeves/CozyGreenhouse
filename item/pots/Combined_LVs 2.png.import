@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d3kvatcunl81i"
-path="res://.godot/imported/Merchant2.png-3a07ad747446caf0357d299708538805.ctex"
+uid="uid://dgeqvdlpvyepi"
+path="res://.godot/imported/Combined_LVs 2.png-15bf63364e6c4917ba04459dca64cd4f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://merchants/Merchant2.png"
-dest_files=["res://.godot/imported/Merchant2.png-3a07ad747446caf0357d299708538805.ctex"]
+source_file="res://item/pots/Combined_LVs 2.png"
+dest_files=["res://.godot/imported/Combined_LVs 2.png-15bf63364e6c4917ba04459dca64cd4f.ctex"]
 
 [params]
 

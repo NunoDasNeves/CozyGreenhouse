@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=15 format=3 uid="uid://4xswugnup0ea"]
+[gd_resource type="Theme" load_steps=16 format=3 uid="uid://4xswugnup0ea"]
 
 [ext_resource type="StyleBox" uid="uid://35agf86cl1ni" path="res://themes/inventory_background.tres" id="1_m3m8h"]
 [ext_resource type="StyleBox" uid="uid://be8glpa5ycxb8" path="res://themes/slot_background.tres" id="2_bnqkd"]
@@ -10,6 +10,13 @@ corner_radius_top_left = 64
 corner_radius_top_right = 64
 corner_radius_bottom_right = 64
 corner_radius_bottom_left = 64
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3gow5"]
+bg_color = Color(0.27451, 0.215686, 0.27451, 1)
+corner_radius_top_left = 120
+corner_radius_top_right = 115
+corner_radius_bottom_right = 140
+corner_radius_bottom_left = 120
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bra63"]
 
@@ -73,6 +80,8 @@ corner_radius_bottom_left = 32
 default_font_size = 32
 InventoryBackground/base_type = &"PanelContainer"
 InventoryBackground/styles/panel = SubResource("StyleBoxFlat_8os3b")
+MerchantBackground/base_type = &"PanelContainer"
+MerchantBackground/styles/panel = SubResource("StyleBoxFlat_3gow5")
 PanelContainer/styles/panel = ExtResource("1_m3m8h")
 ShelfAttachButton/base_type = &"Button"
 ShelfAttachButton/styles/disabled = SubResource("StyleBoxEmpty_bra63")

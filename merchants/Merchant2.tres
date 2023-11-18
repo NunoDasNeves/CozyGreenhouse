@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="MerchantData" load_steps=15 format=3 uid="uid://sbv704hyihg2"]
+[gd_resource type="Resource" script_class="MerchantData" load_steps=16 format=3 uid="uid://sbv704hyihg2"]
 
 [ext_resource type="Script" path="res://merchants/MerchantData.gd" id="1_4secr"]
 [ext_resource type="Resource" uid="uid://siehjtkkcskh" path="res://item/misc/WaterJug.tres" id="1_6daoh"]
@@ -8,6 +8,7 @@
 [ext_resource type="Resource" uid="uid://b4sv4fdgbonmb" path="res://item/plants/CloudCoral/CloudCoralSeed.tres" id="5_rne2t"]
 [ext_resource type="Resource" uid="uid://cq6me3j8ea8uy" path="res://item/plants/BrightLeaf/RadiantSeed.tres" id="6_1u8yx"]
 [ext_resource type="Script" path="res://merchants/RestockParams.gd" id="6_806hm"]
+[ext_resource type="Texture2D" uid="uid://d3kvatcunl81i" path="res://merchants/Merchant2.png" id="9_ojhis"]
 
 [sub_resource type="Resource" id="Resource_5u4u3"]
 script = ExtResource("2_anh62")
@@ -40,4 +41,6 @@ items = Array[ExtResource("2_anh62")]([SubResource("Resource_5u4u3"), SubResourc
 
 [resource]
 script = ExtResource("1_4secr")
+name = "Barbara"
 restock_params = SubResource("Resource_il0mj")
+texture = ExtResource("9_ojhis")

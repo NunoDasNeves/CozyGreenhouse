@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://stabv7nin058"]
+[gd_scene load_steps=26 format=3 uid="uid://stabv7nin058"]
 
 [ext_resource type="Script" path="res://Main.gd" id="1_b7ej4"]
 [ext_resource type="PackedScene" uid="uid://0alw4cfw4g22" path="res://inventory/Inventory.tscn" id="1_occea"]
@@ -17,6 +17,8 @@
 [ext_resource type="Texture2D" uid="uid://dnw0mdguv067e" path="res://CompostBin.png" id="12_tetco"]
 [ext_resource type="PackedScene" uid="uid://b8iki5hc8c177" path="res://inventory/ProductsInventory.tscn" id="13_yk8kt"]
 [ext_resource type="Script" path="res://CompostBin.gd" id="14_fn1qj"]
+[ext_resource type="Texture2D" uid="uid://tvit1guael3d" path="res://merchants/Merchant0.png" id="17_sdtj8"]
+[ext_resource type="Texture2D" uid="uid://8sy3abjwklkw" path="res://merchants/Merchant_Frame.png" id="18_oi2ao"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_10m38"]
 bg_color = Color(0.12549, 0.403922, 0.87451, 1)
@@ -43,6 +45,18 @@ expand_margin_bottom = 80.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5obpi"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_62jhy"]
+bg_color = Color(0.227451, 0.207843, 0.25098, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6lt1l"]
+bg_color = Color(0.164706, 0.113725, 0.192157, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
 
 [node name="Main" type="Node"]
 script = ExtResource("1_b7ej4")
@@ -214,6 +228,34 @@ layout_mode = 2
 [node name="Shop" parent="UI/InventoryInterface/TabContainer" instance=ExtResource("13_yk8kt")]
 visible = false
 layout_mode = 2
+
+[node name="MerchantContainer" type="Node2D" parent="UI/InventoryInterface"]
+
+[node name="Merchant" type="Node2D" parent="UI/InventoryInterface/MerchantContainer"]
+
+[node name="background" type="PanelContainer" parent="UI/InventoryInterface/MerchantContainer/Merchant"]
+clip_contents = true
+offset_left = 2669.0
+offset_top = 137.0
+offset_right = 3302.0
+offset_bottom = 645.0
+theme_type_variation = &"MerchantBackground"
+theme_override_styles/panel = SubResource("StyleBoxFlat_62jhy")
+
+[node name="Panel" type="Panel" parent="UI/InventoryInterface/MerchantContainer/Merchant/background"]
+custom_minimum_size = Vector2(420, 160)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_styles/panel = SubResource("StyleBoxFlat_6lt1l")
+
+[node name="Sprite" type="Sprite2D" parent="UI/InventoryInterface/MerchantContainer/Merchant/background"]
+position = Vector2(296, 326)
+texture = ExtResource("17_sdtj8")
+
+[node name="Frame" type="Sprite2D" parent="UI/InventoryInterface/MerchantContainer"]
+position = Vector2(2983, 390)
+texture = ExtResource("18_oi2ao")
 
 [node name="GrabSlot" parent="UI/InventoryInterface" instance=ExtResource("10_5kb5e")]
 visible = false

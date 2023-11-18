@@ -8,6 +8,8 @@ class_name InventoryInterface
 @onready var money_amount: Label = $MoneyAmount
 @onready var compost_bar: ProgressBar = $Compost/ProgressBar
 @onready var compost_button: CompostBin = $Compost/TextureButton
+@onready var merchant: Node2D = $MerchantContainer/Merchant
+@onready var merchant_sprite: Sprite2D = $MerchantContainer/Merchant/background/Sprite
 
 @onready var seed_inventory: PanelContainer = $SeedInventory
 @onready var pots_inventory: PanelContainer = $PotsInventory
@@ -81,15 +83,18 @@ func update_compost_bar() -> void:
 	compost_bar.value = Global.state.compost
 
 func init_merchant(merchant_data: MerchantData) -> void:
-	pass
+	if merchant_data:
+		merchant_sprite.texture = merchant_data.texture
+		merchant.show()
+	else:
+		merchant.hide()
 
 func update_shop() -> void:
 	var buy_inventory_data: ProductInventoryData = state.buy_inventory_data
 	if buy_inventory_data:
 		init_inventory(buy_inventory, buy_inventory_data)
 	var merchant_data: MerchantData = state.curr_merchant
-	if merchant_data:
-		init_merchant(merchant_data)
+	init_merchant(merchant_data)
 
 func update_water_tank() -> void:
 	var old_water_level: float = water_tank_bar.value

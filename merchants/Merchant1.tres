@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="MerchantData" load_steps=31 format=3 uid="uid://dcmo1dlje5wsm"]
+[gd_resource type="Resource" script_class="MerchantData" load_steps=32 format=3 uid="uid://dcmo1dlje5wsm"]
 
 [ext_resource type="Script" path="res://merchants/MerchantData.gd" id="1_irr0g"]
 [ext_resource type="Resource" uid="uid://siehjtkkcskh" path="res://item/misc/WaterJug.tres" id="1_mggal"]
@@ -17,6 +17,7 @@
 [ext_resource type="Script" path="res://item/components/BuyComponent.gd" id="12_wedcf"]
 [ext_resource type="Script" path="res://item/components/AcquireComponent.gd" id="13_4ktae"]
 [ext_resource type="Script" path="res://item/ItemType.gd" id="14_hkqyi"]
+[ext_resource type="Texture2D" uid="uid://cggbd7vkht3cj" path="res://merchants/Merchant1.png" id="18_bigew"]
 
 [sub_resource type="Resource" id="Resource_hufy0"]
 script = ExtResource("2_tdtdc")
@@ -82,4 +83,6 @@ items = Array[ExtResource("2_tdtdc")]([SubResource("Resource_hufy0"), SubResourc
 
 [resource]
 script = ExtResource("1_irr0g")
+name = "Gornthor"
 restock_params = SubResource("Resource_tyhti")
+texture = ExtResource("18_bigew")
