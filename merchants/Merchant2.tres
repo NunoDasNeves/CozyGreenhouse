@@ -1,0 +1,6 @@
+[gd_resource type="Resource" script_class="MerchantData" load_steps=2 format=3 uid="uid://sbv704hyihg2"]
+
+[ext_resource type="Script" path="res://merchants/MerchantData.gd" id="1_4secr"]
+
+[resource]
+script = ExtResource("1_4secr")

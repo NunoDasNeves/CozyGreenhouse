@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="RackInventoryData" load_steps=7 format=3 uid="uid://csw8uhucnfusw"]
+
+[ext_resource type="Script" path="res://inventory/RackInventoryData.gd" id="1_56pja"]
+[ext_resource type="Resource" uid="uid://cp3r4g23icnd8" path="res://item/pots/Pot1.tres" id="2_hspbu"]
+[ext_resource type="Script" path="res://inventory/SlotData.gd" id="3_lqmqc"]
+[ext_resource type="Resource" uid="uid://bmkyc8c3c3yfu" path="res://item/pots/Pot2.tres" id="4_5tsvq"]
+
+[sub_resource type="Resource" id="Resource_b0fpt"]
+script = ExtResource("3_lqmqc")
+item_data = ExtResource("2_hspbu")
+quantity = 2
+
+[sub_resource type="Resource" id="Resource_ob8ik"]
+script = ExtResource("3_lqmqc")
+item_data = ExtResource("4_5tsvq")
+quantity = 1
+
+[resource]
+script = ExtResource("1_56pja")
+slot_datas = Array[ExtResource("3_lqmqc")]([SubResource("Resource_b0fpt"), SubResource("Resource_ob8ik"), null, null])

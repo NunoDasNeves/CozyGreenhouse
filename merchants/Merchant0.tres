@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="MerchantData" load_steps=13 format=3 uid="uid://bljdxwel327w5"]
+
+[ext_resource type="Resource" uid="uid://siehjtkkcskh" path="res://item/misc/WaterJug.tres" id="1_47ov4"]
+[ext_resource type="Script" path="res://merchants/MerchantData.gd" id="1_cycfi"]
+[ext_resource type="Script" path="res://merchants/RestockItem.gd" id="1_jeil5"]
+[ext_resource type="Script" path="res://merchants/RestockParams.gd" id="2_jtd06"]
+[ext_resource type="Resource" uid="uid://cp3r4g23icnd8" path="res://item/pots/Pot1.tres" id="3_yvw50"]
+[ext_resource type="Resource" uid="uid://bs14e5gpwnc76" path="res://item/plants/MoonBroc/MoonBrocSeed.tres" id="4_u2w5y"]
+[ext_resource type="Resource" uid="uid://d2gov5vt6tmcq" path="res://item/plants/SaturnStalk/SaturnStalk.tres" id="5_uhsn6"]
+
+[sub_resource type="Resource" id="Resource_hufy0"]
+script = ExtResource("1_jeil5")
+item_data = ExtResource("1_47ov4")
+min_num = 10
+
+[sub_resource type="Resource" id="Resource_kj20t"]
+script = ExtResource("1_jeil5")
+item_data = ExtResource("3_yvw50")
+min_num = 10
+
+[sub_resource type="Resource" id="Resource_nxutu"]
+script = ExtResource("1_jeil5")
+item_data = ExtResource("4_u2w5y")
+min_num = 10
+
+[sub_resource type="Resource" id="Resource_2jarn"]
+script = ExtResource("1_jeil5")
+item_data = ExtResource("5_uhsn6")
+min_num = 10
+
+[sub_resource type="Resource" id="Resource_wehoo"]
+script = ExtResource("2_jtd06")
+items = Array[ExtResource("1_jeil5")]([SubResource("Resource_hufy0"), SubResource("Resource_kj20t"), SubResource("Resource_nxutu"), SubResource("Resource_2jarn")])
+
+[resource]
+script = ExtResource("1_cycfi")
+restock_params = SubResource("Resource_wehoo")

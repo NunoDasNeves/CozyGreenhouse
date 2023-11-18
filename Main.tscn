@@ -4,13 +4,13 @@
 [ext_resource type="PackedScene" uid="uid://0alw4cfw4g22" path="res://inventory/Inventory.tscn" id="1_occea"]
 [ext_resource type="Theme" uid="uid://4xswugnup0ea" path="res://themes/GameTheme.tres" id="2_6gjjm"]
 [ext_resource type="Script" path="res://inventory/InventoryInterface.gd" id="2_fy0vy"]
-[ext_resource type="Resource" uid="uid://vwd5ajiujm1q" path="res://InitialState.tres" id="3_eyqdm"]
+[ext_resource type="Resource" uid="uid://vwd5ajiujm1q" path="res://statedata/InitialState.tres" id="4_8h5ra"]
 [ext_resource type="Texture2D" uid="uid://c1kmgvycegelw" path="res://background.png" id="4_wta3e"]
 [ext_resource type="Texture2D" uid="uid://eojpaqaopime" path="res://Water_Pipe.png" id="6_dlglr"]
 [ext_resource type="PackedScene" uid="uid://cyciydo21kxum" path="res://inventory/PotsInventory.tscn" id="6_uaoi2"]
 [ext_resource type="Texture2D" uid="uid://dmw8hr05u8vvc" path="res://Water_Pipe_Bent.png" id="7_3cqgl"]
 [ext_resource type="PackedScene" uid="uid://b40qsq404h2qt" path="res://inventory/ShelfInventory.tscn" id="8_c0pgr"]
-[ext_resource type="PackedScene" uid="uid://c1b7r3mdk7q54" path="res://GrabSlot.tscn" id="10_5kb5e"]
+[ext_resource type="PackedScene" uid="uid://c1b7r3mdk7q54" path="res://statedata/GrabSlot.tscn" id="10_5kb5e"]
 [ext_resource type="Texture2D" uid="uid://bc8cdch51hdsk" path="res://Water_Tank.png" id="10_8wd6m"]
 [ext_resource type="PackedScene" uid="uid://ci87co87lm155" path="res://inventory/ToolsInventory.tscn" id="10_t6s3y"]
 [ext_resource type="Texture2D" uid="uid://dnw0mdguv067e" path="res://CompostBin.png" id="12_tetco"]
@@ -57,7 +57,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_6gjjm")
 script = ExtResource("2_fy0vy")
-initial_state = ExtResource("3_eyqdm")
+initial_state = ExtResource("4_8h5ra")
 
 [node name="Background" type="Sprite2D" parent="UI/InventoryInterface"]
 position = Vector2(1920, 1080)

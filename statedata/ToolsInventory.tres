@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="RackInventoryData" load_steps=7 format=3 uid="uid://ul721xn0f5r5"]
+
+[ext_resource type="Script" path="res://inventory/RackInventoryData.gd" id="1_xqr3g"]
+[ext_resource type="Resource" uid="uid://00dhhvalh25c" path="res://item/tools/WateringCan.tres" id="2_rjq6p"]
+[ext_resource type="Script" path="res://inventory/SlotData.gd" id="3_uvd17"]
+[ext_resource type="Resource" uid="uid://boxl2ywmgr5nr" path="res://item/tools/UVLight.tres" id="4_hl055"]
+
+[sub_resource type="Resource" id="Resource_rg2ox"]
+script = ExtResource("3_uvd17")
+item_data = ExtResource("2_rjq6p")
+quantity = 1
+
+[sub_resource type="Resource" id="Resource_2iqi7"]
+script = ExtResource("3_uvd17")
+item_data = ExtResource("4_hl055")
+quantity = 3
+
+[resource]
+script = ExtResource("1_xqr3g")
+slot_datas = Array[ExtResource("3_uvd17")]([SubResource("Resource_rg2ox"), SubResource("Resource_2iqi7")])

@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="State" load_steps=9 format=3 uid="uid://vwd5ajiujm1q"]
+
+[ext_resource type="Resource" uid="uid://csw8uhucnfusw" path="res://statedata/PotInventory.tres" id="1_etila"]
+[ext_resource type="Script" path="res://statedata/State.gd" id="2_tffkv"]
+[ext_resource type="Resource" uid="uid://djv3x4rgek2xy" path="res://statedata/SellInventory.tres" id="4_fewq5"]
+[ext_resource type="Resource" uid="uid://bygkbwxgoognm" path="res://statedata/AllSeedsInventory.tres" id="4_l0aur"]
+[ext_resource type="Resource" uid="uid://d2jo5w7j6juca" path="res://statedata/ShelfInventory.tres" id="5_jyj5y"]
+[ext_resource type="Script" path="res://merchants/ShopSchedule.gd" id="6_4yw2r"]
+[ext_resource type="Resource" uid="uid://ul721xn0f5r5" path="res://statedata/ToolsInventory.tres" id="7_d20mi"]
+
+[sub_resource type="Resource" id="Resource_qcaug"]
+script = ExtResource("6_4yw2r")
+initial_days = Array[Resource("res://merchants/MerchantData.gd")]([null])
+random_merchant_pool = Array[Resource("res://merchants/MerchantData.gd")]([])
+
+[resource]
+script = ExtResource("2_tffkv")
+curr_day = 0
+water_tank_level = 10.0
+max_water_tank_level = 25.0
+money = 10.0
+compost = 0.0
+seed_inventory_data = ExtResource("4_l0aur")
+pot_inventory_data = ExtResource("1_etila")
+tool_inventory_data = ExtResource("7_d20mi")
+shelf_inventory_data = ExtResource("5_jyj5y")
+sell_inventory_data = ExtResource("4_fewq5")
+shop_schedule = SubResource("Resource_qcaug")

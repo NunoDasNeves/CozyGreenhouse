@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="MerchantData" load_steps=11 format=3 uid="uid://dcmo1dlje5wsm"]
+
+[ext_resource type="Script" path="res://merchants/MerchantData.gd" id="1_irr0g"]
+[ext_resource type="Resource" uid="uid://siehjtkkcskh" path="res://item/misc/WaterJug.tres" id="1_mggal"]
+[ext_resource type="Script" path="res://merchants/RestockItem.gd" id="2_tdtdc"]
+[ext_resource type="Resource" uid="uid://cp3r4g23icnd8" path="res://item/pots/Pot1.tres" id="3_b1nbp"]
+[ext_resource type="Resource" uid="uid://cfylxy8n4c12y" path="res://item/tools/Fertilizer.tres" id="4_p03wv"]
+[ext_resource type="Script" path="res://merchants/RestockParams.gd" id="5_2fxnq"]
+
+[sub_resource type="Resource" id="Resource_hufy0"]
+script = ExtResource("2_tdtdc")
+item_data = ExtResource("1_mggal")
+min_num = 10
+
+[sub_resource type="Resource" id="Resource_kj20t"]
+script = ExtResource("2_tdtdc")
+item_data = ExtResource("3_b1nbp")
+min_num = 10
+
+[sub_resource type="Resource" id="Resource_4hh3n"]
+script = ExtResource("2_tdtdc")
+item_data = ExtResource("4_p03wv")
+min_num = 10
+
+[sub_resource type="Resource" id="Resource_tyhti"]
+script = ExtResource("5_2fxnq")
+items = Array[ExtResource("2_tdtdc")]([SubResource("Resource_hufy0"), SubResource("Resource_kj20t"), SubResource("Resource_4hh3n")])
+
+[resource]
+script = ExtResource("1_irr0g")
+restock_params = SubResource("Resource_tyhti")
