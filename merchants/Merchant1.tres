@@ -1,22 +1,13 @@
-[gd_resource type="Resource" script_class="MerchantData" load_steps=32 format=3 uid="uid://dcmo1dlje5wsm"]
+[gd_resource type="Resource" script_class="MerchantData" load_steps=16 format=3 uid="uid://dcmo1dlje5wsm"]
 
 [ext_resource type="Script" path="res://merchants/MerchantData.gd" id="1_irr0g"]
 [ext_resource type="Resource" uid="uid://siehjtkkcskh" path="res://item/misc/WaterJug.tres" id="1_mggal"]
 [ext_resource type="Script" path="res://merchants/RestockItem.gd" id="2_tdtdc"]
-[ext_resource type="Resource" uid="uid://bmkyc8c3c3yfu" path="res://item/pots/Pot2.tres" id="3_afvka"]
+[ext_resource type="Resource" uid="uid://cp3r4g23icnd8" path="res://item/pots/Pot1.tres" id="3_atcb6"]
 [ext_resource type="Resource" uid="uid://cfylxy8n4c12y" path="res://item/tools/Fertilizer.tres" id="4_p03wv"]
 [ext_resource type="Script" path="res://merchants/RestockParams.gd" id="5_2fxnq"]
-[ext_resource type="PackedScene" uid="uid://bw145ublkri14" path="res://item/SpriteItem.tscn" id="5_7kj1v"]
-[ext_resource type="Script" path="res://item/ItemData.gd" id="6_7slb0"]
+[ext_resource type="Resource" uid="uid://brspdjnvdnbxy" path="res://item/plants/SpaceMushies/SpaceMushiesSeed.tres" id="5_ixur1"]
 [ext_resource type="Resource" uid="uid://dtdm5s0ad2d28" path="res://item/plants/SaturnStalk/SaturnStalkSeed.tres" id="6_jbtxq"]
-[ext_resource type="Script" path="res://item/components/StackableComponent.gd" id="7_6tnie"]
-[ext_resource type="Resource" uid="uid://h8esa8w68cfg" path="res://item/plants/SpaceMushies/SpaceMushies.tres" id="8_l6kl4"]
-[ext_resource type="Script" path="res://item/components/SeedComponent.gd" id="9_un3xe"]
-[ext_resource type="Script" path="res://item/components/TextureComponent.gd" id="10_1dcu0"]
-[ext_resource type="Texture2D" uid="uid://df21g38ppl4w7" path="res://item/plants/SpaceMushies/Mushroom_Seed.png" id="11_j26j1"]
-[ext_resource type="Script" path="res://item/components/BuyComponent.gd" id="12_wedcf"]
-[ext_resource type="Script" path="res://item/components/AcquireComponent.gd" id="13_4ktae"]
-[ext_resource type="Script" path="res://item/ItemType.gd" id="14_hkqyi"]
 [ext_resource type="Texture2D" uid="uid://cggbd7vkht3cj" path="res://merchants/Merchant1.png" id="18_bigew"]
 
 [sub_resource type="Resource" id="Resource_hufy0"]
@@ -26,7 +17,7 @@ min_num = 10
 
 [sub_resource type="Resource" id="Resource_gd1c4"]
 script = ExtResource("2_tdtdc")
-item_data = ExtResource("3_afvka")
+item_data = ExtResource("3_atcb6")
 min_num = 10
 
 [sub_resource type="Resource" id="Resource_4hh3n"]
@@ -34,42 +25,9 @@ script = ExtResource("2_tdtdc")
 item_data = ExtResource("4_p03wv")
 min_num = 10
 
-[sub_resource type="Resource" id="Resource_qhakd"]
-script = ExtResource("7_6tnie")
-max_stack_size = 99
-show_1x_quantity = true
-
-[sub_resource type="Resource" id="Resource_2nyg0"]
-script = ExtResource("9_un3xe")
-plant = ExtResource("8_l6kl4")
-
-[sub_resource type="Resource" id="Resource_20bkt"]
-script = ExtResource("10_1dcu0")
-texture = ExtResource("11_j26j1")
-
-[sub_resource type="Resource" id="Resource_umqud"]
-script = ExtResource("12_wedcf")
-base_value = 8.0
-
-[sub_resource type="Resource" id="Resource_uj7p8"]
-script = ExtResource("13_4ktae")
-
-[sub_resource type="Resource" id="Resource_h70bn"]
-script = ExtResource("14_hkqyi")
-components = Array[Resource("res://item/components/ItemComponent.gd")]([SubResource("Resource_qhakd"), SubResource("Resource_2nyg0"), SubResource("Resource_20bkt"), SubResource("Resource_umqud"), SubResource("Resource_uj7p8")])
-
-[sub_resource type="Resource" id="Resource_6nrhp"]
-script = ExtResource("6_7slb0")
-name = "Space Spores"
-description = "Don't even trip, homes."
-scene = ExtResource("5_7kj1v")
-type_name = 1
-home_inventory = 0
-type = SubResource("Resource_h70bn")
-
 [sub_resource type="Resource" id="Resource_rh1yo"]
 script = ExtResource("2_tdtdc")
-item_data = SubResource("Resource_6nrhp")
+item_data = ExtResource("5_ixur1")
 min_num = 10
 
 [sub_resource type="Resource" id="Resource_205kq"]

@@ -1,10 +1,10 @@
 [gd_resource type="Resource" script_class="ItemData" load_steps=16 format=3 uid="uid://cfylxy8n4c12y"]
 
-[ext_resource type="Texture2D" uid="uid://cs6yecwpctcom" path="res://item/tools/fertilizer.png" id="1_2wray"]
-[ext_resource type="PackedScene" uid="uid://bw145ublkri14" path="res://item/SpriteItem.tscn" id="1_a8jw3"]
+[ext_resource type="PackedScene" uid="uid://ccc0q42vlb8gu" path="res://item/SmolItemScene.tscn" id="1_0yaew"]
 [ext_resource type="Script" path="res://item/ItemData.gd" id="2_s6dro"]
 [ext_resource type="Script" path="res://item/components/StackableComponent.gd" id="3_0p55l"]
 [ext_resource type="Script" path="res://item/components/TextureComponent.gd" id="4_lmeuq"]
+[ext_resource type="Texture2D" uid="uid://bwdyqn60heleq" path="res://item/tools/Fertilizer.png" id="5_kyu13"]
 [ext_resource type="Script" path="res://item/components/BuyComponent.gd" id="6_hqf5g"]
 [ext_resource type="Script" path="res://item/components/FertilizerComponent.gd" id="7_o5boa"]
 [ext_resource type="Script" path="res://item/ItemType.gd" id="7_qowhx"]
@@ -17,7 +17,7 @@ show_1x_quantity = true
 
 [sub_resource type="Resource" id="Resource_f1yfw"]
 script = ExtResource("4_lmeuq")
-texture = ExtResource("1_2wray")
+texture = ExtResource("5_kyu13")
 
 [sub_resource type="Resource" id="Resource_yi1bc"]
 script = ExtResource("6_hqf5g")
@@ -37,7 +37,7 @@ components = Array[Resource("res://item/components/ItemComponent.gd")]([SubResou
 script = ExtResource("2_s6dro")
 name = "Fertilizer"
 description = "It's what plants crave!"
-scene = ExtResource("1_a8jw3")
+scene = ExtResource("1_0yaew")
 type_name = 4
 home_inventory = 2
 type = SubResource("Resource_uxkby")

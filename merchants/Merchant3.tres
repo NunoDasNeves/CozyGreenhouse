@@ -4,7 +4,7 @@
 [ext_resource type="Resource" uid="uid://siehjtkkcskh" path="res://item/misc/WaterJug.tres" id="1_luqt1"]
 [ext_resource type="Script" path="res://merchants/RestockItem.gd" id="2_g6q1n"]
 [ext_resource type="Resource" uid="uid://cfylxy8n4c12y" path="res://item/tools/Fertilizer.tres" id="3_aummi"]
-[ext_resource type="Resource" uid="uid://cp3r4g23icnd8" path="res://item/pots/Pot1.tres" id="3_jychu"]
+[ext_resource type="Resource" uid="uid://bmkyc8c3c3yfu" path="res://item/pots/Pot2.tres" id="3_salyw"]
 [ext_resource type="Resource" uid="uid://boxl2ywmgr5nr" path="res://item/tools/UVLight.tres" id="4_aa6cd"]
 [ext_resource type="Resource" uid="uid://b4sv4fdgbonmb" path="res://item/plants/CloudCoral/CloudCoralSeed.tres" id="5_tseba"]
 [ext_resource type="Resource" uid="uid://dmsd41lgytg3d" path="res://item/plants/GalaxyFlower/GalaxyFlowerSeed.tres" id="6_cjndw"]
@@ -18,7 +18,7 @@ min_num = 10
 
 [sub_resource type="Resource" id="Resource_3ocy5"]
 script = ExtResource("2_g6q1n")
-item_data = ExtResource("3_jychu")
+item_data = ExtResource("3_salyw")
 min_num = 10
 
 [sub_resource type="Resource" id="Resource_tt2tj"]

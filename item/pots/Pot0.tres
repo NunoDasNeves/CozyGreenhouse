@@ -1,0 +1,43 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=16 format=3 uid="uid://ckaftb5onqnbn"]
+
+[ext_resource type="PackedScene" uid="uid://ccc0q42vlb8gu" path="res://item/SmolItemScene.tscn" id="1_7qqji"]
+[ext_resource type="Script" path="res://item/ItemData.gd" id="2_13op3"]
+[ext_resource type="Script" path="res://item/components/StackableComponent.gd" id="3_dmkir"]
+[ext_resource type="Script" path="res://item/components/PotComponent.gd" id="4_4pmpl"]
+[ext_resource type="Script" path="res://item/components/BuyComponent.gd" id="5_dyhrf"]
+[ext_resource type="Script" path="res://item/components/TextureComponent.gd" id="6_x8pyc"]
+[ext_resource type="Texture2D" uid="uid://dgeqvdlpvyepi" path="res://item/pots/Pot0.png" id="7_6huw5"]
+[ext_resource type="Script" path="res://item/components/AcquireComponent.gd" id="8_iemew"]
+[ext_resource type="Script" path="res://item/ItemType.gd" id="9_08hu3"]
+
+[sub_resource type="Resource" id="Resource_jr75w"]
+script = ExtResource("3_dmkir")
+max_stack_size = 99
+show_1x_quantity = true
+
+[sub_resource type="Resource" id="Resource_uah1s"]
+script = ExtResource("4_4pmpl")
+
+[sub_resource type="Resource" id="Resource_2qdar"]
+script = ExtResource("5_dyhrf")
+base_value = 3.0
+
+[sub_resource type="Resource" id="Resource_252de"]
+script = ExtResource("6_x8pyc")
+texture = ExtResource("7_6huw5")
+
+[sub_resource type="Resource" id="Resource_dyf7i"]
+script = ExtResource("8_iemew")
+
+[sub_resource type="Resource" id="Resource_gqllb"]
+script = ExtResource("9_08hu3")
+components = Array[Resource("res://item/components/ItemComponent.gd")]([SubResource("Resource_jr75w"), SubResource("Resource_uah1s"), SubResource("Resource_2qdar"), SubResource("Resource_252de"), SubResource("Resource_dyf7i")])
+
+[resource]
+script = ExtResource("2_13op3")
+name = "Pot"
+description = "A basic, sturdy pot"
+scene = ExtResource("1_7qqji")
+type_name = 2
+home_inventory = 1
+type = SubResource("Resource_gqllb")

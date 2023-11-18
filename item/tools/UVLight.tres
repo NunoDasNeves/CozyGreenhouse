@@ -1,13 +1,13 @@
 [gd_resource type="Resource" script_class="ItemData" load_steps=18 format=3 uid="uid://boxl2ywmgr5nr"]
 
 [ext_resource type="Script" path="res://item/ItemData.gd" id="1_dos0n"]
-[ext_resource type="PackedScene" uid="uid://csaqaax1n0q6u" path="res://item/tools/LightItemScene.tscn" id="1_h6ioy"]
+[ext_resource type="PackedScene" uid="uid://ccc0q42vlb8gu" path="res://item/SmolItemScene.tscn" id="1_esipn"]
 [ext_resource type="Script" path="res://item/components/StackableComponent.gd" id="3_e3mfq"]
 [ext_resource type="Script" path="res://item/components/AcquireComponent.gd" id="4_r6867"]
 [ext_resource type="Script" path="res://item/components/BuyComponent.gd" id="5_bcvu2"]
 [ext_resource type="Script" path="res://item/components/UVLightComponent.gd" id="6_k7a22"]
 [ext_resource type="Script" path="res://item/components/TextureComponent.gd" id="7_aifmx"]
-[ext_resource type="Texture2D" uid="uid://cwb5u0d0gafgk" path="res://item/tools/Combined_LVs-7.png" id="8_ukgmj"]
+[ext_resource type="Texture2D" uid="uid://cwb5u0d0gafgk" path="res://item/tools/Light.png" id="8_ukgmj"]
 [ext_resource type="Script" path="res://item/ItemType.gd" id="9_jkm5p"]
 [ext_resource type="Script" path="res://item/components/AttachComponent.gd" id="9_t731v"]
 
@@ -41,7 +41,7 @@ components = Array[Resource("res://item/components/ItemComponent.gd")]([SubResou
 script = ExtResource("1_dos0n")
 name = "UV Light"
 description = "Give your shelves a light boost!"
-scene = ExtResource("1_h6ioy")
+scene = ExtResource("1_esipn")
 type_name = 4
 home_inventory = 2
 type = SubResource("Resource_rrf5x")

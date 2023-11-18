@@ -1,13 +1,13 @@
 [gd_resource type="Resource" script_class="ItemData" load_steps=16 format=3 uid="uid://cp3r4g23icnd8"]
 
-[ext_resource type="PackedScene" uid="uid://kbop5v4tyhi8" path="res://item/BigSpriteItemScene.tscn" id="1_kuyhn"]
-[ext_resource type="Texture2D" uid="uid://brvy27s6rqef0" path="res://item/pots/pot1.png" id="1_sq8yh"]
+[ext_resource type="PackedScene" uid="uid://ccc0q42vlb8gu" path="res://item/SmolItemScene.tscn" id="1_rd74f"]
 [ext_resource type="Script" path="res://item/ItemData.gd" id="2_wo6lb"]
 [ext_resource type="Script" path="res://item/components/StackableComponent.gd" id="3_cqrsi"]
 [ext_resource type="Script" path="res://item/ItemType.gd" id="4_gvctl"]
 [ext_resource type="Script" path="res://item/components/PotComponent.gd" id="4_u5lcw"]
 [ext_resource type="Script" path="res://item/components/BuyComponent.gd" id="5_pyyvl"]
 [ext_resource type="Script" path="res://item/components/TextureComponent.gd" id="6_vejsk"]
+[ext_resource type="Texture2D" uid="uid://wa8adbcb2op1" path="res://item/pots/Pot1.png" id="7_b8w70"]
 [ext_resource type="Script" path="res://item/components/AcquireComponent.gd" id="8_tepaj"]
 
 [sub_resource type="Resource" id="Resource_jr75w"]
@@ -24,7 +24,7 @@ base_value = 3.0
 
 [sub_resource type="Resource" id="Resource_252de"]
 script = ExtResource("6_vejsk")
-texture = ExtResource("1_sq8yh")
+texture = ExtResource("7_b8w70")
 
 [sub_resource type="Resource" id="Resource_dyf7i"]
 script = ExtResource("8_tepaj")
@@ -35,9 +35,9 @@ components = Array[Resource("res://item/components/ItemComponent.gd")]([SubResou
 
 [resource]
 script = ExtResource("2_wo6lb")
-name = "Purple Pot"
-description = "A nice purple pot"
-scene = ExtResource("1_kuyhn")
+name = "Pink Pot"
+description = "Blushingly pink!"
+scene = ExtResource("1_rd74f")
 type_name = 2
 home_inventory = 1
 type = SubResource("Resource_gqllb")

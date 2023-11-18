@@ -3,29 +3,27 @@
 [ext_resource type="Script" path="res://item/plants/PlantItemScene.gd" id="1_wny2f"]
 [ext_resource type="Texture2D" uid="uid://qcc3q41lbsg" path="res://item/plants/BrightLeaf/BrightLeafYoung.png" id="2_sl68t"]
 [ext_resource type="Texture2D" uid="uid://cpvvfq300xyao" path="res://item/plants/BrightLeaf/BrightLeafMature.png" id="3_qbh1p"]
-[ext_resource type="Texture2D" uid="uid://brvy27s6rqef0" path="res://item/pots/pot1.png" id="4_874m0"]
+[ext_resource type="Texture2D" uid="uid://dgeqvdlpvyepi" path="res://item/pots/Pot0.png" id="4_7tmts"]
 [ext_resource type="Texture2D" uid="uid://b61560tugupur" path="res://item/plants/BrightLeaf/Combined_LVs-12.png" id="5_chrkl"]
 [ext_resource type="Texture2D" uid="uid://b5s7taphxx4x5" path="res://item/plants/BrightLeaf/BrightLeaf.png" id="5_trkkf"]
 
 [node name="Plant" type="Node2D"]
-scale = Vector2(0.18941, 0.18941)
 script = ExtResource("1_wny2f")
 
 [node name="PlantSpriteYoung" type="Sprite2D" parent="."]
-visible = false
 position = Vector2(-31.6773, -686.342)
-scale = Vector2(0.447883, 0.447883)
+scale = Vector2(0.1, 0.1)
 texture = ExtResource("2_sl68t")
 
 [node name="PlantSpriteMature" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(42.2363, -1261.81)
-scale = Vector2(1.13555, 1.13555)
+scale = Vector2(0.1, 0.1)
 texture = ExtResource("3_qbh1p")
 
 [node name="PotSprite" type="Sprite2D" parent="."]
 position = Vector2(2.08165e-12, 2.08165e-12)
-scale = Vector2(0.477667, 0.477667)
-texture = ExtResource("4_874m0")
+texture = ExtResource("4_7tmts")
 
 [node name="FruitButton" type="Button" parent="."]
 visible = false

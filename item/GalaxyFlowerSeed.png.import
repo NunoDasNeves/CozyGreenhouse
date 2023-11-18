@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cwb5u0d0gafgk"
-path="res://.godot/imported/Combined_LVs-7.png-7fcba54311c886de49839e610286330d.ctex"
+uid="uid://cvnpsjtkl4waj"
+path="res://.godot/imported/GalaxyFlowerSeed.png-2cf3c00b4907b15c5c399b0553b9b666.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://item/tools/Combined_LVs-7.png"
-dest_files=["res://.godot/imported/Combined_LVs-7.png-7fcba54311c886de49839e610286330d.ctex"]
+source_file="res://item/GalaxyFlowerSeed.png"
+dest_files=["res://.godot/imported/GalaxyFlowerSeed.png-2cf3c00b4907b15c5c399b0553b9b666.ctex"]
 
 [params]
 
