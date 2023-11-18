@@ -1,0 +1,45 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=17 format=3 uid="uid://brspdjnvdnbxy"]
+
+[ext_resource type="PackedScene" uid="uid://bw145ublkri14" path="res://item/SpriteItem.tscn" id="1_1oj00"]
+[ext_resource type="Script" path="res://item/ItemData.gd" id="2_ojiov"]
+[ext_resource type="Script" path="res://item/components/StackableComponent.gd" id="3_gqnr2"]
+[ext_resource type="Resource" uid="uid://h8esa8w68cfg" path="res://item/plants/SpaceMushies/SpaceMushies.tres" id="4_aspqe"]
+[ext_resource type="Script" path="res://item/components/SeedComponent.gd" id="5_u522i"]
+[ext_resource type="Script" path="res://item/components/TextureComponent.gd" id="6_wuxu6"]
+[ext_resource type="Texture2D" uid="uid://df21g38ppl4w7" path="res://item/plants/SpaceMushies/Mushroom_Seed.png" id="7_1peof"]
+[ext_resource type="Script" path="res://item/components/BuyComponent.gd" id="8_jh813"]
+[ext_resource type="Script" path="res://item/components/AcquireComponent.gd" id="9_f7p5m"]
+[ext_resource type="Script" path="res://item/ItemType.gd" id="10_xng57"]
+
+[sub_resource type="Resource" id="Resource_qhakd"]
+script = ExtResource("3_gqnr2")
+max_stack_size = 99
+show_1x_quantity = true
+
+[sub_resource type="Resource" id="Resource_2nyg0"]
+script = ExtResource("5_u522i")
+plant = ExtResource("4_aspqe")
+
+[sub_resource type="Resource" id="Resource_20bkt"]
+script = ExtResource("6_wuxu6")
+texture = ExtResource("7_1peof")
+
+[sub_resource type="Resource" id="Resource_umqud"]
+script = ExtResource("8_jh813")
+base_value = 8.0
+
+[sub_resource type="Resource" id="Resource_uj7p8"]
+script = ExtResource("9_f7p5m")
+
+[sub_resource type="Resource" id="Resource_h70bn"]
+script = ExtResource("10_xng57")
+components = Array[Resource("res://item/components/ItemComponent.gd")]([SubResource("Resource_qhakd"), SubResource("Resource_2nyg0"), SubResource("Resource_20bkt"), SubResource("Resource_umqud"), SubResource("Resource_uj7p8")])
+
+[resource]
+script = ExtResource("2_ojiov")
+name = "Space Spores"
+description = "Don't even trip, homes."
+scene = ExtResource("1_1oj00")
+type_name = 1
+home_inventory = 0
+type = SubResource("Resource_h70bn")

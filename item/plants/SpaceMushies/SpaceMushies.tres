@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=10 format=3 uid="uid://h8esa8w68cfg"]
+
+[ext_resource type="PackedScene" uid="uid://dqp4pv37vo6n7" path="res://item/plants/SpaceMushies/SpaceMushies.tscn" id="1_y2x75"]
+[ext_resource type="Script" path="res://item/ItemData.gd" id="2_t42jx"]
+[ext_resource type="Resource" uid="uid://d37n1acisvfx1" path="res://item/plants/SpaceMushies/SpaceMushiesData.tres" id="3_4h84l"]
+[ext_resource type="Script" path="res://item/components/PlantItemComponent.gd" id="4_r3tfc"]
+[ext_resource type="Script" path="res://item/components/CompostComponent.gd" id="5_piuvy"]
+[ext_resource type="Script" path="res://item/ItemType.gd" id="6_qypf6"]
+
+[sub_resource type="Resource" id="Resource_qko2a"]
+script = ExtResource("4_r3tfc")
+plant = ExtResource("3_4h84l")
+
+[sub_resource type="Resource" id="Resource_rbu2n"]
+script = ExtResource("5_piuvy")
+base_compost_value = 1.0
+
+[sub_resource type="Resource" id="Resource_yjkt4"]
+script = ExtResource("6_qypf6")
+components = Array[Resource("res://item/components/ItemComponent.gd")]([SubResource("Resource_qko2a"), SubResource("Resource_rbu2n")])
+
+[resource]
+script = ExtResource("2_t42jx")
+name = "Space Mushies"
+description = "They enjoy the darkness."
+scene = ExtResource("1_y2x75")
+type_name = 3
+home_inventory = 3
+type = SubResource("Resource_yjkt4")

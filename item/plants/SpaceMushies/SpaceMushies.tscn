@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://dqp4pv37vo6n7"]
+
+[ext_resource type="Script" path="res://item/plants/PlantItemScene.gd" id="1_lfn1a"]
+[ext_resource type="Texture2D" uid="uid://buko6noy218f" path="res://item/plants/SpaceMushies/Mushroom_Baby.png" id="2_hi1cu"]
+[ext_resource type="Texture2D" uid="uid://di1h078aswmhd" path="res://item/plants/SpaceMushies/Mushroom_Mature.png" id="3_c620d"]
+[ext_resource type="Texture2D" uid="uid://brvy27s6rqef0" path="res://item/pots/pot1.png" id="4_kpxeo"]
+
+[node name="Plant" type="Node2D"]
+scale = Vector2(0.18941, 0.18941)
+script = ExtResource("1_lfn1a")
+
+[node name="PlantSpriteYoung" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-84.4728, -638.826)
+scale = Vector2(0.467956, 0.467956)
+texture = ExtResource("2_hi1cu")
+
+[node name="PlantSpriteMature" type="Sprite2D" parent="."]
+position = Vector2(-126.709, -881.685)
+scale = Vector2(0.696714, 0.696714)
+texture = ExtResource("3_c620d")
+
+[node name="PotSprite" type="Sprite2D" parent="."]
+position = Vector2(2.08165e-12, 2.08165e-12)
+scale = Vector2(0.477667, 0.477667)
+texture = ExtResource("4_kpxeo")
+
+[node name="FruitButton" type="Button" parent="."]
+offset_left = -644.0
+offset_top = -1600.0
+offset_right = 500.0
+offset_bottom = -450.0
+mouse_default_cursor_shape = 2
+
+[node name="Fruits" type="Node2D" parent="."]
+visible = false
+
+[connection signal="pressed" from="FruitButton" to="." method="on_fruit_clicked"]

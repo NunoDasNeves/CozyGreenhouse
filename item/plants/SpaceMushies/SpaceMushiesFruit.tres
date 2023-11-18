@@ -1,0 +1,44 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=16 format=3 uid="uid://ll75r3opfioc"]
+
+[ext_resource type="PackedScene" uid="uid://d3pieoy6wr6xv" path="res://item/plants/SpaceMushies/SpaceMushiesFruit.tscn" id="1_fhxre"]
+[ext_resource type="Script" path="res://item/ItemData.gd" id="2_q5447"]
+[ext_resource type="Script" path="res://item/components/StackableComponent.gd" id="3_q7oj3"]
+[ext_resource type="Script" path="res://item/components/SellComponent.gd" id="4_53vuy"]
+[ext_resource type="Script" path="res://item/components/TextureComponent.gd" id="5_765bg"]
+[ext_resource type="Texture2D" uid="uid://di1h078aswmhd" path="res://item/plants/SpaceMushies/Mushroom_Mature.png" id="6_4scwe"]
+[ext_resource type="Script" path="res://item/components/FruitComponent.gd" id="7_yrchs"]
+[ext_resource type="Script" path="res://item/components/CompostComponent.gd" id="8_a5r7b"]
+[ext_resource type="Script" path="res://item/ItemType.gd" id="9_uwv4s"]
+
+[sub_resource type="Resource" id="Resource_seg17"]
+script = ExtResource("3_q7oj3")
+max_stack_size = 99
+show_1x_quantity = true
+
+[sub_resource type="Resource" id="Resource_2l001"]
+script = ExtResource("4_53vuy")
+base_value = 4.0
+
+[sub_resource type="Resource" id="Resource_nkdis"]
+script = ExtResource("5_765bg")
+texture = ExtResource("6_4scwe")
+
+[sub_resource type="Resource" id="Resource_s6r3q"]
+script = ExtResource("7_yrchs")
+
+[sub_resource type="Resource" id="Resource_knyk5"]
+script = ExtResource("8_a5r7b")
+base_compost_value = 3.0
+
+[sub_resource type="Resource" id="Resource_y0ivh"]
+script = ExtResource("9_uwv4s")
+components = Array[Resource("res://item/components/ItemComponent.gd")]([SubResource("Resource_seg17"), SubResource("Resource_2l001"), SubResource("Resource_nkdis"), SubResource("Resource_s6r3q"), SubResource("Resource_knyk5")])
+
+[resource]
+script = ExtResource("2_q5447")
+name = "Space Mushroom"
+description = "They compost particularly well"
+scene = ExtResource("1_fhxre")
+type_name = 5
+home_inventory = 4
+type = SubResource("Resource_y0ivh")
