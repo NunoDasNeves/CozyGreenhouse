@@ -4,7 +4,9 @@
 [ext_resource type="Resource" uid="uid://dk8us7i65t6kj" path="res://item/plants/SaturnStalk/SaturnPod.tres" id="2_dbf1y"]
 [ext_resource type="Script" path="res://item/plants/PlantFood.gd" id="3_xqixk"]
 [ext_resource type="Script" path="res://item/plants/PlantData.gd" id="4_1kf2m"]
+[ext_resource type="Texture2D" uid="uid://58472iewsi0x" path="res://item/plants/SaturnStalk/SaturnStalkMature.png" id="4_t2kuk"]
 [ext_resource type="Script" path="res://item/plants/WaterPlantFood.gd" id="5_io5m1"]
+[ext_resource type="Texture2D" uid="uid://6gei0a8n81l2" path="res://item/plants/SaturnStalk/SaturnStalkYoung.png" id="7_sm530"]
 
 [sub_resource type="Resource" id="Resource_a238k"]
 script = ExtResource("3_xqixk")
@@ -17,8 +19,6 @@ bad_fruit_factor = 0.6
 happy_growth_factor = 1.0
 bad_growth_factor = 0.4
 bad_days_til_death = 0
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_6lpbq"]
 
 [sub_resource type="Resource" id="Resource_ui3f0"]
 script = ExtResource("5_io5m1")
@@ -34,12 +34,10 @@ happy_growth_factor = 1.0
 bad_growth_factor = 1.0
 bad_days_til_death = 0
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_a0cu5"]
-
 [resource]
 script = ExtResource("4_1kf2m")
-young_texture = SubResource("CompressedTexture2D_a0cu5")
-mature_texture = SubResource("CompressedTexture2D_6lpbq")
+young_texture = ExtResource("7_sm530")
+mature_texture = ExtResource("4_t2kuk")
 light = SubResource("Resource_a238k")
 water = SubResource("Resource_ui3f0")
 fertilizer = ExtResource("1_hptmr")

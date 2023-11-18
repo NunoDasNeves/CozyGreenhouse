@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="State" load_steps=13 format=3 uid="uid://pd4tttgjpoxf"]
+
+[ext_resource type="Resource" uid="uid://csw8uhucnfusw" path="res://statedata/DebugPotsInventory.tres" id="1_q5g1l"]
+[ext_resource type="Script" path="res://statedata/State.gd" id="2_ey3ae"]
+[ext_resource type="Resource" uid="uid://bygkbwxgoognm" path="res://statedata/DebugSeedsInventory.tres" id="3_6my3r"]
+[ext_resource type="Resource" uid="uid://djv3x4rgek2xy" path="res://statedata/DebugSellInventory.tres" id="4_6uyjr"]
+[ext_resource type="Resource" uid="uid://d2jo5w7j6juca" path="res://statedata/InitialShelfInventory.tres" id="5_7df82"]
+[ext_resource type="Resource" uid="uid://bljdxwel327w5" path="res://merchants/Merchant0.tres" id="6_kp16u"]
+[ext_resource type="Resource" uid="uid://dcmo1dlje5wsm" path="res://merchants/Merchant1.tres" id="7_0nsyp"]
+[ext_resource type="Resource" uid="uid://sbv704hyihg2" path="res://merchants/Merchant2.tres" id="8_eoeow"]
+[ext_resource type="Resource" uid="uid://6yo8nhfivaqd" path="res://merchants/Merchant3.tres" id="9_va57l"]
+[ext_resource type="Script" path="res://merchants/ShopSchedule.gd" id="10_o6lcy"]
+[ext_resource type="Resource" uid="uid://bbw3guqju3uxn" path="res://statedata/InitialToolsInventory.tres" id="11_lvrl7"]
+
+[sub_resource type="Resource" id="Resource_qcaug"]
+script = ExtResource("10_o6lcy")
+initial_days = Array[Resource("res://merchants/MerchantData.gd")]([null, null, ExtResource("6_kp16u"), null, null, ExtResource("7_0nsyp"), null, null, ExtResource("8_eoeow"), null, null, ExtResource("9_va57l"), null])
+random_merchant_pool = Array[Resource("res://merchants/MerchantData.gd")]([ExtResource("6_kp16u"), ExtResource("7_0nsyp"), ExtResource("8_eoeow"), ExtResource("9_va57l")])
+
+[resource]
+script = ExtResource("2_ey3ae")
+curr_day = 0
+water_tank_level = 10.0
+max_water_tank_level = 25.0
+money = 10.0
+compost = 0.0
+seed_inventory_data = ExtResource("3_6my3r")
+pot_inventory_data = ExtResource("1_q5g1l")
+tool_inventory_data = ExtResource("11_lvrl7")
+shelf_inventory_data = ExtResource("5_7df82")
+sell_inventory_data = ExtResource("4_6uyjr")
+shop_schedule = SubResource("Resource_qcaug")
