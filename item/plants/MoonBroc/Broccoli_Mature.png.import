@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d7cbk5rawys2"
-path="res://.godot/imported/Brocoli_Mature.png-2a0ff071225a1e50e95f513739fa6a06.ctex"
+uid="uid://cbscq8qdi3vqo"
+path="res://.godot/imported/Broccoli_Mature.png-ad6c5f478e1e54582c97d05b25cc82f7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://item/plants/MoonBroc/Brocoli_Mature.png"
-dest_files=["res://.godot/imported/Brocoli_Mature.png-2a0ff071225a1e50e95f513739fa6a06.ctex"]
+source_file="res://item/plants/MoonBroc/Broccoli_Mature.png"
+dest_files=["res://.godot/imported/Broccoli_Mature.png-ad6c5f478e1e54582c97d05b25cc82f7.ctex"]
 
 [params]
 

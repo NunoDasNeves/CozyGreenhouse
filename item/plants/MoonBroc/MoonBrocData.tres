@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://item/plants/PlantFood.gd" id="1_wt22r"]
 [ext_resource type="Resource" uid="uid://eylkbu5hsxa6" path="res://item/plants/MoonBroc/MoonBrocFruit.tres" id="2_tb6so"]
 [ext_resource type="Script" path="res://item/plants/PlantData.gd" id="3_56rbi"]
-[ext_resource type="Texture2D" uid="uid://d7cbk5rawys2" path="res://item/plants/MoonBroc/Brocoli_Mature.png" id="3_xxkit"]
+[ext_resource type="Texture2D" uid="uid://cbscq8qdi3vqo" path="res://item/plants/MoonBroc/Broccoli_Mature.png" id="3_fqp0g"]
 [ext_resource type="Script" path="res://item/plants/WaterPlantFood.gd" id="5_vvta6"]
 [ext_resource type="Texture2D" uid="uid://cmcqvupt1bc3l" path="res://item/plants/MoonBroc/Brocoli_Baby.png" id="5_wdv1h"]
 
@@ -36,7 +36,7 @@ bad_days_til_death = 0
 [resource]
 script = ExtResource("3_56rbi")
 young_texture = ExtResource("5_wdv1h")
-mature_texture = ExtResource("3_xxkit")
+mature_texture = ExtResource("3_fqp0g")
 light = SubResource("Resource_76x3t")
 water = SubResource("Resource_5wsf4")
 fruit_per_day = 2.08165e-12
