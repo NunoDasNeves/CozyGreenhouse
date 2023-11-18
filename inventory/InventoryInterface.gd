@@ -17,14 +17,16 @@ class_name InventoryInterface
 @onready var buy_inventory: PanelContainer = $TabContainer/Shop
 
 @export var initial_state: State
+@export var debug_state: State
+
 var state: State
 
 func init_inventory(inventory: Inventory, inventory_data: InventoryData):
 	inventory.init(inventory_data)
 	inventory.inventory_interact.connect(grab_slot.on_inventory_interact)
 
-func init() -> void:
-	Global.state = initial_state.duplicate()
+func init_game_state(the_state: State) -> void:
+	Global.state = the_state.duplicate()
 	state = Global.state
 	state.init_curr_day()
 
@@ -50,13 +52,26 @@ func init() -> void:
 	update_shop()
 
 func _ready() -> void:
-	init()
+	init_initial_state()
+
+func init_initial_state() -> void:
+	init_game_state(initial_state.duplicate())
+
+func init_debug_state() -> void:
+	init_game_state(debug_state.duplicate())
 
 func _input(event: InputEvent) -> void:
 	var mouse_event := event as InputEventMouseButton
 	if mouse_event and mouse_event.button_index == MOUSE_BUTTON_RIGHT:
 		if grab_slot.dismiss():
 			accept_event()
+			return
+	var key_event := event as InputEventKey
+	if key_event and key_event.is_pressed():
+		if key_event.keycode == KEY_R:
+			init_initial_state()
+		elif key_event.keycode == KEY_D:
+			init_debug_state()
 
 func clear_grab_slot() -> void:
 	grab_slot.clear()

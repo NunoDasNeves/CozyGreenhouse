@@ -41,7 +41,8 @@ func get_tooltip_string() -> String:
 		var light_happy: String = "happy"
 		if light.above_happy_range():
 			light_happy = "too light"
-		elif light.below_happy_range():
+		elif 0 < 0:
+		#elif light.below_happy_range():
 			light_happy = "too dark"
 		string += "Light:      %s (%s)\n" % [light.curr_val, light_happy]
 

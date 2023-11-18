@@ -13,15 +13,16 @@ class_name PlantFood
 var curr_val: float
 var bad_days_count: int
 
+# hackszksdmzkdmzlskdmlz
 func above_happy_range() -> bool:
-	return curr_val > happy_max
+	return curr_val > (happy_max + 0.01)
 
 func below_happy_range() -> bool:
-	return curr_val < happy_min
+	return curr_val < (happy_min - 0.01)
 
 func in_happy_range() -> bool:
-	return curr_val >= happy_min && \
-		   curr_val <= happy_max
+	return curr_val >= (happy_min - 0.01) && \
+		   curr_val <= (happy_max + 0.01)
 
 func should_die() -> bool:
 	return bad_days_count >= bad_days_til_death
