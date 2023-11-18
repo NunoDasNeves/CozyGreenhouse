@@ -30,7 +30,6 @@ bad_growth_factor = 0.0
 bad_days_til_death = -1
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_sdktq"]
-load_path = "res://.godot/imported/GalaxyFlowerMature.png-c84cd9408df526b1b63cb8b8980cf0a6.ctex"
 
 [sub_resource type="Resource" id="Resource_n3epo"]
 script = ExtResource("4_7b2cy")
@@ -47,7 +46,6 @@ bad_growth_factor = 1.0
 bad_days_til_death = 0
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_oeweh"]
-load_path = "res://.godot/imported/GalaxyFlowerYoung.png-e4010c2fc4484c5cd42cf1e7ce52681a.ctex"
 
 [resource]
 script = ExtResource("3_3o813")
