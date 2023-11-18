@@ -17,7 +17,7 @@ show_1x_quantity = true
 
 [sub_resource type="Resource" id="Resource_tgs2i"]
 script = ExtResource("4_umyfr")
-base_value = 5.0
+base_value = 1.0
 
 [sub_resource type="Resource" id="Resource_utewc"]
 script = ExtResource("5_221sl")
@@ -37,7 +37,7 @@ components = Array[Resource("res://item/components/ItemComponent.gd")]([SubResou
 [resource]
 script = ExtResource("2_wkwpf")
 name = "Moon Lettuce Pod"
-description = "Ummm...Can you eat this?"
+description = "Worth little, but they grow in abundance!"
 scene = ExtResource("2_nsx3w")
 type_name = 5
 home_inventory = 4

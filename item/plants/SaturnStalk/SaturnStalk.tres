@@ -21,8 +21,8 @@ components = Array[Resource("res://item/components/ItemComponent.gd")]([SubResou
 
 [resource]
 script = ExtResource("2_8uguv")
-name = "Moon Lettuce"
-description = "Moony"
+name = "Saturn Stalk"
+description = "Its pods are the staple food of the galaxy."
 scene = ExtResource("1_woin1")
 type_name = 3
 home_inventory = 3

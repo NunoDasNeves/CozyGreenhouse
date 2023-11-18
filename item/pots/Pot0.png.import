@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dgeqvdlpvyepi"
-path="res://.godot/imported/Combined_LVs 2.png-15bf63364e6c4917ba04459dca64cd4f.ctex"
+path="res://.godot/imported/Pot0.png-151a339d7daa7b362edb9e9fa8c6b231.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://item/pots/Combined_LVs 2.png"
-dest_files=["res://.godot/imported/Combined_LVs 2.png-15bf63364e6c4917ba04459dca64cd4f.ctex"]
+source_file="res://item/pots/Pot0.png"
+dest_files=["res://.godot/imported/Pot0.png-151a339d7daa7b362edb9e9fa8c6b231.ctex"]
 
 [params]
 

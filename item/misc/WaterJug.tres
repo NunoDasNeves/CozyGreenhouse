@@ -20,6 +20,7 @@ base_value = 5.0
 
 [sub_resource type="Resource" id="Resource_hl16v"]
 script = ExtResource("5_rv8uu")
+water_amount = 3.0
 
 [sub_resource type="Resource" id="Resource_uomw3"]
 script = ExtResource("6_o8y0r")
@@ -32,7 +33,7 @@ components = Array[Resource("res://item/components/ItemComponent.gd")]([SubResou
 [resource]
 script = ExtResource("1_gid7q")
 name = "Water Jug"
-description = "1 litre of delicious life-giving water!"
+description = "3 litres of delicious life-giving water!"
 scene = ExtResource("1_5vwrw")
 type_name = 0
 home_inventory = 5

@@ -21,7 +21,7 @@ script = ExtResource("4_r6867")
 
 [sub_resource type="Resource" id="Resource_243gn"]
 script = ExtResource("5_bcvu2")
-base_value = 12.0
+base_value = 20.0
 
 [sub_resource type="Resource" id="Resource_la2df"]
 script = ExtResource("6_k7a22")
