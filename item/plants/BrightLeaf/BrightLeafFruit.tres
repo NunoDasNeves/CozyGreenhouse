@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://item/components/StackableComponent.gd" id="3_ov255"]
 [ext_resource type="Script" path="res://item/components/SellComponent.gd" id="4_qbsl3"]
 [ext_resource type="Script" path="res://item/components/TextureComponent.gd" id="5_rhibh"]
-[ext_resource type="Texture2D" uid="uid://b5s7taphxx4x5" path="res://item/plants/BrightLeaf/BrightLeaf.png" id="6_c8jjm"]
+[ext_resource type="Texture2D" uid="uid://b61560tugupur" path="res://item/plants/BrightLeaf/Combined_LVs-12.png" id="6_06qpc"]
 [ext_resource type="Script" path="res://item/components/FruitComponent.gd" id="7_2j2dp"]
 [ext_resource type="Script" path="res://item/components/CompostComponent.gd" id="8_bi61y"]
 [ext_resource type="Script" path="res://item/ItemType.gd" id="9_m3deb"]
@@ -21,7 +21,7 @@ base_value = 6.0
 
 [sub_resource type="Resource" id="Resource_thijl"]
 script = ExtResource("5_rhibh")
-texture = ExtResource("6_c8jjm")
+texture = ExtResource("6_06qpc")
 
 [sub_resource type="Resource" id="Resource_m8kul"]
 script = ExtResource("7_2j2dp")

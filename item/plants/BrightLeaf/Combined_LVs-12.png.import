@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://jh0nf3vx7s0c"
-path="res://.godot/imported/Combined_LVs-8.png-bab5e928247194b919f41dba0177f39e.ctex"
+uid="uid://b61560tugupur"
+path="res://.godot/imported/Combined_LVs-12.png-be3cae4828d22dc56882b1affceec879.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://item/misc/Combined_LVs-8.png"
-dest_files=["res://.godot/imported/Combined_LVs-8.png-bab5e928247194b919f41dba0177f39e.ctex"]
+source_file="res://item/plants/BrightLeaf/Combined_LVs-12.png"
+dest_files=["res://.godot/imported/Combined_LVs-12.png-be3cae4828d22dc56882b1affceec879.ctex"]
 
 [params]
 

@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://du2hqh8a7uo3l"]
+[gd_scene load_steps=7 format=3 uid="uid://du2hqh8a7uo3l"]
 
 [ext_resource type="Script" path="res://item/plants/PlantItemScene.gd" id="1_wny2f"]
 [ext_resource type="Texture2D" uid="uid://qcc3q41lbsg" path="res://item/plants/BrightLeaf/BrightLeafYoung.png" id="2_sl68t"]
 [ext_resource type="Texture2D" uid="uid://cpvvfq300xyao" path="res://item/plants/BrightLeaf/BrightLeafMature.png" id="3_qbh1p"]
 [ext_resource type="Texture2D" uid="uid://brvy27s6rqef0" path="res://item/pots/pot1.png" id="4_874m0"]
+[ext_resource type="Texture2D" uid="uid://b61560tugupur" path="res://item/plants/BrightLeaf/Combined_LVs-12.png" id="5_chrkl"]
 [ext_resource type="Texture2D" uid="uid://b5s7taphxx4x5" path="res://item/plants/BrightLeaf/BrightLeaf.png" id="5_trkkf"]
 
 [node name="Plant" type="Node2D"]
@@ -39,8 +40,7 @@ mouse_default_cursor_shape = 2
 [node name="BrightLeaf" type="Sprite2D" parent="Fruits"]
 position = Vector2(116.15, -1636.66)
 rotation = 0.449545
-scale = Vector2(0.456176, 0.456176)
-texture = ExtResource("5_trkkf")
+texture = ExtResource("5_chrkl")
 
 [node name="BrightLeaf2" type="Sprite2D" parent="Fruits"]
 position = Vector2(-209.359, -618.284)
