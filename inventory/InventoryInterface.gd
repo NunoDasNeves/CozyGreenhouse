@@ -9,7 +9,6 @@ class_name InventoryInterface
 @onready var water_tank_bar: ProgressBar = $WaterTankBar
 @onready var money_amount: Label = $MoneyAmount
 @onready var compost_bar: ProgressBar = $Compost/ProgressBar
-@onready var compost_button: CompostBin = $Compost/TextureButton
 @onready var merchant: Node2D = $MerchantContainer/Merchant
 @onready var merchant_sprite: Sprite2D = $MerchantContainer/Merchant/background/Sprite
 
@@ -41,8 +40,10 @@ func _ready() -> void:
 	ready_inventory(sell_inventory)
 	ready_inventory(buy_inventory)
 
-	compost_button.composted_grabbed_item.connect(clear_grab_slot)
 	next_day_button.button_down.connect(next_day)
+
+func compost_grabbed_item() -> void:
+	state.compost_grabbed_item()
 
 func on_play_pressed() -> void:
 	title_screen.hide()
@@ -64,6 +65,7 @@ func init_game_state(the_state: State) -> void:
 	state.money_updated.connect(update_money_text)
 	state.compost_updated.connect(update_compost_bar)
 	state.shop_updated.connect(update_shop)
+	state.grab_updated.connect(update_grab)
 
 	grab_slot.grab_data = state.grab_data
 	grab_slot.update()
@@ -91,6 +93,9 @@ func _input(event: InputEvent) -> void:
 			init_initial_state()
 		elif key_event.keycode == KEY_D:
 			init_debug_state()
+
+func update_grab() -> void:
+	grab_slot.update()
 
 func clear_grab_slot() -> void:
 	grab_slot.clear()

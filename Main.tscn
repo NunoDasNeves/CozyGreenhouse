@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://stabv7nin058"]
+[gd_scene load_steps=36 format=3 uid="uid://stabv7nin058"]
 
 [ext_resource type="Script" path="res://Main.gd" id="1_b7ej4"]
 [ext_resource type="PackedScene" uid="uid://0alw4cfw4g22" path="res://inventory/Inventory.tscn" id="1_occea"]
@@ -17,7 +17,6 @@
 [ext_resource type="Texture2D" uid="uid://dnw0mdguv067e" path="res://CompostBin.png" id="12_tetco"]
 [ext_resource type="Texture2D" uid="uid://2r8gnmotkxnb" path="res://End_Day.png" id="13_gnkfe"]
 [ext_resource type="PackedScene" uid="uid://b8iki5hc8c177" path="res://inventory/ProductsInventory.tscn" id="13_yk8kt"]
-[ext_resource type="Script" path="res://CompostBin.gd" id="14_fn1qj"]
 [ext_resource type="Texture2D" uid="uid://dxn0isq1fhh8t" path="res://End_Day_Hover_State.png" id="14_kqcg0"]
 [ext_resource type="Texture2D" uid="uid://tvit1guael3d" path="res://merchants/Merchant0.png" id="17_sdtj8"]
 [ext_resource type="Texture2D" uid="uid://8sy3abjwklkw" path="res://merchants/Merchant_Frame.png" id="18_oi2ao"]
@@ -201,7 +200,7 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="TextureButton" type="TextureButton" parent="UI/InventoryInterface/Compost"]
+[node name="Button" type="TextureButton" parent="UI/InventoryInterface/Compost"]
 layout_mode = 0
 offset_left = 3333.0
 offset_top = 1596.0
@@ -217,7 +216,6 @@ texture_pressed = ExtResource("12_tetco")
 texture_hover = ExtResource("12_tetco")
 texture_disabled = ExtResource("12_tetco")
 texture_focused = ExtResource("12_tetco")
-script = ExtResource("14_fn1qj")
 
 [node name="ProgressBar" type="ProgressBar" parent="UI/InventoryInterface/Compost"]
 layout_mode = 0
@@ -327,5 +325,5 @@ texture_hover = ExtResource("27_gj2gs")
 texture_focused = ExtResource("26_j0yqb")
 stretch_mode = 3
 
-[connection signal="pressed" from="UI/InventoryInterface/Compost/TextureButton" to="UI/InventoryInterface/Compost/TextureButton" method="_on_pressed"]
+[connection signal="pressed" from="UI/InventoryInterface/Compost/Button" to="UI/InventoryInterface" method="compost_grabbed_item"]
 [connection signal="pressed" from="UI/TitleScreen/Node2D/TextureButton" to="UI/InventoryInterface" method="on_play_pressed"]

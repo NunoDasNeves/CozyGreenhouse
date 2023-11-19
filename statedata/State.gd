@@ -5,6 +5,7 @@ signal water_updated
 signal money_updated
 signal compost_updated
 signal shop_updated
+signal grab_updated
 
 const FERTILIZER_AMOUNT: float = 1
 const WATERING_CAN_WATER_AMOUNT: float = 0.5
@@ -63,6 +64,31 @@ func add_compost(amount: float) -> void:
 		slot_data.item_data = fertilizer_item_data
 		acquire_items([slot_data])
 	compost_updated.emit()
+
+func compost_grabbed_item() -> void:
+	var slot_data: SlotData = grab_data.slot_data
+	if not slot_data:
+		return
+	var item_data: ItemData = slot_data.item_data
+	var compost_component: CompostComponent = item_data.get_component("Compost")
+	if not compost_component:
+		return
+	var compost_value: float = compost_component.get_compost_value(item_data)
+	add_compost(compost_value)
+
+	# composting a plant leaves you holding the pot
+	var plant_component: PlantItemComponent = item_data.get_component("Plant")
+	if plant_component:
+		slot_data.item_data = plant_component.plant.pot_item_data
+
+	# composting a stack just does one at a time
+	var stackable_component: StackableComponent = item_data.get_component("Stackable")
+	if stackable_component:
+		slot_data.quantity -= 1
+		if !slot_data.quantity:
+			grab_data.clear()
+
+	grab_updated.emit()
 
 func add_money(amount: float) -> void:
 	money += amount

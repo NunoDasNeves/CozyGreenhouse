@@ -199,18 +199,10 @@ func grab_slot_data(index: int) -> SlotData:
 	assert(slot_data.quantity)
 	assert(slot_data.item_data)
 
-	slot_data.quantity -= 1
-	var ret_slot_data: SlotData = SlotData.new()
-	ret_slot_data.item_data = slot_data.item_data
-	ret_slot_data.quantity = 1
-	ret = ret_slot_data
-
-	if slot_data.quantity == 0:
-		slot_datas[index] = null
-
+	slot_datas[index] = null
 	slot_updated.emit(index)
 
-	return ret
+	return slot_data
 
 func drop_slot_data(grabbed_slot_data: SlotData, _index: int) -> SlotData:
 	var grabbed_item_data := grabbed_slot_data.item_data
