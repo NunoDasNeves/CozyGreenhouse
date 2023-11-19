@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=16 format=3 uid="uid://4xswugnup0ea"]
+[gd_resource type="Theme" load_steps=20 format=3 uid="uid://4xswugnup0ea"]
 
 [ext_resource type="FontFile" uid="uid://ed6jindtbc3t" path="res://fonts/Pangolin-Regular.ttf" id="1_bbqcu"]
 [ext_resource type="StyleBox" uid="uid://35agf86cl1ni" path="res://themes/inventory_background.tres" id="1_m3m8h"]
@@ -76,6 +76,38 @@ corner_radius_top_right = 32
 corner_radius_bottom_right = 32
 corner_radius_bottom_left = 32
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ijsr7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eh8vf"]
+content_margin_left = 36.0
+content_margin_top = 0.0
+content_margin_right = 36.0
+content_margin_bottom = 0.0
+bg_color = Color(0.490196, 0.572549, 0.858824, 1)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+expand_margin_bottom = 80.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mp67s"]
+content_margin_left = 36.0
+content_margin_top = 0.0
+content_margin_right = 36.0
+content_margin_bottom = 0.0
+bg_color = Color(0.372549, 0.458824, 0.780392, 1)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+expand_margin_bottom = 80.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4a652"]
+content_margin_left = 36.0
+content_margin_top = 0.0
+content_margin_right = 36.0
+content_margin_bottom = 0.0
+bg_color = Color(0.231373, 0.298039, 0.580392, 1)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+expand_margin_bottom = 80.0
+
 [resource]
 default_font_size = 32
 Button/fonts/font = ExtResource("1_bbqcu")
@@ -110,5 +142,10 @@ SlotSelected/base_type = &"PanelContainer"
 SlotSelected/styles/panel = SubResource("StyleBoxFlat_1ewmq")
 SlotSelectedInner/base_type = &"Panel"
 SlotSelectedInner/styles/panel = SubResource("StyleBoxFlat_vnf65")
+TabContainer/font_sizes/font_size = 48
 TabContainer/fonts/font = ExtResource("1_bbqcu")
+TabContainer/styles/panel = SubResource("StyleBoxEmpty_ijsr7")
+TabContainer/styles/tab_hovered = SubResource("StyleBoxFlat_eh8vf")
+TabContainer/styles/tab_selected = SubResource("StyleBoxFlat_mp67s")
+TabContainer/styles/tab_unselected = SubResource("StyleBoxFlat_4a652")
 TooltipLabel/fonts/font = ExtResource("1_bbqcu")

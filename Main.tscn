@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://stabv7nin058"]
+[gd_scene load_steps=23 format=3 uid="uid://stabv7nin058"]
 
 [ext_resource type="Script" path="res://Main.gd" id="1_b7ej4"]
 [ext_resource type="PackedScene" uid="uid://0alw4cfw4g22" path="res://inventory/Inventory.tscn" id="1_occea"]
@@ -22,29 +22,6 @@
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_10m38"]
 bg_color = Color(0.12549, 0.403922, 0.87451, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_64ggw"]
-content_margin_left = 36.0
-content_margin_top = 0.0
-content_margin_right = 36.0
-content_margin_bottom = 0.0
-bg_color = Color(0.180392, 0.184314, 0.223529, 1)
-corner_radius_top_left = 40
-corner_radius_top_right = 40
-expand_margin_bottom = 80.0
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6gk88"]
-content_margin_left = 36.0
-content_margin_top = 0.0
-content_margin_right = 36.0
-content_margin_bottom = 0.0
-bg_color = Color(0.0862745, 0.0901961, 0.113725, 1)
-corner_radius_top_left = 40
-corner_radius_top_right = 40
-expand_margin_bottom = 80.0
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5obpi"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_62jhy"]
 bg_color = Color(0.227451, 0.207843, 0.25098, 1)
@@ -214,11 +191,6 @@ offset_top = 718.0
 offset_right = 3259.0
 offset_bottom = 1904.0
 pivot_offset = Vector2(2.08165e-12, 2.08165e-12)
-theme_override_font_sizes/font_size = 48
-theme_override_styles/tab_selected = SubResource("StyleBoxFlat_64ggw")
-theme_override_styles/tab_hovered = SubResource("StyleBoxFlat_64ggw")
-theme_override_styles/tab_unselected = SubResource("StyleBoxFlat_6gk88")
-theme_override_styles/panel = SubResource("StyleBoxFlat_5obpi")
 tab_alignment = 1
 all_tabs_in_front = true
 
