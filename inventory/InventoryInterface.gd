@@ -118,6 +118,7 @@ func init_game_state(the_state: State) -> void:
 	update_money_text()
 	update_compost_bar()
 	update_shop()
+	update_day()
 
 func _input(event: InputEvent) -> void:
 	var mouse_event := event as InputEventMouseButton
@@ -173,13 +174,16 @@ func update_money_text() -> void:
 func end_day() -> void:
 	fade_to(next_day)
 
+func update_day() -> void:
+	day_num.text = "Day: %s" % state.curr_day
+
 func next_day() -> void:
 	state.next_day()
 	update_water_tank()
 	update_money_text()
 	grab_slot.dismiss()
 	grab_slot.update()
-	day_num.text = "Day: %s" % state.curr_day
+	update_day()
 
 func on_audio_finished() -> void:
 	audio_stream_player.play()
