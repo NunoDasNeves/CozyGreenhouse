@@ -73,7 +73,7 @@ func set_slot_data(slot_data: SlotData) -> void:
 		quantity_selected_input.hide()
 	price_label.remove_theme_color_override("font_color")
 	price_label.add_theme_color_override("font_color", slot_price_color)
-	price_label.text = "$%s" % slot_display_price
+	price_label.text = "%sĦ" % slot_display_price
 	price_label.show()
 
 	var compost_string: String = ""

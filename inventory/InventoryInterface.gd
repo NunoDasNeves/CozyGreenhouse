@@ -7,10 +7,11 @@ class_name InventoryInterface
 @onready var grab_slot: GrabSlot = $GrabSlot
 @onready var day_num: Label = $DayNum
 @onready var water_tank_bar: ProgressBar = $WaterTankBar
-@onready var money_amount: Label = $MoneyAmount
+@onready var money_amount: Label = $Money/MarginContainer/MoneyAmount
 @onready var compost_bar: ProgressBar = $Compost/ProgressBar
-@onready var merchant: Node2D = $MerchantContainer/Merchant
 @onready var merchant_sprite: Sprite2D = $MerchantContainer/Merchant/background/Sprite
+@onready var merchant: PanelContainer = $MerchantContainer/Merchant/background
+@onready var merchant_blankscreen: PanelContainer = $MerchantContainer/Merchant/blankscreen
 
 @onready var seed_inventory: Inventory = $SeedInventory
 @onready var pots_inventory: Inventory = $PotsInventory
@@ -25,8 +26,7 @@ class_name InventoryInterface
 var state: State
 
 func ready_inventory(inventory: Inventory) -> void:
-	if inventory.inventory_interact.is_connected(grab_slot.on_inventory_interact):
-		inventory.inventory_interact.disconnect(grab_slot.on_inventory_interact)
+	Global.disconnect_signal(inventory.inventory_interact)
 	inventory.inventory_interact.connect(grab_slot.on_inventory_interact)
 
 func _ready() -> void:
@@ -108,8 +108,10 @@ func init_merchant(merchant_data: MerchantData) -> void:
 	if merchant_data:
 		merchant_sprite.texture = merchant_data.texture
 		merchant.show()
+		merchant_blankscreen.hide()
 	else:
 		merchant.hide()
+		merchant_blankscreen.show()
 
 func update_shop() -> void:
 	var buy_inventory_data: ProductInventoryData = state.buy_inventory_data
@@ -128,7 +130,7 @@ func update_water_tank() -> void:
 			(grab_scene as WateringCanScene).play_anim()
 
 func update_money_text() -> void:
-	money_amount.text = "Money: $%s" % state.money
+	money_amount.text = "Cash: %sĦ" % state.money
 
 func next_day() -> void:
 	state.next_day()

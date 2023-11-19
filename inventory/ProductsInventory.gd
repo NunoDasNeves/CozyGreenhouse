@@ -48,4 +48,4 @@ func update_action_button() -> void:
 	action.text = prod_inventory_data.action_text
 
 func update_total_value(value: float) -> void:
-	total_label.text = "$%s" % value
+	total_label.text = "Total:\n%sĦ" % value

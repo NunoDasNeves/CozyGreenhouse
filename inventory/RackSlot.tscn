@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://c7mdwwpba77j0"]
 
 [ext_resource type="Script" path="res://inventory/RackSlot.gd" id="1_bs6xc"]
-[ext_resource type="PackedScene" uid="uid://bw145ublkri14" path="res://item/SpriteItem.tscn" id="2_wgf30"]
+[ext_resource type="PackedScene" uid="uid://ccc0q42vlb8gu" path="res://item/SmolItemScene.tscn" id="2_xl8rf"]
 
 [node name="Slot" type="PanelContainer"]
 custom_minimum_size = Vector2(200, 200)
@@ -16,7 +16,7 @@ script = ExtResource("1_bs6xc")
 position = Vector2(100, 100)
 scale = Vector2(0.8, 0.8)
 
-[node name="SpriteItem" parent="Container" instance=ExtResource("2_wgf30")]
+[node name="SpriteItem2" parent="Container" instance=ExtResource("2_xl8rf")]
 
 [node name="QuantityLabel" type="Label" parent="."]
 layout_mode = 2

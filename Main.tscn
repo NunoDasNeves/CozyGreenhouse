@@ -5,9 +5,9 @@
 [ext_resource type="Theme" uid="uid://4xswugnup0ea" path="res://themes/GameTheme.tres" id="2_6gjjm"]
 [ext_resource type="Script" path="res://inventory/InventoryInterface.gd" id="2_fy0vy"]
 [ext_resource type="Resource" uid="uid://vwd5ajiujm1q" path="res://statedata/InitialState.tres" id="4_8h5ra"]
-[ext_resource type="Texture2D" uid="uid://c1kmgvycegelw" path="res://background.png" id="4_wta3e"]
 [ext_resource type="Resource" uid="uid://pd4tttgjpoxf" path="res://statedata/DebugState.tres" id="5_xpk05"]
 [ext_resource type="Texture2D" uid="uid://eojpaqaopime" path="res://Water_Pipe.png" id="6_dlglr"]
+[ext_resource type="Texture2D" uid="uid://btyvhvgp4uyuu" path="res://Untitled_Artwork 6.png" id="6_dofi5"]
 [ext_resource type="PackedScene" uid="uid://cyciydo21kxum" path="res://inventory/PotsInventory.tscn" id="6_uaoi2"]
 [ext_resource type="Texture2D" uid="uid://dmw8hr05u8vvc" path="res://Water_Pipe_Bent.png" id="7_3cqgl"]
 [ext_resource type="PackedScene" uid="uid://b40qsq404h2qt" path="res://inventory/ShelfInventory.tscn" id="8_c0pgr"]
@@ -19,7 +19,6 @@
 [ext_resource type="PackedScene" uid="uid://b8iki5hc8c177" path="res://inventory/ProductsInventory.tscn" id="13_yk8kt"]
 [ext_resource type="Texture2D" uid="uid://dxn0isq1fhh8t" path="res://End_Day_Hover_State.png" id="14_kqcg0"]
 [ext_resource type="Texture2D" uid="uid://tvit1guael3d" path="res://merchants/Merchant0.png" id="17_sdtj8"]
-[ext_resource type="Texture2D" uid="uid://8sy3abjwklkw" path="res://merchants/Merchant_Frame.png" id="18_oi2ao"]
 [ext_resource type="Texture2D" uid="uid://di4l0q4xfqkrp" path="res://title screen/Title_Bg_.png" id="20_cndyf"]
 [ext_resource type="Texture2D" uid="uid://drvs7d11mv1b1" path="res://title screen/Title_Bg_-1.png" id="21_nqes8"]
 [ext_resource type="Texture2D" uid="uid://bf4wjj3t74x30" path="res://title screen/Title_Bg_-2.png" id="22_nq5pc"]
@@ -31,11 +30,8 @@
 [ext_resource type="Texture2D" uid="uid://djoq3rw36x01c" path="res://title screen/Button_Default.png" id="26_j0yqb"]
 [ext_resource type="Texture2D" uid="uid://cdlqpkr5jtudn" path="res://title screen/Button_Hover_State.png" id="27_gj2gs"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_10m38"]
-bg_color = Color(0.12549, 0.403922, 0.87451, 1)
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_62jhy"]
-bg_color = Color(0.227451, 0.207843, 0.25098, 1)
+bg_color = Color(0.184314, 0.168627, 0.203922, 1)
 corner_radius_top_left = 100
 corner_radius_top_right = 100
 corner_radius_bottom_right = 100
@@ -45,6 +41,16 @@ corner_radius_bottom_left = 100
 bg_color = Color(0.164706, 0.113725, 0.192157, 1)
 corner_radius_top_left = 100
 corner_radius_top_right = 100
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2uixq"]
+bg_color = Color(0.0823529, 0.0823529, 0.0705882, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_10m38"]
+bg_color = Color(0.12549, 0.403922, 0.87451, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fsga4"]
 texture = ExtResource("20_cndyf")
@@ -89,9 +95,43 @@ script = ExtResource("2_fy0vy")
 initial_state = ExtResource("4_8h5ra")
 debug_state = ExtResource("5_xpk05")
 
+[node name="MerchantContainer" type="Node2D" parent="UI/InventoryInterface"]
+
+[node name="Merchant" type="Node2D" parent="UI/InventoryInterface/MerchantContainer"]
+
+[node name="background" type="PanelContainer" parent="UI/InventoryInterface/MerchantContainer/Merchant"]
+clip_contents = true
+offset_left = 2598.0
+offset_top = 83.0
+offset_right = 3231.0
+offset_bottom = 591.0
+theme_type_variation = &"MerchantBackground"
+theme_override_styles/panel = SubResource("StyleBoxFlat_62jhy")
+
+[node name="Panel" type="Panel" parent="UI/InventoryInterface/MerchantContainer/Merchant/background"]
+custom_minimum_size = Vector2(420, 160)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_styles/panel = SubResource("StyleBoxFlat_6lt1l")
+
+[node name="Sprite" type="Sprite2D" parent="UI/InventoryInterface/MerchantContainer/Merchant/background"]
+position = Vector2(316, 326)
+texture = ExtResource("17_sdtj8")
+
+[node name="blankscreen" type="PanelContainer" parent="UI/InventoryInterface/MerchantContainer/Merchant"]
+visible = false
+clip_contents = true
+offset_left = 2597.0
+offset_top = 70.0
+offset_right = 3230.0
+offset_bottom = 578.0
+theme_type_variation = &"MerchantBackground"
+theme_override_styles/panel = SubResource("StyleBoxFlat_2uixq")
+
 [node name="Background" type="Sprite2D" parent="UI/InventoryInterface"]
 position = Vector2(1920, 1080)
-texture = ExtResource("4_wta3e")
+texture = ExtResource("6_dofi5")
 
 [node name="WaterPipe" type="Sprite2D" parent="UI/InventoryInterface"]
 position = Vector2(1450.23, 314)
@@ -105,21 +145,12 @@ texture = ExtResource("7_3cqgl")
 
 [node name="DayNum" type="Label" parent="UI/InventoryInterface"]
 layout_mode = 0
-offset_left = 152.0
-offset_top = 1087.0
-offset_right = 523.0
-offset_bottom = 1200.0
+offset_left = 137.0
+offset_top = 210.0
+offset_right = 508.0
+offset_bottom = 323.0
 theme_override_font_sizes/font_size = 80
-text = "Day: 0"
-
-[node name="MoneyAmount" type="Label" parent="UI/InventoryInterface"]
-layout_mode = 0
-offset_left = 2786.0
-offset_top = 1959.0
-offset_right = 3230.0
-offset_bottom = 2072.0
-theme_override_font_sizes/font_size = 80
-text = "Money: $69"
+text = "Day: 699"
 
 [node name="SeedInventory" parent="UI/InventoryInterface" instance=ExtResource("1_occea")]
 layout_mode = 0
@@ -131,9 +162,9 @@ offset_bottom = 1368.0
 [node name="PotsInventory" parent="UI/InventoryInterface" instance=ExtResource("6_uaoi2")]
 layout_mode = 0
 offset_left = 706.0
-offset_top = 1437.0
+offset_top = 1436.0
 offset_right = 1202.0
-offset_bottom = 1933.0
+offset_bottom = 1932.0
 
 [node name="ShelfInventory" parent="UI/InventoryInterface" instance=ExtResource("8_c0pgr")]
 layout_mode = 1
@@ -164,13 +195,14 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="EndDay" type="Node2D" parent="UI/InventoryInterface"]
-position = Vector2(79, 1484)
+position = Vector2(115, 580)
+scale = Vector2(0.9, 0.9)
 
 [node name="Button" type="TextureButton" parent="UI/InventoryInterface/EndDay"]
-offset_left = 2.0
-offset_top = -39.0
-offset_right = 652.0
-offset_bottom = 261.0
+offset_left = -2.22222
+offset_top = -38.8889
+offset_right = 647.778
+offset_bottom = 261.111
 scale = Vector2(0.7, 0.7)
 focus_mode = 0
 texture_normal = ExtResource("13_gnkfe")
@@ -231,7 +263,7 @@ layout_mode = 0
 offset_left = 2703.0
 offset_top = 718.0
 offset_right = 3259.0
-offset_bottom = 1904.0
+offset_bottom = 1841.0
 pivot_offset = Vector2(2.08165e-12, 2.08165e-12)
 tab_alignment = 1
 all_tabs_in_front = true
@@ -243,36 +275,33 @@ layout_mode = 2
 visible = false
 layout_mode = 2
 
-[node name="MerchantContainer" type="Node2D" parent="UI/InventoryInterface"]
-
-[node name="Merchant" type="Node2D" parent="UI/InventoryInterface/MerchantContainer"]
-
-[node name="background" type="PanelContainer" parent="UI/InventoryInterface/MerchantContainer/Merchant"]
-clip_contents = true
-offset_left = 2669.0
-offset_top = 137.0
-offset_right = 3302.0
-offset_bottom = 645.0
-theme_type_variation = &"MerchantBackground"
-theme_override_styles/panel = SubResource("StyleBoxFlat_62jhy")
-
-[node name="Panel" type="Panel" parent="UI/InventoryInterface/MerchantContainer/Merchant/background"]
-custom_minimum_size = Vector2(420, 160)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 8
-theme_override_styles/panel = SubResource("StyleBoxFlat_6lt1l")
-
-[node name="Sprite" type="Sprite2D" parent="UI/InventoryInterface/MerchantContainer/Merchant/background"]
-position = Vector2(296, 326)
-texture = ExtResource("17_sdtj8")
-
-[node name="Frame" type="Sprite2D" parent="UI/InventoryInterface/MerchantContainer"]
-position = Vector2(2983, 390)
-texture = ExtResource("18_oi2ao")
-
 [node name="GrabSlot" parent="UI/InventoryInterface" instance=ExtResource("10_5kb5e")]
 visible = false
+
+[node name="Money" type="PanelContainer" parent="UI/InventoryInterface"]
+layout_mode = 0
+offset_left = 2703.0
+offset_top = 1880.0
+offset_right = 3263.0
+offset_bottom = 2023.0
+theme_type_variation = &"InventoryBackground"
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/InventoryInterface/Money"]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 20
+
+[node name="MoneyAmount" type="Label" parent="UI/InventoryInterface/Money/MarginContainer"]
+custom_minimum_size = Vector2(500, 2.08165e-12)
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 7
+theme_override_font_sizes/font_size = 80
+text = "Cash: 115439Ħ"
+horizontal_alignment = 1
+clip_text = true
 
 [node name="TitleScreen" type="Control" parent="UI"]
 visible = false
