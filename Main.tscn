@@ -30,9 +30,9 @@
 [ext_resource type="Texture2D" uid="uid://cy30ygve0cnq5" path="res://title screen/Text_1.png" id="23_yhand"]
 [ext_resource type="Texture2D" uid="uid://qip8gcpn5o4p" path="res://title screen/Title_Bg_-4.png" id="24_bxh4k"]
 [ext_resource type="Texture2D" uid="uid://2p162cxg3dc8" path="res://title screen/Text_2.png" id="24_yt64l"]
-[ext_resource type="Texture2D" uid="uid://b0ai3h8rfdi2v" path="res://title screen/Title_Bg_-5.png" id="25_e5tbw"]
 [ext_resource type="Texture2D" uid="uid://djoq3rw36x01c" path="res://title screen/Button_Default.png" id="26_j0yqb"]
 [ext_resource type="Texture2D" uid="uid://cdlqpkr5jtudn" path="res://title screen/Button_Hover_State.png" id="27_gj2gs"]
+[ext_resource type="AudioStream" uid="uid://bmxlp43gn2t02" path="res://SPACE-Y_CHILL_NEW.wav" id="34_qaetc"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_62jhy"]
 bg_color = Color(0.184314, 0.168627, 0.203922, 1)
@@ -89,13 +89,10 @@ animations = [{
 "texture": ExtResource("22_nq5pc")
 }, {
 "duration": 1.0,
-"texture": ExtResource("23_pobdk")
-}, {
-"duration": 1.0,
 "texture": ExtResource("24_bxh4k")
 }, {
 "duration": 1.0,
-"texture": ExtResource("25_e5tbw")
+"texture": ExtResource("23_pobdk")
 }],
 "loop": true,
 "name": &"default",
@@ -108,6 +105,7 @@ script = ExtResource("1_b7ej4")
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="InventoryInterface" type="Control" parent="UI"]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -332,7 +330,6 @@ text = "Cash: 115439Ħ"
 clip_text = true
 
 [node name="TitleScreen" type="Control" parent="UI"]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -354,6 +351,7 @@ position = Vector2(1920, 109)
 texture = ExtResource("23_yhand")
 
 [node name="Credits" type="Sprite2D" parent="UI/TitleScreen"]
+visible = false
 position = Vector2(1920, 2024)
 texture = ExtResource("24_yt64l")
 
@@ -362,7 +360,7 @@ position = Vector2(1920, 1000)
 scale = Vector2(0.7, 0.7)
 sprite_frames = SubResource("SpriteFrames_x3n6r")
 autoplay = "default"
-frame_progress = 0.335206
+frame_progress = 0.594119
 
 [node name="Node2D" type="Node2D" parent="UI/TitleScreen"]
 
@@ -382,5 +380,10 @@ texture_hover = ExtResource("27_gj2gs")
 texture_focused = ExtResource("26_j0yqb")
 stretch_mode = 3
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("34_qaetc")
+autoplay = true
+
 [connection signal="pressed" from="UI/InventoryInterface/Compost/Button" to="UI/InventoryInterface" method="compost_grabbed_item"]
 [connection signal="pressed" from="UI/TitleScreen/Node2D/TextureButton" to="UI/InventoryInterface" method="on_play_pressed"]
+[connection signal="finished" from="AudioStreamPlayer" to="UI/InventoryInterface" method="on_audio_finished"]

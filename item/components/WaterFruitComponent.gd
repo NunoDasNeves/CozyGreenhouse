@@ -1,7 +1,7 @@
 extends FruitComponent
 class_name WaterFruitComponent
 
-const WATER_AMOUNT: float = 1
+@export var water_amount: float = 3
 
 func gather(parent: ItemData) -> void:
-	Global.state.add_water(WATER_AMOUNT)
+	Global.state.add_water(water_amount)

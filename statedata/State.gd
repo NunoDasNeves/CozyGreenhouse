@@ -7,7 +7,6 @@ signal compost_updated
 signal shop_updated
 signal grab_updated
 
-const FERTILIZER_AMOUNT: float = 1
 const WATERING_CAN_WATER_AMOUNT: float = 0.5
 const COMPOST_MAX: float = 10
 

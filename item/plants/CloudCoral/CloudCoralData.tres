@@ -8,9 +8,9 @@
 
 [sub_resource type="Resource" id="Resource_cijr5"]
 script = ExtResource("1_s7wm5")
-max_val = 5.0
+max_val = 3.0
 happy_min = 1.0
-happy_max = 5.0
+happy_max = 3.0
 eat_per_day = 1.0
 happy_fruit_factor = 2.0
 bad_fruit_factor = 1.0

@@ -18,6 +18,7 @@ enum GrowthStage {
 @export var mature_compost_bonus: float = 4
 @export var max_total_fruit_produced: int = -1 # -1 means infinite
 @export var plant_is_fruit: bool
+@export var emit_light: bool = false
 
 var growth_stage: GrowthStage = GrowthStage.YOUNG
 var curr_fruit_growth: float = 0
@@ -123,10 +124,6 @@ func next_day() -> void:
 	var growth_factor: float = get_growth_factor()
 	var fruit_factor: float = get_fruit_factor()
 
-	curr_growth += growth_per_day * growth_factor
-	if curr_growth >= 1:
-		growth_stage = GrowthStage.MATURE
-
 	var can_make_fruit: bool = max_total_fruit_produced < 0 or total_fruit_produced < max_total_fruit_produced
 	if growth_stage == GrowthStage.MATURE and can_make_fruit:
 		if plant_is_fruit:
@@ -144,6 +141,10 @@ func next_day() -> void:
 				curr_fruit_growth -= added_fruit
 		else:
 			curr_fruit_growth = 0
+
+	curr_growth += growth_per_day * growth_factor
+	if curr_growth >= 1:
+		growth_stage = GrowthStage.MATURE
 
 	if light:
 		light.next_day()

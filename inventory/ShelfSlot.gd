@@ -13,6 +13,7 @@ class_name ShelfSlot
 @onready var light_beam_front: Sprite2D = $LightBeamFront
 @onready var attachment: Node2D = $Attachment
 @onready var attach_container: Node2D = $Attachment/Container
+@onready var plant_light: Sprite2D = $PlantLight
 
 @export var happy_bar_stylebox_fill: StyleBoxFlat
 @export var bad_bar_stylebox_fill: StyleBoxFlat
@@ -60,8 +61,9 @@ func fruit_clicked() -> void:
 func set_slot_data(slot_data: SlotData) -> void:
 	for child in container.get_children():
 		child.queue_free()
-	water.hide();
-	fertilizer.hide();
+	water.hide()
+	fertilizer.hide()
+	plant_light.hide()
 
 	if not slot_data:
 		tooltip_text = ""
@@ -89,13 +91,16 @@ func set_slot_data(slot_data: SlotData) -> void:
 			else:
 				water_bar.add_theme_stylebox_override("background", bad_bar_stylebox_background)
 				water_bar.add_theme_stylebox_override("fill", bad_bar_stylebox_fill)
-			water.show();
+			water.show()
 
 		if plant_data.fertilizer:
 			fertilizer_bar.max_value = plant_data.fertilizer.max_val
 			fertilizer_bar.value = plant_data.fertilizer.curr_val
 			if plant_data.fertilizer.curr_val > 0:
-				fertilizer.show();
+				fertilizer.show()
+
+		if plant_data.emit_light and plant_data.num_fruits:
+			plant_light.show()
 
 		var compost_string: String = ""
 		var compost_component: CompostComponent = item_data.get_component("Compost")

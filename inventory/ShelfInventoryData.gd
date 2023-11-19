@@ -42,6 +42,8 @@ func update_slot(index: int) -> void:
 			var plant_data: PlantData = plant_component.plant
 			if plant_data.light:
 				plant_data.light.curr_val = light_datas[index].final_light * plant_data.light.max_val
+			elif plant_data.emit_light and plant_data.num_fruits:
+				light_datas[index].final_light = 1
 
 	slot_updated.emit(index)
 	light_data_updated.emit(index)
@@ -180,8 +182,8 @@ func drop_slot_data(grabbed_slot_data: SlotData, index: int) -> SlotData:
 			var plant_data: PlantData = plant_component.plant
 			if plant_data.fertilizer:
 				var fert_space: float = plant_data.fertilizer.max_val - plant_data.fertilizer.curr_val
-				if fert_space >= State.FERTILIZER_AMOUNT:
-					plant_data.fertilizer.curr_val += State.FERTILIZER_AMOUNT
+				if fert_space >= 1:
+					plant_data.fertilizer.curr_val = plant_data.fertilizer.happy_max
 					update_slot(index)
 					if grabbed_slot_data.quantity == 1:
 						ret = null

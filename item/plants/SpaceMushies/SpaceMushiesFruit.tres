@@ -28,7 +28,7 @@ script = ExtResource("7_yrchs")
 
 [sub_resource type="Resource" id="Resource_knyk5"]
 script = ExtResource("8_a5r7b")
-base_compost_value = 4.0
+base_compost_value = 5.0
 
 [sub_resource type="Resource" id="Resource_y0ivh"]
 script = ExtResource("9_uwv4s")

@@ -2,6 +2,7 @@ extends Control
 class_name InventoryInterface
 
 @onready var title_screen: Control = $"../TitleScreen"
+@onready var audio_stream_player: AudioStreamPlayer = $"../../AudioStreamPlayer"
 
 @onready var next_day_button: TextureButton = $EndDay/Button
 @onready var grab_slot: GrabSlot = $GrabSlot
@@ -138,3 +139,6 @@ func next_day() -> void:
 	update_money_text()
 	grab_slot.update()
 	day_num.text = "Day: %s" % state.curr_day
+
+func on_audio_finished() -> void:
+	audio_stream_player.play()

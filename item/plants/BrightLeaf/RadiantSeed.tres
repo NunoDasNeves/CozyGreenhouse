@@ -26,7 +26,7 @@ texture = ExtResource("7_0yxcs")
 
 [sub_resource type="Resource" id="Resource_el7tl"]
 script = ExtResource("8_vyl80")
-base_value = 4.0
+base_value = 8.0
 
 [sub_resource type="Resource" id="Resource_uj7p8"]
 script = ExtResource("9_esnpx")

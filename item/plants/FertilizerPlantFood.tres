@@ -4,9 +4,9 @@
 
 [resource]
 script = ExtResource("1_djv5w")
-max_val = 5.0
+max_val = 2.0
 happy_min = 1.0
-happy_max = 5.0
+happy_max = 2.0
 eat_per_day = 1.0
 happy_fruit_factor = 1.5
 bad_fruit_factor = 1.0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://ueca5wmtav1v"]
+[gd_scene load_steps=14 format=3 uid="uid://ueca5wmtav1v"]
 
 [ext_resource type="Script" path="res://inventory/ShelfSlot.gd" id="1_4bqis"]
 [ext_resource type="PackedScene" uid="uid://d346bhoh8up1g" path="res://item/plants/GalaxyFlower/GalaxyFlower.tscn" id="2_nv2k6"]
@@ -16,6 +16,18 @@ bg_color = Color(0.254902, 0.254902, 0.254902, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lb03i"]
 bg_color = Color(0.435294, 0.203922, 0.215686, 1)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_aps3d"]
+blend_mode = 1
+
+[sub_resource type="Gradient" id="Gradient_bi0r1"]
+colors = PackedColorArray(1, 1, 0.933333, 0.631373, 1, 1, 0.933333, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_npevb"]
+gradient = SubResource("Gradient_bi0r1")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.980769, 0.705128)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_85f3j"]
 bg_color = Color(0.27451, 0.247059, 0.203922, 1)
@@ -40,6 +52,13 @@ layout_mode = 2
 size_flags_vertical = 8
 mouse_filter = 1
 color = Color(0.34902, 0.313726, 0.647059, 1)
+
+[node name="PlantLight" type="Sprite2D" parent="."]
+visible = false
+material = SubResource("CanvasItemMaterial_aps3d")
+position = Vector2(140, 234)
+scale = Vector2(4, 6.78125)
+texture = SubResource("GradientTexture2D_npevb")
 
 [node name="LightBeamBack" type="Sprite2D" parent="."]
 visible = false

@@ -13,6 +13,7 @@ texture = ExtResource("4_ygd5f")
 
 [sub_resource type="Resource" id="Resource_j5w1n"]
 script = ExtResource("5_2j8ad")
+water_amount = 2.5
 
 [sub_resource type="Resource" id="Resource_nl0v7"]
 script = ExtResource("7_e6ooa")
