@@ -126,13 +126,7 @@ func next_day() -> void:
 
 	var can_make_fruit: bool = max_total_fruit_produced < 0 or total_fruit_produced < max_total_fruit_produced
 	if growth_stage == GrowthStage.MATURE and can_make_fruit:
-		if plant_is_fruit:
-			num_fruits = max_num_fruits
-			total_fruit_produced = max_total_fruit_produced
-			water = null
-			fertilizer = null
-			light = null
-		elif num_fruits < max_num_fruits:
+		if num_fruits < max_num_fruits:
 			curr_fruit_growth += fruit_per_day * fruit_factor
 			if curr_fruit_growth >= 1:
 				var added_fruit: int = floori(curr_fruit_growth)
@@ -145,6 +139,13 @@ func next_day() -> void:
 	curr_growth += growth_per_day * growth_factor
 	if curr_growth >= 1:
 		growth_stage = GrowthStage.MATURE
+
+	if growth_stage == GrowthStage.MATURE and plant_is_fruit:
+		num_fruits = max_num_fruits
+		total_fruit_produced = max_total_fruit_produced
+		water = null
+		fertilizer = null
+		light = null
 
 	if light:
 		light.next_day()

@@ -3,6 +3,7 @@ class_name InventoryInterface
 
 @onready var title_screen: Control = $"../TitleScreen"
 @onready var audio_stream_player: AudioStreamPlayer = $"../../AudioStreamPlayer"
+@onready var fade: ColorRect = $"../Fade"
 
 @onready var next_day_button: TextureButton = $EndDay/Button
 @onready var grab_slot: GrabSlot = $GrabSlot
@@ -26,11 +27,44 @@ class_name InventoryInterface
 
 var state: State
 
+var do_fade: bool = false
+var fade_amount: float = 0
+var fade_fn: Callable
+
+func _process(delta: float) -> void:
+	if do_fade:
+		fade.show()
+		fade.color.a += fade_amount * delta
+		if fade.color.a >= 1:
+			fade_fn.call()
+			fade_in()
+		elif fade.color.a <= 0:
+			do_fade = false
+	else:
+		fade.hide()
+
+func fade_in() -> void:
+	fade.show()
+	do_fade = true
+	fade.color.a = 1
+	fade_amount = -2
+
+func fade_out() -> void:
+	fade.show()
+	do_fade = true
+	fade.color.a = 0
+	fade_amount = 2
+
+func fade_to(fn: Callable) -> void:
+	fade_fn = fn
+	fade_out()
+
 func ready_inventory(inventory: Inventory) -> void:
 	Global.disconnect_signal(inventory.inventory_interact)
 	inventory.inventory_interact.connect(grab_slot.on_inventory_interact)
 
 func _ready() -> void:
+	fade_in()
 	title_screen.show()
 	self.hide()
 
@@ -41,15 +75,18 @@ func _ready() -> void:
 	ready_inventory(sell_inventory)
 	ready_inventory(buy_inventory)
 
-	next_day_button.button_down.connect(next_day)
+	next_day_button.button_down.connect(end_day)
 
 func compost_grabbed_item() -> void:
 	state.compost_grabbed_item()
 
-func on_play_pressed() -> void:
+func start_game() -> void:
 	title_screen.hide()
 	self.show()
 	init_initial_state()
+
+func on_play_pressed() -> void:
+	fade_to(start_game)
 
 func init_initial_state() -> void:
 	init_game_state(initial_state.duplicate())
@@ -133,10 +170,14 @@ func update_water_tank() -> void:
 func update_money_text() -> void:
 	money_amount.text = "Cash: %sĦ" % state.money
 
+func end_day() -> void:
+	fade_to(next_day)
+
 func next_day() -> void:
 	state.next_day()
 	update_water_tank()
 	update_money_text()
+	grab_slot.dismiss()
 	grab_slot.update()
 	day_num.text = "Day: %s" % state.curr_day
 

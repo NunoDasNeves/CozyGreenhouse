@@ -380,6 +380,14 @@ texture_hover = ExtResource("27_gj2gs")
 texture_focused = ExtResource("26_j0yqb")
 stretch_mode = 3
 
+[node name="Fade" type="ColorRect" parent="UI"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("34_qaetc")
 autoplay = true
