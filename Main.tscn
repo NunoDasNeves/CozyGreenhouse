@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://stabv7nin058"]
+[gd_scene load_steps=41 format=3 uid="uid://stabv7nin058"]
 
 [ext_resource type="Script" path="res://Main.gd" id="1_b7ej4"]
 [ext_resource type="PackedScene" uid="uid://0alw4cfw4g22" path="res://inventory/Inventory.tscn" id="1_occea"]
@@ -10,9 +10,13 @@
 [ext_resource type="Texture2D" uid="uid://btyvhvgp4uyuu" path="res://Untitled_Artwork 6.png" id="6_dofi5"]
 [ext_resource type="PackedScene" uid="uid://cyciydo21kxum" path="res://inventory/PotsInventory.tscn" id="6_uaoi2"]
 [ext_resource type="Texture2D" uid="uid://dmw8hr05u8vvc" path="res://Water_Pipe_Bent.png" id="7_3cqgl"]
+[ext_resource type="Texture2D" uid="uid://dtt1b4foyy066" path="res://Space/Space_Animation-1.png" id="7_81yhc"]
+[ext_resource type="Texture2D" uid="uid://e4hlvml3o0f4" path="res://Space/Space_Animation-2.png" id="8_2by15"]
 [ext_resource type="PackedScene" uid="uid://b40qsq404h2qt" path="res://inventory/ShelfInventory.tscn" id="8_c0pgr"]
+[ext_resource type="Texture2D" uid="uid://ckupaypk4op32" path="res://Space/Space_Animation-3.png" id="9_67sqj"]
 [ext_resource type="PackedScene" uid="uid://c1b7r3mdk7q54" path="res://statedata/GrabSlot.tscn" id="10_5kb5e"]
 [ext_resource type="Texture2D" uid="uid://bc8cdch51hdsk" path="res://Water_Tank.png" id="10_8wd6m"]
+[ext_resource type="Texture2D" uid="uid://cae41wwb72p8k" path="res://Space/Space_Animation-4.png" id="10_co2te"]
 [ext_resource type="PackedScene" uid="uid://ci87co87lm155" path="res://inventory/ToolsInventory.tscn" id="10_t6s3y"]
 [ext_resource type="Texture2D" uid="uid://dnw0mdguv067e" path="res://CompostBin.png" id="12_tetco"]
 [ext_resource type="Texture2D" uid="uid://2r8gnmotkxnb" path="res://End_Day.png" id="13_gnkfe"]
@@ -48,6 +52,26 @@ corner_radius_top_left = 100
 corner_radius_top_right = 100
 corner_radius_bottom_right = 100
 corner_radius_bottom_left = 100
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6xibu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_81yhc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_2by15")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_67sqj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_co2te")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_10m38"]
 bg_color = Color(0.12549, 0.403922, 0.87451, 1)
@@ -128,6 +152,11 @@ offset_right = 3230.0
 offset_bottom = 578.0
 theme_type_variation = &"MerchantBackground"
 theme_override_styles/panel = SubResource("StyleBoxFlat_2uixq")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="UI/InventoryInterface"]
+position = Vector2(314, 1278)
+sprite_frames = SubResource("SpriteFrames_6xibu")
+autoplay = "default"
 
 [node name="Background" type="Sprite2D" parent="UI/InventoryInterface"]
 position = Vector2(1920, 1080)
@@ -300,7 +329,6 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 7
 theme_override_font_sizes/font_size = 80
 text = "Cash: 115439Ħ"
-horizontal_alignment = 1
 clip_text = true
 
 [node name="TitleScreen" type="Control" parent="UI"]

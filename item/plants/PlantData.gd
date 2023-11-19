@@ -25,8 +25,6 @@ var curr_growth: float = 0 # at 1, advance to next GrowthStage
 var pot_item_data: ItemData
 var num_fruits: int = 0
 var total_fruit_produced: int = 0
-var curr_growth_factor: float = 1
-var curr_fruit_factor: float = 1
 
 func get_compost_bonus() -> float:
 	match growth_stage:
@@ -37,14 +35,27 @@ func get_compost_bonus() -> float:
 
 func get_tooltip_string() -> String:
 	var string: String = ""
+	if growth_stage == GrowthStage.MATURE:
+		if plant_is_fruit or num_fruits:
+			string = "[ Ready to pick! ]\n"
+		else:
+			string = "[ Growth stage: Mature ]\n"
+	else:
+		string = "[ Growth stage: Young ]\n"
+
+	if growth_stage == GrowthStage.MATURE:
+		if not plant_is_fruit:
+			string += "Fruit factor: %s\n" % get_fruit_factor()
+	else:
+		string += "Growth factor: %s\n" % get_growth_factor()
+
 	if light:
 		var light_happy: String = "happy"
 		if light.above_happy_range():
 			light_happy = "too light"
-		elif 0 < 0:
-		#elif light.below_happy_range():
+		elif light.below_happy_range():
 			light_happy = "too dark"
-		string += "Light:      %s (%s)\n" % [light.curr_val, light_happy]
+		string += "Light: %s\n" % light_happy
 
 	if water:
 		var water_happy: String = "happy"
@@ -52,10 +63,17 @@ func get_tooltip_string() -> String:
 			water_happy = "overwatered"
 		elif water.below_happy_range():
 			water_happy = "thirsty"
-		string += "Water:      %s (%s)\n" % [water.curr_val, water_happy]
-	
+		string += "Water: %s\n" % water_happy
+
 	if fertilizer:
-		string += "Fertilizer: %s" % fertilizer.curr_val
+		var val: float = 0
+		if fertilizer.curr_val > 0:
+			if growth_stage == GrowthStage.MATURE:
+				if not plant_is_fruit:
+					val = fertilizer.fruit_factor()
+			else:
+				val = fertilizer.growth_factor()
+		string += "Fertilizer bonus: %s\n" % val
 
 	return string
 
@@ -69,30 +87,43 @@ func gather_fruit() -> void:
 
 	num_fruits = 0
 
-func next_day() -> void:
+func get_fruit_factor() -> float:
+	var fruit_factor: float = 1
+	if light:
+		fruit_factor *= light.fruit_factor()
+	if water:
+		fruit_factor *= water.fruit_factor()
+	if fertilizer:
+		fruit_factor *= fertilizer.fruit_factor()
+	return fruit_factor
+
+func get_growth_factor() -> float:
+	var growth_factor: float = 1
+	if light:
+		growth_factor *= light.growth_factor()
+	if water:
+		growth_factor *= water.growth_factor()
+	if fertilizer:
+		growth_factor *= fertilizer.growth_factor()
+	return growth_factor
+
+func get_happy() -> bool:
 	var is_happy: bool = true
-	var growth_factors: float = 1
-	var fruit_factors: float = 1
 	if light:
 		is_happy = is_happy and light.in_happy_range()
-		growth_factors *= light.growth_factor()
-		fruit_factors *= light.fruit_factor()
-		light.next_day()
 	if water:
 		is_happy = is_happy and water.in_happy_range()
-		growth_factors *= water.growth_factor()
-		fruit_factors *= water.fruit_factor()
-		water.next_day()
 	if fertilizer:
 		is_happy = is_happy and fertilizer.in_happy_range()
-		growth_factors *= fertilizer.growth_factor()
-		fruit_factors *= fertilizer.fruit_factor()
-		fertilizer.next_day()
 
-	curr_growth_factor = growth_factors
-	curr_fruit_factor = fruit_factors
+	return is_happy
 
-	curr_growth += growth_per_day * growth_factors
+func next_day() -> void:
+
+	var growth_factor: float = get_growth_factor()
+	var fruit_factor: float = get_fruit_factor()
+
+	curr_growth += growth_per_day * growth_factor
 	if curr_growth >= 1:
 		growth_stage = GrowthStage.MATURE
 
@@ -105,7 +136,7 @@ func next_day() -> void:
 			fertilizer = null
 			light = null
 		elif num_fruits < max_num_fruits:
-			curr_fruit_growth += fruit_per_day * fruit_factors
+			curr_fruit_growth += fruit_per_day * fruit_factor
 			if curr_fruit_growth >= 1:
 				var added_fruit: int = floori(curr_fruit_growth)
 				total_fruit_produced += added_fruit
@@ -113,3 +144,10 @@ func next_day() -> void:
 				curr_fruit_growth -= added_fruit
 		else:
 			curr_fruit_growth = 0
+
+	if light:
+		light.next_day()
+	if water:
+		water.next_day()
+	if fertilizer:
+		fertilizer.next_day()

@@ -5,6 +5,7 @@ class_name WateringCanScene
 var animating_forward: bool = true
 
 func _ready() -> void:
+	animated_sprite.frame = 0
 	animated_sprite.animation_finished.connect(anim_finished)
 
 func set_item_data(item_data: ItemData) -> void:
