@@ -24,6 +24,7 @@ texture = ExtResource("3_nxh0b")
 position = Vector2(2.08165e-12, 2.08165e-12)
 
 [node name="FruitButton" type="Button" parent="."]
+visible = false
 offset_left = -101.0
 offset_top = -370.0
 offset_right = 94.0

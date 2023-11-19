@@ -1,8 +1,41 @@
-[gd_resource type="Theme" load_steps=20 format=3 uid="uid://4xswugnup0ea"]
+[gd_resource type="Theme" load_steps=23 format=3 uid="uid://4xswugnup0ea"]
 
 [ext_resource type="FontFile" uid="uid://ed6jindtbc3t" path="res://fonts/Pangolin-Regular.ttf" id="1_bbqcu"]
 [ext_resource type="StyleBox" uid="uid://35agf86cl1ni" path="res://themes/inventory_background.tres" id="1_m3m8h"]
 [ext_resource type="StyleBox" uid="uid://be8glpa5ycxb8" path="res://themes/slot_background.tres" id="2_bnqkd"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2n8bb"]
+bg_color = Color(0.4, 0.396078, 0.462745, 1)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+expand_margin_left = 20.0
+expand_margin_top = 10.0
+expand_margin_right = 20.0
+expand_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4i0u5"]
+bg_color = Color(0.486275, 0.247059, 0.117647, 1)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+expand_margin_left = 20.0
+expand_margin_top = 10.0
+expand_margin_right = 20.0
+expand_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ba18x"]
+bg_color = Color(0.815686, 0.454902, 0.270588, 1)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+expand_margin_left = 20.0
+expand_margin_top = 10.0
+expand_margin_right = 20.0
+expand_margin_bottom = 10.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8os3b"]
 bg_color = Color(0.372549, 0.458824, 0.780392, 1)
@@ -110,7 +143,13 @@ expand_margin_bottom = 80.0
 
 [resource]
 default_font_size = 32
+Button/font_sizes/font_size = 60
 Button/fonts/font = ExtResource("1_bbqcu")
+Button/styles/disabled = SubResource("StyleBoxFlat_2n8bb")
+Button/styles/focus = null
+Button/styles/hover = SubResource("StyleBoxFlat_4i0u5")
+Button/styles/normal = SubResource("StyleBoxFlat_ba18x")
+Button/styles/pressed = null
 InventoryBackground/base_type = &"PanelContainer"
 InventoryBackground/styles/panel = SubResource("StyleBoxFlat_8os3b")
 Label/fonts/font = ExtResource("1_bbqcu")

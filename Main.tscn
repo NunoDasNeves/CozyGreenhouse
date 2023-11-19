@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://stabv7nin058"]
+[gd_scene load_steps=37 format=3 uid="uid://stabv7nin058"]
 
 [ext_resource type="Script" path="res://Main.gd" id="1_b7ej4"]
 [ext_resource type="PackedScene" uid="uid://0alw4cfw4g22" path="res://inventory/Inventory.tscn" id="1_occea"]
@@ -15,8 +15,10 @@
 [ext_resource type="Texture2D" uid="uid://bc8cdch51hdsk" path="res://Water_Tank.png" id="10_8wd6m"]
 [ext_resource type="PackedScene" uid="uid://ci87co87lm155" path="res://inventory/ToolsInventory.tscn" id="10_t6s3y"]
 [ext_resource type="Texture2D" uid="uid://dnw0mdguv067e" path="res://CompostBin.png" id="12_tetco"]
+[ext_resource type="Texture2D" uid="uid://2r8gnmotkxnb" path="res://End_Day.png" id="13_gnkfe"]
 [ext_resource type="PackedScene" uid="uid://b8iki5hc8c177" path="res://inventory/ProductsInventory.tscn" id="13_yk8kt"]
 [ext_resource type="Script" path="res://CompostBin.gd" id="14_fn1qj"]
+[ext_resource type="Texture2D" uid="uid://dxn0isq1fhh8t" path="res://End_Day_Hover_State.png" id="14_kqcg0"]
 [ext_resource type="Texture2D" uid="uid://tvit1guael3d" path="res://merchants/Merchant0.png" id="17_sdtj8"]
 [ext_resource type="Texture2D" uid="uid://8sy3abjwklkw" path="res://merchants/Merchant_Frame.png" id="18_oi2ao"]
 [ext_resource type="Texture2D" uid="uid://di4l0q4xfqkrp" path="res://title screen/Title_Bg_.png" id="20_cndyf"]
@@ -77,7 +79,6 @@ script = ExtResource("1_b7ej4")
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="InventoryInterface" type="Control" parent="UI"]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -163,14 +164,20 @@ offset_bottom = -629.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="NextDayButton" type="Button" parent="UI/InventoryInterface"]
-layout_mode = 0
-offset_left = 79.0
-offset_top = 1484.0
-offset_right = 551.0
-offset_bottom = 1661.0
-theme_override_font_sizes/font_size = 80
-text = "NEXT DAY"
+[node name="EndDay" type="Node2D" parent="UI/InventoryInterface"]
+position = Vector2(79, 1484)
+
+[node name="Button" type="TextureButton" parent="UI/InventoryInterface/EndDay"]
+offset_left = 2.0
+offset_top = -39.0
+offset_right = 652.0
+offset_bottom = 261.0
+scale = Vector2(0.7, 0.7)
+focus_mode = 0
+texture_normal = ExtResource("13_gnkfe")
+texture_pressed = ExtResource("13_gnkfe")
+texture_hover = ExtResource("14_kqcg0")
+texture_focused = ExtResource("13_gnkfe")
 
 [node name="WaterTankBar" type="ProgressBar" parent="UI/InventoryInterface"]
 layout_mode = 0
@@ -270,6 +277,7 @@ texture = ExtResource("18_oi2ao")
 visible = false
 
 [node name="TitleScreen" type="Control" parent="UI"]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0

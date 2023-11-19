@@ -3,7 +3,7 @@ class_name InventoryInterface
 
 @onready var title_screen: Control = $"../TitleScreen"
 
-@onready var next_day_button: Button = $NextDayButton
+@onready var next_day_button: TextureButton = $EndDay/Button
 @onready var grab_slot: GrabSlot = $GrabSlot
 @onready var day_num: Label = $DayNum
 @onready var water_tank_bar: ProgressBar = $WaterTankBar
@@ -31,6 +31,9 @@ func ready_inventory(inventory: Inventory) -> void:
 	inventory.inventory_interact.connect(grab_slot.on_inventory_interact)
 
 func _ready() -> void:
+	title_screen.show()
+	self.hide()
+
 	ready_inventory(seed_inventory)
 	ready_inventory(pots_inventory)
 	ready_inventory(tools_inventory)

@@ -9,6 +9,7 @@ enum Type {
 signal action_button_updated
 signal select_mode_updated
 signal quantity_selected_updated(index: int, quantity_selected: int)
+signal total_value_updated(value: float)
 
 @export var inventory_type: Type
 @export var action_text: String
@@ -147,6 +148,7 @@ func select_slot_data(index: int, quantity: int = 0) -> void:
 		num_selected += 1
 	selected_slot_data.quantity_selected = quantity if quantity else selected_slot_data.quantity
 
+	total_value_updated.emit(get_selected_value())
 	if not select_mode:
 		change_select_mode(true)
 	else:
@@ -169,6 +171,7 @@ func deselect_slot_data(index: int) -> void:
 	if not num_selected:
 		change_select_mode(false)
 	else:
+		total_value_updated.emit(get_selected_value())
 		slot_updated.emit(index)
 
 func toggle_select_slot_data(index: int) -> void:
