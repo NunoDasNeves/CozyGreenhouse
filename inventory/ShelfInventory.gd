@@ -30,3 +30,4 @@ func update_light_data(index: int) -> void:
 	var light_data: LightData = shelf_inventory_data.light_datas[index]
 	var slot := item_grid.get_child(index) as ShelfSlot
 	slot.set_light(light_data)
+

@@ -2,7 +2,8 @@ extends Control
 class_name InventoryInterface
 
 @onready var title_screen: Control = $"../TitleScreen"
-@onready var audio_stream_player: AudioStreamPlayer = $"../../AudioStreamPlayer"
+@onready var music_stream: AudioStreamPlayer = $"../../MusicStream"
+@onready var sfx_stream: AudioStreamPlayer = $"../../SFXStream"
 @onready var fade: ColorRect = $"../Fade"
 
 @onready var next_day_button: TextureButton = $EndDay/Button
@@ -76,8 +77,10 @@ func _ready() -> void:
 	ready_inventory(buy_inventory)
 
 	next_day_button.button_down.connect(end_day)
+	Global.play_click.connect(play_click)
 
 func compost_grabbed_item() -> void:
+	Global.play_click_sound()
 	state.compost_grabbed_item()
 
 func start_game() -> void:
@@ -86,6 +89,7 @@ func start_game() -> void:
 	init_initial_state()
 
 func on_play_pressed() -> void:
+	Global.play_click_sound()
 	fade_to(start_game)
 
 func init_initial_state() -> void:
@@ -172,6 +176,7 @@ func update_money_text() -> void:
 	money_amount.text = "Cash: %sĦ" % state.money
 
 func end_day() -> void:
+	Global.play_click_sound()
 	fade_to(next_day)
 
 func update_day() -> void:
@@ -185,5 +190,11 @@ func next_day() -> void:
 	grab_slot.update()
 	update_day()
 
-func on_audio_finished() -> void:
-	audio_stream_player.play()
+func on_music_finished() -> void:
+	music_stream.play()
+
+var click_sound := preload("res://clicksound.mp3")
+
+func play_click() -> void:
+	sfx_stream.stream = click_sound
+	sfx_stream.play(0)

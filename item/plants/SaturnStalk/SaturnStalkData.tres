@@ -48,3 +48,4 @@ fruit_item_data = ExtResource("2_dbf1y")
 mature_compost_bonus = 3.0
 max_total_fruit_produced = -1
 plant_is_fruit = false
+emit_light = false

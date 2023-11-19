@@ -4,6 +4,8 @@ class_name GrabSlot
 @onready var container: Node2D = $Container
 @onready var quantity_label: Label = $QuantityLabel
 
+signal play_click
+
 var grab_data: GrabData
 
 func process() -> void:
@@ -27,6 +29,7 @@ func on_inventory_interact(inventory: Inventory, index: int, action: Slot.Action
 	var do_update: bool = grab_data.inventory_interact(inventory.inventory_data, index, action)
 	if do_update:
 		update()
+		Global.play_click_sound()
 
 func update() -> void:
 	if grab_data.slot_data:

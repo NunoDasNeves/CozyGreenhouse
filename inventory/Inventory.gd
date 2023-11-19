@@ -5,6 +5,7 @@ class_name Inventory
 @export var item_grid: GridContainer
 var inventory_data: InventoryData
 
+signal play_click
 signal inventory_interact(inventory: Inventory, index: int, action: Slot.Action)
 
 func init(inv_data: InventoryData) -> void:

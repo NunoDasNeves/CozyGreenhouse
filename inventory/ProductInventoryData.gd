@@ -79,6 +79,7 @@ func action_pressed() -> void:
 		return
 	assert(num_selected)
 	var total_value: float = get_selected_value()
+	Global.play_click_sound()
 	match inventory_type:
 		Type.Sell:
 			for slot_data in slot_datas:
@@ -148,6 +149,7 @@ func select_slot_data(index: int, quantity: int = 0) -> void:
 		num_selected += 1
 	selected_slot_data.quantity_selected = quantity if quantity else selected_slot_data.quantity
 
+	Global.play_click_sound()
 	total_value_updated.emit(get_selected_value())
 	if not select_mode:
 		change_select_mode(true)
@@ -168,6 +170,7 @@ func deselect_slot_data(index: int) -> void:
 		num_selected -= 1
 		selected_slot_data.quantity_selected = 0
 
+	Global.play_click_sound()
 	if not num_selected:
 		change_select_mode(false)
 	else:
