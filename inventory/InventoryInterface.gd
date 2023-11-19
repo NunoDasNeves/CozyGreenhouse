@@ -1,6 +1,8 @@
 extends Control
 class_name InventoryInterface
 
+@onready var title_screen: Control = $"../TitleScreen"
+
 @onready var next_day_button: Button = $NextDayButton
 @onready var grab_slot: GrabSlot = $GrabSlot
 @onready var day_num: Label = $DayNum
@@ -39,6 +41,9 @@ func _ready() -> void:
 	compost_button.composted_grabbed_item.connect(clear_grab_slot)
 	next_day_button.button_down.connect(next_day)
 
+func on_play_pressed() -> void:
+	title_screen.hide()
+	self.show()
 	init_initial_state()
 
 func init_initial_state() -> void:
