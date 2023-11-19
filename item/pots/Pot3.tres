@@ -1,0 +1,43 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=16 format=3 uid="uid://3a7mlfj20o4p"]
+
+[ext_resource type="PackedScene" uid="uid://ijgtlbuv1100" path="res://item/pots/PotItemScene.tscn" id="1_lt4cj"]
+[ext_resource type="Script" path="res://item/ItemData.gd" id="2_utx7q"]
+[ext_resource type="Script" path="res://item/components/StackableComponent.gd" id="3_my4vj"]
+[ext_resource type="Script" path="res://item/components/PotComponent.gd" id="4_w3l3f"]
+[ext_resource type="Script" path="res://item/components/BuyComponent.gd" id="5_3a4vr"]
+[ext_resource type="Script" path="res://item/components/TextureComponent.gd" id="6_ffn4c"]
+[ext_resource type="Texture2D" uid="uid://bgetbrr88phsv" path="res://item/pots/Pot3.png" id="7_wpt6f"]
+[ext_resource type="Script" path="res://item/components/AcquireComponent.gd" id="8_6ni2s"]
+[ext_resource type="Script" path="res://item/ItemType.gd" id="9_odyb3"]
+
+[sub_resource type="Resource" id="Resource_jr75w"]
+script = ExtResource("3_my4vj")
+max_stack_size = 99
+show_1x_quantity = true
+
+[sub_resource type="Resource" id="Resource_uah1s"]
+script = ExtResource("4_w3l3f")
+
+[sub_resource type="Resource" id="Resource_2qdar"]
+script = ExtResource("5_3a4vr")
+base_value = 3.0
+
+[sub_resource type="Resource" id="Resource_w66sg"]
+script = ExtResource("6_ffn4c")
+texture = ExtResource("7_wpt6f")
+
+[sub_resource type="Resource" id="Resource_mx0r4"]
+script = ExtResource("8_6ni2s")
+
+[sub_resource type="Resource" id="Resource_lpxri"]
+script = ExtResource("9_odyb3")
+components = Array[Resource("res://item/components/ItemComponent.gd")]([SubResource("Resource_jr75w"), SubResource("Resource_uah1s"), SubResource("Resource_2qdar"), SubResource("Resource_w66sg"), SubResource("Resource_mx0r4")])
+
+[resource]
+script = ExtResource("2_utx7q")
+name = "Plasmoid Pot"
+description = "If you tap it, it goes \"ttttnnngGGGGnnnggnnggngggg\""
+scene = ExtResource("1_lt4cj")
+type_name = 2
+home_inventory = 1
+type = SubResource("Resource_lpxri")
