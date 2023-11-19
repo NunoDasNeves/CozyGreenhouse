@@ -18,7 +18,11 @@ func populate_item_grid() -> void:
 func init(inv_data: InventoryData) -> void:
 	super.init(inv_data)
 	var prod_inventory_data := inventory_data as ProductInventoryData
+	Global.disconnect_signal(action.button_down)
 	action.button_down.connect(prod_inventory_data.action_pressed)
+	Global.disconnect_signal(prod_inventory_data.action_button_updated)
+	Global.disconnect_signal(prod_inventory_data.select_mode_updated)
+	Global.disconnect_signal(prod_inventory_data.total_value_updated)
 	prod_inventory_data.action_button_updated.connect(update_action_button)
 	prod_inventory_data.select_mode_updated.connect(update_select_mode)
 	prod_inventory_data.total_value_updated.connect(update_total_value)
