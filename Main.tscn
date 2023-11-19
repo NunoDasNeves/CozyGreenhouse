@@ -32,7 +32,7 @@
 [ext_resource type="Texture2D" uid="uid://by255q7k27avd" path="res://title screen/credits.png" id="26_1b1v1"]
 [ext_resource type="Texture2D" uid="uid://djoq3rw36x01c" path="res://title screen/Button_Default.png" id="26_j0yqb"]
 [ext_resource type="Texture2D" uid="uid://cdlqpkr5jtudn" path="res://title screen/Button_Hover_State.png" id="27_gj2gs"]
-[ext_resource type="AudioStream" uid="uid://bmxlp43gn2t02" path="res://SPACE-Y_CHILL_NEW.wav" id="34_qaetc"]
+[ext_resource type="AudioStream" uid="uid://dd66uw0fhgriw" path="res://Space-y_Chill_Seamless.mp3" id="33_px3qt"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_62jhy"]
 bg_color = Color(0.184314, 0.168627, 0.203922, 1)
@@ -421,7 +421,7 @@ color = Color(0, 0, 0, 0)
 volume_db = -16.0
 
 [node name="MusicStream" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("34_qaetc")
+stream = ExtResource("33_px3qt")
 volume_db = -12.0
 autoplay = true
 
