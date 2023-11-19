@@ -3,6 +3,8 @@ class_name ShelfInventory
 
 func populate_item_grid() -> void:
 	var shelf_inventory_data := inventory_data as ShelfInventoryData
+	Global.disconnect_signal(shelf_inventory_data.attach_slot_updated)
+	Global.disconnect_signal(shelf_inventory_data.light_data_updated)
 	shelf_inventory_data.attach_slot_updated.connect(update_attach_slot)
 	shelf_inventory_data.light_data_updated.connect(update_light_data)
 	for i in inventory_data.slot_datas.size():

@@ -23,11 +23,29 @@ class_name InventoryInterface
 
 var state: State
 
-func init_inventory(inventory: Inventory, inventory_data: InventoryData):
-	inventory.init(inventory_data)
+func ready_inventory(inventory: Inventory) -> void:
 	if inventory.inventory_interact.is_connected(grab_slot.on_inventory_interact):
 		inventory.inventory_interact.disconnect(grab_slot.on_inventory_interact)
 	inventory.inventory_interact.connect(grab_slot.on_inventory_interact)
+
+func _ready() -> void:
+	ready_inventory(seed_inventory)
+	ready_inventory(pots_inventory)
+	ready_inventory(tools_inventory)
+	ready_inventory(shelf_inventory)
+	ready_inventory(sell_inventory)
+	ready_inventory(buy_inventory)
+
+	compost_button.composted_grabbed_item.connect(clear_grab_slot)
+	next_day_button.button_down.connect(next_day)
+
+	init_initial_state()
+
+func init_initial_state() -> void:
+	init_game_state(initial_state.duplicate())
+
+func init_debug_state() -> void:
+	init_game_state(debug_state.duplicate())
 
 func init_game_state(the_state: State) -> void:
 	Global.state = the_state.duplicate()
@@ -42,27 +60,16 @@ func init_game_state(the_state: State) -> void:
 	grab_slot.grab_data = state.grab_data
 	grab_slot.update()
 
-	init_inventory(seed_inventory, state.seed_inventory_data)
-	init_inventory(pots_inventory, state.pot_inventory_data)
-	init_inventory(tools_inventory, state.tool_inventory_data)
-	init_inventory(shelf_inventory, state.shelf_inventory_data)
-	init_inventory(sell_inventory, state.sell_inventory_data)
+	seed_inventory.init(state.seed_inventory_data)
+	pots_inventory.init(state.pot_inventory_data)
+	tools_inventory.init(state.tool_inventory_data)
+	shelf_inventory.init(state.shelf_inventory_data)
+	sell_inventory.init(state.sell_inventory_data)
 
-	compost_button.composted_grabbed_item.connect(clear_grab_slot)
-	next_day_button.button_down.connect(next_day)
 	update_water_tank()
 	update_money_text()
 	update_compost_bar()
 	update_shop()
-
-func _ready() -> void:
-	init_initial_state()
-
-func init_initial_state() -> void:
-	init_game_state(initial_state.duplicate())
-
-func init_debug_state() -> void:
-	init_game_state(debug_state.duplicate())
 
 func _input(event: InputEvent) -> void:
 	var mouse_event := event as InputEventMouseButton
@@ -94,7 +101,7 @@ func init_merchant(merchant_data: MerchantData) -> void:
 func update_shop() -> void:
 	var buy_inventory_data: ProductInventoryData = state.buy_inventory_data
 	if buy_inventory_data != buy_inventory.inventory_data:
-		init_inventory(buy_inventory, buy_inventory_data)
+		buy_inventory.init(state.buy_inventory_data)
 	var merchant_data: MerchantData = state.curr_merchant
 	init_merchant(merchant_data)
 

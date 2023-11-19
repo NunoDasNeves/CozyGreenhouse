@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://stabv7nin058"]
+[gd_scene load_steps=35 format=3 uid="uid://stabv7nin058"]
 
 [ext_resource type="Script" path="res://Main.gd" id="1_b7ej4"]
 [ext_resource type="PackedScene" uid="uid://0alw4cfw4g22" path="res://inventory/Inventory.tscn" id="1_occea"]
@@ -19,6 +19,16 @@
 [ext_resource type="Script" path="res://CompostBin.gd" id="14_fn1qj"]
 [ext_resource type="Texture2D" uid="uid://tvit1guael3d" path="res://merchants/Merchant0.png" id="17_sdtj8"]
 [ext_resource type="Texture2D" uid="uid://8sy3abjwklkw" path="res://merchants/Merchant_Frame.png" id="18_oi2ao"]
+[ext_resource type="Texture2D" uid="uid://di4l0q4xfqkrp" path="res://title screen/Title_Bg_.png" id="20_cndyf"]
+[ext_resource type="Texture2D" uid="uid://drvs7d11mv1b1" path="res://title screen/Title_Bg_-1.png" id="21_nqes8"]
+[ext_resource type="Texture2D" uid="uid://bf4wjj3t74x30" path="res://title screen/Title_Bg_-2.png" id="22_nq5pc"]
+[ext_resource type="Texture2D" uid="uid://b0q8g1o562y5x" path="res://title screen/Title_Bg_-3.png" id="23_pobdk"]
+[ext_resource type="Texture2D" uid="uid://cy30ygve0cnq5" path="res://title screen/Text_1.png" id="23_yhand"]
+[ext_resource type="Texture2D" uid="uid://qip8gcpn5o4p" path="res://title screen/Title_Bg_-4.png" id="24_bxh4k"]
+[ext_resource type="Texture2D" uid="uid://2p162cxg3dc8" path="res://title screen/Text_2.png" id="24_yt64l"]
+[ext_resource type="Texture2D" uid="uid://b0ai3h8rfdi2v" path="res://title screen/Title_Bg_-5.png" id="25_e5tbw"]
+[ext_resource type="Texture2D" uid="uid://djoq3rw36x01c" path="res://title screen/Button_Default.png" id="26_j0yqb"]
+[ext_resource type="Texture2D" uid="uid://cdlqpkr5jtudn" path="res://title screen/Button_Hover_State.png" id="27_gj2gs"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_10m38"]
 bg_color = Color(0.12549, 0.403922, 0.87451, 1)
@@ -34,6 +44,32 @@ corner_radius_bottom_left = 100
 bg_color = Color(0.164706, 0.113725, 0.192157, 1)
 corner_radius_top_left = 100
 corner_radius_top_right = 100
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fsga4"]
+texture = ExtResource("20_cndyf")
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_x3n6r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("21_nqes8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_nq5pc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_pobdk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_bxh4k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_e5tbw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_b7ej4")
@@ -231,5 +267,57 @@ texture = ExtResource("18_oi2ao")
 
 [node name="GrabSlot" parent="UI/InventoryInterface" instance=ExtResource("10_5kb5e")]
 visible = false
+
+[node name="TitleScreen" type="Control" parent="UI"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PanelContainer" type="PanelContainer" parent="UI/TitleScreen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 3800.0
+offset_bottom = 2120.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_fsga4")
+
+[node name="SISJ" type="Sprite2D" parent="UI/TitleScreen"]
+position = Vector2(1920, 109)
+texture = ExtResource("23_yhand")
+
+[node name="Credits" type="Sprite2D" parent="UI/TitleScreen"]
+position = Vector2(1920, 2024)
+texture = ExtResource("24_yt64l")
+
+[node name="Title" type="AnimatedSprite2D" parent="UI/TitleScreen"]
+position = Vector2(1920, 1000)
+scale = Vector2(0.7, 0.7)
+sprite_frames = SubResource("SpriteFrames_x3n6r")
+autoplay = "default"
+frame_progress = 0.335206
+
+[node name="Node2D" type="Node2D" parent="UI/TitleScreen"]
+
+[node name="TextureButton" type="TextureButton" parent="UI/TitleScreen/Node2D"]
+custom_minimum_size = Vector2(2.08165e-12, 2.08165e-12)
+offset_left = 1920.0
+offset_top = 1320.0
+offset_right = 1920.0
+offset_bottom = 1320.0
+scale = Vector2(0.7, 0.7)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+action_mode = 0
+texture_normal = ExtResource("26_j0yqb")
+texture_pressed = ExtResource("26_j0yqb")
+texture_hover = ExtResource("27_gj2gs")
+texture_focused = ExtResource("26_j0yqb")
+ignore_texture_size = true
+stretch_mode = 3
 
 [connection signal="pressed" from="UI/InventoryInterface/Compost/TextureButton" to="UI/InventoryInterface/Compost/TextureButton" method="_on_pressed"]
